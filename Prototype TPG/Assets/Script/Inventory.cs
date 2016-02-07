@@ -32,9 +32,15 @@ public class Inventory : MonoBehaviour {
     public List<GameObject> yahoo = new List<GameObject>();
     public GameObject[] yeeha;
 
+    public GameObject prefab;
+
     void Start()
     {
-        slotAmount = 16;
+        
+
+        Instantiate(prefab, new Vector3(-5.87f, -0.88f, 0), Quaternion.identity);
+
+        slotAmount = 8;
         inventoryPanel = GameObject.Find("InventoryPanel");
         slotPanel = inventoryPanel.transform.FindChild("SlotPanel").gameObject;
         currentSword = GameObject.Find("SwordPanel");
@@ -47,14 +53,17 @@ public class Inventory : MonoBehaviour {
         yeeha = GameObject.FindGameObjectsWithTag("Enemy");
 
 
+
+
         for (int i = 0; i< slotAmount;i++)
         {
             checkSlot.Add(-1); //ทุกช่องเป็น -1 ก่อนนะ พอมีก็จะเปลี่ยนช่องนั้นเป็น 0
             items.Add(new Item());
             //ตรงนี้อ่ะ Items เค้ามีใส่เว้ยยยยยยยยยยยยยยยย !!!!
-            slots.Add(Instantiate(inventorySlot));
+            slots.Add(slotPanel.gameObject.transform.GetChild(i).gameObject);
+            //slots.Add(Instantiate(inventorySlot)); >> ของเก่า !!
             slots[i].GetComponent<Slot>().id = i;
-            slots[i].transform.SetParent(slotPanel.transform); //ตั้ง Slot เป็นลูกของ SlotPanel
+            //slots[i].transform.SetParent(slotPanel.transform); //ตั้ง Slot เป็นลูกของ SlotPanel
         }
     }
 
