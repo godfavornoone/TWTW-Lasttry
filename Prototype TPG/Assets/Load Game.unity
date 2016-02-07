@@ -478,11 +478,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22460626, guid: 79637bd7d7ce63f4b8c5da595b43d5b2, type: 2}
       propertyPath: m_Pivot.x
-      value: 0.5
+      value: .5
       objectReference: {fileID: 0}
     - target: {fileID: 22460626, guid: 79637bd7d7ce63f4b8c5da595b43d5b2, type: 2}
       propertyPath: m_Pivot.y
-      value: 0.5
+      value: .5
       objectReference: {fileID: 0}
     - target: {fileID: 22460626, guid: 79637bd7d7ce63f4b8c5da595b43d5b2, type: 2}
       propertyPath: m_LocalScale.x
@@ -1040,11 +1040,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22460626, guid: 79637bd7d7ce63f4b8c5da595b43d5b2, type: 2}
       propertyPath: m_Pivot.x
-      value: 0.5
+      value: .5
       objectReference: {fileID: 0}
     - target: {fileID: 22460626, guid: 79637bd7d7ce63f4b8c5da595b43d5b2, type: 2}
       propertyPath: m_Pivot.y
-      value: 0.5
+      value: .5
       objectReference: {fileID: 0}
     - target: {fileID: 22460626, guid: 79637bd7d7ce63f4b8c5da595b43d5b2, type: 2}
       propertyPath: m_LocalScale.x
@@ -1217,11 +1217,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22460626, guid: 79637bd7d7ce63f4b8c5da595b43d5b2, type: 2}
       propertyPath: m_Pivot.x
-      value: 0.5
+      value: .5
       objectReference: {fileID: 0}
     - target: {fileID: 22460626, guid: 79637bd7d7ce63f4b8c5da595b43d5b2, type: 2}
       propertyPath: m_Pivot.y
-      value: 0.5
+      value: .5
       objectReference: {fileID: 0}
     - target: {fileID: 22460626, guid: 79637bd7d7ce63f4b8c5da595b43d5b2, type: 2}
       propertyPath: m_LocalScale.x
@@ -1984,11 +1984,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22460626, guid: 79637bd7d7ce63f4b8c5da595b43d5b2, type: 2}
       propertyPath: m_Pivot.x
-      value: 0.5
+      value: .5
       objectReference: {fileID: 0}
     - target: {fileID: 22460626, guid: 79637bd7d7ce63f4b8c5da595b43d5b2, type: 2}
       propertyPath: m_Pivot.y
-      value: 0.5
+      value: .5
       objectReference: {fileID: 0}
     - target: {fileID: 22460626, guid: 79637bd7d7ce63f4b8c5da595b43d5b2, type: 2}
       propertyPath: m_LocalScale.x
@@ -2442,11 +2442,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22460626, guid: 79637bd7d7ce63f4b8c5da595b43d5b2, type: 2}
       propertyPath: m_Pivot.x
-      value: 0.5
+      value: .5
       objectReference: {fileID: 0}
     - target: {fileID: 22460626, guid: 79637bd7d7ce63f4b8c5da595b43d5b2, type: 2}
       propertyPath: m_Pivot.y
-      value: 0.5
+      value: .5
       objectReference: {fileID: 0}
     - target: {fileID: 22460626, guid: 79637bd7d7ce63f4b8c5da595b43d5b2, type: 2}
       propertyPath: m_LocalScale.x
@@ -2817,11 +2817,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22460626, guid: 79637bd7d7ce63f4b8c5da595b43d5b2, type: 2}
       propertyPath: m_Pivot.x
-      value: 0.5
+      value: .5
       objectReference: {fileID: 0}
     - target: {fileID: 22460626, guid: 79637bd7d7ce63f4b8c5da595b43d5b2, type: 2}
       propertyPath: m_Pivot.y
-      value: 0.5
+      value: .5
       objectReference: {fileID: 0}
     - target: {fileID: 22460626, guid: 79637bd7d7ce63f4b8c5da595b43d5b2, type: 2}
       propertyPath: m_LocalScale.x
@@ -3233,11 +3233,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22460626, guid: 79637bd7d7ce63f4b8c5da595b43d5b2, type: 2}
       propertyPath: m_Pivot.x
-      value: 0.5
+      value: .5
       objectReference: {fileID: 0}
     - target: {fileID: 22460626, guid: 79637bd7d7ce63f4b8c5da595b43d5b2, type: 2}
       propertyPath: m_Pivot.y
-      value: 0.5
+      value: .5
       objectReference: {fileID: 0}
     - target: {fileID: 22460626, guid: 79637bd7d7ce63f4b8c5da595b43d5b2, type: 2}
       propertyPath: m_LocalScale.x
@@ -4208,11 +4208,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22460626, guid: 79637bd7d7ce63f4b8c5da595b43d5b2, type: 2}
       propertyPath: m_Pivot.x
-      value: 0.5
+      value: .5
       objectReference: {fileID: 0}
     - target: {fileID: 22460626, guid: 79637bd7d7ce63f4b8c5da595b43d5b2, type: 2}
       propertyPath: m_Pivot.y
-      value: 0.5
+      value: .5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 79637bd7d7ce63f4b8c5da595b43d5b2, type: 2}
