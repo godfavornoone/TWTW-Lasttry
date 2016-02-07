@@ -126,35 +126,7 @@ public class Player : MonoBehaviour {
 				anim.SetBool ("Sword_Right", false);
 				anim.SetBool ("Sword_Left", false);
 				anim.SetBool ("Sword_Up", false);
-				if (Mathf.Abs (enemy.distanceBetweenEVP.x) > Mathf.Abs (enemy.distanceBetweenEVP.y)) {
-					if (enemy.distanceBetweenEVP.x > 0) {
-						anim.SetBool ("Arrow_Right", true);
-						anim.SetBool ("Arrow_Left", false);
-						anim.SetBool ("Arrow_Up", false);
-						anim.SetBool ("Arrow_Down", false);
-						anim.SetTrigger (attackHash);
-						if (enemy.distanceBetweenEVP.y > 0) {
-							float angletmp = Mathf.Atan2 (Mathf.Abs (enemy.distanceBetweenEVP.y), Mathf.Abs (enemy.distanceBetweenEVP.x)) * Mathf.Rad2Deg;
-							aL.ShootingArrow (enemy.transform, angletmp, enemy.name);
-						} else {
-							float angletmp = - Mathf.Atan2 (Mathf.Abs (enemy.distanceBetweenEVP.y), Mathf.Abs (enemy.distanceBetweenEVP.x)) * Mathf.Rad2Deg;
-							aL.ShootingArrow (enemy.transform, angletmp, enemy.name);
-						}
-					}else if (enemy.distanceBetweenEVP.x < 0) {
-						anim.SetBool ("Arrow_Left", true);
-						anim.SetBool ("Arrow_Right", false);
-						anim.SetBool ("Arrow_Up", false);
-						anim.SetBool ("Arrow_Down", false);
-						anim.SetTrigger (attackHash);
-						if (enemy.distanceBetweenEVP.y > 0) {
-							float angletmp = 180 - Mathf.Atan2 (Mathf.Abs (enemy.distanceBetweenEVP.y), Mathf.Abs (enemy.distanceBetweenEVP.x)) * Mathf.Rad2Deg;
-							aL.ShootingArrow (enemy.transform, angletmp, enemy.name);
-						} else {
-							float angletmp = 180 + Mathf.Atan2 (Mathf.Abs (enemy.distanceBetweenEVP.y), Mathf.Abs (enemy.distanceBetweenEVP.x)) * Mathf.Rad2Deg;
-							aL.ShootingArrow (enemy.transform, angletmp, enemy.name);
-						}
-					}
-				}else if (Mathf.Abs (enemy.distanceBetweenEVP.x) <= Mathf.Abs (enemy.distanceBetweenEVP.y)) {
+				if (Mathf.Abs (enemy.distanceBetweenEVP.x) <= Mathf.Abs (enemy.distanceBetweenEVP.y)) {
 					if (enemy.distanceBetweenEVP.y > 0) {
 						anim.SetBool ("Arrow_Up", true);
 						anim.SetBool ("Arrow_Right", false);
@@ -180,6 +152,34 @@ public class Player : MonoBehaviour {
 						} else {
 							float angletmp = 180 + Mathf.Atan2 (Mathf.Abs (enemy.distanceBetweenEVP.y), Mathf.Abs (enemy.distanceBetweenEVP.x)) * Mathf.Rad2Deg;
 							aL.ShootingArrow (enemy.transform, angletmp, enemy.name);	
+						}
+					}
+				} else if (Mathf.Abs (enemy.distanceBetweenEVP.x) > Mathf.Abs (enemy.distanceBetweenEVP.y)) {
+					if (enemy.distanceBetweenEVP.x > 0) {
+						anim.SetBool ("Arrow_Right", true);
+						anim.SetBool ("Arrow_Left", false);
+						anim.SetBool ("Arrow_Up", false);
+						anim.SetBool ("Arrow_Down", false);
+						anim.SetTrigger (attackHash);
+						if (enemy.distanceBetweenEVP.y > 0) {
+							float angletmp = Mathf.Atan2 (Mathf.Abs (enemy.distanceBetweenEVP.y), Mathf.Abs (enemy.distanceBetweenEVP.x)) * Mathf.Rad2Deg;
+							aL.ShootingArrow (enemy.transform, angletmp, enemy.name);
+						} else {
+							float angletmp = - Mathf.Atan2 (Mathf.Abs (enemy.distanceBetweenEVP.y), Mathf.Abs (enemy.distanceBetweenEVP.x)) * Mathf.Rad2Deg;
+							aL.ShootingArrow (enemy.transform, angletmp, enemy.name);
+						}
+					}else if (enemy.distanceBetweenEVP.x < 0) {
+						anim.SetBool ("Arrow_Left", true);
+						anim.SetBool ("Arrow_Right", false);
+						anim.SetBool ("Arrow_Up", false);
+						anim.SetBool ("Arrow_Down", false);
+						anim.SetTrigger (attackHash);
+						if (enemy.distanceBetweenEVP.y > 0) {
+							float angletmp = 180 - Mathf.Atan2 (Mathf.Abs (enemy.distanceBetweenEVP.y), Mathf.Abs (enemy.distanceBetweenEVP.x)) * Mathf.Rad2Deg;
+							aL.ShootingArrow (enemy.transform, angletmp, enemy.name);
+						} else {
+							float angletmp = 180 + Mathf.Atan2 (Mathf.Abs (enemy.distanceBetweenEVP.y), Mathf.Abs (enemy.distanceBetweenEVP.x)) * Mathf.Rad2Deg;
+							aL.ShootingArrow (enemy.transform, angletmp, enemy.name);
 						}
 					}
 				}
