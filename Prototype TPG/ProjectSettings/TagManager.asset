@@ -4,9 +4,11 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Enemy
   - Text
   - Typing
+  - Item
+  - Arrow
+  - Enemy
   layers:
   - Default
   - TransparentFX
