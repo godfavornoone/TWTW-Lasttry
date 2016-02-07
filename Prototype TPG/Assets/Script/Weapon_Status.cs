@@ -6,6 +6,7 @@ public class Weapon_Status : MonoBehaviour {
 
 
     public int attack;
+    public int hitpoint;
     public Sprite image;
     public string type;
     public string title;
@@ -14,6 +15,9 @@ public class Weapon_Status : MonoBehaviour {
 
     public int minAttack;
     public int maxAttack;
+
+    public int minHitpoint;
+    public int maxHitpoint;
 
     public int GameDiff;
     //option chance to get in weapon
@@ -29,21 +33,30 @@ public class Weapon_Status : MonoBehaviour {
     public int criticalChance;
 
     // Use this for initialization
-    void Start () {
+    void Start() {
 
         image = GetComponent<SpriteRenderer>().sprite;
 
         getAllStatus();
 
-	}
+    }
 
     void getAllStatus()
     {
         //ตรง GameDiff มันต้องขอจาก Player น้าาาาา (ที่จริงไม่ต้องให้ Player ตายก็ได้มั้ง)
 
-        GameDiff = 2;
+        GameDiff = 10;
 
-        attack = Random.Range(minAttack * GameDiff, maxAttack * GameDiff);
+        if (type == "sword" || type=="bow")
+        {
+            attack = Random.Range(minAttack * GameDiff, maxAttack * GameDiff);
+        }
+
+        if(type=="cloth" || type=="boot")
+        {
+            hitpoint = Random.Range(minHitpoint * GameDiff, maxHitpoint * GameDiff);
+        }
+        
 
         int oneLetter = Random.Range(0, 100);
         int sameLetter = Random.Range(0, 100);
