@@ -12,10 +12,20 @@ public class Player : MonoBehaviour {
 	public float baseSpeed;
 	public float baselvlup;
 	public float baselvl;
-	
-	[HideInInspector]
+
+    //Current Sword/Bow/Boot/Cloth
+    public Item currentSword = new Item();
+    public Item currentBow = new Item();
+    public Item currentBoot = new Item();
+    public Item currentCloth = new Item();
+
+    [HideInInspector]
+    public float MaxHP;
+    [HideInInspector]
 	public float HP;
-	[HideInInspector]
+    [HideInInspector]
+    public float MaxSP;
+    [HideInInspector]
 	public float SP;
 	[HideInInspector]
 	public float range;
@@ -38,7 +48,6 @@ public class Player : MonoBehaviour {
 	[HideInInspector]
 	public bool isSword = true;
 	private int weaponState = 0;
-
 
 	void Awake(){
 		DontDestroyOnLoad(transform.gameObject);
@@ -192,10 +201,15 @@ public class Player : MonoBehaviour {
 		if (Input.GetKeyDown (KeyCode.Tab) && weaponState == 0) {
 			isSword = false;
 			weaponState = 1;
-		}else if(Input.GetKeyDown (KeyCode.Tab) && weaponState == 1){
+            Atk = baseAtk + currentBow.damage;
+            Debug.Log("Bow Damage is: " + Atk);
+        }
+        else if(Input.GetKeyDown (KeyCode.Tab) && weaponState == 1){
 			isSword = true;
 			weaponState = 0;
-		}
+            Atk = baseAtk + currentSword.damage;
+            Debug.Log("Sword Damage is: " + Atk);
+        }
 	}
 	
 	public void PlayerDeath(){
@@ -205,11 +219,13 @@ public class Player : MonoBehaviour {
 
 	//Player Status
 	void realStatus(){
-		HP = baseHP;
+		MaxHP = baseHP;
+        HP = MaxHP;
 		SP = baseSP;
+        MaxSP = baseSP;
 		Atk = baseAtk;
-		lvl = baselvl;
-		lvlup = baselvlup * lvl;
+		lvl = baselvl; //เลเวลเริ่มต้น
+		lvlup = baselvlup * lvl; //100*1
 	}
 	
 	public void EnemyAttacked(float dmg){
@@ -223,30 +239,66 @@ public class Player : MonoBehaviour {
 	public void PlayerLVLUp(float exp){
 		if (lvlup - exp > 0) {
 			lvlup = lvlup - exp;
-		} else if (lvlup - exp < 0) {
+		} else if (lvlup - exp < 0) { //อันนี้คือเวลอัพแล้วมันเกิน
 			float tmp = exp - lvlup;
 			lvl++;
 			lvlup = lvlup * lvl;
 			lvlup = lvlup - tmp;
-			StatusUp(lvl);
+			StatusUp();
 			Debug.Log("LVLUP");
-		} else {
+		} else { //เวลอัพแล้วมันพอดีจ้า
 			lvl++;
 			lvlup = lvlup * lvl;
-			StatusUp(lvl);
+			StatusUp();
 			Debug.Log("LVLUP");
 			Debug.Log(lvl);
 		}
 
 	}
 	
-	void StatusUp(float currentlvl){
-		HP = HP * ((100 + currentlvl) / 100);
-		SP = SP * ((100 + currentlvl) / 100);
-		Debug.Log("HP = " + HP + " SP = " + SP);
+	void StatusUp(){
+        float temp = MaxHP - baseHP;
+        baseHP = baseHP + 100;
+        MaxHP = temp + baseHP;
+        HP = MaxHP;
+
+        float temp2 = MaxSP - baseSP;
+        baseSP = baseSP + 50;
+        MaxSP = temp + baseSP;
+        SP = MaxSP;
+
+        baseAtk = baseAtk + 50;
+        
+		Debug.Log("HP = " + MaxHP + " SP = " + MaxSP);
 	}
 
-	void PlayerSkill(){
+    public void EquipCloth(Item cloth)
+    {
+        MaxHP = MaxHP - currentCloth.hitpoint;
+        currentCloth = cloth;
+        MaxHP = MaxHP + currentCloth.hitpoint; //คือถ้าเราใช้ BaseHP ตรงนี้นะ ไอ่ที่ตอน Level Up ได้ไรเพิ่มนี่ไม่เห็นผลเลย
+        Debug.Log("After Equip Cloth!!: " + MaxHP);
+    }
+
+    public void EquipBoot(Item boot)
+    {
+        MaxHP = MaxHP - currentBoot.hitpoint;
+        currentBoot = boot;
+        MaxHP = MaxHP + currentBoot.hitpoint;
+        Debug.Log("After Equip Boot!!: " + MaxHP);
+    }
+
+    public void EquipBow(Item bow)
+    {
+        currentBow = bow;
+    }
+
+    public void EquipSword(Item sword)
+    {
+        currentSword = sword;
+    }
+
+    void PlayerSkill(){ 
 
 	}
 }

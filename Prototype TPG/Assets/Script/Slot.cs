@@ -33,13 +33,16 @@ public class Slot : MonoBehaviour, IDropHandler {
                 inv.items[id] = droppedItem.item;
                 droppedItem.slot = id;
                 inv.checkSlot[id] = 1;
+
+                Game_Controller.playerInThisMap.EquipSword(new Item());
             }
-            else //ถ้าหากไม่ใช่ ต้องมีการสลับกันนะจ้ะ
+            else if(inv.items[id].type.Equals("sword")) //ถ้าหากไม่ใช่ ต้องมีการสลับกันนะจ้ะ
             {
                 Debug.Log("มานี่ใช่ไหมจ้าาาา");
 
                 //Transform item = inv.currentSword.transform.GetChild(0); //ไอเทมที่อยู่ใน sword แต่แรก //มันหายไปแล้วไงล่ะะะะะ เพราะมึงดึงมันขึ้นมา 55555555555555555555555
 
+                Game_Controller.playerInThisMap.EquipSword(inv.items[id]);
 
                 Transform yahoo = this.transform.GetChild(0);
                 
@@ -82,9 +85,14 @@ public class Slot : MonoBehaviour, IDropHandler {
                 inv.items[id] = droppedItem.item;
                 droppedItem.slot = id;
                 inv.checkSlot[id] = 1;
+
+                Game_Controller.playerInThisMap.EquipBow(new Item());
             }
-            else
+            else if (inv.items[id].type.Equals("bow"))
             {
+
+                Game_Controller.playerInThisMap.EquipBow(inv.items[id]);
+
                 Debug.Log("มานี่ใช่ไหมจ้าาาา");
 
                 //Transform item = inv.currentSword.transform.GetChild(0); //ไอเทมที่อยู่ใน sword แต่แรก //มันหายไปแล้วไงล่ะะะะะ เพราะมึงดึงมันขึ้นมา 55555555555555555555555
@@ -127,9 +135,13 @@ public class Slot : MonoBehaviour, IDropHandler {
                 inv.items[id] = droppedItem.item;
                 droppedItem.slot = id;
                 inv.checkSlot[id] = 1;
+
+                Game_Controller.playerInThisMap.EquipBoot(new Item());
             }
-            else
+            else if (inv.items[id].type.Equals("boot"))
             {
+
+                Game_Controller.playerInThisMap.EquipBoot(inv.items[id]);
                 Debug.Log("มานี่ใช่ไหมจ้าาาา");
 
                 //Transform item = inv.currentSword.transform.GetChild(0); //ไอเทมที่อยู่ใน sword แต่แรก //มันหายไปแล้วไงล่ะะะะะ เพราะมึงดึงมันขึ้นมา 55555555555555555555555
@@ -172,9 +184,13 @@ public class Slot : MonoBehaviour, IDropHandler {
                 inv.items[id] = droppedItem.item;
                 droppedItem.slot = id;
                 inv.checkSlot[id] = 1;
+
+                Game_Controller.playerInThisMap.EquipCloth(new Item());
             }
-            else
+            else if (inv.items[id].type.Equals("cloth"))
             {
+
+                Game_Controller.playerInThisMap.EquipCloth(inv.items[id]);
                 Debug.Log("มานี่ใช่ไหมจ้าาาา");
 
                 //Transform item = inv.currentSword.transform.GetChild(0); //ไอเทมที่อยู่ใน sword แต่แรก //มันหายไปแล้วไงล่ะะะะะ เพราะมึงดึงมันขึ้นมา 55555555555555555555555

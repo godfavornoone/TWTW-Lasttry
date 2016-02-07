@@ -31,10 +31,15 @@ public class BowPanel : MonoBehaviour,IDropHandler
                 inv.itemBow = droppedItem.item;
                 droppedItem.slot = 1000;
 
+                Game_Controller.playerInThisMap.EquipBow(inv.itemBow);
+
                 isInside = true;
             }
             else if(isInside == true) //มีของอยู่ข้างในแต่แรก (สลับตำแหน่ง)
             {
+
+                Game_Controller.playerInThisMap.EquipBow(droppedItem.item);
+
                 Transform item = inv.currentBow.transform.GetChild(0); //ไอเทมที่อยู่ใน sword แต่แรก
 
                 inv.itemBow = droppedItem.item;

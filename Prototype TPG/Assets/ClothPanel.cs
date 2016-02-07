@@ -6,9 +6,9 @@ using System;
 public class ClothPanel : MonoBehaviour, IDropHandler
 {
 
-    //ชิบหายแล้ว ต้องเอาออกได้ด้วย 555555555555555555555555555555555555555555
     private Inventory inv;
     public bool isInside = false;
+    
 
     void Start()
     {
@@ -29,10 +29,14 @@ public class ClothPanel : MonoBehaviour, IDropHandler
                 inv.itemCloth = droppedItem.item;
                 droppedItem.slot = 1003;
 
+                Game_Controller.playerInThisMap.EquipCloth(inv.itemCloth);
+
                 isInside = true;
             }
             else if (isInside == true) //มีของอยู่ข้างในแต่แรก (สลับตำแหน่ง)
             {
+
+                Game_Controller.playerInThisMap.EquipCloth(droppedItem.item);
 
                 Transform item = inv.currentCloth.transform.GetChild(0); //ไอเทมที่อยู่ใน sword แต่แรก
 

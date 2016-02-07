@@ -14,6 +14,12 @@ public class DeletePanel : MonoBehaviour, IDropHandler
     private GameObject BowPanel;
     private BowPanel BowPanelScript;
 
+    private GameObject ClothPanel;
+    private ClothPanel ClothPanelScript;
+
+    private GameObject BootPanel;
+    private BootPanel BootPanelScript;
+
     public void OnDrop(PointerEventData eventData)
     {
         ItemData droppedItem = eventData.pointerDrag.GetComponent<ItemData>();
@@ -23,6 +29,8 @@ public class DeletePanel : MonoBehaviour, IDropHandler
             SwordPanelScript.isInside = false;
             inv.itemSword = new Item(); //เคลียของเก่าจ้า !!
             Destroy(droppedItem.gameObject);
+
+            Game_Controller.playerInThisMap.EquipSword(new Item());
             
             for (int i = 0; i < inv.items.Count; i++)
             {
@@ -38,7 +46,43 @@ public class DeletePanel : MonoBehaviour, IDropHandler
             BowPanelScript.isInside = false;
             inv.itemBow = new Item(); //เคลียของเก่าจ้า !!
             Destroy(droppedItem.gameObject);
-            
+
+            Game_Controller.playerInThisMap.EquipBow(new Item());
+
+            for (int i = 0; i < inv.items.Count; i++)
+            {
+                Debug.Log("Inventory List: " + "i is: " + i + " " + inv.items[i].damage.ToString());
+
+            }
+            Debug.Log("Sword: " + inv.itemSword.damage);
+            Debug.Log("Bow: " + inv.itemBow.damage);
+        }
+
+        else if (droppedItem.gameObject.transform.parent.name.Equals("InventoryPanel") && droppedItem.item.type.Equals("boot"))
+        {
+            BootPanelScript.isInside = false;
+            inv.itemBoot = new Item(); //เคลียของเก่าจ้า !!
+            Destroy(droppedItem.gameObject);
+
+            Game_Controller.playerInThisMap.EquipBoot(new Item());
+
+            for (int i = 0; i < inv.items.Count; i++)
+            {
+                Debug.Log("Inventory List: " + "i is: " + i + " " + inv.items[i].damage.ToString());
+
+            }
+            Debug.Log("Sword: " + inv.itemSword.damage);
+            Debug.Log("Bow: " + inv.itemBow.damage);
+        }
+
+        else if (droppedItem.gameObject.transform.parent.name.Equals("InventoryPanel") && droppedItem.item.type.Equals("cloth"))
+        {
+            ClothPanelScript.isInside = false;
+            inv.itemCloth = new Item(); //เคลียของเก่าจ้า !!
+            Destroy(droppedItem.gameObject);
+
+            Game_Controller.playerInThisMap.EquipCloth(new Item());
+
             for (int i = 0; i < inv.items.Count; i++)
             {
                 Debug.Log("Inventory List: " + "i is: " + i + " " + inv.items[i].damage.ToString());
@@ -81,6 +125,10 @@ public class DeletePanel : MonoBehaviour, IDropHandler
         SwordPanelScript = SwordPanel.GetComponent<SwordPanel>();
         BowPanel = GameObject.Find("BowPanel");
         BowPanelScript = BowPanel.GetComponent<BowPanel>();
+        BootPanel = GameObject.Find("BootPanel");
+        BootPanelScript = BootPanel.GetComponent<BootPanel>();
+        ClothPanel = GameObject.Find("ClothPanel");
+        ClothPanelScript = ClothPanel.GetComponent<ClothPanel>();
 
     }
 }

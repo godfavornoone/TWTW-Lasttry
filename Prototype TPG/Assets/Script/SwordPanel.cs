@@ -29,10 +29,14 @@ public class SwordPanel : MonoBehaviour, IDropHandler
                 inv.itemSword = droppedItem.item;
                 droppedItem.slot = 1001;
 
+                Game_Controller.playerInThisMap.EquipSword(inv.itemSword);
+
                 isInside = true;
             }
             else if (isInside == true) //มีของอยู่ข้างในแต่แรก (สลับตำแหน่ง)
             {
+
+                Game_Controller.playerInThisMap.EquipSword(droppedItem.item);
 
                 Transform item = inv.currentSword.transform.GetChild(0); //ไอเทมที่อยู่ใน sword แต่แรก
 
