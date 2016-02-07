@@ -245,4 +245,8 @@ public class Player : MonoBehaviour {
 		SP = SP * ((100 + currentlvl) / 100);
 		Debug.Log("HP = " + HP + " SP = " + SP);
 	}
+
+	void PlayerSkill(){
+
+	}
 }
