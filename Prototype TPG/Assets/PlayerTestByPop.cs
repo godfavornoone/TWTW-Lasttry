@@ -25,8 +25,14 @@ public class PlayerTestByPop : MonoBehaviour {
         if (other.gameObject.tag == "Item")
         {
             Debug.Log("Item damage: " + other.gameObject.GetComponent<Weapon_Status>().attack);
-            inventoryScript.addItem(other.gameObject);
-            Destroy(other.gameObject);
+
+            if(Inventory.checkCollectedItem>0)
+            {
+                Inventory.checkCollectedItem--;
+                Item addItem = new Item(other.gameObject.GetComponent<Weapon_Status>().attack, other.gameObject.GetComponent<Weapon_Status>().image, other.gameObject.GetComponent<Weapon_Status>().type, other.gameObject.GetComponent<Weapon_Status>().title, other.gameObject.GetComponent<Weapon_Status>().option, other.gameObject.GetComponent<Weapon_Status>().optionChance, other.gameObject.GetComponent<Weapon_Status>().hitpoint);
+                Inventory.collectedItem.Add(addItem);
+                Destroy(other.gameObject);
+            }
         }
     }
 }

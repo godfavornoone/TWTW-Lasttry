@@ -35,7 +35,39 @@ public class Tooltip : MonoBehaviour {
 
     public void ConstructDataString()
     {
-        data = "<color=#d99a9a><b>" + item.damage.ToString() + "</b></color>\n\n" + item.damage.ToString(); //หาสีได้จาก Photoshop
+        data = "<color=#d99a9a><b>" + item.title + "</b></color>\n\n"; 
+        
+        if(item.type == "sword" || item.type == "bow")
+        {
+            data += "Damage: " + item.damage.ToString() + "\n";
+        }
+
+        if (item.type == "cloth" || item.type == "boot")
+        {
+            data += "Hitpoint: " + item.hitpoint.ToString() + "\n";
+        }
+
+        if (item.option[0]==1 || item.option[1]==1 || item.option[2]==1 || item.option[3]==1)
+        {
+            data += "Option:" + "\n";
+        }
+
+        if(item.option[0]!=0)
+        {
+            data += "- Has " + item.optionChance[0] + " % That Word Will Be 1 Letter"+"\n";
+        }
+        if (item.option[1] != 0)
+        {
+            data += "- Has " + item.optionChance[1] + " % That Word Will Have Same Letter" + "\n";
+        }
+        if (item.option[2] != 0)
+        {
+            data += "- Has " + item.optionChance[2] + " % That Word Won't Change" + "\n";
+        }
+        if (item.option[3] != 0)
+        {
+            data += "- Has " + item.optionChance[3] + " % That Player Will Deal Critical Attack" + "\n";
+        }
         tooltip.transform.GetChild(0).GetComponent<Text>().text = data;
     }
 }

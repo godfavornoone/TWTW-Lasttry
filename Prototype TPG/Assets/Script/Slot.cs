@@ -13,6 +13,12 @@ public class Slot : MonoBehaviour, IDropHandler {
     private GameObject BowPanel;
     private BowPanel BowPanelScript;
 
+    private GameObject BootPanel;
+    private BootPanel BootPanelScript;
+
+    private GameObject ClothPanel;
+    private ClothPanel ClothPanelScript;
+
     public void OnDrop(PointerEventData eventData)
     {
         ItemData droppedItem = eventData.pointerDrag.GetComponent<ItemData>();
@@ -110,6 +116,97 @@ public class Slot : MonoBehaviour, IDropHandler {
             Debug.Log("Sword: " + inv.itemSword.damage);
             Debug.Log("Bow: " + inv.itemBow.damage);
         }
+
+        else if (droppedItem.gameObject.transform.parent.name.Equals("InventoryPanel") && droppedItem.item.type.Equals("boot"))
+        {
+
+            if (inv.checkSlot[id] == -1)
+            {
+                BootPanelScript.isInside = false;
+                inv.itemBoot = new Item(); //เคลียของเก่าจ้า !!
+                inv.items[id] = droppedItem.item;
+                droppedItem.slot = id;
+                inv.checkSlot[id] = 1;
+            }
+            else
+            {
+                Debug.Log("มานี่ใช่ไหมจ้าาาา");
+
+                //Transform item = inv.currentSword.transform.GetChild(0); //ไอเทมที่อยู่ใน sword แต่แรก //มันหายไปแล้วไงล่ะะะะะ เพราะมึงดึงมันขึ้นมา 55555555555555555555555
+
+
+                Transform yahoo = this.transform.GetChild(0);
+
+                droppedItem.slot = id;
+                droppedItem.transform.SetParent(inv.slots[id].transform);
+                droppedItem.transform.position = inv.slots[id].transform.position;
+
+                //ต้องเอาของที่อยู่ในช่องนั้นมาอ่ะ =3=
+
+                yahoo.transform.SetParent(inv.currentBoot.transform);
+                yahoo.transform.position = inv.currentBoot.transform.position;
+                yahoo.GetComponent<ItemData>().slot = 1002;
+
+                //สลับละ ... ดู index อีกที
+                inv.itemBoot = inv.items[id];
+                inv.items[id] = droppedItem.item;
+
+            }
+
+            for (int i = 0; i < inv.items.Count; i++)
+            {
+                Debug.Log("Inventory List: " + "i is: " + i + " " + inv.items[i].damage.ToString());
+
+            }
+            Debug.Log("Sword: " + inv.itemSword.damage);
+            Debug.Log("Bow: " + inv.itemBow.damage);
+        }
+
+        else if (droppedItem.gameObject.transform.parent.name.Equals("InventoryPanel") && droppedItem.item.type.Equals("cloth"))
+        {
+
+            if (inv.checkSlot[id] == -1)
+            {
+                ClothPanelScript.isInside = false;
+                inv.itemCloth = new Item(); //เคลียของเก่าจ้า !!
+                inv.items[id] = droppedItem.item;
+                droppedItem.slot = id;
+                inv.checkSlot[id] = 1;
+            }
+            else
+            {
+                Debug.Log("มานี่ใช่ไหมจ้าาาา");
+
+                //Transform item = inv.currentSword.transform.GetChild(0); //ไอเทมที่อยู่ใน sword แต่แรก //มันหายไปแล้วไงล่ะะะะะ เพราะมึงดึงมันขึ้นมา 55555555555555555555555
+
+
+                Transform yahoo = this.transform.GetChild(0);
+
+                droppedItem.slot = id;
+                droppedItem.transform.SetParent(inv.slots[id].transform);
+                droppedItem.transform.position = inv.slots[id].transform.position;
+
+                //ต้องเอาของที่อยู่ในช่องนั้นมาอ่ะ =3=
+
+                yahoo.transform.SetParent(inv.currentCloth.transform);
+                yahoo.transform.position = inv.currentCloth.transform.position;
+                yahoo.GetComponent<ItemData>().slot = 1003;
+
+                //สลับละ ... ดู index อีกที
+                inv.itemCloth = inv.items[id];
+                inv.items[id] = droppedItem.item;
+
+            }
+
+            for (int i = 0; i < inv.items.Count; i++)
+            {
+                Debug.Log("Inventory List: " + "i is: " + i + " " + inv.items[i].damage.ToString());
+
+            }
+            Debug.Log("Sword: " + inv.itemSword.damage);
+            Debug.Log("Bow: " + inv.itemBow.damage);
+        }
+
         //ตรงนี้ก็จะมี else if Armor อีกอันนึงนะจ้ะ ^_^
 
         else if(inv.checkSlot[id] == -1)
@@ -185,6 +282,10 @@ public class Slot : MonoBehaviour, IDropHandler {
         SwordPanelScript = SwordPanel.GetComponent<SwordPanel>();
         BowPanel = GameObject.Find("BowPanel");
         BowPanelScript = BowPanel.GetComponent<BowPanel>();
+        BootPanel = GameObject.Find("BootPanel");
+        BootPanelScript = BootPanel.GetComponent<BootPanel>();
+        ClothPanel = GameObject.Find("ClothPanel");
+        ClothPanelScript = ClothPanel.GetComponent<ClothPanel>();
 
 
     }
