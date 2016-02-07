@@ -58,13 +58,20 @@ MonoBehaviour:
   attack: 300
   image: {fileID: 0}
   type: sword
-  name: 
-  option: []
-  possibleAttack: []
-  oneLetterOption: []
-  sameLetterOption: []
-  sameWordOption: []
-  criticalOption: []
+  title: Excalibur
+  option: 
+  optionChance: 
+  minAttack: 100
+  maxAttack: 200
+  GameDiff: 0
+  oneLetterOption: 20
+  sameLetterOption: 20
+  sameWordOption: 20
+  criticalOption: 20
+  oneLetterChance: 6
+  sameLetterChance: 6
+  sameWordChance: 6
+  criticalChance: 6
 --- !u!212 &21216530
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -101,7 +108,55 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: minAttack
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: maxAttack
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: name
+      value: Excalibur
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: oneLetterOption
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: sameLetterOption
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: sameWordOption
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: criticalOption
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: oneLetterChance
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: sameLetterChance
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: sameWordChance
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: criticalChance
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: title
+      value: Excalibur
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 157258}

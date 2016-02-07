@@ -41,7 +41,7 @@ public class Weapon_Status : MonoBehaviour {
     {
         //ตรง GameDiff มันต้องขอจาก Player น้าาาาา (ที่จริงไม่ต้องให้ Player ตายก็ได้มั้ง)
 
-        GameDiff = 10;
+        GameDiff = 2;
 
         attack = Random.Range(minAttack * GameDiff, maxAttack * GameDiff);
 
@@ -57,7 +57,7 @@ public class Weapon_Status : MonoBehaviour {
 
         //ตรงนี้คือเช็คว่ามี Option อะไรบ้างน่อ
         //ใส่ต่ออีกว่ามันคุณภาพเท่าไหร่
-        if(oneLetter <= oneLetterChance+(GameDiff*2))
+        if(oneLetter <= oneLetterOption+(GameDiff*2))
         {
             option.Add(1);
             optionChance.Add(oneChance);
@@ -68,7 +68,7 @@ public class Weapon_Status : MonoBehaviour {
             optionChance.Add(0);
         }
 
-        if (sameLetter <= sameLetterChance + (GameDiff * 2))
+        if (sameLetter <= sameLetterOption + (GameDiff * 2))
         {
             option.Add(1);
             optionChance.Add(LetterChance);
@@ -79,7 +79,7 @@ public class Weapon_Status : MonoBehaviour {
             optionChance.Add(0);
         }
 
-        if (sameWord <= sameWordChance + (GameDiff * 2))
+        if (sameWord <= sameWordOption + (GameDiff * 2))
         {
             option.Add(1);
             optionChance.Add(WordChance);
@@ -90,7 +90,7 @@ public class Weapon_Status : MonoBehaviour {
             optionChance.Add(0);
         }
 
-        if (critical <= criticalChance + (GameDiff * 2))
+        if (critical <= criticalOption + (GameDiff * 2))
         {
             option.Add(1);
             optionChance.Add(criChance);
