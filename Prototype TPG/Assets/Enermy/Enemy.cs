@@ -12,7 +12,6 @@ public class Enemy : MonoBehaviour {
 	public Vector3 distanceBetweenEVP;
 	
 	private bool walk = true;
-	private bool struckPlayer = false;
 	private float nextAtk = 0f;
 	
 	//Enemy_Status
@@ -80,7 +79,7 @@ public class Enemy : MonoBehaviour {
 	//Check enemy walk
 	void OnTriggerEnter2D(Collider2D other){
 		if (other.gameObject.tag == "Enemy") {
-			if(struckPlayer && !walk){
+			if(Game_Controller.enemyStruckPlayer && walk){
 				enemy_Anim.SetBool ("Walk_Left", false);
 				enemy_Anim.SetBool ("Walk_Right", false);
 				enemy_Anim.SetBool ("Walk_Down", false);
@@ -96,7 +95,7 @@ public class Enemy : MonoBehaviour {
 	
 	void OnTriggerStay2D(Collider2D other){
 		if (other.gameObject.tag == "Enemy") {
-			if(struckPlayer && !walk){
+			if(Game_Controller.enemyStruckPlayer && !walk){
 				enemy_Anim.SetBool ("Walk_Left", false);
 				enemy_Anim.SetBool ("Walk_Right", false);
 				enemy_Anim.SetBool ("Walk_Down", false);
@@ -119,7 +118,7 @@ public class Enemy : MonoBehaviour {
 			enemy_Anim.SetBool ("Walk_Down", false);
 			enemy_Anim.SetBool ("Walk_Up", false);
 			walk = false;
-			struckPlayer = true;
+			Game_Controller.enemyStruckPlayer = true;
 		}
 	}
 	
@@ -136,7 +135,7 @@ public class Enemy : MonoBehaviour {
 	void OnCollisionExit2D(Collision2D other){
 		if(other.gameObject.tag == "Player"){
 			walk = true;
-			struckPlayer = false;
+			Game_Controller.enemyStruckPlayer = false;
 		}
 	}
 	
@@ -200,7 +199,7 @@ public class Enemy : MonoBehaviour {
 	}
 	
 	
-	//Enemy Controller
+	//Enemy Text Controller
 	public void CheckWrongAll(char txt){
 		if (textTyping [1].color == Color.white){
 			if (Game_Controller.indexGlobal == indexLocal) {
@@ -231,7 +230,7 @@ public class Enemy : MonoBehaviour {
 	public void WordInstantiate(string word){
 		if (Game_Controller.indexGlobal == indexLocal) {
 			if (textTyping [1].text.Equals (textTyping [0].text)) {
-				//				Game_Controller.attackAble = true;
+				//Game_Controller.attackAble = true;
 				takedDMG = true;
 				textTyping [0].text = "";
 				textTyping [1].text = word;
@@ -266,4 +265,5 @@ public class Enemy : MonoBehaviour {
 			Game_Controller.indexGlobal = 0;
 		}
 	}
+
 }

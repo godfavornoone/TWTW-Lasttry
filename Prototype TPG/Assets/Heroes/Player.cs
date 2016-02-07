@@ -30,7 +30,7 @@ public class Player : MonoBehaviour {
 
 	//Player Controller
 	public static bool attackTrigger = false;
-//	Player_Status pStatus;
+	//Player_Status pStatus;
 	Arrow_Launch aL;
 	Rigidbody2D rbd2D;
 	Animator anim;
@@ -39,6 +39,8 @@ public class Player : MonoBehaviour {
 	public bool isSword = true;
 	private int weaponState = 0;
 
+	//Player Skill
+	List<string> listOfSkill = new List<string>();
 
 	void Awake(){
 		DontDestroyOnLoad(transform.gameObject);
@@ -246,7 +248,5 @@ public class Player : MonoBehaviour {
 		Debug.Log("HP = " + HP + " SP = " + SP);
 	}
 
-	void PlayerSkill(){
 
-	}
 }

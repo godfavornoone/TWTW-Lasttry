@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -11,10 +12,8 @@ public class Game_Controller : MonoBehaviour {
 	public static int indexGlobal = 0;
 	public static bool wrongAll = true;
 	public static int gameDifficult = 1;
-//	public static bool attackAble = false;
-	public static bool greyWord = true;
-//	public static bool isEnemyDead = false;
 	public static bool ESC = false;
+	public static bool enemyStruckPlayer = false;
 	public static List<Enemy> enemyInThisMap = new List<Enemy>();
 	public static Player playerInThisMap;
 
