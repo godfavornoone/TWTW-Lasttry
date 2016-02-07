@@ -4,7 +4,6 @@ using System.Collections;
 public class Test : MonoBehaviour {
 
     public GameObject a;
-    public Enemy_Controller yaha;
     public double timer;
     public bool check = false;
 

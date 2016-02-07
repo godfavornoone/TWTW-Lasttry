@@ -5,14 +5,14 @@ using System.Collections;
 public class ProgressBar : MonoBehaviour {
 
     public GameObject yoohoo;
-    Player_Status a;
+//    Player_Status a;
     public float currentFill;
     Image image;
 
     void Start()
     {
         image = GetComponent<Image>();
-        a = yoohoo.GetComponent<Player_Status>();
+//        a = yoohoo.GetComponent<Player_Status>();
     }
 
     public void updateplayerHP(float update)

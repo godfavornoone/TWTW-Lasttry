@@ -5,9 +5,9 @@ using System.Collections.Generic;
 public class Game_Controller : MonoBehaviour {
 
 	public GameObject target;
-	private Enemy_Controller[] enemyWalk;
+	List<Vector3> playerStartPosition = new List<Vector3>();
 
-	[HideInInspector]
+
 	public static int indexGlobal = 0;
 	public static bool wrongAll = true;
 	public static int gameDifficult = 1;
@@ -15,26 +15,21 @@ public class Game_Controller : MonoBehaviour {
 	public static bool greyWord = true;
 //	public static bool isEnemyDead = false;
 	public static bool ESC = false;
+	public static List<Enemy> enemyInThisMap = new List<Enemy>();
+	public static Player playerInThisMap;
 
 	void Awake(){
+		DontDestroyOnLoad(transform.gameObject);
 		Instantiate (target, new Vector3(-7.0f,0.3f,0f),Quaternion.identity);
 	}
 
 	void Start(){
-		enemyWalk = (Enemy_Controller[])FindObjectsOfType (typeof(Enemy_Controller));
-	}
-
-	void Update(){
-		if(Input.GetKeyUp(KeyCode.Space)){
-			foreach(Enemy_Controller enemy in enemyWalk){
-				enemy.enemy_Anim.SetBool("Walk_Right", false);
-				enemy.enemy_Anim.SetBool("Walk_Left", false);
-				enemy.enemy_Anim.SetBool("Walk_Down", false);
-				enemy.enemy_Anim.SetBool("Walk_Up", false);
-				enemy.enabled = !enemy.enabled;
-			}
+		playerInThisMap = GameObject.FindGameObjectWithTag ("Player").GetComponent<Player> ();
+		GameObject[] enemySpawn = GameObject.FindGameObjectsWithTag("Enemy");
+		foreach(GameObject enemy in enemySpawn){
+			enemyInThisMap.Add(enemy.GetComponent<Enemy>());
 		}
-//		Debug.Log (attackAble);
 	}
+	
 
 }
