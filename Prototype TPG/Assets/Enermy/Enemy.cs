@@ -43,6 +43,8 @@ public class Enemy : MonoBehaviour {
 	private float distanceAttack;
 	[HideInInspector]
 	public bool takedDMG = false;
+
+    public Game_Controller gameScript;
 	
 	void Awake(){
 		//Call Animator of Enemy
@@ -57,6 +59,7 @@ public class Enemy : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		player = GameObject.FindGameObjectWithTag ("Player").transform;
+        gameScript = GameObject.Find("Game_Controller").GetComponent<Game_Controller>();
 	}
 	
 	void FixedUpdate(){
@@ -184,7 +187,7 @@ public class Enemy : MonoBehaviour {
 		hitPoint = baseHP * gameDifficult;
 		Attack = baseAttack * gameDifficult;
 		EXP = baseEXP * gameDifficult;
-		dropRate = baseDropRate * gameDifficult * 0.8f;
+		dropRate = baseDropRate + (gameDifficult*2);
 	}
 	
 	public void HpDown(float dmg){
@@ -192,6 +195,14 @@ public class Enemy : MonoBehaviour {
 		if(hitPoint <= 0){
 			Game_Controller.playerInThisMap.PlayerLVLUp(EXP);
 			Debug.Log ("recieve = " + EXP);
+            //การ Drop ไอเทมละ
+            int dropchance = Random.Range(0, 100);
+            if(dropchance<=dropRate)
+            {
+                int item = Random.Range(0, 20);
+                Instantiate(gameScript.itemPrefab[item], this.transform.position, Quaternion.identity);
+
+            }
 			Game_Controller.enemyInThisMap.Remove(gameObject.GetComponent<Enemy>());
 			Destroy(gameObject);
 		}

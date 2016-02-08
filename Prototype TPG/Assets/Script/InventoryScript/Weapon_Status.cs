@@ -119,4 +119,13 @@ public class Weapon_Status : MonoBehaviour {
 	void Update () {
 	
 	}
+
+    void OnCollisionEnter2D(Collision2D other)
+    {
+
+        if (other.gameObject.tag == "Enemy")
+        {
+            Physics2D.IgnoreLayerCollision(0, 8, true);
+        }
+    }
 }

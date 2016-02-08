@@ -47,10 +47,13 @@ public class Inventory : MonoBehaviour {
     public GameObject prefab9;
     public GameObject prefab10;
 
+    public GameObject blackScene;
+
     void Start()
     {
+        blackScene = GameObject.Find("BlackScene");
         
-        
+        /*
         Instantiate(prefab, new Vector3(-5.87f, -0.88f, 0), Quaternion.identity);
         Instantiate(prefab2, new Vector3(-8.59f, 0.97f, 0), Quaternion.identity);
         Instantiate(prefab3, new Vector3(-7.52f, 1.86f, 0), Quaternion.identity);
@@ -61,6 +64,7 @@ public class Inventory : MonoBehaviour {
         Instantiate(prefab8, new Vector3(-6.2f, 3.43f, 0), Quaternion.identity);
         Instantiate(prefab9, new Vector3(-10.57f, 1.85f, 0), Quaternion.identity);
         Instantiate(prefab10, new Vector3(-10.86f, -2.67f, 0), Quaternion.identity);
+        */
 
         slotAmount = 8;
         inventoryPanel = GameObject.Find("InventoryPanel");
@@ -92,6 +96,7 @@ public class Inventory : MonoBehaviour {
         }
 
         inventoryPanel.SetActive(false);
+        blackScene.SetActive(false);
 
     }
 
@@ -149,10 +154,12 @@ public class Inventory : MonoBehaviour {
     public void openInventory()
     {
         inventoryPanel.SetActive(true);
-        for(int i = 0; i<collectedItem.Count;i++)
+        blackScene.SetActive(true);
+        for (int i = 0; i<collectedItem.Count;i++)
         {
             addItem(collectedItem[i]);
         }
+        Time.timeScale = 0;
     }
 
     //ล้าง มันซะ ไม่ได้เช็คจากตรงนั้น แต่เช็คตามว่า ไอ่นั่นมันว่างไหมมมมม
@@ -160,6 +167,7 @@ public class Inventory : MonoBehaviour {
     public void closeInventory()
     {
         inventoryPanel.SetActive(false);
+        blackScene.SetActive(false);
 
         collectedItem.Clear();
 
@@ -172,6 +180,8 @@ public class Inventory : MonoBehaviour {
                 checkCollectedItem++;
             }
         }
+
+        Time.timeScale = 1;
     }
 
 
