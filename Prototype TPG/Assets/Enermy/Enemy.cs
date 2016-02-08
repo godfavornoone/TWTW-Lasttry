@@ -4,16 +4,15 @@ using System.Collections.Generic;
 
 public class Enemy : MonoBehaviour {
 
-	//Enemy Controller
 	Transform player;
 	Animator enemy_Anim;
-	
+
+	public bool walk = true;
+	private float nextAtk = 0f;
+
 	[HideInInspector]
 	public Vector3 distanceBetweenEVP;
-	
-	private bool walk = true;
-	private float nextAtk = 0f;
-	
+
 	//Enemy_Status
 	public float baseHP;
 	public float baseAttack;
@@ -30,6 +29,8 @@ public class Enemy : MonoBehaviour {
 	public float EXP;
 	[HideInInspector]
 	public float dropRate;
+	[HideInInspector]
+	public float runSpeed;
 	
 	//Enemy Text Controller
 	public List<int> wordLengthDifficulty = new List<int>();
@@ -45,7 +46,7 @@ public class Enemy : MonoBehaviour {
 	public bool takedDMG = false;
 
     public Game_Controller gameScript;
-	
+
 	void Awake(){
 		//Call Animator of Enemy
 		enemy_Anim = GetComponent<Animator> ();
@@ -63,6 +64,7 @@ public class Enemy : MonoBehaviour {
 	}
 	
 	void FixedUpdate(){
+		distanceBetweenEVP = player.InverseTransformPoint (transform.position);
 		Enemy_Movement (walk);
 	}
 	
@@ -98,13 +100,19 @@ public class Enemy : MonoBehaviour {
 	
 	void OnTriggerStay2D(Collider2D other){
 		if (other.gameObject.tag == "Enemy") {
-			if(Game_Controller.enemyStruckPlayer && !walk){
+			if(Game_Controller.enemyStruckPlayer && walk){
 				enemy_Anim.SetBool ("Walk_Left", false);
 				enemy_Anim.SetBool ("Walk_Right", false);
 				enemy_Anim.SetBool ("Walk_Down", false);
 				enemy_Anim.SetBool ("Walk_Up", false);
 				walk = false;
+			}else if(!walk){
+				walk = false;
 			}
+		}
+		if(other.gameObject.tag == "Trap"){
+			HpDown(Skill_Controller.trapDmg);
+			Destroy(other.gameObject);
 		}
 	}
 	
@@ -124,7 +132,7 @@ public class Enemy : MonoBehaviour {
 			Game_Controller.enemyStruckPlayer = true;
 		}
 	}
-	
+
 	//Enemy Attack
 	void OnCollisionStay2D(Collision2D other){
 		if(other.gameObject.tag == "Player"){
@@ -142,11 +150,11 @@ public class Enemy : MonoBehaviour {
 		}
 	}
 	
-	//Enemy Controller
+//	Enemy Controller
 	void Enemy_Movement(bool walk){
 		
 		if(walk){
-			distanceBetweenEVP = player.InverseTransformPoint (transform.position);
+//			distanceBetweenEVP = player.InverseTransformPoint (transform.position);
 			
 			if(Mathf.Abs(distanceBetweenEVP.x) > Mathf.Abs(distanceBetweenEVP.y)){
 				if(distanceBetweenEVP.x > 0){
@@ -154,28 +162,28 @@ public class Enemy : MonoBehaviour {
 					enemy_Anim.SetBool ("Walk_Right", false);
 					enemy_Anim.SetBool ("Walk_Down", false);
 					enemy_Anim.SetBool ("Walk_Up", false);
-					transform.position += (player.position - transform.position).normalized * baseRunSpeed * Time.deltaTime;
+					transform.position += (player.position - transform.position).normalized * runSpeed * Time.deltaTime;
 				}else{
 					enemy_Anim.SetBool ("Walk_Right", true);
 					enemy_Anim.SetBool ("Walk_Left", false);
 					enemy_Anim.SetBool ("Walk_Down", false);
 					enemy_Anim.SetBool ("Walk_Up", false);
 					
-					transform.position += (player.position - transform.position).normalized * baseRunSpeed * Time.deltaTime;
+					transform.position += (player.position - transform.position).normalized * runSpeed * Time.deltaTime;
 				}
-			}else if(Mathf.Abs(distanceBetweenEVP.x) < Mathf.Abs(distanceBetweenEVP.y)){
+			}else if(Mathf.Abs(distanceBetweenEVP.x) <= Mathf.Abs(distanceBetweenEVP.y)){
 				if(distanceBetweenEVP.y > 0){
 					enemy_Anim.SetBool ("Walk_Down", true);
 					enemy_Anim.SetBool ("Walk_Left", false);
 					enemy_Anim.SetBool ("Walk_Right", false);
 					enemy_Anim.SetBool ("Walk_Up", false);
-					transform.position += (player.position - transform.position).normalized * baseRunSpeed * Time.deltaTime;
+					transform.position += (player.position - transform.position).normalized * runSpeed * Time.deltaTime;
 				}else{
 					enemy_Anim.SetBool ("Walk_Up", true);
 					enemy_Anim.SetBool ("Walk_Left", false);
 					enemy_Anim.SetBool ("Walk_Right", false);
 					enemy_Anim.SetBool ("Walk_Down", false);
-					transform.position += (player.position - transform.position).normalized * baseRunSpeed * Time.deltaTime;
+					transform.position += (player.position - transform.position).normalized * runSpeed * Time.deltaTime;
 				}
 			}
 		}
@@ -188,6 +196,7 @@ public class Enemy : MonoBehaviour {
 		Attack = baseAttack * gameDifficult;
 		EXP = baseEXP * gameDifficult;
 		dropRate = baseDropRate + (gameDifficult*2);
+		runSpeed = baseRunSpeed;
 	}
 	
 	public void HpDown(float dmg){
@@ -237,11 +246,11 @@ public class Enemy : MonoBehaviour {
 			indexLocal = 0;
 		}
 	}
-	
+
+	//This method for change word when enemy taked dmg
 	public void WordInstantiate(string word){
 		if (Game_Controller.indexGlobal == indexLocal) {
 			if (textTyping [1].text.Equals (textTyping [0].text)) {
-				//Game_Controller.attackAble = true;
 				takedDMG = true;
 				textTyping [0].text = "";
 				textTyping [1].text = word;

@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class Player : MonoBehaviour {
-
+	
 	//Player Status
 	public float baseHP;
 	public float baseSP;

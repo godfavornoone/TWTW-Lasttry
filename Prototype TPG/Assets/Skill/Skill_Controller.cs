@@ -7,6 +7,7 @@ public class Skill_Controller : MonoBehaviour {
 
 	public static List<Player_Skill> Allskill = new List<Player_Skill>();
 	public static bool checkWrongAllSkillInPanel = true;
+	public static float trapDmg = 50f;
 
 	// Use this for initialization
 	void Start () {
