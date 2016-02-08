@@ -17,6 +17,19 @@ public class Game_Controller : MonoBehaviour {
 	public static List<Enemy> enemyInThisMap = new List<Enemy>();
 	public static Player playerInThisMap;
 
+    //for story
+    public static GameObject conversation;
+    public static GameObject displayGameObj;
+    public static GameObject NPCnameGameObj;
+    public static GameObject talkGameObj;
+    public static Image display;
+    public static Text NPCname;
+    public static Text talk;
+    public static GameObject continueButton;
+    public static GameObject blackScene;
+    public static GameObject choice1;
+    public static GameObject choice2;
+
     public List<GameObject> itemPrefab = new List<GameObject>();
 
 	void Awake(){
@@ -25,38 +38,35 @@ public class Game_Controller : MonoBehaviour {
 	}
 
 	void Start(){
+        conversation = GameObject.Find("Conversation");
+        blackScene = GameObject.Find("BlackScene");
+        displayGameObj = GameObject.Find("Display");
+        NPCnameGameObj = GameObject.Find("Name");
+        talkGameObj = GameObject.Find("Talk");
+        continueButton = GameObject.Find("Continue");
+        choice1 = GameObject.Find("Choice1");
+        choice2 = GameObject.Find("Choice2");
+
+        display = displayGameObj.GetComponent<Image>();
+        NPCname = NPCnameGameObj.GetComponent<Text>();
+        talk = talkGameObj.GetComponent<Text>();
+
+        blackScene.SetActive(false);
+        displayGameObj.SetActive(false);
+        NPCnameGameObj.SetActive(false);
+        talkGameObj.SetActive(false);
+        continueButton.SetActive(false);
+        choice1.SetActive(false);
+        choice2.SetActive(false);
+        conversation.SetActive(false);
+
 		playerInThisMap = GameObject.FindGameObjectWithTag ("Player").GetComponent<Player> ();
 		GameObject[] enemySpawn = GameObject.FindGameObjectsWithTag("Enemy");
 		foreach(GameObject enemy in enemySpawn){
 			enemyInThisMap.Add(enemy.GetComponent<Enemy>());
 		}
 
-        //ใส่ Prefab ของ Item
-        /*
-        itemPrefab.Add(GameObject.Find("sword1"));
-        itemPrefab.Add(GameObject.Find("sword2"));
-        itemPrefab.Add(GameObject.Find("sword3"));
-        itemPrefab.Add(GameObject.Find("sword4"));
-        itemPrefab.Add(GameObject.Find("sword5"));
-
-        itemPrefab.Add(GameObject.Find("bow1"));
-        itemPrefab.Add(GameObject.Find("bow2"));
-        itemPrefab.Add(GameObject.Find("bow3"));
-        itemPrefab.Add(GameObject.Find("bow4"));
-        itemPrefab.Add(GameObject.Find("bow5"));
-
-        itemPrefab.Add(GameObject.Find("cloth1"));
-        itemPrefab.Add(GameObject.Find("cloth2"));
-        itemPrefab.Add(GameObject.Find("cloth3"));
-        itemPrefab.Add(GameObject.Find("cloth4"));
-        itemPrefab.Add(GameObject.Find("cloth5"));
-
-        itemPrefab.Add(GameObject.Find("boot1"));
-        itemPrefab.Add(GameObject.Find("boot2"));
-        itemPrefab.Add(GameObject.Find("boot3"));
-        itemPrefab.Add(GameObject.Find("boot4"));
-        itemPrefab.Add(GameObject.Find("boot5"));
-        */
+        
     }
 	
 

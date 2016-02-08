@@ -34,37 +34,10 @@ public class Inventory : MonoBehaviour {
     public Item itemBoot;
 
     public List<GameObject> yahoo = new List<GameObject>();
-    public GameObject[] yeeha;
-
-    public GameObject prefab;
-    public GameObject prefab2;
-    public GameObject prefab3;
-    public GameObject prefab4;
-    public GameObject prefab5;
-    public GameObject prefab6;
-    public GameObject prefab7;
-    public GameObject prefab8;
-    public GameObject prefab9;
-    public GameObject prefab10;
-
-    public GameObject blackScene;
 
     void Start()
     {
-        blackScene = GameObject.Find("BlackScene");
-        
-        /*
-        Instantiate(prefab, new Vector3(-5.87f, -0.88f, 0), Quaternion.identity);
-        Instantiate(prefab2, new Vector3(-8.59f, 0.97f, 0), Quaternion.identity);
-        Instantiate(prefab3, new Vector3(-7.52f, 1.86f, 0), Quaternion.identity);
-        Instantiate(prefab4, new Vector3(-5.98f, 2.22f, 0), Quaternion.identity);
-        Instantiate(prefab5, new Vector3(-5.18f, 1.18f, 0), Quaternion.identity);
-        Instantiate(prefab6, new Vector3(-4.71f, 0.29f, 0), Quaternion.identity);
-        Instantiate(prefab7, new Vector3(-4.29f, -1.2f, 0), Quaternion.identity);
-        Instantiate(prefab8, new Vector3(-6.2f, 3.43f, 0), Quaternion.identity);
-        Instantiate(prefab9, new Vector3(-10.57f, 1.85f, 0), Quaternion.identity);
-        Instantiate(prefab10, new Vector3(-10.86f, -2.67f, 0), Quaternion.identity);
-        */
+
 
         slotAmount = 8;
         inventoryPanel = GameObject.Find("InventoryPanel");
@@ -79,10 +52,6 @@ public class Inventory : MonoBehaviour {
         itemCloth = new Item();
         itemBoot = new Item();
 
-        yeeha = GameObject.FindGameObjectsWithTag("Enemy");
-
-
-
 
         for (int i = 0; i< slotAmount;i++)
         {
@@ -96,8 +65,6 @@ public class Inventory : MonoBehaviour {
         }
 
         inventoryPanel.SetActive(false);
-        blackScene.SetActive(false);
-
     }
 
     /*
@@ -154,7 +121,7 @@ public class Inventory : MonoBehaviour {
     public void openInventory()
     {
         inventoryPanel.SetActive(true);
-        blackScene.SetActive(true);
+        Game_Controller.blackScene.SetActive(true);
         for (int i = 0; i<collectedItem.Count;i++)
         {
             addItem(collectedItem[i]);
@@ -167,7 +134,7 @@ public class Inventory : MonoBehaviour {
     public void closeInventory()
     {
         inventoryPanel.SetActive(false);
-        blackScene.SetActive(false);
+        Game_Controller.blackScene.SetActive(false);
 
         collectedItem.Clear();
 
