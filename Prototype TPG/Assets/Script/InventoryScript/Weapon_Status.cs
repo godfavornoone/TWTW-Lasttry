@@ -125,7 +125,7 @@ public class Weapon_Status : MonoBehaviour {
 
         if (other.gameObject.tag == "Enemy")
         {
-            Physics2D.IgnoreLayerCollision(0, 8, true);
+            Physics2D.IgnoreLayerCollision(9, 8, true);
         }
     }
 }
