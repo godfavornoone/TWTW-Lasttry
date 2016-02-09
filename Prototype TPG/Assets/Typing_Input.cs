@@ -61,7 +61,6 @@ public class Typing_Input : MonoBehaviour {
 
 				foreach(Enemy enemy in Game_Controller.enemyInThisMap){
 					enemy.CheckLetter(textFieldChar);
-					enemy.
 				}
 
                 if (timer != 0)
