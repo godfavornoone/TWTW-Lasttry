@@ -308,7 +308,7 @@ public class Player_Skill : MonoBehaviour {
 			foreach(Enemy enemy in Game_Controller.enemyInThisMap){
 				enemy.runSpeed = enemy.baseRunSpeed * 0.6f;
 			}
-			Debug.Log(tmpSlowTime);
+			//Debug.Log(tmpSlowTime);
 			tmpSlowTime += Time.deltaTime;
 			if(tmpSlowTime >= timer){
 				foreach(Enemy enemy in Game_Controller.enemyInThisMap){

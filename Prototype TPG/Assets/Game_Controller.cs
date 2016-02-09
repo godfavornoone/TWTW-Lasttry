@@ -40,6 +40,8 @@ public class Game_Controller : MonoBehaviour {
     public List<GameObject> itemPrefab = new List<GameObject>();
 
     public static int world = 1;
+    public static int gameDiff=2;
+    public static int wordDiff = 0;
 
 	void Awake(){
 		DontDestroyOnLoad(transform.gameObject);

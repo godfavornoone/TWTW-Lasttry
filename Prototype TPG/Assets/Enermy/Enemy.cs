@@ -47,6 +47,7 @@ public class Enemy : MonoBehaviour {
 	public bool takedDMG = false;
 
     public Game_Controller gameScript;
+    public textManager textManagerScript;
 
 	void Awake(){
 		//Call Animator of Enemy
@@ -54,7 +55,8 @@ public class Enemy : MonoBehaviour {
 		//Call Script typing
 		textCheck = (Typing_Input)FindObjectOfType (typeof(Typing_Input));
 		//Calculate new Enemy Status
-		realStatus (2);
+		realStatus (Game_Controller.gameDiff);
+        calculateWord(Game_Controller.wordDiff);
 		textTyping = GetComponentsInChildren<TextMesh> ();
 	}
 	
@@ -62,7 +64,9 @@ public class Enemy : MonoBehaviour {
 	void Start () {
 		player = GameObject.FindGameObjectWithTag ("Player").transform;
         gameScript = GameObject.Find("Game_Controller").GetComponent<Game_Controller>();
-	}
+        textManagerScript = GameObject.Find("TextManager").GetComponent<textManager>();
+        textTyping[1].text = textManagerScript.sendText(wordLength,wordDifficult);
+    }
 	
 	void FixedUpdate(){
 		distanceBetweenEVP = player.InverseTransformPoint (transform.position);
@@ -71,14 +75,19 @@ public class Enemy : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		charStorage = textTyping [1].text.ToCharArray ();
+        charStorage = textTyping [1].text.ToCharArray ();
 		EnableTyping ();
 		PushESC (Game_Controller.ESC);
 	}
 	
 	
 	void LateUpdate(){
-		WordInstantiate();
+
+        //takeDMG();
+        if (textTyping[1].text.Equals(textTyping[0].text))
+        {
+            WordInstantiate(textManagerScript.sendText(wordLength, wordDifficult));
+        }
 	}
 	
 	
@@ -239,8 +248,29 @@ public class Enemy : MonoBehaviour {
 			Game_Controller.enemyStruckPlayer = false;
 			Destroy(gameObject);
 		}
+        
+        
 		Debug.Log (gameObject.name + " = " +hitPoint);
-	}
+
+        
+    }
+
+    /*
+    public void takeDMG()
+    {
+        if (Game_Controller.indexGlobal == indexLocal)
+        {
+            if (textTyping[1].text.Equals(textTyping[0].text))
+            {
+                takedDMG = true;
+            }
+        }
+        else
+        {
+            takedDMG = false;
+        }
+    }
+    */
 	
 	
 	//Enemy Text Controller
@@ -272,12 +302,13 @@ public class Enemy : MonoBehaviour {
 	}
 
 	//This method for change word when enemy taked dmg
-	public void WordInstantiate(){
+	public void WordInstantiate(string word){
 		if (Game_Controller.indexGlobal == indexLocal) {
 			if (textTyping [1].text.Equals (textTyping [0].text)) {
+                textManagerScript.returnText(textTyping[1].text, wordDifficult);
 				takedDMG = true;
 				textTyping [0].text = "";
-				textTyping [1].text = "baezy";
+				textTyping [1].text = word;
 				indexLocal = 0;
 				Game_Controller.indexGlobal = 0;
 			}
@@ -285,6 +316,8 @@ public class Enemy : MonoBehaviour {
 			takedDMG = false;
 		}
 	}
+    
+    
 	
 	void calculateWord(int playerWordDifficulty){
 		wordLength = wordLengthDifficulty [playerWordDifficulty];
