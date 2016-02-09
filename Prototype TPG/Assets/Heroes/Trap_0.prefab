@@ -10,6 +10,7 @@ GameObject:
   - 4: {fileID: 480810}
   - 212: {fileID: 21277922}
   - 58: {fileID: 5809350}
+  - 114: {fileID: 11489048}
   m_Layer: 0
   m_Name: Trap_0
   m_TagString: Trap
@@ -42,6 +43,17 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: .819999993
+--- !u!114 &11489048
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 133622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49b5ff77514520749924cf16f915fc58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &21277922
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -64,7 +76,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: .5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
+  m_SortingLayerID: 99189857
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: ce3f48041aa710f4db32cc4272209426, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -74,7 +86,15 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_SortingLayerID
+      value: 99189857
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 133622}

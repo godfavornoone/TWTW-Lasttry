@@ -8,7 +8,7 @@ public class Enemy_AI_Basic : MonoBehaviour {
 	Enemy status;
 
 	//Enemy Controller
-	Transform player;
+//	Transform player;
 	Animator enemy_Anim;
 
 //	public bool walk = true;
@@ -21,7 +21,7 @@ public class Enemy_AI_Basic : MonoBehaviour {
 	}
 
 	void Start(){
-		player = GameObject.FindGameObjectWithTag ("Player").transform;
+//		player = GameObject.FindGameObjectWithTag ("Player").transform;
 	}
 
 	void Update(){
@@ -62,7 +62,9 @@ public class Enemy_AI_Basic : MonoBehaviour {
 			//			}
 			//		}else 
 			
-			if (Game_Controller.enemyStruckPlayer && status.walk && !struckPlayer) {
+			if (Game_Controller.enemyStruckPlayer && !struckPlayer && status.walk) {
+				status.walk = true;
+			}else if(!Game_Controller.enemyStruckPlayer && !status.walk){
 				status.walk = true;
 			}
 		}
@@ -105,12 +107,13 @@ public class Enemy_AI_Basic : MonoBehaviour {
 				Game_Controller.playerInThisMap.EnemyAttacked(status.Attack);
 			}
 		}else if(other.gameObject.tag == "Enemy" && Game_Controller.enemyStruckPlayer && !struckPlayer){
-			Debug.Log("test");
 			enemy_Anim.SetBool ("Walk_Left", false);
 			enemy_Anim.SetBool ("Walk_Right", false);
 			enemy_Anim.SetBool ("Walk_Down", false);
 			enemy_Anim.SetBool ("Walk_Up", false);
 			status.walk = false;
+		}else if(other.gameObject.tag == "Enemy" && !Game_Controller.enemyStruckPlayer && !struckPlayer){
+			status.walk = true;
 		}
 	}
 	
@@ -135,14 +138,14 @@ public class Enemy_AI_Basic : MonoBehaviour {
 					enemy_Anim.SetBool ("Walk_Right", false);
 					enemy_Anim.SetBool ("Walk_Down", false);
 					enemy_Anim.SetBool ("Walk_Up", false);
-					status.transform.position += (player.position - status.transform.position).normalized * status.runSpeed * Time.deltaTime;
+					status.transform.position += (status.player.position - status.transform.position).normalized * status.runSpeed * Time.deltaTime;
 				}else{
 					enemy_Anim.SetBool ("Walk_Right", true);
 					enemy_Anim.SetBool ("Walk_Left", false);
 					enemy_Anim.SetBool ("Walk_Down", false);
 					enemy_Anim.SetBool ("Walk_Up", false);
 					
-					status.transform.position += (player.position - status.transform.position).normalized * status.runSpeed * Time.deltaTime;
+					status.transform.position += (status.player.position - status.transform.position).normalized * status.runSpeed * Time.deltaTime;
 				}
 			}else if(Mathf.Abs(status.distanceBetweenEVP.x) <= Mathf.Abs(status.distanceBetweenEVP.y)){
 				if(status.distanceBetweenEVP.y > 0){
@@ -150,13 +153,13 @@ public class Enemy_AI_Basic : MonoBehaviour {
 					enemy_Anim.SetBool ("Walk_Left", false);
 					enemy_Anim.SetBool ("Walk_Right", false);
 					enemy_Anim.SetBool ("Walk_Up", false);
-					status.transform.position += (player.position - status.transform.position).normalized * status.runSpeed * Time.deltaTime;
+					status.transform.position += (status.player.position - status.transform.position).normalized * status.runSpeed * Time.deltaTime;
 				}else{
 					enemy_Anim.SetBool ("Walk_Up", true);
 					enemy_Anim.SetBool ("Walk_Left", false);
 					enemy_Anim.SetBool ("Walk_Right", false);
 					enemy_Anim.SetBool ("Walk_Down", false);
-					status.transform.position += (player.position - status.transform.position).normalized * status.runSpeed * Time.deltaTime;
+					status.transform.position += (status.player.position - status.transform.position).normalized * status.runSpeed * Time.deltaTime;
 				}
 			}
 		}

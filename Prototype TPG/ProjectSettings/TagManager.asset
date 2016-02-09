@@ -66,6 +66,9 @@ TagManager:
   - name: Typing
     uniqueID: 662618539
     locked: 0
+  - name: Trap
+    uniqueID: 99189857
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0

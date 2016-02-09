@@ -4,11 +4,9 @@ using System.Collections.Generic;
 
 public class Enemy : MonoBehaviour {
 
-	Transform player;
+	public Transform player;
 	Animator enemy_Anim;
 
-	public string textBeforeMonsterArrow = "";
-	public string textTypeMonsterArrow = "";
 	public bool walk = true;
 	private float nextAtk = 0f;
 //	[HideInInspector]
@@ -80,7 +78,7 @@ public class Enemy : MonoBehaviour {
 	
 	
 	void LateUpdate(){
-		WordInstantiate("baezy");
+		WordInstantiate();
 	}
 	
 	
@@ -238,6 +236,7 @@ public class Enemy : MonoBehaviour {
 
             }
 			Game_Controller.enemyInThisMap.Remove(gameObject.GetComponent<Enemy>());
+			Game_Controller.enemyStruckPlayer = false;
 			Destroy(gameObject);
 		}
 		Debug.Log (gameObject.name + " = " +hitPoint);
@@ -273,14 +272,12 @@ public class Enemy : MonoBehaviour {
 	}
 
 	//This method for change word when enemy taked dmg
-	public void WordInstantiate(string word){
+	public void WordInstantiate(){
 		if (Game_Controller.indexGlobal == indexLocal) {
 			if (textTyping [1].text.Equals (textTyping [0].text)) {
 				takedDMG = true;
-				textBeforeMonsterArrow = textTyping[1].text;
-				textTypeMonsterArrow = textTyping[0].text;
 				textTyping [0].text = "";
-				textTyping [1].text = word;
+				textTyping [1].text = "baezy";
 				indexLocal = 0;
 				Game_Controller.indexGlobal = 0;
 			}
