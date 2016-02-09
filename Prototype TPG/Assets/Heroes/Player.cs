@@ -108,6 +108,7 @@ public class Player : MonoBehaviour {
 	void Player_Attack(){
 		foreach (Enemy enemy in Game_Controller.enemyInThisMap) {
 			if (enemy.takedDMG && isSword) {
+				Debug.Log(enemy.distanceBetweenEVP);
 				anim.SetBool ("Arrow_Right", false);
 				anim.SetBool ("Arrow_Left", false);
 				anim.SetBool ("Arrow_Up", false);

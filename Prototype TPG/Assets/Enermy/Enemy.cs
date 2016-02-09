@@ -7,9 +7,12 @@ public class Enemy : MonoBehaviour {
 	Transform player;
 	Animator enemy_Anim;
 
+	public string textBeforeMonsterArrow = "";
+	public string textTypeMonsterArrow = "";
 	public bool walk = true;
 	private float nextAtk = 0f;
-
+//	[HideInInspector]
+//	public bool struckPlayer = false;
 	[HideInInspector]
 	public Vector3 distanceBetweenEVP;
 
@@ -38,7 +41,7 @@ public class Enemy : MonoBehaviour {
 	private int wordLength;
 	private int wordDifficult;
 	private Typing_Input textCheck;
-	private TextMesh[] textTyping;
+	public TextMesh[] textTyping;
 	private char[] charStorage;
 	private int indexLocal = 0;
 	private float distanceAttack;
@@ -65,7 +68,7 @@ public class Enemy : MonoBehaviour {
 	
 	void FixedUpdate(){
 		distanceBetweenEVP = player.InverseTransformPoint (transform.position);
-		Enemy_Movement (walk);
+//		Enemy_Movement (walk);
 	}
 	
 	// Update is called once per frame
@@ -82,112 +85,134 @@ public class Enemy : MonoBehaviour {
 	
 	
 	//Check enemy walk
-	void OnTriggerEnter2D(Collider2D other){
-		if (other.gameObject.tag == "Enemy") {
-			if(Game_Controller.enemyStruckPlayer && walk){
-				enemy_Anim.SetBool ("Walk_Left", false);
-				enemy_Anim.SetBool ("Walk_Right", false);
-				enemy_Anim.SetBool ("Walk_Down", false);
-				enemy_Anim.SetBool ("Walk_Up", false);
-				walk = false;
-			}
-		}
-		
-		if(other.gameObject.tag == "Arrow"){
-			HpDown(Game_Controller.playerInThisMap.Atk);
-		}
-	}
+//	void OnTriggerEnter2D(Collider2D other){
+////		if (other.gameObject.tag == "Enemy") {
+////			if(Game_Controller.enemyStruckPlayer && walk){
+////				enemy_Anim.SetBool ("Walk_Left", false);
+////				enemy_Anim.SetBool ("Walk_Right", false);
+////				enemy_Anim.SetBool ("Walk_Down", false);
+////				enemy_Anim.SetBool ("Walk_Up", false);
+////				walk = false;
+////			}else if(Game_Controller.enemyStruckPlayer){
+////
+////			}
+////		}
+////		
+////		if(other.gameObject.tag == "Arrow"){
+////			HpDown(Game_Controller.playerInThisMap.Atk);
+////		}
+//	}
 	
-	void OnTriggerStay2D(Collider2D other){
-		if (other.gameObject.tag == "Enemy") {
-			if(Game_Controller.enemyStruckPlayer && walk){
-				enemy_Anim.SetBool ("Walk_Left", false);
-				enemy_Anim.SetBool ("Walk_Right", false);
-				enemy_Anim.SetBool ("Walk_Down", false);
-				enemy_Anim.SetBool ("Walk_Up", false);
-				walk = false;
-			}else if(!walk){
-				walk = false;
-			}
-		}
-		if(other.gameObject.tag == "Trap"){
-			HpDown(Skill_Controller.trapDmg);
-			Destroy(other.gameObject);
-		}
-	}
-	
-	void OnTriggerExit2D(Collider2D other){
-		if(other.gameObject.tag == "Enemy"){
-			walk = true;
-		}
-	}
-	
-	void OnCollisionEnter2D(Collision2D other){
-		if(other.gameObject.tag == "Player"){
-			enemy_Anim.SetBool ("Walk_Left", false);
-			enemy_Anim.SetBool ("Walk_Right", false);
-			enemy_Anim.SetBool ("Walk_Down", false);
-			enemy_Anim.SetBool ("Walk_Up", false);
-			walk = false;
-			Game_Controller.enemyStruckPlayer = true;
-		}
-	}
-
-	//Enemy Attack
-	void OnCollisionStay2D(Collision2D other){
-		if(other.gameObject.tag == "Player"){
-			if(Time.time > nextAtk){
-				nextAtk = Time.time + baseAspd;
-				Game_Controller.playerInThisMap.EnemyAttacked(Attack);
-			}
-		}
-	}
-	
-	void OnCollisionExit2D(Collision2D other){
-		if(other.gameObject.tag == "Player"){
-			walk = true;
-			Game_Controller.enemyStruckPlayer = false;
-		}
-	}
+//	void OnTriggerStay2D(Collider2D other){
+//		if (other.gameObject.tag == "Enemy") {
+////			if(Game_Controller.enemyStruckPlayer && walk && struckPlayer){
+////				enemy_Anim.SetBool ("Walk_Left", false);
+////				enemy_Anim.SetBool ("Walk_Right", false);
+////				enemy_Anim.SetBool ("Walk_Down", false);
+////				enemy_Anim.SetBool ("Walk_Up", false);
+////				walk = false;
+////			}
+////		}else 
+//
+//			if (Game_Controller.enemyStruckPlayer && walk && !struckPlayer) {
+//				walk = true;
+//			}
+//		}
+//		if(other.gameObject.tag == "Trap"){
+//			HpDown(Skill_Controller.trapDmg);
+//			Destroy(other.gameObject);
+//		}
+//	}
+//	
+//	void OnTriggerExit2D(Collider2D other){
+//		if(other.gameObject.tag == "Enemy"){
+//			walk = true;
+//		}
+//	}
+//	
+//	void OnCollisionEnter2D(Collision2D other){
+//		if(other.gameObject.tag == "Player"){
+//			enemy_Anim.SetBool ("Walk_Left", false);
+//			enemy_Anim.SetBool ("Walk_Right", false);
+//			enemy_Anim.SetBool ("Walk_Down", false);
+//			enemy_Anim.SetBool ("Walk_Up", false);
+//			walk = false;
+//			Game_Controller.enemyStruckPlayer = true;
+//			struckPlayer = true;
+//		}
+//	}
+//
+//	//Enemy Attack
+//	void OnCollisionStay2D(Collision2D other){
+//		if(other.gameObject.tag == "Player"){
+//			enemy_Anim.SetBool ("Walk_Left", false);
+//			enemy_Anim.SetBool ("Walk_Right", false);
+//			enemy_Anim.SetBool ("Walk_Down", false);
+//			enemy_Anim.SetBool ("Walk_Up", false);
+//			walk = false;
+//			Game_Controller.enemyStruckPlayer = true;
+//			struckPlayer = true;
+//			if(Time.time > nextAtk){
+//				nextAtk = Time.time + baseAspd;
+//				Game_Controller.playerInThisMap.EnemyAttacked(Attack);
+//			}
+//		}else if(other.gameObject.tag == "Enemy" && Game_Controller.enemyStruckPlayer && !struckPlayer){
+//			Debug.Log("test");
+//			enemy_Anim.SetBool ("Walk_Left", false);
+//			enemy_Anim.SetBool ("Walk_Right", false);
+//			enemy_Anim.SetBool ("Walk_Down", false);
+//			enemy_Anim.SetBool ("Walk_Up", false);
+//			walk = false;
+//		}
+//	}
+//	
+//	void OnCollisionExit2D(Collision2D other){
+//		if(other.gameObject.tag == "Player"){
+//			walk = true;
+//			Game_Controller.enemyStruckPlayer = false;
+//			struckPlayer = false;
+//		}else if(other.gameObject.tag == "Enemy"){
+//			walk = true;
+//		}
+//	}
 	
 //	Enemy Controller
-	void Enemy_Movement(bool walk){
-		
-		if(walk){
-//			distanceBetweenEVP = player.InverseTransformPoint (transform.position);
-			
-			if(Mathf.Abs(distanceBetweenEVP.x) > Mathf.Abs(distanceBetweenEVP.y)){
-				if(distanceBetweenEVP.x > 0){
-					enemy_Anim.SetBool ("Walk_Left", true);
-					enemy_Anim.SetBool ("Walk_Right", false);
-					enemy_Anim.SetBool ("Walk_Down", false);
-					enemy_Anim.SetBool ("Walk_Up", false);
-					transform.position += (player.position - transform.position).normalized * runSpeed * Time.deltaTime;
-				}else{
-					enemy_Anim.SetBool ("Walk_Right", true);
-					enemy_Anim.SetBool ("Walk_Left", false);
-					enemy_Anim.SetBool ("Walk_Down", false);
-					enemy_Anim.SetBool ("Walk_Up", false);
-					
-					transform.position += (player.position - transform.position).normalized * runSpeed * Time.deltaTime;
-				}
-			}else if(Mathf.Abs(distanceBetweenEVP.x) <= Mathf.Abs(distanceBetweenEVP.y)){
-				if(distanceBetweenEVP.y > 0){
-					enemy_Anim.SetBool ("Walk_Down", true);
-					enemy_Anim.SetBool ("Walk_Left", false);
-					enemy_Anim.SetBool ("Walk_Right", false);
-					enemy_Anim.SetBool ("Walk_Up", false);
-					transform.position += (player.position - transform.position).normalized * runSpeed * Time.deltaTime;
-				}else{
-					enemy_Anim.SetBool ("Walk_Up", true);
-					enemy_Anim.SetBool ("Walk_Left", false);
-					enemy_Anim.SetBool ("Walk_Right", false);
-					enemy_Anim.SetBool ("Walk_Down", false);
-					transform.position += (player.position - transform.position).normalized * runSpeed * Time.deltaTime;
-				}
-			}
-		}
-	}
+//	void Enemy_Movement(bool walk){
+//		
+//		if(walk){
+////			distanceBetweenEVP = player.InverseTransformPoint (transform.position);
+//			
+//			if(Mathf.Abs(distanceBetweenEVP.x) > Mathf.Abs(distanceBetweenEVP.y)){
+//				if(distanceBetweenEVP.x > 0){
+//					enemy_Anim.SetBool ("Walk_Left", true);
+//					enemy_Anim.SetBool ("Walk_Right", false);
+//					enemy_Anim.SetBool ("Walk_Down", false);
+//					enemy_Anim.SetBool ("Walk_Up", false);
+//					transform.position += (player.position - transform.position).normalized * runSpeed * Time.deltaTime;
+//				}else{
+//					enemy_Anim.SetBool ("Walk_Right", true);
+//					enemy_Anim.SetBool ("Walk_Left", false);
+//					enemy_Anim.SetBool ("Walk_Down", false);
+//					enemy_Anim.SetBool ("Walk_Up", false);
+//					transform.position += (player.position - transform.position).normalized * runSpeed * Time.deltaTime;
+//				}
+//			}else if(Mathf.Abs(distanceBetweenEVP.x) <= Mathf.Abs(distanceBetweenEVP.y)){
+//				if(distanceBetweenEVP.y > 0){
+//					enemy_Anim.SetBool ("Walk_Down", true);
+//					enemy_Anim.SetBool ("Walk_Left", false);
+//					enemy_Anim.SetBool ("Walk_Right", false);
+//					enemy_Anim.SetBool ("Walk_Up", false);
+//					transform.position += (player.position - transform.position).normalized * runSpeed * Time.deltaTime;
+//				}else{
+//					enemy_Anim.SetBool ("Walk_Up", true);
+//					enemy_Anim.SetBool ("Walk_Left", false);
+//					enemy_Anim.SetBool ("Walk_Right", false);
+//					enemy_Anim.SetBool ("Walk_Down", false);
+//					transform.position += (player.position - transform.position).normalized * runSpeed * Time.deltaTime;
+//				}
+//			}
+//		}
+//	}
 	
 	
 	//Enemy Status
@@ -252,6 +277,8 @@ public class Enemy : MonoBehaviour {
 		if (Game_Controller.indexGlobal == indexLocal) {
 			if (textTyping [1].text.Equals (textTyping [0].text)) {
 				takedDMG = true;
+				textBeforeMonsterArrow = textTyping[1].text;
+				textTypeMonsterArrow = textTyping[0].text;
 				textTyping [0].text = "";
 				textTyping [1].text = word;
 				indexLocal = 0;
