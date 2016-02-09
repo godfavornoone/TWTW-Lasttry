@@ -11,7 +11,7 @@ GameObject:
   - 212: {fileID: 21245910}
   - 114: {fileID: 11417306}
   - 61: {fileID: 6186340}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: bow4
   m_TagString: Item
   m_Icon: {fileID: 0}
@@ -111,7 +111,11 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 133044}

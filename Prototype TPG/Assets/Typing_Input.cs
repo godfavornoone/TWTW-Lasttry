@@ -12,15 +12,14 @@ public class Typing_Input : MonoBehaviour {
 
 		if(Input.GetKeyDown(KeyCode.Escape)){
 			Game_Controller.ESC = true;
-		}else if (!Input.GetKeyDown(KeyCode.LeftShift) && !Input.GetKeyDown(KeyCode.Tab) && Input.anyKeyDown) {
+		}else if (!Input.GetKeyDown(KeyCode.LeftShift) && !Input.GetKeyDown(KeyCode.Tab) && !Input.GetKeyDown(KeyCode.Mouse0) && Input.anyKeyDown) {
 			Game_Controller.ESC = false;
 			textFieldString = Input.inputString;
 			textFieldChar = textFieldString [0];
-			Debug.Log(textFieldChar);
+//			Debug.Log(textFieldChar);
 
 			foreach(Player_Skill skill in Skill_Controller.Allskill){
 				skill.CheckWrongAllSkill(textFieldChar);
-				Debug.Log(Skill_Controller.checkWrongAllSkillInPanel);
 			}
 
 			foreach(Enemy enemy in Game_Controller.enemyInThisMap){

@@ -10,6 +10,13 @@ TagManager:
   - Arrow
   - Enemy
   - Skill
+  - Trap
+  - FireSkill
+  - IceSkill
+  - KnockSkill
+  - SlowSkill
+  - HealSkill
+  - TrapSkill
   layers:
   - Default
   - TransparentFX
@@ -19,8 +26,8 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
+  - Item
+  - Enemy
   - 
   - 
   - 

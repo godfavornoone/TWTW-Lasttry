@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class Player : MonoBehaviour {
-
+	
 	//Player Status
 	public float baseHP;
 	public float baseSP;
@@ -49,6 +49,11 @@ public class Player : MonoBehaviour {
 	public bool isSword = true;
 	private int weaponState = 0;
 
+    public GameObject WeaponPanel;
+    public HPBarScript HPScript;
+    public SPBarScript SPScript;
+    public EXPBarScript EXPScript;
+
 	void Awake(){
 		DontDestroyOnLoad(transform.gameObject);
 		rbd2D = GetComponent<Rigidbody2D> ();
@@ -59,6 +64,10 @@ public class Player : MonoBehaviour {
 	void Start () {
 		realStatus ();
 		aL = (Arrow_Launch)FindObjectOfType (typeof(Arrow_Launch));
+        WeaponPanel = GameObject.Find("WeaponPanel");
+        HPScript = GameObject.Find("HPBar").GetComponent<HPBarScript>();
+        SPScript = GameObject.Find("SPBar").GetComponent<SPBarScript>();
+        EXPScript = GameObject.Find("EXPBar").GetComponent<EXPBarScript>();
 	}
 
 	void FixedUpdate(){
@@ -69,6 +78,10 @@ public class Player : MonoBehaviour {
 	void Update () {
 		Player_Attack ();
 		SwapWeapon ();
+        HPScript.updateplayerHP(HP/MaxHP);
+        SPScript.updateplayerSP(SP / MaxSP);
+        EXPScript.updateplayerEXP(((lvl*baselvlup)-lvlup) / (lvl * baselvlup));
+        
 	}
 
 	void LateUpdate(){
@@ -95,6 +108,7 @@ public class Player : MonoBehaviour {
 	void Player_Attack(){
 		foreach (Enemy enemy in Game_Controller.enemyInThisMap) {
 			if (enemy.takedDMG && isSword) {
+				Debug.Log(enemy.distanceBetweenEVP);
 				anim.SetBool ("Arrow_Right", false);
 				anim.SetBool ("Arrow_Left", false);
 				anim.SetBool ("Arrow_Up", false);
@@ -202,12 +216,16 @@ public class Player : MonoBehaviour {
 			isSword = false;
 			weaponState = 1;
             Atk = baseAtk + currentBow.damage;
+            WeaponPanel.transform.GetChild(0).gameObject.SetActive(false);
+            WeaponPanel.transform.GetChild(1).gameObject.SetActive(true);
             Debug.Log("Bow Damage is: " + Atk);
         }
         else if(Input.GetKeyDown (KeyCode.Tab) && weaponState == 1){
 			isSword = true;
 			weaponState = 0;
             Atk = baseAtk + currentSword.damage;
+            WeaponPanel.transform.GetChild(0).gameObject.SetActive(true);
+            WeaponPanel.transform.GetChild(1).gameObject.SetActive(false);
             Debug.Log("Sword Damage is: " + Atk);
         }
 	}
@@ -238,18 +256,23 @@ public class Player : MonoBehaviour {
 	
 	public void PlayerLVLUp(float exp){
 		if (lvlup - exp > 0) {
+            Debug.Log("เคสนี้");
 			lvlup = lvlup - exp;
+            Debug.Log(lvlup);
 		} else if (lvlup - exp < 0) { //อันนี้คือเวลอัพแล้วมันเกิน
 			float tmp = exp - lvlup;
 			lvl++;
-			lvlup = lvlup * lvl;
+			lvlup = baselvlup * lvl;
 			lvlup = lvlup - tmp;
 			StatusUp();
 			Debug.Log("LVLUP");
 		} else { //เวลอัพแล้วมันพอดีจ้า
+            Debug.Log("Level ก่อนเพิ่ม: " + lvl);
 			lvl++;
-			lvlup = lvlup * lvl;
-			StatusUp();
+            Debug.Log("Level หลังเพิ่ม: " + lvl);
+            lvlup = baselvlup * lvl;
+            Debug.Log("lvl up ที่น่าจะ 200: " + lvlup);
+            StatusUp();
 			Debug.Log("LVLUP");
 			Debug.Log(lvl);
 		}

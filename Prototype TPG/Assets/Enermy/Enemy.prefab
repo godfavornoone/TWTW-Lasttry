@@ -11,7 +11,7 @@ GameObject:
   - 23: {fileID: 2307732}
   - 102: {fileID: 10228376}
   - 114: {fileID: 11478278}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Typing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29,7 +29,7 @@ GameObject:
   - 23: {fileID: 2311694}
   - 102: {fileID: 10277990}
   - 114: {fileID: 11414896}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Word
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -50,7 +50,8 @@ GameObject:
   - 61: {fileID: 6108960}
   - 58: {fileID: 5862078}
   - 114: {fileID: 11472418}
-  m_Layer: 0
+  - 114: {fileID: 11493742}
+  m_Layer: 9
   m_Name: Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
@@ -266,6 +267,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8305e6d6f94b654488db9ef98ec1fdec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  walk: 1
   distanceBetweenEVP: {x: 0, y: 0, z: 0}
   baseHP: 100
   baseAttack: 20
@@ -277,9 +279,11 @@ MonoBehaviour:
   Attack: 0
   EXP: 0
   dropRate: 0
+  runSpeed: 0
   wordLengthDifficulty: 
   wordLevelDifficulty: 
   takedDMG: 0
+  gameScript: {fileID: 0}
 --- !u!114 &11478278
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -291,6 +295,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f47ea54a57242444ab9f10382db8e6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &11493742
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 178068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7f0dc53a7ac16b4e8de2b223ffeebd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  struckPlayer: 0
 --- !u!212 &21243112
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -334,7 +350,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_Layer
-      value: 0
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_TagString
