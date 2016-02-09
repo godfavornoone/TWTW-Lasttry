@@ -7,6 +7,8 @@ public class Enemy : MonoBehaviour {
 	public Transform player;
 	Animator enemy_Anim;
 
+	public Text_Outline setStroke;
+
 	public bool walk = true;
 	private float nextAtk = 0f;
 //	[HideInInspector]
@@ -50,6 +52,7 @@ public class Enemy : MonoBehaviour {
     public textManager textManagerScript;
 
 	void Awake(){
+//		setStroke = GetComponent<Text_Outline> ();
 		//Call Animator of Enemy
 		enemy_Anim = GetComponent<Animator> ();
 		//Call Script typing

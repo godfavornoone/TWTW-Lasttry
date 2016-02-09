@@ -29,6 +29,7 @@ GameObject:
   - 23: {fileID: 2311694}
   - 102: {fileID: 10277990}
   - 114: {fileID: 11414896}
+  - 114: {fileID: 11427768}
   m_Layer: 9
   m_Name: Word
   m_TagString: Untagged
@@ -256,6 +257,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6b55cc13299ca54e92cf731b464b9bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &11427768
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 169350}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b633a9bba46205a40b1029819a280a9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pixelSize: 1
+  outlineColor: {r: 0, g: 0, b: 0, a: 1}
+  resolutionDependant: 0
+  doubleResolution: 1024
 --- !u!114 &11472418
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -267,6 +283,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8305e6d6f94b654488db9ef98ec1fdec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
   walk: 1
   distanceBetweenEVP: {x: 0, y: 0, z: 0}
   baseHP: 100
@@ -282,8 +299,10 @@ MonoBehaviour:
   runSpeed: 0
   wordLengthDifficulty: 
   wordLevelDifficulty: 
+  textTyping: []
   takedDMG: 0
   gameScript: {fileID: 0}
+  textManagerScript: {fileID: 0}
 --- !u!114 &11478278
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -467,6 +486,30 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: baseAspd
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_EffectDistance.x
+      value: 22.4599991
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_EffectDistance.y
+      value: -8.38000011
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_UseGraphicAlpha
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_EffectColor.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_EffectColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_EffectColor.b
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

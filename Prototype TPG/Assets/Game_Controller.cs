@@ -7,8 +7,9 @@ public class Game_Controller : MonoBehaviour {
 
 	public GameObject target;
 	List<Vector3> playerStartPosition = new List<Vector3>();
+	
 
-
+//	public Text_Outline setStroke;
 	public static int indexGlobal = 0;
 	public static bool wrongAll = true;
 	public static int gameDifficult = 1;
@@ -79,6 +80,8 @@ public class Game_Controller : MonoBehaviour {
 		foreach(GameObject enemy in enemySpawn){
 			enemyInThisMap.Add(enemy.GetComponent<Enemy>());
 		}
+
+
 
         
     }
