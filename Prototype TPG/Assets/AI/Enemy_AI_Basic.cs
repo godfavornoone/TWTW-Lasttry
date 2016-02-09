@@ -105,7 +105,7 @@ public class Enemy_AI_Basic : MonoBehaviour {
 				Game_Controller.playerInThisMap.EnemyAttacked(status.Attack);
 			}
 		}else if(other.gameObject.tag == "Enemy" && Game_Controller.enemyStruckPlayer && !struckPlayer){
-			Debug.Log("test");
+			//Debug.Log("test");
 			enemy_Anim.SetBool ("Walk_Left", false);
 			enemy_Anim.SetBool ("Walk_Right", false);
 			enemy_Anim.SetBool ("Walk_Down", false);

@@ -70,8 +70,10 @@ public class textManager : MonoBehaviour {
     public string chartoptop3;
     //end of stupid
 
-    public void sendTimeData(string letter, double time)
+    public void sendTimeData(char yaha, double time)
     {
+        string letter = ""+yaha;
+
         if(letter.Equals("a"))
         {
             aData.Add(time);
@@ -134,6 +136,7 @@ public class textManager : MonoBehaviour {
         }
         else if (letter.Equals("p"))
         {
+            Debug.Log("p na ja");
             pData.Add(time);
         }
         else if (letter.Equals("q"))
@@ -274,10 +277,12 @@ public class textManager : MonoBehaviour {
 
             if(count == 5)
             {
+                Debug.Log("Return is Done");
                 checkVocabEasy[i] = false;
             }
             else
             {
+                
                 Debug.Log("ERRORRRRR2");
             }
         }
@@ -297,6 +302,7 @@ public class textManager : MonoBehaviour {
 
             if(count2==5)
             {
+                Debug.Log("Return is Done");
                 checkVocabHard[j] = false;
             }
             else
@@ -323,9 +329,18 @@ public class textManager : MonoBehaviour {
 
     }
 
+    void Awake()
+    {
+        chartop1 = "a";
+        chartop2 = "b";
+        chartop3 = "c";
+        Analysis();
+    }
     //เวลาจริงไม่ได้ใช้ Start นะเออ
     void Start () {
-
+        
+        
+        /*
         aData.Add(15);
         aData.Add(9);
         aData.Add(8);
@@ -364,8 +379,9 @@ public class textManager : MonoBehaviour {
         fData.Add(5.6);
         fData.Add(5.8);
         fData.Add(5.10);
+        /*
 
-        //Analysis();
+        
 
         //checkLength(vocab);       //ไว้ดูว่ามีคำศัพท์ยาวเท่าไหร่บ้าง
         //checkLength(vocabHard);
@@ -394,6 +410,7 @@ public class textManager : MonoBehaviour {
     void Analysis()
     {
         //ตรงนี้เราขอแค่ว่าในข้อมูลที่เก็บมานะ ตัวอักษร อ่ะ ขอมีแค่ 3 ตัวอักษรที่มีข้อมูลมากกว่า 3 เราจะเริ่มทำทันที เพราะมันจะได้ 3 ตัวอักษรที่อ่อนแอ 555
+        /*
         computeCheck(aData);
         computeCheck(bData);
         computeCheck(cData);
@@ -420,7 +437,7 @@ public class textManager : MonoBehaviour {
         computeCheck(xData);
         computeCheck(yData);
         computeCheck(zData);
-
+        */
 
         //ตรงนี้มันจะ Jenk ไม่พอมันจะเทียบให้เลยด้วยว่ามีตัวอักษรอะไรบ้างที่มีปัญหา
         //if(check>=3)
@@ -433,7 +450,7 @@ public class textManager : MonoBehaviour {
         compareTop3(jenkNatBreak(eData), "e");
         */
 
-        compareTop3(jenkNatBreak(fData), "f");
+        //compareTop3(jenkNatBreak(fData), "f");
 
         /*
         compareTop3(jenkNatBreak(gData), "g");
