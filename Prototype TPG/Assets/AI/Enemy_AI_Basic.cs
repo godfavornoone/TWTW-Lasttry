@@ -3,8 +3,8 @@ using System.Collections;
 
 public class Enemy_AI_Basic : MonoBehaviour {
 	
-	[HideInInspector]
-	public bool struckPlayer = false;
+//	[HideInInspector]
+//	public bool struckPlayer = false;
 	Enemy status;
 
 	//Enemy Controller
@@ -28,104 +28,83 @@ public class Enemy_AI_Basic : MonoBehaviour {
 		Enemy_Movement (status.walk);
 	}
 
-	void OnTriggerEnter2D(Collider2D other){
-		//		if (other.gameObject.tag == "Enemy") {
-		//			if(Game_Controller.enemyStruckPlayer && walk){
-		//				enemy_Anim.SetBool ("Walk_Left", false);
-		//				enemy_Anim.SetBool ("Walk_Right", false);
-		//				enemy_Anim.SetBool ("Walk_Down", false);
-		//				enemy_Anim.SetBool ("Walk_Up", false);
-		//				walk = false;
-		//			}else if(Game_Controller.enemyStruckPlayer){
-		//
-		//			}
-		//		}
-		
-//		if(other.gameObject.tag == "Arrow"){
-//			if(status.textTypeMonsterArrow == status.textBeforeMonsterArrow){
-//				Debug.Log(status.textTypeMonsterArrow);
-//				Debug.Log(status.textBeforeMonsterArrow);
-//				status.HpDown(Game_Controller.playerInThisMap.Atk);
+//	void OnTriggerStay2D(Collider2D other){
+//		if (other.gameObject.tag == "Enemy") {
+//			//			if(Game_Controller.enemyStruckPlayer && walk && struckPlayer){
+//			//				enemy_Anim.SetBool ("Walk_Left", false);
+//			//				enemy_Anim.SetBool ("Walk_Right", false);
+//			//				enemy_Anim.SetBool ("Walk_Down", false);
+//			//				enemy_Anim.SetBool ("Walk_Up", false);
+//			//				walk = false;
+//			//			}
+//			//		}else 
+//			
+//			if (Game_Controller.enemyStruckPlayer && !struckPlayer && status.walk) {
+//				status.walk = true;
+//			}else if(!Game_Controller.enemyStruckPlayer && !status.walk){
+//				status.walk = true;
 //			}
-//
 //		}
-	}
-	
-	void OnTriggerStay2D(Collider2D other){
-		if (other.gameObject.tag == "Enemy") {
-			//			if(Game_Controller.enemyStruckPlayer && walk && struckPlayer){
-			//				enemy_Anim.SetBool ("Walk_Left", false);
-			//				enemy_Anim.SetBool ("Walk_Right", false);
-			//				enemy_Anim.SetBool ("Walk_Down", false);
-			//				enemy_Anim.SetBool ("Walk_Up", false);
-			//				walk = false;
-			//			}
-			//		}else 
-			
-			if (Game_Controller.enemyStruckPlayer && !struckPlayer && status.walk) {
-				status.walk = true;
-			}else if(!Game_Controller.enemyStruckPlayer && !status.walk){
-				status.walk = true;
-			}
-		}
-		if(other.gameObject.tag == "Trap"){
-			status.HpDown(Skill_Controller.trapDmg);
-			Destroy(other.gameObject);
-		}
-	}
-	
-	void OnTriggerExit2D(Collider2D other){
-		if(other.gameObject.tag == "Enemy"){
-			status.walk = true;
-		}
-	}
-	
-	void OnCollisionEnter2D(Collision2D other){
-		if(other.gameObject.tag == "Player"){
-			enemy_Anim.SetBool ("Walk_Left", false);
-			enemy_Anim.SetBool ("Walk_Right", false);
-			enemy_Anim.SetBool ("Walk_Down", false);
-			enemy_Anim.SetBool ("Walk_Up", false);
-			status.walk = false;
-			Game_Controller.enemyStruckPlayer = true;
-			struckPlayer = true;
-		}
-	}
-	
-	//Enemy Attack
-	void OnCollisionStay2D(Collision2D other){
-		if(other.gameObject.tag == "Player"){
-			enemy_Anim.SetBool ("Walk_Left", false);
-			enemy_Anim.SetBool ("Walk_Right", false);
-			enemy_Anim.SetBool ("Walk_Down", false);
-			enemy_Anim.SetBool ("Walk_Up", false);
-			status.walk = false;
-			Game_Controller.enemyStruckPlayer = true;
-			struckPlayer = true;
-			if(Time.time > nextAtk){
-				nextAtk = Time.time + status.baseAspd;
-				Game_Controller.playerInThisMap.EnemyAttacked(status.Attack);
-			}
-		}else if(other.gameObject.tag == "Enemy" && Game_Controller.enemyStruckPlayer && !struckPlayer){
-			enemy_Anim.SetBool ("Walk_Left", false);
-			enemy_Anim.SetBool ("Walk_Right", false);
-			enemy_Anim.SetBool ("Walk_Down", false);
-			enemy_Anim.SetBool ("Walk_Up", false);
-			status.walk = false;
-		}else if(other.gameObject.tag == "Enemy" && !Game_Controller.enemyStruckPlayer && !struckPlayer){
-			status.walk = true;
-		}
-	}
-	
-	void OnCollisionExit2D(Collision2D other){
-		if(other.gameObject.tag == "Player"){
-			status.walk = true;
-			Game_Controller.enemyStruckPlayer = false;
-			struckPlayer = false;
-		}else if(other.gameObject.tag == "Enemy"){
-			status.walk = true;
-		}
-	}
+//		if(other.gameObject.tag == "Trap"){
+//			status.HpDown(Skill_Controller.trapDmg);
+//			Destroy(other.gameObject);
+//		}
+//	}
+//	
+//	void OnTriggerExit2D(Collider2D other){
+//		if(other.gameObject.tag == "Enemy"){
+//			status.walk = true;
+//		}
+//	}
+//	
+//	void OnCollisionEnter2D(Collision2D other){
+//		if (other.gameObject.tag == "Player") {
+//			enemy_Anim.SetBool ("Walk_Left", false);
+//			enemy_Anim.SetBool ("Walk_Right", false);
+//			enemy_Anim.SetBool ("Walk_Down", false);
+//			enemy_Anim.SetBool ("Walk_Up", false);
+//			status.walk = false;
+//			Game_Controller.enemyStruckPlayer = true;
+//			struckPlayer = true;
+//		} else if(other.gameObject.tag == "Enemy"){
+//			status.walk = false;
+//		}
+//	}
+//	
+//	//Enemy Attack
+//	void OnCollisionStay2D(Collision2D other){
+//		if(other.gameObject.tag == "Player"){
+//			enemy_Anim.SetBool ("Walk_Left", false);
+//			enemy_Anim.SetBool ("Walk_Right", false);
+//			enemy_Anim.SetBool ("Walk_Down", false);
+//			enemy_Anim.SetBool ("Walk_Up", false);
+//			status.walk = false;
+//			Game_Controller.enemyStruckPlayer = true;
+//			struckPlayer = true;
+//			if(Time.time > nextAtk){
+//				nextAtk = Time.time + status.baseAspd;
+//				Game_Controller.playerInThisMap.EnemyAttacked(status.Attack);
+//			}
+//		}else if(other.gameObject.tag == "Enemy" && Game_Controller.enemyStruckPlayer && !struckPlayer){
+//			enemy_Anim.SetBool ("Walk_Left", false);
+//			enemy_Anim.SetBool ("Walk_Right", false);
+//			enemy_Anim.SetBool ("Walk_Down", false);
+//			enemy_Anim.SetBool ("Walk_Up", false);
+//			status.walk = false;
+//		}else if(other.gameObject.tag == "Enemy" && !Game_Controller.enemyStruckPlayer && !struckPlayer){
+//			status.walk = true;
+//		}
+//	}
+//	
+//	void OnCollisionExit2D(Collision2D other){
+//		if(other.gameObject.tag == "Player"){
+//			status.walk = true;
+//			Game_Controller.enemyStruckPlayer = false;
+//			struckPlayer = false;
+//		}else if(other.gameObject.tag == "Enemy"){
+//			status.walk = true;
+//		}
+//	}
 
 
 	void Enemy_Movement(bool walk){

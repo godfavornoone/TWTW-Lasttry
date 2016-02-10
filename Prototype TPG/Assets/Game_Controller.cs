@@ -81,10 +81,16 @@ public class Game_Controller : MonoBehaviour {
 			enemyInThisMap.Add(enemy.GetComponent<Enemy>());
 		}
 
+		foreach(GameObject enemy in enemySpawn){
+			enemy.SetActive(false);
+		}
 
-
-        
     }
 	
+	void Update(){
+		foreach(Enemy enemy in enemyInThisMap){
+			enemy.DistanceToBorn();	
+		}
+	}
 
 }
