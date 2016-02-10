@@ -12,29 +12,47 @@ public class Player_Skill : MonoBehaviour {
 	Typing_Input textCheck;
 	private char[] skillStorage;
 	private int localIndexSkill = 0;
-	private float coolDownSkillFire = 10f;
-	private float fireTimer = 10f;
-	private float fireDMG = 50;
+
+	//FireSkill
+	public int fireLVL = 1;
+	public float coolDownSkillFire = 10f;
+	private float fireTimer;
+	public float fireDMG = 50;
 	private bool nowFire = false;
-	private float coolDownSkillIce = 10f;
-	private float iceTimer = 10f;
-	private float nowIceTime = 3f;
+
+	//IceSkill
+	public int iceLVL =1;
+	public float coolDownSkillIce = 10f;
+	private float iceTimer;
+	public float nowIceTime = 3f;
 	private bool nowIce = false;
-	private float coolDownSkillKnock = 10f;
-	private float knockTimer = 10f;
+
+	//KnockSkill
+	public int knockLVL = 1;
+	public float coolDownSkillKnock = 10f;
+	private float knockTimer;
 	private float knockSpeed = 50f;
 	private float knockLong = 1f;
+
+	//SlowSkill
+	public int slowLVL = 1;
 	private bool nowKnock = false;
-	private float coolDownSkillSlow = 10f;
-	private float slowTimer = 10f;
-	private float nowSlowTime = 3f;
+	public float coolDownSkillSlow = 10f;
+	private float slowTimer;
+	public float nowSlowTime = 3f;
 	private bool nowSlow = false;
-	private float coolDownSkillHeal = 10f;
-	private float healTimer = 10f;
-	private float healDMG = 200f;
+
+	//HealSkill
+	public int healLVL = 1 ;
+	public float coolDownSkillHeal = 10f;
+	private float healTimer;
+	public float healDMG = 200f;
 	private bool nowHeal = false;
-	private float coolDownSkillTrap = 10f;
-	private float trapTimer = 10f;
+
+	//TrapSkill
+	public int trapLVL = 1;
+	public float coolDownSkillTrap = 10f;
+	private float trapTimer;
 //	private float trapDMG = 20f;
 	private bool nowTrap = false;
 
@@ -45,7 +63,12 @@ public class Player_Skill : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
+		fireTimer = coolDownSkillFire;
+		iceTimer = coolDownSkillIce;
+		knockTimer = coolDownSkillKnock;
+		slowTimer = coolDownSkillSlow;
+		healTimer = coolDownSkillHeal;
+		trapTimer = coolDownSkillTrap;
 	}
 	
 	// Update is called once per frame
@@ -68,7 +91,7 @@ public class Player_Skill : MonoBehaviour {
 		SlowEnemy (nowSlowTime);
 		HealPlayer (healDMG);
 		TrapEnemy ();
-
+		UpSkill ();
 	}
 
 	public void CheckWrongAllSkill(char txt){
@@ -333,5 +356,36 @@ public class Player_Skill : MonoBehaviour {
 		nowTrap = false;
 	}
 
+	//Upskill
+	void UpSkill(){
+		if(Game_Controller.playerInThisMap.skillPoint != 0){
+			//put your condition when you click mouse to up this skill
+			if(true){
+				fireLVL++;
+				fireDMG += 20f;
+				Game_Controller.playerInThisMap.skillPoint--;
+			}else if(true){
+				iceLVL++;
+				nowIceTime += 0.5f;
+				Game_Controller.playerInThisMap.skillPoint--;
+			}else if(true){
+				knockLVL++;
+				coolDownSkillKnock -= 1f;
+				Game_Controller.playerInThisMap.skillPoint--;
+			}else if(true){
+				slowLVL++;
+				nowSlowTime += 0.5f;
+				Game_Controller.playerInThisMap.skillPoint--;
+			}else if(true){
+				healLVL++;
+				healDMG += 50f;
+				Game_Controller.playerInThisMap.skillPoint--;
+			}else if(true){
+				trapLVL++;
+				Skill_Controller.trapDmg += 20f;
+				Game_Controller.playerInThisMap.skillPoint--;
+			}
+		}
+	}
 
 }

@@ -4,6 +4,9 @@ using System.Collections.Generic;
 
 public class Enemy : MonoBehaviour {
 
+	[HideInInspector]
+	public bool struckPlayer = false;
+
 	public Transform player;
 	Animator enemy_Anim;
 
@@ -76,8 +79,6 @@ public class Enemy : MonoBehaviour {
         textManagerScript = GameObject.Find("TextManager").GetComponent<textManager>();
         textTyping[1].text = textManagerScript.sendText(wordLength,wordDifficult);
         HPEnemyScript = transform.GetChild(2).GetChild(0).GetComponent<HPEnemy>();
-
-
     }
 	
 	void FixedUpdate(){
@@ -234,7 +235,75 @@ public class Enemy : MonoBehaviour {
 //		}
 //	}
 	
+	void OnTriggerStay2D(Collider2D other){
+		if (other.gameObject.tag == "Enemy") {
+			if (Game_Controller.enemyStruckPlayer && !struckPlayer && walk) {
+				walk = true;
+			}else if(!Game_Controller.enemyStruckPlayer && !walk){
+				walk = true;
+			}
+		}
+		if(other.gameObject.tag == "Trap"){
+			HpDown(Skill_Controller.trapDmg);
+			Destroy(other.gameObject);
+		}
+	}
 	
+	void OnTriggerExit2D(Collider2D other){
+		if(other.gameObject.tag == "Enemy"){
+			walk = true;
+		}
+	}
+	
+	void OnCollisionEnter2D(Collision2D other){
+		if (other.gameObject.tag == "Player") {
+			enemy_Anim.SetBool ("Walk_Left", false);
+			enemy_Anim.SetBool ("Walk_Right", false);
+			enemy_Anim.SetBool ("Walk_Down", false);
+			enemy_Anim.SetBool ("Walk_Up", false);
+			walk = false;
+			Game_Controller.enemyStruckPlayer = true;
+			struckPlayer = true;
+		} else if(other.gameObject.tag == "Enemy"){
+			walk = false;
+		}
+	}
+	
+	//Enemy Attack
+	void OnCollisionStay2D(Collision2D other){
+		if(other.gameObject.tag == "Player"){
+			enemy_Anim.SetBool ("Walk_Left", false);
+			enemy_Anim.SetBool ("Walk_Right", false);
+			enemy_Anim.SetBool ("Walk_Down", false);
+			enemy_Anim.SetBool ("Walk_Up", false);
+			 walk = false;
+			Game_Controller.enemyStruckPlayer = true;
+			struckPlayer = true;
+			if(Time.time > nextAtk){
+				nextAtk = Time.time +  baseAspd;
+				Game_Controller.playerInThisMap.EnemyAttacked( Attack);
+			}
+		}else if(other.gameObject.tag == "Enemy" && Game_Controller.enemyStruckPlayer && !struckPlayer){
+			enemy_Anim.SetBool ("Walk_Left", false);
+			enemy_Anim.SetBool ("Walk_Right", false);
+			enemy_Anim.SetBool ("Walk_Down", false);
+			enemy_Anim.SetBool ("Walk_Up", false);
+			 walk = false;
+		}else if(other.gameObject.tag == "Enemy" && !Game_Controller.enemyStruckPlayer && !struckPlayer){
+			 walk = true;
+		}
+	}
+	
+	void OnCollisionExit2D(Collision2D other){
+		if(other.gameObject.tag == "Player"){
+			 walk = true;
+			Game_Controller.enemyStruckPlayer = false;
+			struckPlayer = false;
+		}else if(other.gameObject.tag == "Enemy"){
+			 walk = true;
+		}
+	}
+
 	//Enemy Status
 	void realStatus(int gameDifficult){
         maxhitPoint = baseHP * gameDifficult;
@@ -655,6 +724,7 @@ public class Enemy : MonoBehaviour {
                 {
                     Debug.Log("Give new Text not from Option");
                     textTyping[1].text = textManagerScript.sendText(wordLength, wordDifficult);
+
                 }
 
 				indexLocal = 0;
@@ -688,6 +758,13 @@ public class Enemy : MonoBehaviour {
 			textTyping[0].text = "";
 			indexLocal = 0;
 			Game_Controller.indexGlobal = 0;
+		}
+	}
+
+	public void DistanceToBorn(){
+		float distance = Vector2.Distance (Game_Controller.playerInThisMap.transform.position, gameObject.transform.position);
+		if(distance < 5){
+			gameObject.SetActive(true);
 		}
 	}
 

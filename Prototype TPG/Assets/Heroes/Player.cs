@@ -12,6 +12,7 @@ public class Player : MonoBehaviour {
 	public float baseSpeed;
 	public float baselvlup;
 	public float baselvl;
+	public int skillPoint = 0;
 
     //Current Sword/Bow/Boot/Cloth
     public Item currentSword = new Item();
@@ -41,7 +42,6 @@ public class Player : MonoBehaviour {
     public float SwordAtk;
 
     //Player Controller
-    public static bool attackTrigger = false;
 //	Player_Status pStatus;
 	Arrow_Launch aL;
 	Rigidbody2D rbd2D;
@@ -344,15 +344,16 @@ public class Player : MonoBehaviour {
 			lvl++;
 			lvlup = baselvlup * lvl;
 			lvlup = lvlup - tmp;
-            StartCoroutine(StatusUp());
-            Debug.Log("LVLUP");
-            
-        } else { //เวลอัพแล้วมันพอดีจ้า
+			StartCoroutine(StatusUp());
+			skillPoint++;
+			Debug.Log("LVLUP");
+		} else { //เวลอัพแล้วมันพอดีจ้า
             Debug.Log("Level ก่อนเพิ่ม: " + lvl);
 			lvl++;
             Debug.Log("Level หลังเพิ่ม: " + lvl);
             lvlup = baselvlup * lvl;
             Debug.Log("lvl up ที่น่าจะ 200: " + lvlup);
+			skillPoint++;
             StartCoroutine(StatusUp());
 			Debug.Log("LVLUP");
 			Debug.Log(lvl);
@@ -422,7 +423,4 @@ public class Player : MonoBehaviour {
         SwordAtk = SwordAtk + currentSword.damage;
     }
 
-    void PlayerSkill(){ 
-
-	}
 }
