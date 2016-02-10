@@ -23,7 +23,9 @@ public class Enemy : MonoBehaviour {
 	public float baseEXP;
 	public float baseDropRate;
 	public float baseAspd;
-	
+
+    [HideInInspector]
+    public float maxhitPoint;
 	[HideInInspector]
 	public float hitPoint;
 	[HideInInspector]
@@ -34,6 +36,7 @@ public class Enemy : MonoBehaviour {
 	public float dropRate;
 	[HideInInspector]
 	public float runSpeed;
+
 	
 	//Enemy Text Controller
 	public List<int> wordLengthDifficulty = new List<int>();
@@ -47,11 +50,14 @@ public class Enemy : MonoBehaviour {
 	private float distanceAttack;
 	[HideInInspector]
 	public bool takedDMG = false;
+    public bool optionWord = false;
 
     public Game_Controller gameScript;
     public textManager textManagerScript;
 
-	void Awake(){
+    public HPEnemy HPEnemyScript;
+
+    void Awake(){
 //		setStroke = GetComponent<Text_Outline> ();
 		//Call Animator of Enemy
 		enemy_Anim = GetComponent<Animator> ();
@@ -69,6 +75,9 @@ public class Enemy : MonoBehaviour {
         gameScript = GameObject.Find("Game_Controller").GetComponent<Game_Controller>();
         textManagerScript = GameObject.Find("TextManager").GetComponent<textManager>();
         textTyping[1].text = textManagerScript.sendText(wordLength,wordDifficult);
+        HPEnemyScript = transform.GetChild(2).GetChild(0).GetComponent<HPEnemy>();
+
+
     }
 	
 	void FixedUpdate(){
@@ -80,16 +89,17 @@ public class Enemy : MonoBehaviour {
 	void Update () {
         charStorage = textTyping [1].text.ToCharArray ();
 		EnableTyping ();
+        
 		PushESC (Game_Controller.ESC);
 	}
 	
 	
 	void LateUpdate(){
-
+        HPEnemyScript.updateenemyHP(hitPoint / maxhitPoint);
         //takeDMG();
         if (textTyping[1].text.Equals(textTyping[0].text))
         {
-            WordInstantiate(textManagerScript.sendText(wordLength, wordDifficult));
+            WordInstantiate();
         }
 	}
 	
@@ -227,6 +237,7 @@ public class Enemy : MonoBehaviour {
 	
 	//Enemy Status
 	void realStatus(int gameDifficult){
+        maxhitPoint = baseHP * gameDifficult;
 		hitPoint = baseHP * gameDifficult;
 		Attack = baseAttack * gameDifficult;
 		EXP = baseEXP * gameDifficult;
@@ -235,14 +246,18 @@ public class Enemy : MonoBehaviour {
 	}
 	
 	public void HpDown(float dmg){
-		hitPoint = hitPoint - dmg;
+        
+        hitPoint = hitPoint - dmg;
 		if(hitPoint <= 0){
 			Game_Controller.playerInThisMap.PlayerLVLUp(EXP);
 			Debug.Log ("recieve = " + EXP);
             //การ Drop ไอเทมละ
             int dropchance = Random.Range(0, 100);
-            if(dropchance<=dropRate)
+            Debug.Log("dropChance is: " + dropchance);
+            Debug.Log("dropRate is: " + dropRate);
+            if (dropchance<=dropRate)
             {
+                Debug.Log("YEEEEE");
                 int item = Random.Range(0, 20);
                 Instantiate(gameScript.itemPrefab[item], this.transform.position, Quaternion.identity);
 
@@ -305,13 +320,343 @@ public class Enemy : MonoBehaviour {
 	}
 
 	//This method for change word when enemy taked dmg
-	public void WordInstantiate(string word){
+	public void WordInstantiate(){
 		if (Game_Controller.indexGlobal == indexLocal) {
 			if (textTyping [1].text.Equals (textTyping [0].text)) {
-                textManagerScript.returnText(textTyping[1].text, wordDifficult);
+
+                if(optionWord) //start here if it false go ELSE
+                {
+                    Debug.Log("no return text");
+                    optionWord = false;
+                }
+                else
+                {
+                    Debug.Log("return Text complete" + " text is: " + textTyping[1].text);
+                    textManagerScript.returnText(textTyping[1].text, wordDifficult);
+                }
+                
 				takedDMG = true;
 				textTyping [0].text = "";
-				textTyping [1].text = word;
+
+                //Start with One Letter Option
+                int chance;
+                bool oneOptiononly = true;
+
+                if (Game_Controller.playerInThisMap.currentBoot.hitpoint != 0 && oneOptiononly)
+                {
+                    if (Game_Controller.playerInThisMap.currentBoot.option[0] != 0)
+                    {
+                        chance = Random.Range(0, 100);
+                        if (chance <= Game_Controller.playerInThisMap.currentBoot.optionChance[0])
+                        {
+                            Debug.Log("one Letter option from Boot");
+
+                            char tmp = textTyping[1].text[0];
+                            string tmp2;
+
+                            Debug.Log("first char of last string is: " + tmp);
+
+                            tmp2 = "" + tmp;
+
+
+                            textTyping[1].text = tmp2;
+                            optionWord = true;
+                            oneOptiononly = false;
+                            
+                        }
+                    }
+                }
+
+                if (Game_Controller.playerInThisMap.currentCloth.hitpoint != 0 && oneOptiononly)
+                {
+                    if (Game_Controller.playerInThisMap.currentCloth.option[0] != 0)
+                    {
+                        chance = Random.Range(0, 100);
+                        if (chance <= Game_Controller.playerInThisMap.currentCloth.optionChance[0])
+                        {
+                            Debug.Log("one Letter option from cloth");
+
+                            char tmp = textTyping[1].text[0];
+                            string tmp2;
+
+                            Debug.Log("first char of last string is: " + tmp);
+
+                            tmp2 = "" + tmp;
+
+
+                            textTyping[1].text = tmp2;
+
+                            optionWord = true;
+                            oneOptiononly = false;
+                           
+                        }
+                    }
+                }
+
+                if (Game_Controller.playerInThisMap.currentSword.damage != 0 && oneOptiononly)
+                {
+                    if (Game_Controller.playerInThisMap.currentSword.option[0] != 0)
+                    {
+                        
+                        chance = Random.Range(0, 100);
+                        if (chance <= Game_Controller.playerInThisMap.currentSword.optionChance[0])
+                        {
+                            Debug.Log("one Letter option from sword");
+
+                            char tmp = textTyping[1].text[0];
+                            string tmp2;
+
+                            Debug.Log("first char of last string is: " + tmp);
+
+                            tmp2 = "" + tmp;
+
+
+                            textTyping[1].text = tmp2;
+
+                            optionWord = true;
+                            oneOptiononly = false;
+                            
+                        }
+                    }
+                }
+
+                if (Game_Controller.playerInThisMap.currentBow.damage != 0 && oneOptiononly)
+                {
+                    if(Game_Controller.playerInThisMap.currentBow.option[0] != 0)
+                {
+                        chance = Random.Range(0, 100);
+                        if (chance <= Game_Controller.playerInThisMap.currentBow.optionChance[0])
+                        {
+                            Debug.Log("one Letter option from bow");
+
+                            char tmp = textTyping[1].text[0];
+                            string tmp2;
+
+                            Debug.Log("first char of last string is: " + tmp);
+
+                            tmp2 = "" + tmp;
+
+
+                            textTyping[1].text = tmp2;
+
+                            optionWord = true;
+                            oneOptiononly = false;
+                            
+                        }
+                    }
+                }
+                //END with one Letter Option
+                //Start with sameLetter Option
+                if(Game_Controller.playerInThisMap.currentBoot.hitpoint!=0 && oneOptiononly)
+                {
+                    if (Game_Controller.playerInThisMap.currentBoot.option[1] != 0)
+                    {
+                        chance = Random.Range(0, 100);
+                        if (chance <= Game_Controller.playerInThisMap.currentBoot.optionChance[1])
+                        {
+                            Debug.Log("same Letter option from boot");
+
+                            char tmp = textTyping[1].text[0];
+                            string tmp2;
+                            string tmp3 = "";
+
+                            Debug.Log("first char of last string is: " + tmp);
+
+                            tmp2 = "" + tmp;
+
+                            Debug.Log("tmp2 before is: " + tmp2);
+
+                            for(int i =0;i<textTyping[1].text.Length;i++)
+                            {
+                                tmp3 += tmp2;
+                            }
+
+                            Debug.Log("tmp2 after is: " + tmp2);
+
+                            textTyping[1].text = tmp3;
+
+                            optionWord = true;
+                            oneOptiononly = false;
+
+                        }
+                    }
+                }
+
+                if(Game_Controller.playerInThisMap.currentCloth.hitpoint!=0&&oneOptiononly)
+                {
+                    if (Game_Controller.playerInThisMap.currentCloth.option[1] != 0)
+                    {
+                        chance = Random.Range(0, 100);
+                        if (chance <= Game_Controller.playerInThisMap.currentCloth.optionChance[1])
+                        {
+                            Debug.Log("same Letter option from cloth");
+
+                            char tmp = textTyping[1].text[0];
+                            string tmp2;
+                            string tmp3="";
+
+                            Debug.Log("first char of last string is: " + tmp);
+
+                            tmp2 = "" + tmp;
+
+                            Debug.Log("tmp2 before is: " + tmp2);
+
+                            for (int i = 0; i < textTyping[1].text.Length; i++)
+                            {
+                                tmp3 += tmp2;
+                            }
+
+                            Debug.Log("tmp2 after is: " + tmp2);
+
+                            textTyping[1].text = tmp3;
+
+                            optionWord = true;
+                            oneOptiononly = false;
+
+                        }
+                    }
+                }
+
+                if(Game_Controller.playerInThisMap.currentSword.damage!=0&&oneOptiononly)
+                {
+                    if (Game_Controller.playerInThisMap.currentSword.option[1] != 0)
+                    {
+                        chance = Random.Range(0, 100);
+                        if (chance <= Game_Controller.playerInThisMap.currentSword.optionChance[1])
+                        {
+
+
+                            Debug.Log("same Letter option from sword");
+
+                            char tmp = textTyping[1].text[0];
+                            string tmp2;
+                            string tmp3 = "";
+
+                            Debug.Log("first char of last string is: " + tmp);
+
+                            tmp2 = "" + tmp;
+
+                            Debug.Log("tmp2 before is: " + tmp2);
+
+                            for (int i = 0; i < textTyping[1].text.Length; i++)
+                            {
+                                tmp3 += tmp2;
+                            }
+
+                            Debug.Log("tmp2 after is: " + tmp2);
+
+                            textTyping[1].text = tmp3;
+
+                            optionWord = true;
+                            oneOptiononly = false;
+
+                        }
+                    }
+                }
+
+                if(Game_Controller.playerInThisMap.currentBow.damage!=0&&oneOptiononly)
+                {
+                    if (Game_Controller.playerInThisMap.currentBow.option[1] != 0)
+                    {
+                        chance = Random.Range(0, 100);
+                        if (chance <= Game_Controller.playerInThisMap.currentBow.optionChance[1])
+                        {
+                            Debug.Log("same Letter option from bow");
+
+                            char tmp = textTyping[1].text[0];
+                            string tmp2;
+                            string tmp3 = "";
+
+                            Debug.Log("first char of last string is: " + tmp);
+
+                            tmp2 = "" + tmp;
+
+                            Debug.Log("tmp2 before is: " + tmp2);
+
+                            for (int i = 0; i < textTyping[1].text.Length; i++)
+                            {
+                                tmp3 += tmp2;
+                            }
+
+                            Debug.Log("tmp2 after is: " + tmp2);
+
+                            textTyping[1].text = tmp3;
+
+                            optionWord = true;
+                            oneOptiononly = false;
+
+                        }
+                    }
+                }
+                //END of sameLetter Option
+                //Start the SameWord Option
+                if(Game_Controller.playerInThisMap.currentBoot.hitpoint!=0 && oneOptiononly)
+                {
+                    if (Game_Controller.playerInThisMap.currentBoot.option[2] != 0)
+                    {
+                        chance = Random.Range(0, 100);
+                        if (chance <= Game_Controller.playerInThisMap.currentBoot.optionChance[2])
+                        {
+                            Debug.Log("same word on boot");
+                            optionWord = true;
+                            oneOptiononly = false;
+
+                        }
+                    }
+                }
+
+                if(Game_Controller.playerInThisMap.currentCloth.hitpoint!=0&&oneOptiononly)
+                {
+                    if (Game_Controller.playerInThisMap.currentCloth.option[2] != 0)
+                    {
+
+                        chance = Random.Range(0, 100);
+                        if (chance <= Game_Controller.playerInThisMap.currentCloth.optionChance[2])
+                        {
+                            Debug.Log("same word on cloth");
+                            optionWord = true;
+                            oneOptiononly = false;
+
+                        }
+                    }
+                }
+
+                if(Game_Controller.playerInThisMap.currentSword.damage!=0&&oneOptiononly)
+                {
+                    if (Game_Controller.playerInThisMap.currentSword.option[2] != 0)
+                    {
+                        chance = Random.Range(0, 100);
+                        if (chance <= Game_Controller.playerInThisMap.currentSword.optionChance[2])
+                        {
+                            Debug.Log("same word on sword");
+                            optionWord = true;
+                            oneOptiononly = false;
+
+                        }
+                    }
+                }
+                
+                if(Game_Controller.playerInThisMap.currentBow.damage!=0&&oneOptiononly)
+                {
+                    if (Game_Controller.playerInThisMap.currentBow.option[2] != 0)
+                    {
+                        chance = Random.Range(0, 100);
+                        if (chance <= Game_Controller.playerInThisMap.currentBow.optionChance[2])
+                        {
+                            Debug.Log("same word on bow");
+                            optionWord = true;
+                            oneOptiononly = false;
+
+                        }
+                    }
+                }
+
+                if(!optionWord)
+                {
+                    Debug.Log("Give new Text not from Option");
+                    textTyping[1].text = textManagerScript.sendText(wordLength, wordDifficult);
+                }
+
 				indexLocal = 0;
 				Game_Controller.indexGlobal = 0;
 			}

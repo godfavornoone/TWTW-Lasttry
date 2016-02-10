@@ -36,10 +36,12 @@ public class Player : MonoBehaviour {
 	[HideInInspector]
 	public float lvl;
 	[HideInInspector]
-	public float Atk;
+	public float BowAtk;
+    [HideInInspector]
+    public float SwordAtk;
 
-	//Player Controller
-	public static bool attackTrigger = false;
+    //Player Controller
+    public static bool attackTrigger = false;
 //	Player_Status pStatus;
 	Arrow_Launch aL;
 	Rigidbody2D rbd2D;
@@ -142,8 +144,79 @@ public class Player : MonoBehaviour {
 						anim.SetTrigger (attackHash);
 					}
 				}
-				enemy.takedDMG = false;
-				enemy.HpDown (Atk);
+
+                //Here is the Option for Critical when using Sword
+
+                int chanceCri;
+                bool oneTimeOnly = true;
+                float dmg = SwordAtk;
+
+                Debug.Log("Damage Before Cri: " + dmg);
+
+                if (Game_Controller.playerInThisMap.currentBoot.hitpoint != 0 && oneTimeOnly)
+                {
+
+                    if (Game_Controller.playerInThisMap.currentBoot.option[3] != 0)
+                    {
+                        chanceCri = Random.Range(0, 100);
+                        if (chanceCri <= Game_Controller.playerInThisMap.currentBoot.optionChance[3])
+                        {
+                            Debug.Log("Cri by boot! in currentWP = sword");
+                            dmg = dmg + dmg;
+                            oneTimeOnly = false;
+                        }
+                    }
+                }
+
+                if (Game_Controller.playerInThisMap.currentCloth.hitpoint != 0 && oneTimeOnly)
+                {
+
+                    if (Game_Controller.playerInThisMap.currentCloth.option[3] != 0)
+                    {
+                        chanceCri = Random.Range(0, 100);
+                        if (chanceCri <= Game_Controller.playerInThisMap.currentCloth.optionChance[3])
+                        {
+                            Debug.Log("Cri by cloth! in currentWP = sword");
+                            dmg = dmg + dmg;
+                            oneTimeOnly = false;
+                        }
+                    }
+                }
+
+                if (Game_Controller.playerInThisMap.currentSword.damage != 0 && oneTimeOnly)
+                {
+
+                    if (Game_Controller.playerInThisMap.currentSword.option[3] != 0)
+                    {
+                        chanceCri = Random.Range(0, 100);
+                        if (chanceCri <= Game_Controller.playerInThisMap.currentSword.optionChance[3])
+                        {
+                            Debug.Log("Cri by sword! in currentWP = sword");
+                            dmg = dmg + dmg;
+                            oneTimeOnly = false;
+                        }
+                    }
+                }
+
+                if (Game_Controller.playerInThisMap.currentBow.damage != 0 && oneTimeOnly)
+                {
+
+                    if (Game_Controller.playerInThisMap.currentBow.option[3] != 0)
+                    {
+                        chanceCri = Random.Range(0, 100);
+                        if (chanceCri <= Game_Controller.playerInThisMap.currentBow.optionChance[3])
+                        {
+                            Debug.Log("Cri by bow! in currentWP = sword");
+                            dmg = dmg + dmg;
+                            oneTimeOnly = false;
+                        }
+                    }
+                }
+
+                Debug.Log("Damage After Cri: " + dmg);
+
+                enemy.takedDMG = false;
+				enemy.HpDown (dmg);
 			} else if (enemy.takedDMG && !isSword) {
 				anim.SetBool ("Sword_Down", false);
 				anim.SetBool ("Sword_Right", false);
@@ -215,18 +288,16 @@ public class Player : MonoBehaviour {
 		if (Input.GetKeyDown (KeyCode.Tab) && weaponState == 0) {
 			isSword = false;
 			weaponState = 1;
-            Atk = baseAtk + currentBow.damage;
             WeaponPanel.transform.GetChild(0).gameObject.SetActive(false);
             WeaponPanel.transform.GetChild(1).gameObject.SetActive(true);
-            Debug.Log("Bow Damage is: " + Atk);
+            Debug.Log("Bow Damage is: " + BowAtk);
         }
         else if(Input.GetKeyDown (KeyCode.Tab) && weaponState == 1){
 			isSword = true;
 			weaponState = 0;
-            Atk = baseAtk + currentSword.damage;
             WeaponPanel.transform.GetChild(0).gameObject.SetActive(true);
             WeaponPanel.transform.GetChild(1).gameObject.SetActive(false);
-            Debug.Log("Sword Damage is: " + Atk);
+            Debug.Log("Sword Damage is: " + SwordAtk);
         }
 	}
 	
@@ -241,7 +312,8 @@ public class Player : MonoBehaviour {
         HP = MaxHP;
 		SP = baseSP;
         MaxSP = baseSP;
-		Atk = baseAtk;
+        BowAtk = baseAtk;
+        SwordAtk = baseAtk;
 		lvl = baselvl; //เลเวลเริ่มต้น
 		lvlup = baselvlup * lvl; //100*1
 	}
@@ -290,8 +362,17 @@ public class Player : MonoBehaviour {
         MaxSP = temp + baseSP;
         SP = MaxSP;
 
+        float baseOne = baseAtk;
+
+        float temp3 = SwordAtk - baseOne; 
         baseAtk = baseAtk + 50;
-        
+        SwordAtk = temp3 + baseAtk;
+
+        float temp4 = BowAtk - baseOne;
+        baseAtk = baseAtk + 50;
+        BowAtk = temp3 + baseAtk;
+
+
 		Debug.Log("HP = " + MaxHP + " SP = " + MaxSP);
 	}
 
@@ -313,12 +394,16 @@ public class Player : MonoBehaviour {
 
     public void EquipBow(Item bow)
     {
+        BowAtk = BowAtk - currentBow.damage;
         currentBow = bow;
+        BowAtk = BowAtk + currentBow.damage;
     }
 
     public void EquipSword(Item sword)
     {
+        SwordAtk = SwordAtk - currentSword.damage;
         currentSword = sword;
+        SwordAtk = SwordAtk + currentSword.damage;
     }
 
     void PlayerSkill(){ 

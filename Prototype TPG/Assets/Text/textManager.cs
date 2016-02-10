@@ -136,7 +136,6 @@ public class textManager : MonoBehaviour {
         }
         else if (letter.Equals("p"))
         {
-            Debug.Log("p na ja");
             pData.Add(time);
         }
         else if (letter.Equals("q"))

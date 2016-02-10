@@ -19,7 +19,6 @@ public class Weapon_Status : MonoBehaviour {
     public int minHitpoint;
     public int maxHitpoint;
 
-    public int GameDiff;
     //option chance to get in weapon
     public int oneLetterOption;
     public int sameLetterOption;
@@ -45,16 +44,15 @@ public class Weapon_Status : MonoBehaviour {
     {
         //ตรง GameDiff มันต้องขอจาก Player น้าาาาา (ที่จริงไม่ต้องให้ Player ตายก็ได้มั้ง)
 
-        GameDiff = 10;
 
         if (type == "sword" || type=="bow")
         {
-            attack = Random.Range(minAttack * GameDiff, maxAttack * GameDiff);
+            attack = Random.Range(minAttack *Game_Controller.gameDiff, maxAttack * Game_Controller.gameDiff);
         }
 
         if(type=="cloth" || type=="boot")
         {
-            hitpoint = Random.Range(minHitpoint * GameDiff, maxHitpoint * GameDiff);
+            hitpoint = Random.Range(minHitpoint * Game_Controller.gameDiff, maxHitpoint * Game_Controller.gameDiff);
         }
         
 
@@ -63,14 +61,14 @@ public class Weapon_Status : MonoBehaviour {
         int sameWord = Random.Range(0, 100);
         int critical = Random.Range(0, 100);
 
-        int oneChance = Random.Range(1, oneLetterChance  + (GameDiff*2)); 
-        int LetterChance = Random.Range(1, sameLetterChance + (GameDiff*2));
-        int WordChance = Random.Range(1, sameWordChance + (GameDiff*2));
-        int criChance = Random.Range(1, criticalChance + (GameDiff*2));
+        int oneChance = Random.Range(1, oneLetterChance  + (Game_Controller.gameDiff * 2)); 
+        int LetterChance = Random.Range(1, sameLetterChance + (Game_Controller.gameDiff * 2));
+        int WordChance = Random.Range(1, sameWordChance + (Game_Controller.gameDiff * 2));
 
+        int criChance = Random.Range(1, criticalChance + (Game_Controller.gameDiff * 2));
         //ตรงนี้คือเช็คว่ามี Option อะไรบ้างน่อ
         //ใส่ต่ออีกว่ามันคุณภาพเท่าไหร่
-        if(oneLetter <= oneLetterOption+(GameDiff*2))
+        if(oneLetter <= oneLetterOption+(Game_Controller.gameDiff * 2))
         {
             option.Add(1);
             optionChance.Add(oneChance);
@@ -81,7 +79,7 @@ public class Weapon_Status : MonoBehaviour {
             optionChance.Add(0);
         }
 
-        if (sameLetter <= sameLetterOption + (GameDiff * 2))
+        if (sameLetter <= sameLetterOption + (Game_Controller.gameDiff * 2))
         {
             option.Add(1);
             optionChance.Add(LetterChance);
@@ -92,7 +90,7 @@ public class Weapon_Status : MonoBehaviour {
             optionChance.Add(0);
         }
 
-        if (sameWord <= sameWordOption + (GameDiff * 2))
+        if (sameWord <= sameWordOption + (Game_Controller.gameDiff * 2))
         {
             option.Add(1);
             optionChance.Add(WordChance);
@@ -103,7 +101,7 @@ public class Weapon_Status : MonoBehaviour {
             optionChance.Add(0);
         }
 
-        if (critical <= criticalOption + (GameDiff * 2))
+        if (critical <= criticalOption + (Game_Controller.gameDiff * 2))
         {
             option.Add(1);
             optionChance.Add(criChance);
