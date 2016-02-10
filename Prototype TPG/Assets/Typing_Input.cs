@@ -50,7 +50,10 @@ public class Typing_Input : MonoBehaviour {
 			}
 
 			foreach(Enemy enemy in Game_Controller.enemyInThisMap){
-				enemy.CheckWrongAll(textFieldChar);
+
+				if(enemy.gameObject.activeInHierarchy && enemy.gameObject.activeSelf){
+					enemy.CheckWrongAll(textFieldChar);
+				}
 			}
 			
 			if(!Game_Controller.wrongAll || !Skill_Controller.checkWrongAllSkillInPanel){
@@ -60,7 +63,10 @@ public class Typing_Input : MonoBehaviour {
 				}
 
 				foreach(Enemy enemy in Game_Controller.enemyInThisMap){
-					enemy.CheckLetter(textFieldChar);
+					if(enemy.gameObject.activeInHierarchy && enemy.gameObject.activeSelf){
+						enemy.CheckLetter(textFieldChar);
+					}
+
 				}
 
                 if (timer != 0)

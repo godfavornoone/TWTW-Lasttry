@@ -214,7 +214,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 16
 --- !u!1 &30926053
 GameObject:
   m_ObjectHideFlags: 0
@@ -642,7 +642,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 15
 --- !u!1001 &166043548
 Prefab:
   m_ObjectHideFlags: 0
@@ -1333,6 +1333,7 @@ GameObject:
   - 222: {fileID: 327467066}
   - 114: {fileID: 327467065}
   - 114: {fileID: 327467064}
+  - 114: {fileID: 327467067}
   m_Layer: 5
   m_Name: TrapSkillPanel
   m_TagString: Skill
@@ -1372,23 +1373,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 978fed17854b37c4eb9fb0b201285a5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trapPlayer: {fileID: 133622, guid: 13507fb285d2ba748b47d5cf0821eac7, type: 2}
-  fireLVL: 1
-  coolDownSkillFire: 10
-  fireDMG: 50
-  iceLVL: 1
-  coolDownSkillIce: 10
-  nowIceTime: 3
-  knockLVL: 1
-  coolDownSkillKnock: 10
-  slowLVL: 1
-  coolDownSkillSlow: 10
-  nowSlowTime: 3
-  healLVL: 1
-  coolDownSkillHeal: 10
-  healDMG: 200
-  trapLVL: 1
-  coolDownSkillTrap: 10
+  skillTextTyping: []
+  localIndexSkill: 0
 --- !u!114 &327467065
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1416,6 +1402,22 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 327467062}
+--- !u!114 &327467067
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 327467062}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f17bae82572a124ca3405e1313b152a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trapPlayer: {fileID: 133622, guid: 13507fb285d2ba748b47d5cf0821eac7, type: 2}
+  trapLVL: 1
+  coolDownSkillTrap: 10
+  trapTimer: 0
+  nowTrap: 0
 --- !u!1 &329336010
 GameObject:
   m_ObjectHideFlags: 0
@@ -1879,6 +1881,7 @@ GameObject:
   - 222: {fileID: 452017800}
   - 114: {fileID: 452017799}
   - 114: {fileID: 452017798}
+  - 114: {fileID: 452017801}
   m_Layer: 5
   m_Name: FireSkillPanel
   m_TagString: Skill
@@ -1918,23 +1921,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 978fed17854b37c4eb9fb0b201285a5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trapPlayer: {fileID: 0}
-  fireLVL: 1
-  coolDownSkillFire: 10
-  fireDMG: 50
-  iceLVL: 1
-  coolDownSkillIce: 10
-  nowIceTime: 3
-  knockLVL: 1
-  coolDownSkillKnock: 10
-  slowLVL: 1
-  coolDownSkillSlow: 10
-  nowSlowTime: 3
-  healLVL: 1
-  coolDownSkillHeal: 10
-  healDMG: 200
-  trapLVL: 1
-  coolDownSkillTrap: 10
+  skillTextTyping: []
+  localIndexSkill: 0
 --- !u!114 &452017799
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1962,6 +1950,22 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 452017796}
+--- !u!114 &452017801
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 452017796}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4284369ea90db2e4dbc3298fdf8502bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fireLVL: 1
+  coolDownSkillFire: 10
+  fireTimer: 0
+  fireDMG: 50
+  nowFire: 0
 --- !u!1 &480138078
 GameObject:
   m_ObjectHideFlags: 0
@@ -2023,52 +2027,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 480138078}
---- !u!1001 &542083284
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 476300, guid: f6196cc8934c7804d99e1bea8d88ab03, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 1.65999997
-      objectReference: {fileID: 0}
-    - target: {fileID: 476300, guid: f6196cc8934c7804d99e1bea8d88ab03, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 7.07000017
-      objectReference: {fileID: 0}
-    - target: {fileID: 476300, guid: f6196cc8934c7804d99e1bea8d88ab03, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 476300, guid: f6196cc8934c7804d99e1bea8d88ab03, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 476300, guid: f6196cc8934c7804d99e1bea8d88ab03, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 476300, guid: f6196cc8934c7804d99e1bea8d88ab03, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 476300, guid: f6196cc8934c7804d99e1bea8d88ab03, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 476300, guid: f6196cc8934c7804d99e1bea8d88ab03, type: 2}
-      propertyPath: m_RootOrder
-      value: 18
-      objectReference: {fileID: 0}
-    - target: {fileID: 5870274, guid: f6196cc8934c7804d99e1bea8d88ab03, type: 2}
-      propertyPath: m_Radius
-      value: .889999986
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: f6196cc8934c7804d99e1bea8d88ab03, type: 2}
-  m_IsPrefabParent: 0
 --- !u!1 &550401971
 GameObject:
   m_ObjectHideFlags: 0
@@ -2205,7 +2163,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
 --- !u!114 &552394626
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2335,7 +2293,7 @@ Transform:
   m_LocalScale: {x: 5.68595123, y: 5.68594885, z: 5.68594885}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
 --- !u!68 &560720919
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -2747,33 +2705,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 686229606}
---- !u!1 &686564902
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 686564903}
-  m_Layer: 0
-  m_Name: GameObject
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &686564903
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 686564902}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .479999989, y: .0799999982, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 19
 --- !u!1 &699092982
 GameObject:
   m_ObjectHideFlags: 0
@@ -3181,7 +3112,7 @@ Transform:
   m_Children:
   - {fileID: 1783331017}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 14
 --- !u!1 &751897142
 GameObject:
   m_ObjectHideFlags: 0
@@ -3644,7 +3575,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 18
 --- !u!1 &909169074
 GameObject:
   m_ObjectHideFlags: 0
@@ -3771,6 +3702,7 @@ GameObject:
   - 222: {fileID: 920782303}
   - 114: {fileID: 920782302}
   - 114: {fileID: 920782301}
+  - 114: {fileID: 920782304}
   m_Layer: 5
   m_Name: HealSkillPanel
   m_TagString: Skill
@@ -3810,23 +3742,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 978fed17854b37c4eb9fb0b201285a5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trapPlayer: {fileID: 0}
-  fireLVL: 1
-  coolDownSkillFire: 10
-  fireDMG: 50
-  iceLVL: 1
-  coolDownSkillIce: 10
-  nowIceTime: 3
-  knockLVL: 1
-  coolDownSkillKnock: 10
-  slowLVL: 1
-  coolDownSkillSlow: 10
-  nowSlowTime: 3
-  healLVL: 1
-  coolDownSkillHeal: 10
-  healDMG: 200
-  trapLVL: 1
-  coolDownSkillTrap: 10
+  skillTextTyping: []
+  localIndexSkill: 0
 --- !u!114 &920782302
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3854,6 +3771,22 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 920782299}
+--- !u!114 &920782304
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 920782299}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70b91600dc1b8a74ea9a171b72c742d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healLVL: 1
+  coolDownSkillHeal: 10
+  healTimer: 0
+  healDMG: 200
+  nowHeal: 0
 --- !u!1 &923925539
 GameObject:
   m_ObjectHideFlags: 0
@@ -3996,7 +3929,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 13
 --- !u!1 &989090251
 GameObject:
   m_ObjectHideFlags: 0
@@ -4008,6 +3941,7 @@ GameObject:
   - 222: {fileID: 989090255}
   - 114: {fileID: 989090254}
   - 114: {fileID: 989090253}
+  - 114: {fileID: 989090256}
   m_Layer: 5
   m_Name: SlowSkillPanel
   m_TagString: Skill
@@ -4047,23 +3981,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 978fed17854b37c4eb9fb0b201285a5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trapPlayer: {fileID: 0}
-  fireLVL: 1
-  coolDownSkillFire: 10
-  fireDMG: 50
-  iceLVL: 1
-  coolDownSkillIce: 10
-  nowIceTime: 3
-  knockLVL: 1
-  coolDownSkillKnock: 10
-  slowLVL: 1
-  coolDownSkillSlow: 10
-  nowSlowTime: 3
-  healLVL: 1
-  coolDownSkillHeal: 10
-  healDMG: 200
-  trapLVL: 1
-  coolDownSkillTrap: 10
+  skillTextTyping: []
+  localIndexSkill: 0
 --- !u!114 &989090254
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4091,6 +4010,23 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 989090251}
+--- !u!114 &989090256
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 989090251}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d375519ce095a845bd3b09124d5d236, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tmpSlowTime: 0
+  slowLVL: 1
+  coolDownSkillSlow: 10
+  slowTimer: 0
+  nowSlowTime: 3
+  nowSlow: 0
 --- !u!1 &1049954975
 GameObject:
   m_ObjectHideFlags: 0
@@ -4397,7 +4333,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
 --- !u!1 &1141625245
 GameObject:
   m_ObjectHideFlags: 0
@@ -4471,7 +4407,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
 --- !u!1 &1153642523
 GameObject:
   m_ObjectHideFlags: 0
@@ -4904,6 +4840,7 @@ GameObject:
   - 222: {fileID: 1254421455}
   - 114: {fileID: 1254421454}
   - 114: {fileID: 1254421453}
+  - 114: {fileID: 1254421456}
   m_Layer: 5
   m_Name: KnockSkillPanel
   m_TagString: Skill
@@ -4943,23 +4880,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 978fed17854b37c4eb9fb0b201285a5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trapPlayer: {fileID: 0}
-  fireLVL: 1
-  coolDownSkillFire: 10
-  fireDMG: 50
-  iceLVL: 1
-  coolDownSkillIce: 10
-  nowIceTime: 3
-  knockLVL: 1
-  coolDownSkillKnock: 10
-  slowLVL: 1
-  coolDownSkillSlow: 10
-  nowSlowTime: 3
-  healLVL: 1
-  coolDownSkillHeal: 10
-  healDMG: 200
-  trapLVL: 1
-  coolDownSkillTrap: 10
+  skillTextTyping: []
+  localIndexSkill: 0
 --- !u!114 &1254421454
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4987,6 +4909,21 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1254421451}
+--- !u!114 &1254421456
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1254421451}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d2a7b27566dbb0438a1ae432e8377ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  knockLVL: 1
+  coolDownSkillKnock: 10
+  knockTimer: 0
+  nowKnock: 0
 --- !u!1 &1276826949
 GameObject:
   m_ObjectHideFlags: 0
@@ -5023,7 +4960,7 @@ RectTransform:
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
   m_AnchoredPosition: {x: -82.4999695, y: -29.8999996}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 119.642998, y: 43.4817657}
   m_Pivot: {x: .5, y: .5}
 --- !u!225 &1276826951
 CanvasGroup:
@@ -5821,10 +5758,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1276826950}
   m_RootOrder: 0
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 59.8214989, y: -21.7408829}
+  m_SizeDelta: {x: 105.642998, y: 29.4817657}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &1508613991
 MonoBehaviour:
@@ -6512,7 +6449,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1624336485
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6590,7 +6527,7 @@ RectTransform:
   - {fileID: 781583075}
   - {fileID: 321048386}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -7098,7 +7035,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 17
 --- !u!1 &1722258474
 GameObject:
   m_ObjectHideFlags: 0
@@ -7773,6 +7710,80 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1859120072}
+--- !u!1001 &1892760657
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 476300, guid: f6196cc8934c7804d99e1bea8d88ab03, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -6.64934111
+      objectReference: {fileID: 0}
+    - target: {fileID: 476300, guid: f6196cc8934c7804d99e1bea8d88ab03, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 1.87478864
+      objectReference: {fileID: 0}
+    - target: {fileID: 476300, guid: f6196cc8934c7804d99e1bea8d88ab03, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 476300, guid: f6196cc8934c7804d99e1bea8d88ab03, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 476300, guid: f6196cc8934c7804d99e1bea8d88ab03, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 476300, guid: f6196cc8934c7804d99e1bea8d88ab03, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 476300, guid: f6196cc8934c7804d99e1bea8d88ab03, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 476300, guid: f6196cc8934c7804d99e1bea8d88ab03, type: 2}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 10227646, guid: f6196cc8934c7804d99e1bea8d88ab03, type: 2}
+      propertyPath: m_Text
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 10259100, guid: f6196cc8934c7804d99e1bea8d88ab03, type: 2}
+      propertyPath: m_Text
+      value: he
+      objectReference: {fileID: 0}
+    - target: {fileID: 407348, guid: f6196cc8934c7804d99e1bea8d88ab03, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -.300000012
+      objectReference: {fileID: 0}
+    - target: {fileID: 408712, guid: f6196cc8934c7804d99e1bea8d88ab03, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -.300000012
+      objectReference: {fileID: 0}
+    - target: {fileID: 10259100, guid: f6196cc8934c7804d99e1bea8d88ab03, type: 2}
+      propertyPath: m_Anchor
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 10227646, guid: f6196cc8934c7804d99e1bea8d88ab03, type: 2}
+      propertyPath: m_Anchor
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 408712, guid: f6196cc8934c7804d99e1bea8d88ab03, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 1.40999997
+      objectReference: {fileID: 0}
+    - target: {fileID: 407348, guid: f6196cc8934c7804d99e1bea8d88ab03, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 1.40999997
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: f6196cc8934c7804d99e1bea8d88ab03, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &1896311014
 GameObject:
   m_ObjectHideFlags: 0
@@ -7955,7 +7966,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 421470, guid: 093da61e78cf5f443ac4622909510705, type: 2}
       propertyPath: m_RootOrder
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 178068, guid: 093da61e78cf5f443ac4622909510705, type: 2}
       propertyPath: m_Name
@@ -7964,6 +7975,42 @@ Prefab:
     - target: {fileID: 178068, guid: 093da61e78cf5f443ac4622909510705, type: 2}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 10228376, guid: 093da61e78cf5f443ac4622909510705, type: 2}
+      propertyPath: m_Text
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 10277990, guid: 093da61e78cf5f443ac4622909510705, type: 2}
+      propertyPath: m_Text
+      value: he
+      objectReference: {fileID: 0}
+    - target: {fileID: 452778, guid: 093da61e78cf5f443ac4622909510705, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -.300000012
+      objectReference: {fileID: 0}
+    - target: {fileID: 447172, guid: 093da61e78cf5f443ac4622909510705, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -.300000012
+      objectReference: {fileID: 0}
+    - target: {fileID: 10277990, guid: 093da61e78cf5f443ac4622909510705, type: 2}
+      propertyPath: m_Anchor
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 10228376, guid: 093da61e78cf5f443ac4622909510705, type: 2}
+      propertyPath: m_Anchor
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 10277990, guid: 093da61e78cf5f443ac4622909510705, type: 2}
+      propertyPath: m_Alignment
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 452778, guid: 093da61e78cf5f443ac4622909510705, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: .550000012
+      objectReference: {fileID: 0}
+    - target: {fileID: 447172, guid: 093da61e78cf5f443ac4622909510705, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: .550000012
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}
@@ -8227,7 +8274,7 @@ Transform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
 --- !u!114 &1939763785
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8256,6 +8303,7 @@ GameObject:
   - 222: {fileID: 1949990992}
   - 114: {fileID: 1949990991}
   - 114: {fileID: 1949990990}
+  - 114: {fileID: 1949990993}
   m_Layer: 5
   m_Name: IceSkillPanel
   m_TagString: Skill
@@ -8295,23 +8343,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 978fed17854b37c4eb9fb0b201285a5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trapPlayer: {fileID: 0}
-  fireLVL: 1
-  coolDownSkillFire: 10
-  fireDMG: 50
-  iceLVL: 1
-  coolDownSkillIce: 10
-  nowIceTime: 3
-  knockLVL: 1
-  coolDownSkillKnock: 10
-  slowLVL: 1
-  coolDownSkillSlow: 10
-  nowSlowTime: 3
-  healLVL: 1
-  coolDownSkillHeal: 10
-  healDMG: 200
-  trapLVL: 1
-  coolDownSkillTrap: 10
+  skillTextTyping: []
+  localIndexSkill: 0
 --- !u!114 &1949990991
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8339,6 +8372,23 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1949990988}
+--- !u!114 &1949990993
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1949990988}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6a04fc795f4b934ba1abd339e546837, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tmpIceTime: 0
+  iceLVL: 1
+  coolDownSkillIce: 10
+  iceTimer: 0
+  nowIceTime: 3
+  nowIce: 0
 --- !u!1 &1956987967
 GameObject:
   m_ObjectHideFlags: 0
@@ -8669,7 +8719,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 421470, guid: 093da61e78cf5f443ac4622909510705, type: 2}
       propertyPath: m_RootOrder
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 178068, guid: 093da61e78cf5f443ac4622909510705, type: 2}
       propertyPath: m_Name
@@ -8689,15 +8739,43 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 10277990, guid: 093da61e78cf5f443ac4622909510705, type: 2}
       propertyPath: m_Text
-      value: he
+      value: hew
       objectReference: {fileID: 0}
     - target: {fileID: 447172, guid: 093da61e78cf5f443ac4622909510705, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -.189999998
+      value: -.280000001
       objectReference: {fileID: 0}
     - target: {fileID: 452778, guid: 093da61e78cf5f443ac4622909510705, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -.189999998
+      value: -.280000001
+      objectReference: {fileID: 0}
+    - target: {fileID: 447172, guid: 093da61e78cf5f443ac4622909510705, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: .550000012
+      objectReference: {fileID: 0}
+    - target: {fileID: 10277990, guid: 093da61e78cf5f443ac4622909510705, type: 2}
+      propertyPath: m_Anchor
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 10277990, guid: 093da61e78cf5f443ac4622909510705, type: 2}
+      propertyPath: m_Alignment
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 10228376, guid: 093da61e78cf5f443ac4622909510705, type: 2}
+      propertyPath: m_Text
+      value: hew
+      objectReference: {fileID: 0}
+    - target: {fileID: 452778, guid: 093da61e78cf5f443ac4622909510705, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: .550000012
+      objectReference: {fileID: 0}
+    - target: {fileID: 10228376, guid: 093da61e78cf5f443ac4622909510705, type: 2}
+      propertyPath: m_Alignment
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 10228376, guid: 093da61e78cf5f443ac4622909510705, type: 2}
+      propertyPath: m_Anchor
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}
