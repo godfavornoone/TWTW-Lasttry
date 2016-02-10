@@ -56,6 +56,9 @@ public class Player : MonoBehaviour {
     public SPBarScript SPScript;
     public EXPBarScript EXPScript;
 
+    public TextMesh notification;
+    public GameObject notify;
+
 	void Awake(){
 		DontDestroyOnLoad(transform.gameObject);
 		rbd2D = GetComponent<Rigidbody2D> ();
@@ -70,7 +73,11 @@ public class Player : MonoBehaviour {
         HPScript = GameObject.Find("HPBar").GetComponent<HPBarScript>();
         SPScript = GameObject.Find("SPBar").GetComponent<SPBarScript>();
         EXPScript = GameObject.Find("EXPBar").GetComponent<EXPBarScript>();
-	}
+        notify = transform.GetChild(1).gameObject;
+        notification = notify.GetComponentInChildren<TextMesh>();
+        notify.SetActive(false);
+        
+    }
 
 	void FixedUpdate(){
 		Player_Movement ();
@@ -331,27 +338,31 @@ public class Player : MonoBehaviour {
             Debug.Log("เคสนี้");
 			lvlup = lvlup - exp;
             Debug.Log(lvlup);
-		} else if (lvlup - exp < 0) { //อันนี้คือเวลอัพแล้วมันเกิน
+            
+        } else if (lvlup - exp < 0) { //อันนี้คือเวลอัพแล้วมันเกิน
 			float tmp = exp - lvlup;
 			lvl++;
 			lvlup = baselvlup * lvl;
 			lvlup = lvlup - tmp;
-			StatusUp();
-			Debug.Log("LVLUP");
-		} else { //เวลอัพแล้วมันพอดีจ้า
+            StartCoroutine(StatusUp());
+            Debug.Log("LVLUP");
+            
+        } else { //เวลอัพแล้วมันพอดีจ้า
             Debug.Log("Level ก่อนเพิ่ม: " + lvl);
 			lvl++;
             Debug.Log("Level หลังเพิ่ม: " + lvl);
             lvlup = baselvlup * lvl;
             Debug.Log("lvl up ที่น่าจะ 200: " + lvlup);
-            StatusUp();
+            StartCoroutine(StatusUp());
 			Debug.Log("LVLUP");
 			Debug.Log(lvl);
-		}
+            
+        }
 
-	}
+    }
 	
-	void StatusUp(){
+	IEnumerator StatusUp(){
+
         float temp = MaxHP - baseHP;
         baseHP = baseHP + 100;
         MaxHP = temp + baseHP;
@@ -372,8 +383,13 @@ public class Player : MonoBehaviour {
         baseAtk = baseAtk + 50;
         BowAtk = temp3 + baseAtk;
 
+        Game_Controller.playerInThisMap.notify.SetActive(true);
+        Game_Controller.playerInThisMap.notification.text = "Level up!";
+        yield return new WaitForSeconds(3);
+        Game_Controller.playerInThisMap.notify.SetActive(false);
 
-		Debug.Log("HP = " + MaxHP + " SP = " + MaxSP);
+
+        Debug.Log("HP = " + MaxHP + " SP = " + MaxSP);
 	}
 
     public void EquipCloth(Item cloth)

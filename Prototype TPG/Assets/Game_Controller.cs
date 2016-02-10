@@ -33,6 +33,7 @@ public class Game_Controller : MonoBehaviour {
     public static Text choice1Text;
     public static Text choice2Text;
 
+
     public static Text detail;
 
     public Sprite playerFace;
