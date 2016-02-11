@@ -105,7 +105,7 @@ public class Player : MonoBehaviour {
 				anim.SetBool ("Walking", true);
 				anim.SetFloat ("SpeedX", movement_vector.x);
 				anim.SetFloat ("SpeedY", movement_vector.y);
-				rbd2D.MovePosition (rbd2D.position + movement_vector * Time.deltaTime);
+				rbd2D.MovePosition (rbd2D.position + movement_vector * speed * Time.deltaTime);
 			}else{
 				anim.SetBool ("Walking", false);
 			}
@@ -319,6 +319,7 @@ public class Player : MonoBehaviour {
         HP = MaxHP;
 		SP = baseSP;
         MaxSP = baseSP;
+		speed = baseSpeed;
         BowAtk = baseAtk;
         SwordAtk = baseAtk;
 		lvl = baselvl; //เลเวลเริ่มต้น

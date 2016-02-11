@@ -15,6 +15,10 @@ public class Camera_Follow : MonoBehaviour {
 	public Vector3 minCameraPos;
 	public Vector3 maxCameraPos;
 
+	void Awake(){
+
+	}
+
 	// Use this for initialization
 	void Start () {
 		player = GameObject.FindGameObjectWithTag ("Player");

@@ -47,7 +47,7 @@ public class Game_Controller : MonoBehaviour {
 
 	void Awake(){
 		DontDestroyOnLoad(transform.gameObject);
-		Instantiate (target, new Vector3(-7.0f,0.3f,0f),Quaternion.identity);
+//		Instantiate (target, new Vector3(-7.0f,0.3f,0f),Quaternion.identity);
 	}
 
 	void Start(){

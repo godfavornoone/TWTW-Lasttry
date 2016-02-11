@@ -6,8 +6,22 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Start Scence.unity
-  - enabled: 1
-    path: Assets/Load Game.unity
-  - enabled: 1
     path: Assets/Main Menu.unity
+  - enabled: 1
+    path: Assets/StartField.unity
+  - enabled: 1
+    path: Assets/Town.unity
+  - enabled: 1
+    path: Assets/DeadForestEntrance.unity
+  - enabled: 1
+    path: Assets/NormalForest.unity
+  - enabled: 1
+    path: Assets/FtoD.unity
+  - enabled: 1
+    path: Assets/Fortess01.unity
+  - enabled: 1
+    path: Assets/Fortess02.unity
+  - enabled: 1
+    path: Assets/D01.unity
+  - enabled: 1
+    path: Assets/D02.unity

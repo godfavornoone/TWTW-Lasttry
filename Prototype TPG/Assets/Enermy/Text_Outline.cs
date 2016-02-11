@@ -24,8 +24,9 @@ public class Text_Outline : MonoBehaviour {
 			otherMeshRenderer.material = new Material(meshRenderer.material);
 			otherMeshRenderer.castShadows = false;
 			otherMeshRenderer.receiveShadows = false;
-			otherMeshRenderer.sortingLayerID = meshRenderer.sortingLayerID;
-			otherMeshRenderer.sortingLayerName = meshRenderer.sortingLayerName;
+			otherMeshRenderer.sortingOrder = 3;
+//			otherMeshRenderer.sortingLayerID = meshRenderer.sortingLayerID;
+//			otherMeshRenderer.sortingLayerName = meshRenderer.sortingLayerName;
 		}
 	}
 	

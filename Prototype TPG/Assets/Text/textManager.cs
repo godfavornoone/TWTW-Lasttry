@@ -338,7 +338,7 @@ public class textManager : MonoBehaviour {
     //เวลาจริงไม่ได้ใช้ Start นะเออ
     void Start () {
         
-        
+		DontDestroyOnLoad (transform.gameObject);
         /*
         aData.Add(15);
         aData.Add(9);

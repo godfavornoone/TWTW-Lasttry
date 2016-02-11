@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <!--Tiled2Unity generated xml data-->
 <!--Do not modify by hand-->
-<!--Last exported: 11/2/2559 12:54:42-->
-<Tiled2Unity version="1.0.2.0">
+<!--Last exported: 11/2/2559 15:59:27-->
+<Tiled2Unity version="1.0.4.2">
   <AssignMaterial mesh="mesh_0001" material="TileA2" alphaColorKey="#ffffff" />
   <AssignMaterial mesh="mesh_0002" material="TileA4" alphaColorKey="#ffffff" />
   <AssignMaterial mesh="mesh_0003" material="TileA2" alphaColorKey="#ffffff" />

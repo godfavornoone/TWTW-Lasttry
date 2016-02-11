@@ -37,7 +37,7 @@ public class Inventory : MonoBehaviour {
 
     void Start()
     {
-
+		DontDestroyOnLoad(transform.gameObject);
 
         slotAmount = 8;
         inventoryPanel = GameObject.Find("InventoryPanel");

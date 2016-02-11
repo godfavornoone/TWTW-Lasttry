@@ -6,7 +6,7 @@ public class Layer_WordControl : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		gameObject.GetComponent<MeshRenderer> ().sortingOrder = 10;
+		gameObject.GetComponent<MeshRenderer> ().sortingOrder = 3;
 	}
 
 

@@ -20,12 +20,11 @@ public class UIManager : MonoBehaviour {
 	{
 		Debug.Log ("OnLevel work");
 
-		if (level == 1) {
-
+		if (level == 2) {
 			Debug.Log ("OnLevel work inside");
 
-			Instantiate (target, new Vector3(-3.944f,-1.014f,0f),Quaternion.identity);
-			Game_Controller.playerInThisMap = GameObject.FindGameObjectWithTag ("Player").GetComponent<Player> ();
+			Transform player = GameObject.FindGameObjectWithTag("Player").transform;
+			player.position = new Vector3(5.74f,-19.97f,0f);
 			GameObject[] enemySpawn = GameObject.FindGameObjectsWithTag("Enemy");
 			Game_Controller.enemyInThisMap.Clear ();
 			foreach(GameObject enemy in enemySpawn){
@@ -33,6 +32,14 @@ public class UIManager : MonoBehaviour {
 			}
 			foreach (GameObject enemy in enemySpawn) {
 				Debug.Log(enemy.name);
+			}
+		}else if(level == 3){
+			Transform player = GameObject.FindGameObjectWithTag("Player").transform;
+			player.position = new Vector3(6.36f,-32.1f,0f);
+			GameObject[] enemySpawn = GameObject.FindGameObjectsWithTag("Enemy");
+			Game_Controller.enemyInThisMap.Clear ();
+			foreach(GameObject enemy in enemySpawn){
+				Game_Controller.enemyInThisMap.Add(enemy.GetComponent<Enemy>());
 			}
 		}
 	}
