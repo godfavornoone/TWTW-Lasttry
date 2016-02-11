@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -330,8 +331,8 @@ public class Player : MonoBehaviour {
 		HP = HP - dmg;
 		if(HP <= 0){
 			PlayerDeath();
+			ReSceneWhenScene(Game_Controller.nowScene);
 		}
-		//		Debug.Log (HP);
 	}
 	
 	public void PlayerLVLUp(float exp){
@@ -424,4 +425,14 @@ public class Player : MonoBehaviour {
         SwordAtk = SwordAtk + currentSword.damage;
     }
 
+	void ReSceneWhenScene(string sName){
+		if((Game_Controller.playerInThisMap.lvlup + (((Game_Controller.playerInThisMap.baselvlup * Game_Controller.playerInThisMap.lvl) - Game_Controller.playerInThisMap.lvlup)/2)) >= (Game_Controller.playerInThisMap.baselvlup * Game_Controller.playerInThisMap.lvl)){
+			Game_Controller.playerInThisMap.lvlup = Game_Controller.playerInThisMap.baselvlup * Game_Controller.playerInThisMap.lvl;
+		}else{
+			Debug.Log("sad");
+			Game_Controller.playerInThisMap.lvlup += ((Game_Controller.playerInThisMap.baselvlup * Game_Controller.playerInThisMap.lvl) - Game_Controller.playerInThisMap.lvlup)/2;
+		}
+		Game_Controller.playerInThisMap.HP = (Game_Controller.playerInThisMap.MaxHP + Game_Controller.playerInThisMap.currentCloth.hitpoint + Game_Controller.playerInThisMap.currentBoot.hitpoint)/2;
+		Application.LoadLevel (sName);
+	}
 }

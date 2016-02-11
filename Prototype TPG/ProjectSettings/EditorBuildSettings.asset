@@ -18,6 +18,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/FtoD.unity
   - enabled: 1
+    path: Assets/Crypt.unity
+  - enabled: 1
     path: Assets/Fortess01.unity
   - enabled: 1
     path: Assets/Fortess02.unity
