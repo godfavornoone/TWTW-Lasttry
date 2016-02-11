@@ -58,8 +58,9 @@ public class Text_Outline : MonoBehaviour {
 			other.transform.position = worldPoint;
 			
 			MeshRenderer otherMeshRenderer = transform.GetChild(i).GetComponent<MeshRenderer>();
-			otherMeshRenderer.sortingLayerID = meshRenderer.sortingLayerID;
-			otherMeshRenderer.sortingLayerName = meshRenderer.sortingLayerName;
+			otherMeshRenderer.sortingOrder = 3;
+//			otherMeshRenderer.sortingLayerID = meshRenderer.sortingLayerID;
+//			otherMeshRenderer.sortingLayerName = meshRenderer.sortingLayerName;
 		}
 	}
 	

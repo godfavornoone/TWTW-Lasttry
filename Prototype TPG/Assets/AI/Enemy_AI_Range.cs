@@ -27,7 +27,7 @@ public class Enemy_AI_Range : MonoBehaviour {
 	void EnemyShootArrow(){
 		distanceAttack = Vector2.Distance (gameObject.transform.position, status.player.position);
 
-		if (distanceAttack < 2) {
+		if (distanceAttack < 4) {
 			CheckFace();
 			status.walk = false;
 			if(Time.time > nextAtk){
