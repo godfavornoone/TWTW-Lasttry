@@ -744,9 +744,9 @@ public class Enemy : MonoBehaviour {
 	
 	public void EnableTyping(){
 		distanceAttack = Vector2.Distance (gameObject.transform.position, player.position);
-		if (distanceAttack < 1 && Game_Controller.playerInThisMap.isSword) {
+		if (distanceAttack < 3 && Game_Controller.playerInThisMap.isSword) {
 			textTyping [1].color = Color.white;
-		} else if (distanceAttack < 3 && !Game_Controller.playerInThisMap.isSword) {
+		} else if (distanceAttack < 6 && !Game_Controller.playerInThisMap.isSword) {
 			textTyping [1].color = Color.white;
 		} else {
 			textTyping [1].color = Color.grey;
