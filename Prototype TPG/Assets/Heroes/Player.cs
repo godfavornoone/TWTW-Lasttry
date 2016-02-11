@@ -381,7 +381,7 @@ public class Player : MonoBehaviour {
         SwordAtk = temp3 + baseAtk;
 
         float temp4 = BowAtk - baseOne;
-        baseAtk = baseAtk + 50;
+        baseAtk = baseAtk + 10;
         BowAtk = temp3 + baseAtk;
 
         Game_Controller.playerInThisMap.notify.SetActive(true);

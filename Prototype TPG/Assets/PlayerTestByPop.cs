@@ -34,7 +34,7 @@ public class PlayerTestByPop : MonoBehaviour {
                 Inventory.checkCollectedItem--;
                 Item addItem = new Item(other.gameObject.GetComponent<Weapon_Status>().attack, other.gameObject.GetComponent<Weapon_Status>().image, other.gameObject.GetComponent<Weapon_Status>().type, other.gameObject.GetComponent<Weapon_Status>().title, other.gameObject.GetComponent<Weapon_Status>().option, other.gameObject.GetComponent<Weapon_Status>().optionChance, other.gameObject.GetComponent<Weapon_Status>().hitpoint);
                 Inventory.collectedItem.Add(addItem);
-                yield return new WaitForSeconds(0);
+                //yield return new WaitForSeconds(0);
                 Destroy(other.gameObject);
             }
 
