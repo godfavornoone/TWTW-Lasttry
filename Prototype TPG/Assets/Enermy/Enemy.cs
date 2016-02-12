@@ -4,6 +4,10 @@ using System.Collections.Generic;
 
 public class Enemy : MonoBehaviour {
 
+	public int set;
+
+	Vector3 positionBorn;
+
 	[HideInInspector]
 	public bool struckPlayer = false;
 
@@ -70,6 +74,7 @@ public class Enemy : MonoBehaviour {
 		realStatus (Game_Controller.gameDiff);
         calculateWord(Game_Controller.wordDiff);
 		textTyping = GetComponentsInChildren<TextMesh> ();
+		positionBorn = gameObject.transform.position;
 	}
 	
 	// Use this for initialization
@@ -343,8 +348,10 @@ public class Enemy : MonoBehaviour {
                 textManagerScript.returnText(textTyping[1].text, wordDifficult);
             }
 
+			gameObject.SetActive(false);
+			gameObject.transform.position = positionBorn;
 
-			Destroy(gameObject);
+//			Destroy(gameObject);
 
             Game_Controller.indexGlobal = 0; //Even Enemy Die The Word Will Pop Out...So If you can type...I Clear IndexGlobal Here!
 		}
@@ -784,7 +791,7 @@ public class Enemy : MonoBehaviour {
 
 	public void DistanceToBorn(){
 		float distance = Vector2.Distance (Game_Controller.playerInThisMap.transform.position, gameObject.transform.position);
-		if(distance < 5){
+		if(distance < 8){
 			gameObject.SetActive(true);
 		}
 	}
