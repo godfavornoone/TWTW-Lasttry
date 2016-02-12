@@ -2859,7 +2859,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Sprite: {fileID: 21300000, guid: 2c0b4a21d1d0382428329d8e16ad5f0e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9556029a877e55c49beff5b015112625, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2949,6 +2949,7 @@ GameObject:
   - 224: {fileID: 489393713}
   - 222: {fileID: 489393715}
   - 114: {fileID: 489393714}
+  - 114: {fileID: 489393716}
   m_Layer: 5
   m_Name: HealImage
   m_TagString: Untagged
@@ -3001,6 +3002,17 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 489393712}
+--- !u!114 &489393716
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 489393712}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40f52c332cb0ac14782a629d77ed1131, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &516290350
 GameObject:
   m_ObjectHideFlags: 0
@@ -3234,7 +3246,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Sprite: {fileID: 21300000, guid: 2c0b4a21d1d0382428329d8e16ad5f0e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 29a098c5e70d7154ea47732c23c59ac5, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3263,7 +3275,7 @@ RectTransform:
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
   m_AnchoredPosition: {x: -1.89999998, y: 3.0999999}
-  m_SizeDelta: {x: 52.2000008, y: 52.2000008}
+  m_SizeDelta: {x: 45, y: 45}
   m_Pivot: {x: .5, y: .5}
 --- !u!1 &545144406
 GameObject:
@@ -3913,6 +3925,7 @@ GameObject:
   - 224: {fileID: 648718534}
   - 222: {fileID: 648718536}
   - 114: {fileID: 648718535}
+  - 114: {fileID: 648718537}
   m_Layer: 5
   m_Name: TrapImage
   m_TagString: Untagged
@@ -3965,6 +3978,17 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 648718533}
+--- !u!114 &648718537
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 648718533}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1060fc2d1df730347836be0ab79b2697, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &656865340
 GameObject:
   m_ObjectHideFlags: 0
@@ -4742,8 +4766,8 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: -1.89999998, y: 3.0999999}
-  m_SizeDelta: {x: 52.2000008, y: 52.2000008}
+  m_AnchoredPosition: {x: 3.80275305e-05, y: 1.31130219e-06}
+  m_SizeDelta: {x: 70, y: 70}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &705736389
 MonoBehaviour:
@@ -4758,7 +4782,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Sprite: {fileID: 21300000, guid: 2c0b4a21d1d0382428329d8e16ad5f0e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ab47a017e656d1e4eb1cb36d8676c470, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -6407,6 +6431,7 @@ GameObject:
   - 224: {fileID: 1017646696}
   - 222: {fileID: 1017646698}
   - 114: {fileID: 1017646697}
+  - 114: {fileID: 1017646699}
   m_Layer: 5
   m_Name: KnockImage
   m_TagString: Untagged
@@ -6459,6 +6484,17 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1017646695}
+--- !u!114 &1017646699
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1017646695}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 661533ab996739f4a888994cc297a1a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1028175637
 GameObject:
   m_ObjectHideFlags: 0
@@ -7582,6 +7618,7 @@ GameObject:
   - 224: {fileID: 1190171375}
   - 222: {fileID: 1190171377}
   - 114: {fileID: 1190171376}
+  - 114: {fileID: 1190171378}
   m_Layer: 5
   m_Name: IceImage
   m_TagString: Untagged
@@ -7634,6 +7671,17 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1190171374}
+--- !u!114 &1190171378
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1190171374}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71172bd7677362f4d81ea2d1d76307d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &1199961792 stripped
 RectTransform:
   m_PrefabParentObject: {fileID: 22460626, guid: 79637bd7d7ce63f4b8c5da595b43d5b2,
@@ -8429,6 +8477,7 @@ GameObject:
   - 224: {fileID: 1379242359}
   - 222: {fileID: 1379242361}
   - 114: {fileID: 1379242360}
+  - 114: {fileID: 1379242362}
   m_Layer: 5
   m_Name: SlowImage
   m_TagString: Untagged
@@ -8481,6 +8530,17 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1379242358}
+--- !u!114 &1379242362
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1379242358}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5484bceac0388df4d83732bc97e52c63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1393810038
 GameObject:
   m_ObjectHideFlags: 0
@@ -9269,6 +9329,7 @@ MonoBehaviour:
   knockLVL: 1
   coolDownSkillKnock: 10
   knockTimer: 0
+  knockLong: 1
   knockMana: 100
   nowKnock: 0
 --- !u!114 &1582353052
@@ -10885,6 +10946,10 @@ Prefab:
     - target: {fileID: 11431058, guid: 931bd3d86651c674fa5bbb33b2f90d64, type: 2}
       propertyPath: baseAtk
       value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 453646, guid: 931bd3d86651c674fa5bbb33b2f90d64, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -.558000028
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 931bd3d86651c674fa5bbb33b2f90d64, type: 2}
