@@ -189,7 +189,7 @@ Rigidbody2D:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 178068}
-  m_Mass: 1000
+  m_Mass: 1e+06
   m_LinearDrag: 0
   m_AngularDrag: .0500000007
   m_GravityScale: 0
@@ -629,7 +629,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_Mass
-      value: 1000
+      value: 1e+06
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: baseAttack

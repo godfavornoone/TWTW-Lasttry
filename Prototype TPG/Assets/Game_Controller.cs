@@ -17,6 +17,7 @@ public class Game_Controller : MonoBehaviour {
 	public static bool enemyStruckPlayer = false;
 	public static List<Enemy> enemyInThisMap = new List<Enemy>();
 	public static Player playerInThisMap;
+	public static string nowScene;
 
     //for story
     public static GameObject conversation;

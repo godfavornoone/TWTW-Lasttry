@@ -99,6 +99,7 @@ GameObject:
   - 92: {fileID: 881783243}
   - 124: {fileID: 881783242}
   - 81: {fileID: 881783241}
+  - 114: {fileID: 881783246}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -168,11 +169,28 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 881783240}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: 9.89999962, y: -30.2999992, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
+--- !u!114 &881783246
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 881783240}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9797e82cf5e18f24181e89587a035160, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  smoothTimeY: .0500000007
+  smoothTimeX: .0500000007
+  player: {fileID: 0}
+  bounds: 1
+  minCameraPos: {x: 9.10000038, y: -30.7700005, z: -10}
+  maxCameraPos: {x: 54.9300003, y: -5.19999981, z: -10}
 --- !u!1001 &972521444
 Prefab:
   m_ObjectHideFlags: 0
@@ -212,6 +230,41 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 158686, guid: 4d5ec500b364f0c4d9916a0509cca642, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394704, guid: 4d5ec500b364f0c4d9916a0509cca642, type: 2}
+      propertyPath: m_SortingOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2380174, guid: 4d5ec500b364f0c4d9916a0509cca642, type: 2}
+      propertyPath: m_SortingOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2329144, guid: 4d5ec500b364f0c4d9916a0509cca642, type: 2}
+      propertyPath: m_SortingOrder
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4d5ec500b364f0c4d9916a0509cca642, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &972521445 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 136450, guid: 4d5ec500b364f0c4d9916a0509cca642, type: 2}
+  m_PrefabInternal: {fileID: 972521444}
+--- !u!68 &972521446
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 972521445}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  m_Points:
+  - {x: 15.7861919, y: -35.2084045}
+  - {x: 3.88151932, y: -35.3856812}
+  - {x: 3.89400148, y: -.120850086}
