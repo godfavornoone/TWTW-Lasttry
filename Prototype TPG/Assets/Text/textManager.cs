@@ -330,57 +330,25 @@ public class textManager : MonoBehaviour {
 
     void Awake()
     {
-        chartop1 = "a";
-        chartop2 = "b";
-        chartop3 = "c";
+        aData.Add(0.2);
+        aData.Add(0.2);
+        aData.Add(0.2);
+
+        bData.Add(0.2);
+        bData.Add(0.2);
+        bData.Add(0.2);
+
+        cData.Add(0.2);
+        cData.Add(0.2);
+        cData.Add(0.2);
+
         Analysis();
+        
     }
     //เวลาจริงไม่ได้ใช้ Start นะเออ
     void Start () {
         
 		DontDestroyOnLoad (transform.gameObject);
-        /*
-        aData.Add(15);
-        aData.Add(9);
-        aData.Add(8);
-        aData.Add(1);
-        aData.Add(3);
-
-        bData.Add(1);
-        bData.Add(2);
-        bData.Add(3);
-        bData.Add(4);
-        bData.Add(5);
-
-        cData.Add(16);
-        cData.Add(10);
-        cData.Add(12);
-        cData.Add(3);
-        cData.Add(4);
-        cData.Add(6);
-
-        dData.Add(40);
-        dData.Add(10);
-        dData.Add(12);
-        dData.Add(5);
-        dData.Add(18);
-        dData.Add(25);
-
-        eData.Add(90);
-        eData.Add(5);
-        eData.Add(65);
-
-        fData.Add(0.5);
-        fData.Add(0.6);
-        fData.Add(0.8);
-        fData.Add(5.4);
-        fData.Add(5.6);
-        fData.Add(5.6);
-        fData.Add(5.8);
-        fData.Add(5.10);
-        /*
-
-        
 
         //checkLength(vocab);       //ไว้ดูว่ามีคำศัพท์ยาวเท่าไหร่บ้าง
         //checkLength(vocabHard);
@@ -391,25 +359,12 @@ public class textManager : MonoBehaviour {
         //getVocab(vocab);
         //getVocab(vocabHard);
 
-
-        /*
-        List<int> number = new List<int>();
-        
-        for (int i = 0; i<fData.Count;i++) //ตรงนี้จะได้ออกมาละว่ามี index อะไรบ้าง
-        {
-            number.Add(i);
-            Debug.Log("Number that is added: " + i);
-        }
-
-        shuffle(number);
-
-        */
     }
 
-    void Analysis()
+    public void Analysis()
     {
         //ตรงนี้เราขอแค่ว่าในข้อมูลที่เก็บมานะ ตัวอักษร อ่ะ ขอมีแค่ 3 ตัวอักษรที่มีข้อมูลมากกว่า 3 เราจะเริ่มทำทันที เพราะมันจะได้ 3 ตัวอักษรที่อ่อนแอ 555
-        /*
+        
         computeCheck(aData);
         computeCheck(bData);
         computeCheck(cData);
@@ -436,88 +391,91 @@ public class textManager : MonoBehaviour {
         computeCheck(xData);
         computeCheck(yData);
         computeCheck(zData);
-        */
 
         //ตรงนี้มันจะ Jenk ไม่พอมันจะเทียบให้เลยด้วยว่ามีตัวอักษรอะไรบ้างที่มีปัญหา
-        //if(check>=3)
-        //{
-        /*
-        compareTop3(jenkNatBreak(aData), "a");
-        compareTop3(jenkNatBreak(bData), "b");
-        compareTop3(jenkNatBreak(cData), "c");
-        compareTop3(jenkNatBreak(dData), "d");
-        compareTop3(jenkNatBreak(eData), "e");
-        */
+        if(check>=3)
+        {
 
-        //compareTop3(jenkNatBreak(fData), "f");
-
-        /*
-        compareTop3(jenkNatBreak(gData), "g");
-        compareTop3(jenkNatBreak(hData), "h");
-        compareTop3(jenkNatBreak(iData), "i");
-        compareTop3(jenkNatBreak(jData), "j");
-        compareTop3(jenkNatBreak(kData), "k");
-        compareTop3(jenkNatBreak(lData), "l");
-        compareTop3(jenkNatBreak(mData), "m");
-        compareTop3(jenkNatBreak(nData), "n");
-        compareTop3(jenkNatBreak(oData), "o");
-        compareTop3(jenkNatBreak(pData), "p");
-        compareTop3(jenkNatBreak(qData), "q");
-        compareTop3(jenkNatBreak(rData), "r");
-        compareTop3(jenkNatBreak(sData), "s");
-        compareTop3(jenkNatBreak(tData), "t");
-        compareTop3(jenkNatBreak(uData), "u");
-        compareTop3(jenkNatBreak(vData), "v");
-        compareTop3(jenkNatBreak(wData), "w");
-        compareTop3(jenkNatBreak(xData), "x");
-        compareTop3(jenkNatBreak(yData), "y");
-        compareTop3(jenkNatBreak(zData), "z");
-       */
+            Debug.Log("Begin get the new Vocab!!!");
         
-        Debug.Log("Top1 mean is: " + top1);
-        Debug.Log("Top2 mean is: " + top2);
-        Debug.Log("Top3 mean is: " + top3);
+            compareTop3(jenkNatBreak(aData), "a");
+            compareTop3(jenkNatBreak(bData), "b");
+            compareTop3(jenkNatBreak(cData), "c");
+            compareTop3(jenkNatBreak(dData), "d");
+            compareTop3(jenkNatBreak(eData), "e");
+            compareTop3(jenkNatBreak(fData), "f");
+            compareTop3(jenkNatBreak(gData), "g");
+            compareTop3(jenkNatBreak(hData), "h");
+            compareTop3(jenkNatBreak(iData), "i");
+            compareTop3(jenkNatBreak(jData), "j");
+            compareTop3(jenkNatBreak(kData), "k");
+            compareTop3(jenkNatBreak(lData), "l");
+            compareTop3(jenkNatBreak(mData), "m");
+            compareTop3(jenkNatBreak(nData), "n");
+            compareTop3(jenkNatBreak(oData), "o");
+            compareTop3(jenkNatBreak(pData), "p");
+            compareTop3(jenkNatBreak(qData), "q");
+            compareTop3(jenkNatBreak(rData), "r");
+            compareTop3(jenkNatBreak(sData), "s");
+            compareTop3(jenkNatBreak(tData), "t");
+            compareTop3(jenkNatBreak(uData), "u");
+            compareTop3(jenkNatBreak(vData), "v");
+            compareTop3(jenkNatBreak(wData), "w");
+            compareTop3(jenkNatBreak(xData), "x");
+            compareTop3(jenkNatBreak(yData), "y");
+            compareTop3(jenkNatBreak(zData), "z");
+        
+            Debug.Log("Top1 mean is: " + top1);
+            Debug.Log("Top2 mean is: " + top2);
+            Debug.Log("Top3 mean is: " + top3);
 
-        Debug.Log("Char1 mean is: " + chartop1);
-        Debug.Log("Char2 mean is: " + chartop2);
-        Debug.Log("Char3 mean is: " + chartop3);
+            Debug.Log("Char1 mean is: " + chartop1);
+            Debug.Log("Char2 mean is: " + chartop2);
+            Debug.Log("Char3 mean is: " + chartop3);
 
-        ingameVocabEasy.Clear();
-        ingameVocabHard.Clear();
-        checkVocabEasy.Clear();
-        checkVocabHard.Clear();
+            Debug.Log("Before Count Easy Vocab: " + ingameVocabEasy.Count);
+            Debug.Log("Before Count Hard Vocab: " + ingameVocabHard.Count);
 
-        //เลือกคำศัพท์ที่ตรงกับจุดอ่อนนะจ้ะ แยกออกเป็น Easy และ Hard นะจ้ะ
-        getVocab(vocab, ingameVocabEasy, checkVocabEasy);
-        getVocab(vocabHard, ingameVocabHard, checkVocabHard);
+            ingameVocabEasy.Clear();
+            ingameVocabHard.Clear();
+            checkVocabEasy.Clear();
+            checkVocabHard.Clear();
 
-        //ใช้ค่า Mean เยอะสุดของตัวอักษร ในการหาว่า WPM เค้าเท่าไหร่ มันจะเป็นอะไรที่ช้าที่สุดสำหรับเค้า
-        CPM = Math.Round(60.0 / top1);
-        WPM = (int)Math.Round(CPM / 5);
-        Debug.Log("CPM is: " + CPM);
-        Debug.Log("WPM is: " + WPM);
+            //เลือกคำศัพท์ที่ตรงกับจุดอ่อนนะจ้ะ แยกออกเป็น Easy และ Hard นะจ้ะ
+            getVocab(vocab, ingameVocabEasy, checkVocabEasy);
+            getVocab(vocabHard, ingameVocabHard, checkVocabHard);
 
-        //แถวๆนี้ต้องมีกระบวนการเซฟ เก็บไว้ในนี้ แล้วจะมี Method คำนวณทุกอย่างตอนผู้เล่นนออกเกมจ้า...แล้วเก็บข้อมูลชุดนั้นไว้ใน Player เลย
-        //ต้องการ WPM กับ ตัวอักษรสุดกาก
-        WPMcollection.Add(WPM);
-        Weaknesscollection.Add(chartop1);
-        Weaknesscollection.Add(chartop2);
-        Weaknesscollection.Add(chartop3);
+            Debug.Log("Get the new Vocab!!!");
+            Debug.Log("New Count Easy Vocab: " + ingameVocabEasy.Count);
+            Debug.Log("New Count Hard Vocab: " + ingameVocabHard.Count);
 
-        //กระบวนการล้าง กลับไปสู่จุดเริ่มต้น
-        /*
-        top1 = 0;
-        top2 = 0;
-        top3 = 0;
+            //ใช้ค่า Mean เยอะสุดของตัวอักษร ในการหาว่า WPM เค้าเท่าไหร่ มันจะเป็นอะไรที่ช้าที่สุดสำหรับเค้า
+            CPM = Math.Round(60.0 / top1);
+            WPM = (int)Math.Round(CPM / 5);
+            Debug.Log("CPM is: " + CPM);
+            Debug.Log("WPM is: " + WPM);
 
-        chartop1 = "";
-        chartop2 = "";
-        chartop3 = "";
+            //แถวๆนี้ต้องมีกระบวนการเซฟ เก็บไว้ในนี้ แล้วจะมี Method คำนวณทุกอย่างตอนผู้เล่นนออกเกมจ้า...แล้วเก็บข้อมูลชุดนั้นไว้ใน Player เลย
+            //ต้องการ WPM กับ ตัวอักษรสุดกาก
+            WPMcollection.Add(WPM);
+            Weaknesscollection.Add(chartop1);
+            Weaknesscollection.Add(chartop2);
+            Weaknesscollection.Add(chartop3);
 
-        CPM = 0;
-        WPM = 0;
+           
 
-        check = 0;
+            top1 = 0;
+            top2 = 0;
+            top3 = 0;
+
+            chartop1 = "";
+            chartop2 = "";
+            chartop3 = "";
+
+            CPM = 0;
+            WPM = 0;
+
+            check = 0;
 
         aData.Clear();
         bData.Clear();
@@ -545,31 +503,28 @@ public class textManager : MonoBehaviour {
         xData.Clear();
         yData.Clear();
         zData.Clear();
-
-        */
-
-
-        //} //เราจะไม่เซฟ WPM, CPM ที่ได้หรอ หรือไว้ใส่ตอนสุดท้ายไปเลยน่าจะดีกว่ามั้ง...แต่ตอนด่านแรก มันต้องนั่นอ่ะนะ มันต้องใช้ทันที 5555555555 มันจะต้องมีกระบวนการเซฟ ไว้คำนวณตอนสุดท้ายอยู่ดีอ่ะ
-
-        /*
-        else //มีอะไรบ้าง?? คลังคำศัพท์ต้องคงอยู่ ไม่ถูกเอามาแทน...แค่นั้นป่ะวะ...ล้างข้อมูลน่าจะดี
-        {
-
-            top1 = 0;
-            top2 = 0;
-            top3 = 0;
-
-            chartop1 = "";
-            chartop2 = "";
-            chartop3 = "";
-
-            CPM = 0;
-            WPM = 0;
-
-            check = 0;
-
+        
         }
-        */
+        else
+        {
+            Debug.Log("No Analysis na ja !!!");
+            Debug.Log("Count of vocab Easy: " + ingameVocabEasy.Count);
+            Debug.Log("Count of vocab Hard: " + ingameVocabHard.Count);
+            clearAllVocab();
+        } 
+        
+    }
+
+    public void clearAllVocab() //Clear all check word
+    {
+        for(int i = 0;i<checkVocabEasy.Count;i++)
+        {
+            checkVocabEasy[i] = false;
+        }
+        for(int i = 0;i<checkVocabHard.Count;i++)
+        {
+            checkVocabHard[i] = false;
+        }
     }
 
     public void getVocab(TextAsset vocab, List<string> ingameVocab, List<bool> checkVocab)
@@ -848,11 +803,11 @@ public class textManager : MonoBehaviour {
                     mean1 = result1 / count;
                     count = 0;
                     ii = 0;
-                    Debug.Log("mean1 is: " + mean1 + " for the I value: " + i + " and J value: " + j); //ค่า Mean ถูกแล้วนะจ้ะ
+                    //Debug.Log("mean1 is: " + mean1 + " for the I value: " + i + " and J value: " + j); //ค่า Mean ถูกแล้วนะจ้ะ
 
                     while (ii <= i) //เริ่มหา SDCAM
                     {
-                        Debug.Log("Pow: " + Math.Pow(data[ii] - mean1, 2) + " for the I value: " + i + " and J value: " + j + " value of ii: " + ii);
+                        //Debug.Log("Pow: " + Math.Pow(data[ii] - mean1, 2) + " for the I value: " + i + " and J value: " + j + " value of ii: " + ii);
                         total = total + Math.Pow(data[ii] - mean1, 2);
                         ii++;
                     }
@@ -867,11 +822,11 @@ public class textManager : MonoBehaviour {
                     mean2 = result2 / count;
                     count = 0;
                     jj = i + 1;
-                    Debug.Log("mean2 is: " + mean2 + " for the I value: " + i + " and J value: " + j);
+                    //Debug.Log("mean2 is: " + mean2 + " for the I value: " + i + " and J value: " + j);
 
                     while (jj <= j) //เริ่มหา SDCAM
                     {
-                        Debug.Log("Pow: " + Math.Pow(data[jj] - mean2, 2) + " for the I value: " + i + " and J value: " + j + " value of jj: " + jj);
+                        //Debug.Log("Pow: " + Math.Pow(data[jj] - mean2, 2) + " for the I value: " + i + " and J value: " + j + " value of jj: " + jj);
                         total = total + Math.Pow(data[jj] - mean2, 2);
                         jj++;
                     }
@@ -886,16 +841,16 @@ public class textManager : MonoBehaviour {
                     mean3 = result3 / count;
                     count = 0;
                     kk = j + 1;
-                    Debug.Log("mean3 is: " + mean3 + " for the I value: " + i + " and J value: " + j);
+                    //Debug.Log("mean3 is: " + mean3 + " for the I value: " + i + " and J value: " + j);
 
                     while (kk <= data.Count - 1) //เริ่มหา SDCAM
                     {
-                        Debug.Log("Pow: " + Math.Pow(data[kk] - mean3, 2) + " for the I value: " + i + " and J value: " + j + " value of kk: " + kk);
+                        //Debug.Log("Pow: " + Math.Pow(data[kk] - mean3, 2) + " for the I value: " + i + " and J value: " + j + " value of kk: " + kk);
                         total = total + Math.Pow(data[kk] - mean3, 2);
                         kk++;
                     }
 
-                    Debug.Log("Total is: " + total + " for the I value: " + i + " and J value: " + j);
+                    //Debug.Log("Total is: " + total + " for the I value: " + i + " and J value: " + j);
 
                     if (total < compare)
                     {
@@ -904,7 +859,7 @@ public class textManager : MonoBehaviour {
                         sep2 = j;
                     }
 
-                    Debug.Log("//////////End of this possibility////////" + i + j);
+                    //Debug.Log("//////////End of this possibility////////" + i + j);
 
 
                     result1 = 0;
@@ -916,9 +871,9 @@ public class textManager : MonoBehaviour {
                 }
             }
 
-            Debug.Log(compare);
-            Debug.Log("Sep1 is at: " + sep1);
-            Debug.Log("Sep2 is at: " + sep2);
+            //Debug.Log(compare);
+            //Debug.Log("Sep1 is at: " + sep1);
+            //Debug.Log("Sep2 is at: " + sep2);
 
             double yaha = 0;
             int count2 = 0;
@@ -932,8 +887,8 @@ public class textManager : MonoBehaviour {
                 count2++;
             }
 
-            Debug.Log("Remove the third cluster the result is: " + yaha);
-            Debug.Log("Mean is: " + (yaha / count2));
+            //Debug.Log("Remove the third cluster the result is: " + yaha);
+            //Debug.Log("Mean is: " + (yaha / count2));
 
             return yaha / count2;
 

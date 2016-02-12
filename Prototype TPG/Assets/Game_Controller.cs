@@ -50,12 +50,19 @@ public class Game_Controller : MonoBehaviour {
     public static int gameDiff=2;
     public static int wordDiff = 0;
 
+    public static GameObject LoadScene;
+    public static bool checkInLoadText;
+    public static LoadText loadSceneScript;
+
 	void Awake(){
 		DontDestroyOnLoad(transform.gameObject);
 //		Instantiate (target, new Vector3(-7.0f,0.3f,0f),Quaternion.identity);
 	}
 
 	void Start(){
+        LoadScene = GameObject.Find("LoadScene");
+        loadSceneScript = LoadScene.transform.GetChild(0).GetComponent<Text>().GetComponent<LoadText>();
+        //checkInLoadText = LoadScene.transform.GetChild(0).GetComponent<Text>().GetComponent<LoadText>().check;
         SkillToolTip = GameObject.Find("SkillToolTip");
         SkillPanel = GameObject.Find("SkillPanel");
         detail = GameObject.Find("Detail").GetComponent<Text>();
@@ -84,6 +91,7 @@ public class Game_Controller : MonoBehaviour {
         conversation.SetActive(false);
         SkillPanel.SetActive(false);
         SkillToolTip.SetActive(false);
+        LoadScene.SetActive(false);
 
 		playerInThisMap = GameObject.FindGameObjectWithTag ("Player").GetComponent<Player> ();
 		GameObject[] enemySpawn = GameObject.FindGameObjectsWithTag("Enemy");

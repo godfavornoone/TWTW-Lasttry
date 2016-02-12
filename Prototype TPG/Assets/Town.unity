@@ -307,6 +307,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneName: FtoD
+  textManagerScript: {fileID: 0}
+  player: {fileID: 0}
 --- !u!60 &539328147
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -505,6 +507,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneName: DeadForestEntrance
+  textManagerScript: {fileID: 0}
+  player: {fileID: 0}
 --- !u!60 &1307211909
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -667,6 +671,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneName: NormalForest
+  textManagerScript: {fileID: 0}
+  player: {fileID: 0}
 --- !u!1001 &1932935772
 Prefab:
   m_ObjectHideFlags: 0

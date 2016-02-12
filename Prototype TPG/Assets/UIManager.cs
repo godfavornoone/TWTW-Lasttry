@@ -6,11 +6,13 @@ public class UIManager : MonoBehaviour {
 	public GameObject target;
 	public Transform startPosition;
 
-	string sName;
+
+    string sName;
 
 	void Awake(){
 		DontDestroyOnLoad(transform.gameObject);
-	}
+
+    }
 
 	public void switchScene(string sceneName){
 		Application.LoadLevel(sceneName);
@@ -19,8 +21,14 @@ public class UIManager : MonoBehaviour {
 	void OnLevelWasLoaded(int level)
 	{
 		Debug.Log ("OnLevel work");
-		if(level == 1){
-			Transform player = GameObject.FindGameObjectWithTag("Player").transform;
+
+        Game_Controller.LoadScene.SetActive(false);
+
+        if (level == 1){
+
+
+            Transform player = GameObject.FindGameObjectWithTag("Player").transform;
+            
 			player.position = new Vector3(5.74f,-19.97f,0f);
 			GameObject[] enemySpawn = GameObject.FindGameObjectsWithTag("Enemy");
 			Game_Controller.enemyInThisMap.Clear ();
