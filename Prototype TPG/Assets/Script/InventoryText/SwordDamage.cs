@@ -15,6 +15,6 @@ public class SwordDamage : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        a.text = "S.Damage: " + (Game_Controller.playerInThisMap.baseAtk + Game_Controller.playerInThisMap.currentSword.damage);
+        a.text = "S.Damage: " + Game_Controller.playerInThisMap.SwordAtk;
     }
 }

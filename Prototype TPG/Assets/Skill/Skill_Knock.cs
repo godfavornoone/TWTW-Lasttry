@@ -10,7 +10,8 @@ public class Skill_Knock : MonoBehaviour {
 	[HideInInspector]
 	public float knockTimer;
 	private float knockSpeed = 50f;
-	private float knockLong = 1f;
+	public float knockLong = 1f;
+    public float knockMana = 100;
 	[HideInInspector]
 	public bool nowKnock = false;
 
@@ -33,8 +34,14 @@ public class Skill_Knock : MonoBehaviour {
 	}
 
 	public void EnableUseKnock(){
-		if(knockTimer >= coolDownSkillKnock){
-			if(Game_Controller.playerInThisMap.SP >= 100f){
+
+        if (Game_Controller.playerInThisMap.SP < knockMana)
+        {
+            skill.skillTextTyping[0].color = Color.grey;
+        }
+
+        if (knockTimer >= coolDownSkillKnock){
+			if(Game_Controller.playerInThisMap.SP >= knockMana){
 				if(skill.skillTextTyping[0].text.Equals("knock")){
 					skill.skillTextTyping[0].color = Color.white;
 					skill.UseSkill();
@@ -80,14 +87,18 @@ public class Skill_Knock : MonoBehaviour {
 					}
 				}
 			}
-		}
+            Debug.Log("knock Mana Cost is: " + knockMana);
+            Game_Controller.playerInThisMap.SPReduce(knockMana);
+        }
 		nowKnock = false;
-	}
+        
+    }
 
 	public void KnockSkillUp(){
 		if(Game_Controller.playerInThisMap.skillPoint != 0){
 			knockLVL++;
-			coolDownSkillKnock -= 1f;
+			coolDownSkillKnock -= 0.5f;
+            knockMana += 20;
 			Game_Controller.playerInThisMap.skillPoint--;
 		}
 	}

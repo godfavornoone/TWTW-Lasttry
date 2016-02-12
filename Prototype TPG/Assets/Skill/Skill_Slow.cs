@@ -12,6 +12,7 @@ public class Skill_Slow : MonoBehaviour {
 	[HideInInspector]
 	public float slowTimer;
 	public float nowSlowTime = 3f;
+    public float slowMana = 100;
 	[HideInInspector]
 	public bool nowSlow = false;
 
@@ -34,8 +35,14 @@ public class Skill_Slow : MonoBehaviour {
 	}
 
 	public void EnableUseSlow(){
+
+        if(Game_Controller.playerInThisMap.SP < slowMana)
+        {
+            skill.skillTextTyping[0].color = Color.grey;
+        }
+
 		if(slowTimer >= coolDownSkillSlow){
-			if(Game_Controller.playerInThisMap.SP >= 100f){
+			if(Game_Controller.playerInThisMap.SP >= slowMana){
 				if(skill.skillTextTyping[0].text.Equals("slow")){
 					skill.skillTextTyping[0].color = Color.white;
 					skill.UseSkill();
@@ -57,13 +64,16 @@ public class Skill_Slow : MonoBehaviour {
 					enemy.runSpeed = enemy.baseRunSpeed * 0.6f;
 				}
 			}
+
 			tmpSlowTime += Time.deltaTime;
 			if(tmpSlowTime >= timer){
 				foreach(Enemy enemy in Game_Controller.enemyInThisMap){
 					enemy.runSpeed = enemy.baseRunSpeed;
 				}
 				nowSlow = false;
-			}
+                Game_Controller.playerInThisMap.SPReduce(slowMana); //Skill now reduce mana here...It should be up there
+            }
+            
 		}
 	}
 
@@ -71,6 +81,7 @@ public class Skill_Slow : MonoBehaviour {
 		if(Game_Controller.playerInThisMap.skillPoint != 0){
 			slowLVL++;
 			nowSlowTime += 0.5f;
+            slowMana += 20;
 			Game_Controller.playerInThisMap.skillPoint--;
 		}
 	}

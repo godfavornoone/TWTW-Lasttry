@@ -10,7 +10,8 @@ public class Skill_Trap : MonoBehaviour {
 	public float coolDownSkillTrap = 10f;
 	[HideInInspector]
 	public float trapTimer;
-	[HideInInspector]
+    public float trapMana = 100;
+    [HideInInspector]
 	public bool nowTrap = false;
 
 	void Awake(){
@@ -31,14 +32,21 @@ public class Skill_Trap : MonoBehaviour {
 	}
 	
 	public void EnableUseTrap(){
-		if (trapTimer >= coolDownSkillTrap) {
-			if (Game_Controller.playerInThisMap.SP >= 100f) {
+
+        if(Game_Controller.playerInThisMap.SP < trapMana)
+        {
+            skill.skillTextTyping[0].color = Color.grey;
+        }
+
+        if (trapTimer >= coolDownSkillTrap) {
+			if (Game_Controller.playerInThisMap.SP >= trapMana) {
 				if(skill.skillTextTyping[0].text.Equals("trap")){
 					skill.skillTextTyping [0].color = Color.white;
-					skill.UseSkill ();
+					skill.UseSkill (); //มันมี Reset Cooldown ตรงนี้ด้วยเฮ้ย -_____- คือ trapTimer = 0 ณ ตรงนี้อ่ะ..
 				}
 			}
-		} else {
+            
+		} else { //นี่คือตอนมันใช้ สกิล อ่ะ
 			if(skill.skillTextTyping[0].text.Equals("trap")){
 				skill.skillTextTyping[0].color = Color.grey;
 			}
@@ -47,17 +55,19 @@ public class Skill_Trap : MonoBehaviour {
 		}
 	}
 
-	void TrapEnemy(){
+    void TrapEnemy(){
 		if(nowTrap){
 			Instantiate(trapPlayer, Game_Controller.playerInThisMap.transform.position, Quaternion.identity);
-		}
+            Game_Controller.playerInThisMap.SPReduce(trapMana);
+        }
 		nowTrap = false;
 	}
 
-	void TrapSkillUp(){
+	public void TrapSkillUp(){
 		if(Game_Controller.playerInThisMap.skillPoint != 0){
 			trapLVL++;
 			Skill_Controller.trapDmg += 20f;
+            trapMana += 10;
 			Game_Controller.playerInThisMap.skillPoint--;
 		}
 	}

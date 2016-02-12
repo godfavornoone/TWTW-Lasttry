@@ -334,6 +334,24 @@ public class Player : MonoBehaviour {
 			ReSceneWhenScene(Game_Controller.nowScene);
 		}
 	}
+
+    public void SPReduce(float reduceSP)
+    {
+        SP = SP - reduceSP;
+        Debug.Log("SP Left is: " + SP);
+    }
+
+    public void SPIncrease(float increaseSP)
+    {
+        if(SP+increaseSP > MaxSP)
+        {
+            SP = MaxSP;
+        }
+        else
+        {
+            SP += increaseSP;
+        }
+    }
 	
 	public void PlayerLVLUp(float exp){
 		if (lvlup - exp > 0) {

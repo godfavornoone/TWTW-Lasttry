@@ -12,6 +12,7 @@ public class Skill_Ice : MonoBehaviour {
 	[HideInInspector]
 	public float iceTimer;
 	public float nowIceTime = 3f;
+    public float iceMana = 100;
 	[HideInInspector]
 	public bool nowIce = false;
 	private float tmpspd;
@@ -35,8 +36,14 @@ public class Skill_Ice : MonoBehaviour {
 	}
 
 	public void EnableUseIce(){
-		if(iceTimer >= coolDownSkillIce){
-			if(Game_Controller.playerInThisMap.SP >= 100f){
+
+        if (Game_Controller.playerInThisMap.SP < iceMana)
+        {
+            skill.skillTextTyping[0].color = Color.grey;
+        }
+
+        if (iceTimer >= coolDownSkillIce){
+			if(Game_Controller.playerInThisMap.SP >= iceMana){
 				if(skill.skillTextTyping[0].text.Equals("ice")){
 					skill.skillTextTyping[0].color = Color.white;
 					skill.UseSkill();
@@ -60,15 +67,19 @@ public class Skill_Ice : MonoBehaviour {
 					enemy.runSpeed = 0;
 				}
 			}
-			tmpIceTime += Time.deltaTime;
-			if(tmpIceTime >= timer){
+
+            if (tmpIceTime >= timer){
 				foreach(Enemy enemy in Game_Controller.enemyInThisMap){
 					if(enemy.gameObject.activeInHierarchy && enemy.gameObject.activeSelf){
 						enemy.runSpeed = enemy.baseRunSpeed;
 					}
 				}
-				nowIce = false;
-			}
+                
+                nowIce = false;
+                Game_Controller.playerInThisMap.SPReduce(iceMana); //Skill now reduce mana here...It should be up there
+
+            }
+            
 		}
 	}
 
@@ -76,6 +87,7 @@ public class Skill_Ice : MonoBehaviour {
 		if(Game_Controller.playerInThisMap.skillPoint != 0){
 			iceLVL++;
 			nowIceTime += 0.5f;
+            iceMana += 20;
 			Game_Controller.playerInThisMap.skillPoint--;
 		}
 	}

@@ -223,7 +223,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseHP: 300
   baseSP: 200
-  baseAtk: 50
+  baseAtk: 80
   baseRange: 0
   baseSpeed: 5
   baselvlup: 100
@@ -331,7 +331,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: baseAtk
-      value: 50
+      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: baseSP

@@ -34,6 +34,10 @@ public class Game_Controller : MonoBehaviour {
     public static Text choice1Text;
     public static Text choice2Text;
 
+    //for SkillPanel
+    public static GameObject SkillPanel;
+    public static GameObject SkillToolTip;
+
 
     public static Text detail;
 
@@ -52,6 +56,8 @@ public class Game_Controller : MonoBehaviour {
 	}
 
 	void Start(){
+        SkillToolTip = GameObject.Find("SkillToolTip");
+        SkillPanel = GameObject.Find("SkillPanel");
         detail = GameObject.Find("Detail").GetComponent<Text>();
         conversation = GameObject.Find("Conversation");
         blackScene = GameObject.Find("BlackScene");
@@ -76,6 +82,8 @@ public class Game_Controller : MonoBehaviour {
         choice1.SetActive(false);
         choice2.SetActive(false);
         conversation.SetActive(false);
+        SkillPanel.SetActive(false);
+        SkillToolTip.SetActive(false);
 
 		playerInThisMap = GameObject.FindGameObjectWithTag ("Player").GetComponent<Player> ();
 		GameObject[] enemySpawn = GameObject.FindGameObjectsWithTag("Enemy");
@@ -94,5 +102,17 @@ public class Game_Controller : MonoBehaviour {
 			enemy.DistanceToBorn();	
 		}
 	}
+
+    public void SkillOpen()
+    {
+        blackScene.SetActive(true);
+        SkillPanel.SetActive(true);
+    }
+
+    public void SkillClose()
+    {
+        blackScene.SetActive(false);
+        SkillPanel.SetActive(false);
+    }
 
 }

@@ -15,6 +15,6 @@ public class BowDamage : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        a.text = "B.Damage: " + (Game_Controller.playerInThisMap.baseAtk + Game_Controller.playerInThisMap.currentBow.damage);
+        a.text = "B.Damage: " + Game_Controller.playerInThisMap.BowAtk;
     }
 }

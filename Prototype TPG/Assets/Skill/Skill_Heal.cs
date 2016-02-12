@@ -10,6 +10,7 @@ public class Skill_Heal : MonoBehaviour {
 	[HideInInspector]
 	public float healTimer;
 	public float healDMG = 200f;
+    public float healMana = 100;
 	[HideInInspector]
 	public bool nowHeal = false;
 
@@ -32,8 +33,14 @@ public class Skill_Heal : MonoBehaviour {
 	}
 
 	public void EnableUseHeal(){
-		if(healTimer >= coolDownSkillHeal){
-			if(Game_Controller.playerInThisMap.SP >= 100f){
+
+        if (Game_Controller.playerInThisMap.SP < healMana)
+        {
+            skill.skillTextTyping[0].color = Color.grey;
+        }
+
+        if (healTimer >= coolDownSkillHeal){
+			if(Game_Controller.playerInThisMap.SP >= healMana){
 				if(skill.skillTextTyping[0].text.Equals("heal")){
 					skill.skillTextTyping[0].color = Color.white;
 					skill.UseSkill();
@@ -50,7 +57,16 @@ public class Skill_Heal : MonoBehaviour {
 	
 	void HealPlayer(float heal){
 		if(nowHeal){
-			Game_Controller.playerInThisMap.HP += heal;
+            if(Game_Controller.playerInThisMap.HP+heal > Game_Controller.playerInThisMap.MaxHP)
+            {
+                Game_Controller.playerInThisMap.HP = Game_Controller.playerInThisMap.MaxHP;
+            }
+            else
+            {
+                Game_Controller.playerInThisMap.HP += heal;
+            }
+
+            Game_Controller.playerInThisMap.SPReduce(healMana);
 		}
 		nowHeal = false;
 	}
@@ -59,6 +75,7 @@ public class Skill_Heal : MonoBehaviour {
 		if(Game_Controller.playerInThisMap.skillPoint != 0){
 			healLVL++;
 			healDMG += 50f;
+            healMana += 20;
 			Game_Controller.playerInThisMap.skillPoint--;
 		}
 	}

@@ -319,6 +319,7 @@ public class Enemy : MonoBehaviour {
         hitPoint = hitPoint - dmg;
 		if(hitPoint <= 0){
 			Game_Controller.playerInThisMap.PlayerLVLUp(EXP);
+            
 			Debug.Log ("recieve = " + EXP);
             //การ Drop ไอเทมละ
             int dropchance = Random.Range(0, 100);
@@ -333,7 +334,19 @@ public class Enemy : MonoBehaviour {
             }
 			Game_Controller.enemyInThisMap.Remove(gameObject.GetComponent<Enemy>());
 			Game_Controller.enemyStruckPlayer = false;
+
+            //Because even enemy die, they still ask for Text, so we have to return it!
+
+            if(!optionWord)
+            {
+                Debug.Log("return Text complete" + " text is: " + textTyping[1].text);
+                textManagerScript.returnText(textTyping[1].text, wordDifficult);
+            }
+
+
 			Destroy(gameObject);
+
+            Game_Controller.indexGlobal = 0; //Even Enemy Die The Word Will Pop Out...So If you can type...I Clear IndexGlobal Here!
 		}
         
         
@@ -391,9 +404,14 @@ public class Enemy : MonoBehaviour {
 	//This method for change word when enemy taked dmg
 	public void WordInstantiate(){
 		if (Game_Controller.indexGlobal == indexLocal) {
-			if (textTyping [1].text.Equals (textTyping [0].text)) {
+			if (textTyping [1].text.Equals (textTyping [0].text))
 
-                if(optionWord) //start here if it false go ELSE
+            {
+                
+
+                Game_Controller.playerInThisMap.SPIncrease(10 * Game_Controller.playerInThisMap.lvl);
+
+                if (optionWord) //start here if it false go ELSE
                 {
                     Debug.Log("no return text");
                     optionWord = false;
@@ -729,7 +747,10 @@ public class Enemy : MonoBehaviour {
 
 				indexLocal = 0;
 				Game_Controller.indexGlobal = 0;
+
 			}
+
+
 		} else {
 			takedDMG = false;
 		}
