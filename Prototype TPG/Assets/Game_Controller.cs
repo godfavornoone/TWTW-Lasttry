@@ -107,7 +107,9 @@ public class Game_Controller : MonoBehaviour {
 	
 	void Update(){
 		foreach(Enemy enemy in enemyInThisMap){
-			enemy.DistanceToBorn();	
+			if(enemy.set == 0){
+				enemy.DistanceToBorn();	
+			}
 		}
 	}
 

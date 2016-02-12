@@ -52,7 +52,7 @@ GameObject:
   m_Layer: 0
   m_Name: Vampire
   m_TagString: Enemy
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: -1412012063857583412, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -442,6 +442,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8305e6d6f94b654488db9ef98ec1fdec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  set: 0
   struckPlayer: 0
   player: {fileID: 0}
   setStroke: {fileID: 0}
@@ -449,7 +450,7 @@ MonoBehaviour:
   distanceBetweenEVP: {x: 0, y: 0, z: 0}
   baseHP: 100
   baseAttack: 20
-  baseRunSpeed: .400000006
+  baseRunSpeed: 1.5
   baseEXP: 25
   baseDropRate: 100
   baseAspd: 2
@@ -526,7 +527,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 3
 --- !u!224 &22477824
 RectTransform:
   m_ObjectHideFlags: 1
@@ -600,6 +601,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_SortingOrder
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: baseRunSpeed
+      value: 1.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

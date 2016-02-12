@@ -389,6 +389,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8305e6d6f94b654488db9ef98ec1fdec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  set: 0
   struckPlayer: 0
   player: {fileID: 0}
   setStroke: {fileID: 0}
@@ -396,7 +397,7 @@ MonoBehaviour:
   distanceBetweenEVP: {x: 0, y: 0, z: 0}
   baseHP: 100
   baseAttack: 20
-  baseRunSpeed: .400000006
+  baseRunSpeed: 2
   baseEXP: 25
   baseDropRate: 100
   baseAspd: 2
@@ -577,7 +578,7 @@ Prefab:
       objectReference: {fileID: 176964, guid: 931bd3d86651c674fa5bbb33b2f90d64, type: 2}
     - target: {fileID: 0}
       propertyPath: baseRunSpeed
-      value: .400000006
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: spd

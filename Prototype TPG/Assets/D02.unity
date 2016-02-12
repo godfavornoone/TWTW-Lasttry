@@ -138,6 +138,10 @@ Prefab:
       propertyPath: InitialOpacity
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 169566, guid: 8e17b414ceec6974e8cdd9b603e82a05, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8e17b414ceec6974e8cdd9b603e82a05, type: 2}
   m_IsPrefabParent: 0

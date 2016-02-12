@@ -22,18 +22,23 @@ public class UIManager : MonoBehaviour {
 	{
 		Debug.Log ("OnLevel work");
 
+
         Game_Controller.LoadScene.SetActive(false);
 
         if (level == 1){
 
 
             Transform player = GameObject.FindGameObjectWithTag("Player").transform;
-            
-			player.position = new Vector3(5.74f,-19.97f,0f);
+
+            player.position = new Vector3(32.4f, -19.6f, 0f);
+
 			GameObject[] enemySpawn = GameObject.FindGameObjectsWithTag("Enemy");
 			Game_Controller.enemyInThisMap.Clear ();
 			foreach(GameObject enemy in enemySpawn){
 				Game_Controller.enemyInThisMap.Add(enemy.GetComponent<Enemy>());
+			}
+			foreach(GameObject enemy in enemySpawn){
+				enemy.SetActive(false);
 			}
 			Game_Controller.nowScene = "StartField";
 		}else if (level == 2) {
@@ -44,6 +49,9 @@ public class UIManager : MonoBehaviour {
 			foreach(GameObject enemy in enemySpawn){
 				Game_Controller.enemyInThisMap.Add(enemy.GetComponent<Enemy>());
 			}
+			foreach(GameObject enemy in enemySpawn){
+				enemy.SetActive(false);
+			}
 			Game_Controller.nowScene = "Town";
 		}else if(level == 3){
 			Transform player = GameObject.FindGameObjectWithTag("Player").transform;
@@ -52,6 +60,9 @@ public class UIManager : MonoBehaviour {
 			Game_Controller.enemyInThisMap.Clear ();
 			foreach(GameObject enemy in enemySpawn){
 				Game_Controller.enemyInThisMap.Add(enemy.GetComponent<Enemy>());
+			}
+			foreach(GameObject enemy in enemySpawn){
+				enemy.SetActive(false);
 			}
 			Game_Controller.nowScene = "DeadForestEntrance";
 		}else if(level == 4){
@@ -62,6 +73,9 @@ public class UIManager : MonoBehaviour {
 			foreach(GameObject enemy in enemySpawn){
 				Game_Controller.enemyInThisMap.Add(enemy.GetComponent<Enemy>());
 			}
+			foreach(GameObject enemy in enemySpawn){
+				enemy.SetActive(false);
+			}
 			Game_Controller.nowScene = "NormalForest";
 		}else if(level == 5){
 			Transform player = GameObject.FindGameObjectWithTag("Player").transform;
@@ -70,6 +84,9 @@ public class UIManager : MonoBehaviour {
 			Game_Controller.enemyInThisMap.Clear ();
 			foreach(GameObject enemy in enemySpawn){
 				Game_Controller.enemyInThisMap.Add(enemy.GetComponent<Enemy>());
+			}
+			foreach(GameObject enemy in enemySpawn){
+				enemy.SetActive(false);
 			}
 			Game_Controller.nowScene = "FtoD";
 		}else if(level == 6){
@@ -80,6 +97,9 @@ public class UIManager : MonoBehaviour {
 			foreach(GameObject enemy in enemySpawn){
 				Game_Controller.enemyInThisMap.Add(enemy.GetComponent<Enemy>());
 			}
+			foreach(GameObject enemy in enemySpawn){
+				enemy.SetActive(false);
+			}
 			Game_Controller.nowScene = "Crypt";
 		}else if(level == 7){
 			Transform player = GameObject.FindGameObjectWithTag("Player").transform;
@@ -88,6 +108,9 @@ public class UIManager : MonoBehaviour {
 			Game_Controller.enemyInThisMap.Clear ();
 			foreach(GameObject enemy in enemySpawn){
 				Game_Controller.enemyInThisMap.Add(enemy.GetComponent<Enemy>());
+			}
+			foreach(GameObject enemy in enemySpawn){
+				enemy.SetActive(false);
 			}
 			Game_Controller.nowScene = "Fortess01";
 		}else if(level == 8){
@@ -98,6 +121,9 @@ public class UIManager : MonoBehaviour {
 			foreach(GameObject enemy in enemySpawn){
 				Game_Controller.enemyInThisMap.Add(enemy.GetComponent<Enemy>());
 			}
+			foreach(GameObject enemy in enemySpawn){
+				enemy.SetActive(false);
+			}
 			Game_Controller.nowScene = "Fortess02";
 		}else if(level == 9){
 			Transform player = GameObject.FindGameObjectWithTag("Player").transform;
@@ -107,6 +133,9 @@ public class UIManager : MonoBehaviour {
 			foreach(GameObject enemy in enemySpawn){
 				Game_Controller.enemyInThisMap.Add(enemy.GetComponent<Enemy>());
 			}
+			foreach(GameObject enemy in enemySpawn){
+				enemy.SetActive(false);
+			}
 			Game_Controller.nowScene = "D01";
 		}else if(level == 10){
 			Transform player = GameObject.FindGameObjectWithTag("Player").transform;
@@ -115,6 +144,9 @@ public class UIManager : MonoBehaviour {
 			Game_Controller.enemyInThisMap.Clear ();
 			foreach(GameObject enemy in enemySpawn){
 				Game_Controller.enemyInThisMap.Add(enemy.GetComponent<Enemy>());
+			}
+			foreach(GameObject enemy in enemySpawn){
+				enemy.SetActive(false);
 			}
 			Game_Controller.nowScene = "D02";
 		}

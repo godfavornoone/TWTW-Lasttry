@@ -368,17 +368,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8305e6d6f94b654488db9ef98ec1fdec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  set: 0
   struckPlayer: 0
   player: {fileID: 0}
   setStroke: {fileID: 0}
   walk: 1
   distanceBetweenEVP: {x: 0, y: 0, z: 0}
-  baseHP: 100
+  baseHP: 75
   baseAttack: 30
-  baseRunSpeed: 6
+  baseRunSpeed: 4
   baseEXP: 20
   baseDropRate: 10
-  baseAspd: 3
+  baseAspd: 4
   maxhitPoint: 0
   hitPoint: 0
   Attack: 0
@@ -459,7 +460,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
-  m_SortingOrder: 300
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: 660a55fba133d0d46a03213f6b8e83b7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!222 &22263538
@@ -541,7 +542,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: baseHP
-      value: 100
+      value: 75
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: baseAttack
@@ -549,7 +550,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: baseRunSpeed
-      value: 6
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: baseEXP
@@ -561,11 +562,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: baseAspd
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: wordLengthDifficulty.Array.data[0]
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_SortingOrder
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
