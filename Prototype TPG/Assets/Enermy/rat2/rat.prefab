@@ -376,7 +376,7 @@ MonoBehaviour:
   distanceBetweenEVP: {x: 0, y: 0, z: 0}
   baseHP: 75
   baseAttack: 30
-  baseRunSpeed: 4
+  baseRunSpeed: 3
   baseEXP: 20
   baseDropRate: 10
   baseAspd: 4
@@ -550,7 +550,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: baseRunSpeed
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: baseEXP

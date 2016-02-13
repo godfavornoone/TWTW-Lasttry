@@ -667,4 +667,12 @@ public class Enemy : MonoBehaviour {
 		}
 	}
 
+	public void DisableInMinigame(){
+		if (Game_Controller.playerInMinigame) {
+			gameObject.SetActive (false);
+		} else {
+			gameObject.SetActive(true);
+		}
+	}
+
 }

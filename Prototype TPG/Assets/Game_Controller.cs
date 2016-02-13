@@ -8,7 +8,7 @@ public class Game_Controller : MonoBehaviour {
 	public GameObject target;
 	List<Vector3> playerStartPosition = new List<Vector3>();
 	public static List<Treasure> treasureMinigame = new List<Treasure> ();
-
+	public static List<GameObject> enemySpawnInMap = new List<GameObject> ();
 	public static bool oneEnemyWordChange = false;
 	public static bool chestWrongAll = true;
 	public static bool playerInMinigame = false;
@@ -110,23 +110,20 @@ public class Game_Controller : MonoBehaviour {
 		}
 
 		foreach (GameObject chest in treasureInMap) {
-			treasureMinigame.Add (chest.GetComponent<Treasure>());
-		}
 
-		foreach (GameObject chest in treasureInMap) {
-			chest.SetActive(false);
+			treasureMinigame.Add (chest.GetComponent<Treasure>());
 		}
     }
 	
 	void Update(){
 		foreach(Enemy enemy in enemyInThisMap){
-			if(enemy.set == 0){
+			if(enemy.set == 0 && !playerInMinigame){
 				enemy.DistanceToBorn();	
+			}else if(playerInMinigame){
+				enemy.DisableInMinigame();
 			}
 		}
-		foreach (Treasure chest in treasureMinigame) {
 
-		}
 	}
 
     public void SkillOpen()

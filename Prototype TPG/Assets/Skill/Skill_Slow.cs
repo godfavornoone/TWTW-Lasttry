@@ -63,6 +63,7 @@ public class Skill_Slow : MonoBehaviour {
 		if(nowSlow){
 			if(useSlow){
 				Game_Controller.playerInThisMap.SPReduce(slowMana);
+				useSlow = false;
 			}
 			foreach(Enemy enemy in Game_Controller.enemyInThisMap){
 				if(enemy.gameObject.activeInHierarchy && enemy.gameObject.activeSelf){

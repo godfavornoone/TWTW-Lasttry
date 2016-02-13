@@ -390,23 +390,23 @@ public class Player : MonoBehaviour {
 	IEnumerator StatusUp(){
 
         float temp = MaxHP - baseHP;
-        baseHP = baseHP + 100;
+        baseHP = baseHP + 25;
         MaxHP = temp + baseHP;
         HP = MaxHP;
 
         float temp2 = MaxSP - baseSP;
-        baseSP = baseSP + 50;
+        baseSP = baseSP + 20;
         MaxSP = temp + baseSP;
         SP = MaxSP;
 
         float baseOne = baseAtk;
 
         float temp3 = SwordAtk - baseOne; 
-        baseAtk = baseAtk + 50;
+        baseAtk = baseAtk + 25;
         SwordAtk = temp3 + baseAtk;
 
         float temp4 = BowAtk - baseOne;
-        baseAtk = baseAtk + 10;
+        baseAtk = baseAtk + 5;
         BowAtk = temp3 + baseAtk;
 
         Game_Controller.playerInThisMap.notify.SetActive(true);

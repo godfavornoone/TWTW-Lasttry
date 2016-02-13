@@ -51,7 +51,6 @@ public class Treasure : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		Debug.Log (timeHP);
 		charStorage = textTyping [1].text.ToCharArray ();
 		PushESC (Game_Controller.ESC);
 		TimeOut ();
@@ -71,6 +70,7 @@ public class Treasure : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D other){
 		if(other.gameObject.tag == "Player"){
 			textTyping [1].color = Color.white;
+			Game_Controller.playerInMinigame = true;
 		}
 	}
 
@@ -83,6 +83,7 @@ public class Treasure : MonoBehaviour {
 	void OnTriggerExit2D(Collider2D other){
 		if(other.gameObject.tag == "Player"){
 			textTyping[1].color = Color.grey;
+			Game_Controller.playerInMinigame = false;
 		}
 	}
 
@@ -152,6 +153,7 @@ public class Treasure : MonoBehaviour {
 	}
 
 	void CloseChest(){
+		Game_Controller.playerInMinigame = false;
 		gameObject.SetActive(false);
 	}
 }
