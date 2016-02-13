@@ -67,7 +67,6 @@ GameObject:
   - 95: {fileID: 9559202}
   - 114: {fileID: 11402556}
   - 58: {fileID: 5805218}
-  - 50: {fileID: 5071790}
   - 61: {fileID: 6162374}
   m_Layer: 0
   m_Name: Treasure
@@ -101,7 +100,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 183950}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 40.9011383, y: -19.9164448, z: 0}
+  m_LocalPosition: {x: 15.3891258, y: -18.1555614, z: 0}
   m_LocalScale: {x: .600000024, y: .600000024, z: 1}
   m_Children:
   - {fileID: 489200}
@@ -181,22 +180,6 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
---- !u!50 &5071790
-Rigidbody2D:
-  serializedVersion: 2
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 183950}
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: .0500000007
-  m_GravityScale: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 7
 --- !u!58 &5805218
 CircleCollider2D:
   m_ObjectHideFlags: 1
