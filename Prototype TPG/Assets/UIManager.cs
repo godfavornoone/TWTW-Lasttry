@@ -14,8 +14,26 @@ public class UIManager : MonoBehaviour {
 
     }
 
-	public void switchScene(string sceneName){
-		Application.LoadLevel(sceneName);
+	public void switchScene(string sceneName){ //This is for Start Game Button
+
+        Game_Controller.LoadScene.SetActive(true);
+
+        Game_Controller.playerInThisMap.gameObject.SetActive(true);
+
+        Game_Controller.playerStatus.SetActive(true);
+        Game_Controller.weaponPanel.SetActive(true);
+        Game_Controller.skillPanel.SetActive(true);
+        Game_Controller.typingProgressButton.SetActive(true);
+        Game_Controller.skillButton.SetActive(true);
+        Game_Controller.inventoryButton.SetActive(true);
+        Game_Controller.objectivePanel.SetActive(true);
+
+        Game_Controller.startPicture.SetActive(false);
+        Game_Controller.newGameButton.SetActive(false);
+        Game_Controller.loadGameButton.SetActive(false);
+        Game_Controller.exitGameButton.SetActive(false);
+
+        Application.LoadLevel(sceneName);
 	}
 
 	void OnLevelWasLoaded(int level)
@@ -23,15 +41,11 @@ public class UIManager : MonoBehaviour {
 		Debug.Log ("OnLevel work");
 
         Debug.Log("hey");
-       
-        
-
 
         if (level == 1){
 
             Game_Controller.LoadScene.SetActive(false);
             //NPCManager.npcInThisMap = GameObject.Find("NPC").GetComponent<NPCstory>();
-
 
             Transform player = GameObject.FindGameObjectWithTag("Player").transform;
             player.position = new Vector3(32.4f, -19.6f, 0f);
