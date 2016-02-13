@@ -17,6 +17,7 @@ TagManager:
   - SlowSkill
   - HealSkill
   - TrapSkill
+  - Treasure
   layers:
   - Default
   - TransparentFX

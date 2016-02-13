@@ -54,7 +54,7 @@ GameObject:
   m_Layer: 0
   m_Name: rat
   m_TagString: Enemy
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -376,7 +376,7 @@ MonoBehaviour:
   distanceBetweenEVP: {x: 0, y: 0, z: 0}
   baseHP: 75
   baseAttack: 30
-  baseRunSpeed: 4
+  baseRunSpeed: 3
   baseEXP: 20
   baseDropRate: 10
   baseAspd: 4
@@ -485,7 +485,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 3
+  m_SortingOrder: 4
 --- !u!224 &22442048
 RectTransform:
   m_ObjectHideFlags: 1
@@ -550,7 +550,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: baseRunSpeed
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: baseEXP
@@ -570,7 +570,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_SortingOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

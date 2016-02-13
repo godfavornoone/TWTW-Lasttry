@@ -4,6 +4,7 @@ using System.Collections;
 public class Skill_Ice : MonoBehaviour {
 
 	Player_Skill skill;
+	public bool useIce = false;
 
 	[HideInInspector]
 	public float tmpIceTime = 0;
@@ -61,6 +62,10 @@ public class Skill_Ice : MonoBehaviour {
 
 	void IceEnemy(float timer){
 		if(nowIce){
+			if(useIce){
+				Game_Controller.playerInThisMap.SPReduce(iceMana);
+				useIce = false;
+			}
 			foreach(Enemy enemy in Game_Controller.enemyInThisMap){
 				if(enemy.gameObject.activeInHierarchy && enemy.gameObject.activeSelf){
 					tmpspd = enemy.baseRunSpeed;
@@ -76,7 +81,7 @@ public class Skill_Ice : MonoBehaviour {
 				}
                 
                 nowIce = false;
-                Game_Controller.playerInThisMap.SPReduce(iceMana); //Skill now reduce mana here...It should be up there
+                 //Skill now reduce mana here...It should be up there
 
             }
             

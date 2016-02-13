@@ -38,6 +38,11 @@ public class Player_Skill : MonoBehaviour {
 	void Update () {
 		skillStorage = skillTextTyping[0].text.ToCharArray();
 		PushESC (Game_Controller.ESC);
+		if(Game_Controller.oneEnemyWordChange){
+			skillTextTyping[1].text = "";
+			localIndexSkill = 0;
+			Game_Controller.oneEnemyWordChange = false;
+		}
 	}
 
 	void LateUpdate(){
@@ -91,6 +96,7 @@ public class Player_Skill : MonoBehaviour {
 			ice.iceTimer = 0;
 			ice.tmpIceTime = 0;
 			ice.nowIce = true;
+			ice.useIce = true;
 		}else if(skillName.Equals("knock")){
 			knock.knockTimer = 0;
 			knock.nowKnock = true;
@@ -98,6 +104,7 @@ public class Player_Skill : MonoBehaviour {
 			slow.slowTimer = 0;
 			slow.tmpSlowTime = 0;
 			slow.nowSlow = true;
+			slow.useSlow = true;
 		}else if(skillName.Equals("heal")){
 			heal.healTimer = 0;
 			heal.nowHeal = true;
