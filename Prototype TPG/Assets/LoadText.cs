@@ -18,6 +18,7 @@ public class LoadText : MonoBehaviour {
 	
 	}
     
+    /*
     public static IEnumerator loadText()
     {
         
@@ -31,5 +32,6 @@ public class LoadText : MonoBehaviour {
         
 
     }
+    */
 
 }

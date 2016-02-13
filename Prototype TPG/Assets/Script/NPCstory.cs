@@ -35,9 +35,11 @@ public class NPCstory : MonoBehaviour {
 
     public Game_Controller gameControllerScript;
 
-    bool check = false;
+    public bool check = false;
 
-    int i = 0; //ถ้า i มันหมดหมดแล้ว ก็ให้ขึ้น choice1 กับ choice2 >>> ทำไงให้พิมพ์ได้
+    public bool isTheEnd;
+
+    public int i = 0; //ถ้า i มันหมดหมดแล้ว ก็ให้ขึ้น choice1 กับ choice2 >>> ทำไงให้พิมพ์ได้
 
     //choice จะผูกกับ warppoint และ choice2 จะถูกผูกกับ warppoint2
     //Choice ... แล้วก็คำพูดของตัวละครเราล่ะ ... ต้องมี Image ด้วย
@@ -52,143 +54,6 @@ public class NPCstory : MonoBehaviour {
         exclaim = transform.GetChild(0).gameObject;
 	}
 
-    public void choice1Pressed()
-    {
-        if (Game_Controller.world == 0)
-        {
-            World1warpPoint.SetActive(true);
-            Game_Controller.detail.text = World1TextonDetail1;
-        }
-        else if (Game_Controller.world == 1)
-        {
-            World2warpPoint.SetActive(true);
-            Game_Controller.detail.text = World2TextonDetail1;
-        }
-
-        Game_Controller.conversation.SetActive(false);
-        Game_Controller.blackScene.SetActive(false);
-        Game_Controller.displayGameObj.SetActive(false);
-        Game_Controller.NPCnameGameObj.SetActive(false);
-        Game_Controller.choice1.SetActive(false);
-        Game_Controller.choice2.SetActive(false);
-
-        exclaim.SetActive(false);
-
-
-        Time.timeScale = 1;
-
-    }
-    public void choice2Pressed()
-    {
-
-        if (Game_Controller.world == 0)
-        {
-            World1warpPoint2.SetActive(true);
-            Game_Controller.detail.text = World1TextonDetail2;
-        }
-        else if (Game_Controller.world == 1)
-        {
-            World2warpPoint2.SetActive(true);
-            Game_Controller.detail.text = World2TextonDetail2;
-        }
-
-        Time.timeScale = 1;
-
-        Game_Controller.conversation.SetActive(false);
-        Game_Controller.blackScene.SetActive(false);
-        Game_Controller.displayGameObj.SetActive(false);
-        Game_Controller.NPCnameGameObj.SetActive(false);
-        Game_Controller.choice1.SetActive(false);
-        Game_Controller.choice2.SetActive(false);
-
-        exclaim.SetActive(false);
-
-    }
-
-
-
-    public void EnterPressed()
-    {
-        if (Game_Controller.world == 0)
-        {
-
-            if(i==face.Count) //ปุ่ม continue ต้องหาย... choice ต้องเด้ง...
-            {
-
-                Game_Controller.NPCnameGameObj.SetActive(false);
-                Game_Controller.talkGameObj.SetActive(false);
-                Game_Controller.continueButton.SetActive(false);
-                Game_Controller.choice1.SetActive(true);
-                Game_Controller.choice2.SetActive(true);
-
-                Game_Controller.display.sprite = gameControllerScript.playerFace;
-
-                Game_Controller.choice1Text.text = World1choice;
-                Game_Controller.choice2Text.text = World1choice2;
-
-            }
-            else
-            {
-                if (face[i] == 0)
-                {
-                    Game_Controller.display.sprite = NPCface;
-                    Game_Controller.NPCname.text = nameNPC;
-                    Game_Controller.talk.text = story[i];
-                }
-                else if (face[i] == 1)
-                {
-                    Game_Controller.display.sprite = gameControllerScript.playerFace;
-                    Game_Controller.NPCname.text = Game_Controller.playerName;
-                    Game_Controller.talk.text = story[i];
-                }
-
-                i++;
-            }
-
-            
-
-        }
-        else if (Game_Controller.world == 1)
-        {
-
-            if (i == face2.Count)
-            {
-
-                Game_Controller.NPCnameGameObj.SetActive(false);
-                Game_Controller.talkGameObj.SetActive(false);
-                Game_Controller.continueButton.SetActive(false);
-                Game_Controller.choice1.SetActive(true);
-                Game_Controller.choice2.SetActive(true);
-
-                Game_Controller.display.sprite = gameControllerScript.playerFace;
-
-                Game_Controller.choice1Text.text = World2choice;
-                Game_Controller.choice2Text.text = World2choice2;
-
-            }
-            else
-            {
-                if (face2[i] == 0)
-                {
-                    Game_Controller.display.sprite = NPCface;
-                    Game_Controller.NPCname.text = nameNPC;
-                    Game_Controller.talk.text = story2[i];
-                }
-                else if (face2[i] == 1)
-                {
-                    Game_Controller.display.sprite = gameControllerScript.playerFace;
-                    Game_Controller.NPCname.text = Game_Controller.playerName;
-                    Game_Controller.talk.text = story2[i];
-
-                }
-
-                i++;
-            }
-        }
-
-
-
-    }
 
     void OnCollisionEnter2D(Collision2D other)
     {
@@ -198,6 +63,7 @@ public class NPCstory : MonoBehaviour {
         if (other.gameObject.tag == "Player")
         {
             check = true;
+            
         }
     }
 
@@ -205,7 +71,10 @@ public class NPCstory : MonoBehaviour {
     {
         if (Input.GetKeyDown(KeyCode.Return) && check==true )
         {
+            check = false;
+            Time.timeScale = 0;
             Debug.Log("yaha");
+            Debug.Log("Check the index: " + i);
 
             Game_Controller.conversation.SetActive(true);
             Game_Controller.blackScene.SetActive(true);
@@ -213,6 +82,9 @@ public class NPCstory : MonoBehaviour {
             Game_Controller.NPCnameGameObj.SetActive(true);
             Game_Controller.talkGameObj.SetActive(true);
             Game_Controller.continueButton.SetActive(true);
+
+            Game_Controller.choice1.SetActive(false);
+            Game_Controller.choice2.SetActive(false);
 
             if (Game_Controller.world == 0)
             {
@@ -253,7 +125,7 @@ public class NPCstory : MonoBehaviour {
 
             i++;
             check = false;
-            Time.timeScale = 0;
+            
 
             //pause ด้วยนะ
 

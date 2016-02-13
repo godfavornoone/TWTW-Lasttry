@@ -288,6 +288,10 @@ Prefab:
       propertyPath: m_SortingOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 120288, guid: e0a9cbf77a68ecb4bb6eae1de7989c91, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e0a9cbf77a68ecb4bb6eae1de7989c91, type: 2}
   m_IsPrefabParent: 0
@@ -395,13 +399,15 @@ MonoBehaviour:
   World1TextonDetail2: -Go This
   World2TextonDetail1: '- Tak This'
   World2TextonDetail2: '- Fuck'
-  World1warpPoint: {fileID: 0}
-  World1warpPoint2: {fileID: 0}
-  World2warpPoint: {fileID: 0}
-  World2warpPoint2: {fileID: 0}
+  World1warpPoint: {fileID: 539328145}
+  World1warpPoint2: {fileID: 1854590256}
+  World2warpPoint: {fileID: 1307211907}
+  World2warpPoint2: {fileID: 539328145}
   exclaim: {fileID: 0}
   NPCface: {fileID: 21300000, guid: b0a60623f2afb9d4dab5e3cb0903ca9e, type: 3}
   gameControllerScript: {fileID: 0}
+  check: 0
+  i: 0
 --- !u!212 &714545220
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -425,7 +431,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: ce199dbc7af548d49a547a1ea2eca9b6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!4 &714545221
@@ -435,8 +441,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 714545217}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.16599989, y: -2.48399997, z: 0}
-  m_LocalScale: {x: 1.18556213, y: 1.18556213, z: 1.18556213}
+  m_LocalPosition: {x: 15.3000002, y: -16.9099998, z: 0}
+  m_LocalScale: {x: 2.5, y: 2.5, z: 1.18556213}
   m_Children:
   - {fileID: 1783331017}
   m_Father: {fileID: 0}
@@ -487,6 +493,10 @@ Prefab:
     - target: {fileID: 120288, guid: e0a9cbf77a68ecb4bb6eae1de7989c91, type: 2}
       propertyPath: m_Name
       value: warpToDF
+      objectReference: {fileID: 0}
+    - target: {fileID: 120288, guid: e0a9cbf77a68ecb4bb6eae1de7989c91, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e0a9cbf77a68ecb4bb6eae1de7989c91, type: 2}
@@ -581,7 +591,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: 8d952a2e9349e3041aca3817822bbd89, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &1854590255
@@ -630,6 +640,10 @@ Prefab:
     - target: {fileID: 21261878, guid: e0a9cbf77a68ecb4bb6eae1de7989c91, type: 2}
       propertyPath: m_SortingOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 120288, guid: e0a9cbf77a68ecb4bb6eae1de7989c91, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e0a9cbf77a68ecb4bb6eae1de7989c91, type: 2}

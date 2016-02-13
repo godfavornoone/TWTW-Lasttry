@@ -42,7 +42,7 @@ public class Game_Controller : MonoBehaviour {
     public static Text detail;
 
     public Sprite playerFace;
-    public static string playerName = "Yaha";
+    public static string playerName = "Yeahh";
 
     public List<GameObject> itemPrefab = new List<GameObject>();
 
@@ -54,12 +54,62 @@ public class Game_Controller : MonoBehaviour {
     public static bool checkInLoadText;
     public static LoadText loadSceneScript;
 
+    //for Main menu
+    public static GameObject mainMenu;
+    public static GameObject changeDiffMenu;
+    public static GameObject LoadSaveCloseButton;
+
+    //for TypingProgress
+    public static GameObject typingProgressMenu;
+
+    public textManager a;
+
+    public static GameObject ClearGameScene;
+    public static GameObject clearButton;
+
+    //all Detail of player
+    public static GameObject playerStatus;
+    public static GameObject weaponPanel;
+    public static GameObject skillPanel;
+    public static GameObject typingProgressButton;
+    public static GameObject skillButton;
+    public static GameObject inventoryButton;
+    public static GameObject optionButton;
+    public static GameObject objectivePanel;
+
+    public static GameObject newGameButton;
+    public static GameObject loadGameButton;
+    public static GameObject exitGameButton;
+
+    public static GameObject startPicture;
+
 	void Awake(){
 		DontDestroyOnLoad(transform.gameObject);
 //		Instantiate (target, new Vector3(-7.0f,0.3f,0f),Quaternion.identity);
 	}
 
 	void Start(){
+        startPicture = GameObject.Find("StartPicture");
+        clearButton = GameObject.Find("ClearButton");
+        playerStatus = GameObject.Find("PlayerStatus");
+        weaponPanel = GameObject.Find("WeaponPanel");
+        skillPanel = GameObject.Find("SkillUse");
+        typingProgressButton = GameObject.Find("TypingProgressButton");
+        skillButton = GameObject.Find("SkillButton");
+        inventoryButton = GameObject.Find("InventoryButton");
+        optionButton = GameObject.Find("Option");
+        objectivePanel = GameObject.Find("QuestDetail");
+
+        newGameButton = GameObject.Find("Start Game");
+        loadGameButton = GameObject.Find("Load Game");
+        exitGameButton = GameObject.Find("Exit");
+
+        ClearGameScene = GameObject.Find("ClearGameScene");
+        LoadSaveCloseButton = GameObject.Find("CloseOfLoadSave");
+        a = GameObject.Find("TextManager").GetComponent<textManager>();
+        typingProgressMenu = GameObject.Find("TypingProgressPanel");
+        mainMenu = GameObject.Find("LoadSavePanel");
+        changeDiffMenu = GameObject.Find("ChangeDifficultyMenu");
         LoadScene = GameObject.Find("LoadScene");
         loadSceneScript = LoadScene.transform.GetChild(0).GetComponent<Text>().GetComponent<LoadText>();
         //checkInLoadText = LoadScene.transform.GetChild(0).GetComponent<Text>().GetComponent<LoadText>().check;
@@ -69,7 +119,7 @@ public class Game_Controller : MonoBehaviour {
         conversation = GameObject.Find("Conversation");
         blackScene = GameObject.Find("BlackScene");
         displayGameObj = GameObject.Find("Character");
-        NPCnameGameObj = GameObject.Find("Title");
+        NPCnameGameObj = GameObject.Find("NPCTitle");
         talkGameObj = GameObject.Find("Talk");
         continueButton = GameObject.Find("Continue");
         choice1 = GameObject.Find("Choice1");
@@ -81,6 +131,20 @@ public class Game_Controller : MonoBehaviour {
         choice1Text = choice1.transform.GetChild(0).GetComponent<Text>();
         choice2Text = choice2.transform.GetChild(0).GetComponent<Text>();
 
+        
+        playerStatus.SetActive(false);
+        weaponPanel.SetActive(false);
+        skillPanel.SetActive(false);
+        typingProgressButton.SetActive(false);
+        skillButton.SetActive(false);
+        inventoryButton.SetActive(false);
+        objectivePanel.SetActive(false);
+
+        clearButton.SetActive(false);
+        ClearGameScene.SetActive(false);
+        typingProgressMenu.SetActive(false);
+        changeDiffMenu.SetActive(false);
+        mainMenu.SetActive(false);
         blackScene.SetActive(false);
         displayGameObj.SetActive(false);
         NPCnameGameObj.SetActive(false);
@@ -103,6 +167,7 @@ public class Game_Controller : MonoBehaviour {
 			enemy.SetActive(false);
 		}
 
+        playerInThisMap.gameObject.SetActive(false);
     }
 	
 	void Update(){
@@ -124,5 +189,84 @@ public class Game_Controller : MonoBehaviour {
         blackScene.SetActive(false);
         SkillPanel.SetActive(false);
     }
+
+    public void TypingProgressOpen()
+    {
+        typingProgressMenu.SetActive(true);
+        blackScene.SetActive(true);
+
+    }
+
+    public void TypingProgressClose()
+    {
+        typingProgressMenu.SetActive(false);
+        blackScene.SetActive(false);
+
+    }
+
+    public void mainMenuOpen()
+    {
+        mainMenu.SetActive(true);
+        blackScene.SetActive(true);
+    }
+
+    public void mainMenuClose()
+    {
+        mainMenu.SetActive(false);
+        blackScene.SetActive(false);
+    }
+
+    public void changeDiffOpen()
+    {
+        changeDiffMenu.SetActive(true);
+        blackScene.SetActive(true);
+        LoadSaveCloseButton.SetActive(false);
+    }
+
+    public void changeDiffClose()
+    {
+        changeDiffMenu.SetActive(false);
+        blackScene.SetActive(false);
+        LoadSaveCloseButton.SetActive(true);
+    }
+
+    public void resumeButtonPressed()
+    {
+        resumeGame();
+    }
+
+    public void resumeGame()
+    {
+        Game_Controller.mainMenu.SetActive(false);
+        Game_Controller.blackScene.SetActive(false);
+        Game_Controller.LoadScene.SetActive(true);
+        //playerInThisMap.gameObject.transform.position = new Vector3(-1827f, -1542f, 0f);
+
+        //LoadText.loadText();
+
+        a.Analysis();
+
+        //yield return new WaitForSeconds(1);
+
+        playerInThisMap.gameObject.SetActive(true);
+
+        playerStatus.SetActive(true);
+        weaponPanel.SetActive(true);
+        skillPanel.SetActive(true);
+        typingProgressButton.SetActive(true);
+        skillButton.SetActive(true);
+        inventoryButton.SetActive(true);
+        objectivePanel.SetActive(true);
+
+        startPicture.SetActive(false);
+        newGameButton.SetActive(false);
+        loadGameButton.SetActive(false);
+        exitGameButton.SetActive(false);
+
+
+        Application.LoadLevel("Town"); //ตรงนี้มันจะเอา Scene ปัจจุบันของ Player อ่ะ มันต้องใส่ nowScene
+    }
+
+    
 
 }

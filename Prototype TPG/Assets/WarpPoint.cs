@@ -32,11 +32,11 @@ public class WarpPoint : MonoBehaviour {
         Game_Controller.LoadScene.SetActive(true);
         player.position = new Vector3(-1827f, -1542f, 0f);
 
-        LoadText.loadText();
+        //LoadText.loadText();
 
         textManagerScript.Analysis();
 
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(1);
 
 
         Application.LoadLevel(sceneName);

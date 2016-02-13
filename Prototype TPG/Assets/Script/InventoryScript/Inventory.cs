@@ -118,6 +118,30 @@ public class Inventory : MonoBehaviour {
 
     }
 
+    /*
+    public void trytry()
+    {
+        for(int i =0;i<slotAmount;i++)
+        {
+            if(checkSlot[i] == -1)
+            {
+                Debug.Log("MANG DAI DUAYYYYY");
+                checkSlot[i] = 0;
+                items[i] = new Item();
+
+                GameObject itemObj = Instantiate(inventoryItem);
+                itemObj.GetComponent<ItemData>().item = new Item();
+                itemObj.GetComponent<ItemData>().slot = i;
+                itemObj.GetComponent<Image>().sprite = Resources.Load<Sprite>("boot1");
+                itemObj.transform.SetParent(slots[i].transform);
+                itemObj.transform.GetComponent<RectTransform>().localPosition = new Vector2(0, 0);
+                break;
+            }
+        }
+    }
+    */
+
+    
     public void openInventory()
     {
         inventoryPanel.SetActive(true);
@@ -128,6 +152,7 @@ public class Inventory : MonoBehaviour {
         }
         Time.timeScale = 0;
     }
+    
 
     //ล้าง มันซะ ไม่ได้เช็คจากตรงนั้น แต่เช็คตามว่า ไอ่นั่นมันว่างไหมมมมม
 
