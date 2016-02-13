@@ -5,7 +5,7 @@ public class Enemy_AI_Range : MonoBehaviour {
 	
 	Animator enemy_Anim;
 	Enemy status;
-	private float nextAtk = 3;
+	private float nextAtk = 1;
 	float distanceAttack;
 	Vampire_Attack vA;
 	int attackHash = Animator.StringToHash("Damaged");
@@ -25,7 +25,7 @@ public class Enemy_AI_Range : MonoBehaviour {
 	}
 
 	void EnemyShootArrow(){
-		distanceAttack = Vector2.Distance (gameObject.transform.position, status.player.position);
+		distanceAttack = Vector2.Distance (gameObject.transform.position, Game_Controller.playerInThisMap.transform.position);
 
 		if (distanceAttack < 5) {
 			CheckFace();

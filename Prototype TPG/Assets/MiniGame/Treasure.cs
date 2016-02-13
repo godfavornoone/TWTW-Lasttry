@@ -76,6 +76,7 @@ public class Treasure : MonoBehaviour {
 
 	void OnTriggerStay2D(Collider2D other){
 		if(other.gameObject.tag == "Player"){
+			textTyping [1].color = Color.white;
 			Game_Controller.playerInMinigame = true;
 		}
 	}
@@ -86,6 +87,7 @@ public class Treasure : MonoBehaviour {
 			Game_Controller.playerInMinigame = false;
 		}
 	}
+	
 
 	void realStatus(int gameDifficult){
 		timeHP = baseTimeHP * gameDifficult;
