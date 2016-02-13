@@ -9,6 +9,9 @@ public class NPCstory : MonoBehaviour {
     public List<string> story = new List<string>();
     public List<string> story2 = new List<string>();
 
+    public List<string> Starterstory = new List<string>();
+    public List<int> Starterface = new List<int>();
+
     public List<int> face = new List<int>();
     public List<int> face2 = new List<int>();
 
@@ -38,8 +41,10 @@ public class NPCstory : MonoBehaviour {
     public bool check = false;
 
     public bool isTheEnd;
+    public bool isStart;
 
     public int i = 0; //ถ้า i มันหมดหมดแล้ว ก็ให้ขึ้น choice1 กับ choice2 >>> ทำไงให้พิมพ์ได้
+    public int j = 0;
 
     //choice จะผูกกับ warppoint และ choice2 จะถูกผูกกับ warppoint2
     //Choice ... แล้วก็คำพูดของตัวละครเราล่ะ ... ต้องมี Image ด้วย
@@ -133,6 +138,90 @@ public class NPCstory : MonoBehaviour {
         }
 
 
+    }
+
+    public void forStartField()
+    {
+        Time.timeScale = 0;
+
+        Game_Controller.conversation.SetActive(true);
+        Game_Controller.blackScene.SetActive(true);
+        Game_Controller.displayGameObj.SetActive(true);
+        Game_Controller.NPCnameGameObj.SetActive(true);
+        Game_Controller.talkGameObj.SetActive(true);
+        Game_Controller.continueButton.SetActive(true);
+
+        Game_Controller.choice1.SetActive(false);
+        Game_Controller.choice2.SetActive(false);
+
+        if (Game_Controller.world == 0)
+        {
+            if (face[i] == 0)
+            {
+                Game_Controller.display.sprite = NPCface;
+                Game_Controller.NPCname.text = nameNPC;
+                Game_Controller.talk.text = story[i];
+            }
+            else if (face[i] == 1)
+            {
+                Game_Controller.display.sprite = gameControllerScript.playerFace;
+                Game_Controller.NPCname.text = Game_Controller.playerName;
+                Game_Controller.talk.text = story[i];
+            }
+
+        }
+        else if (Game_Controller.world == 1)
+        {
+            Game_Controller.conversation.SetActive(true);
+            Game_Controller.blackScene.SetActive(true);
+            Game_Controller.displayGameObj.SetActive(true);
+
+            if (face2[i] == 0)
+            {
+                Game_Controller.display.sprite = NPCface;
+                Game_Controller.NPCname.text = nameNPC;
+                Game_Controller.talk.text = story2[i];
+            }
+            else if (face2[i] == 1)
+            {
+                Game_Controller.display.sprite = gameControllerScript.playerFace;
+                Game_Controller.NPCname.text = Game_Controller.playerName;
+                Game_Controller.talk.text = story2[i];
+            }
+
+        }
+
+        i++;
+    }
+
+    public void storyForStart()
+    {
+        Time.timeScale = 0;
+
+        Game_Controller.conversation.SetActive(true);
+        Game_Controller.blackScene.SetActive(true);
+        Game_Controller.displayGameObj.SetActive(true);
+        Game_Controller.NPCnameGameObj.SetActive(true);
+        Game_Controller.talkGameObj.SetActive(true);
+        Game_Controller.continueButton.SetActive(true);
+
+        Game_Controller.choice1.SetActive(false);
+        Game_Controller.choice2.SetActive(false);
+
+            if (Starterface[j] == 0)
+            {
+                Game_Controller.display.sprite = NPCface;
+                Game_Controller.NPCname.text = nameNPC;
+                Game_Controller.talk.text = Starterstory[j];
+            }
+            else if (Starterface[j] == 1)
+            {
+                Game_Controller.display.sprite = gameControllerScript.playerFace;
+                Game_Controller.NPCname.text = Game_Controller.playerName;
+                Game_Controller.talk.text = Starterstory[j];
+            }
+
+        j++;
     }
 
 }

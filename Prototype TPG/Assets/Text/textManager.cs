@@ -55,7 +55,7 @@ public class textManager : MonoBehaviour {
 
     List<string> ingameVocab = new List<string>(); //ไม่ได้ใช้จริง ไว้ใช้เช็คเฉยๆ
 
-    List<int> WPMcollection = new List<int>();
+    public List<int> WPMcollection = new List<int>();
     List<string> Weaknesscollection = new List<string>();
 
     private static System.Random rng = new System.Random();
@@ -330,20 +330,17 @@ public class textManager : MonoBehaviour {
 
     void Awake()
     {
-        aData.Add(0.2);
-        aData.Add(0.2);
-        aData.Add(0.2);
+        chartop1 = "a";
+        chartop2 = "b";
+        chartop3 = "c";
+        getVocab(vocab, ingameVocabEasy, checkVocabEasy);
+        getVocab(vocabHard, ingameVocabHard, checkVocabHard);
+        chartop1 = "";
+        chartop2 = "";
+        chartop3 = "";
 
-        bData.Add(0.2);
-        bData.Add(0.2);
-        bData.Add(0.2);
 
-        cData.Add(0.2);
-        cData.Add(0.2);
-        cData.Add(0.2);
 
-        Analysis();
-        
     }
     //เวลาจริงไม่ได้ใช้ Start นะเออ
     void Start () {
@@ -551,9 +548,10 @@ public class textManager : MonoBehaviour {
             result += WPMcollection[i];
         }
 
+        int x = WPMcollection.Count;
         WPMcollection.Clear();
 
-        return result / WPMcollection.Count;
+        return result / x;
     }
     
     public List<string> computeWeakness()

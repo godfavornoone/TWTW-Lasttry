@@ -11,18 +11,31 @@ public class StartField_Controller : MonoBehaviour {
 	bool tmpdead = false;
 	bool tmpdead2 = true;
 
+    bool playerNotDead = true;
+
+    NPCstory a;
+
 	List<Enemy> enemySetI = new List<Enemy> ();
 
 	GameObject[] setI;
 	// Use this for initialization
 	void Start () {
+        Game_Controller.wordDiff = 0;
+        a = GameObject.Find("NPC").GetComponent<NPCstory>();
+        a.forStartField();
+
+        //ถ้าเริ่มมาให้เรียกของ NPC จะไหวมะ...เรียก 2 ทีอะไรทำนองนี้ ??? ไม่น่าจะได้ 1 แมพ เรามี NPC ได้คนเดียว ให้ได้ครั้งเดียว 55555555555
 
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		SpawnSetI ();
-		ToStory ();
+        if(playerNotDead)
+        {
+            ToStory();
+        }
+		
 	}
 
 	void LateUpdate(){
@@ -109,12 +122,18 @@ public class StartField_Controller : MonoBehaviour {
 //			}
 //		}
 //	}
-
+    
+        //คิดอยู่ว่าตอนเริ่มก็ควรมีนะ 55555555555
 
 	void ToStory(){
 		if(Game_Controller.playerInThisMap.HP <= 100){
-			Time.timeScale = 0f;
-		}
+
+            playerNotDead = false;
+            a.storyForStart();
+			
+            
+
+        }
 //			else if(set_III_Dead){
 //			Time.timeScale = 0f;
 //		}

@@ -16,7 +16,6 @@ public class Game_Controller : MonoBehaviour {
 //	public Text_Outline setStroke;
 	public static int indexGlobal = 0;
 	public static bool wrongAll = true;
-	public static int gameDifficult = 1;
 	public static bool ESC = false;
 	public static bool enemyStruckPlayer = false;
 	public static List<Enemy> enemyInThisMap = new List<Enemy>();
@@ -46,13 +45,13 @@ public class Game_Controller : MonoBehaviour {
     public static Text detail;
 
     public Sprite playerFace;
-    public static string playerName = "Yeahh";
+    public static string playerName = "Fiana";
 
     public List<GameObject> itemPrefab = new List<GameObject>();
 
     public static int world = 1;
-    public static int gameDiff=2;
-    public static int wordDiff = 0;
+    public static int gameDiff=1;
+    public static int wordDiff=0;
 
     public static GameObject LoadScene;
     public static bool checkInLoadText;

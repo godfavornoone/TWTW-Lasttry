@@ -1,13 +1,17 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class NPCManager : MonoBehaviour {
 
     public static NPCstory npcInThisMap;
 
+    public textManager a;
+
 	// Use this for initialization
 	void Start () {
         DontDestroyOnLoad(transform.gameObject);
+        a = GameObject.Find("TextManager").GetComponent<textManager>();
 	}
 	
 	// Update is called once per frame
@@ -97,9 +101,7 @@ public class NPCManager : MonoBehaviour {
     {
         if (Game_Controller.world == 0)
         {
-
-            //ต้องเพิ่มในอีก World ด้วยนะ
-            if(npcInThisMap.i == npcInThisMap.face.Count && npcInThisMap.isTheEnd == true)
+            if(npcInThisMap.j==npcInThisMap.Starterstory.Count && npcInThisMap.isStart == true) //จบ Starter story อันหลังอ่ะ
             {
                 Game_Controller.NPCnameGameObj.SetActive(false);
                 Game_Controller.talkGameObj.SetActive(false);
@@ -107,7 +109,81 @@ public class NPCManager : MonoBehaviour {
                 Game_Controller.conversation.SetActive(false);
                 Game_Controller.blackScene.SetActive(false);
                 Game_Controller.displayGameObj.SetActive(false);
+
+                //ได้เวลาวาร์ปแล้วอีหนู !!!!
+                //
+                Game_Controller.LoadScene.SetActive(true);
+                a.Analysis();
+                if(a.check<3) //ดักไว้เลย ว่ายังไงก็มีศัพท์แน่อนนล่ะวะ
+                {
+                    Debug.Log("It Must Come Here");
+                    a.sendTimeData('a', 10);
+                    a.sendTimeData('a', 10);
+                    a.sendTimeData('a', 10);
+                    a.sendTimeData('b', 10);
+                    a.sendTimeData('b', 10);
+                    a.sendTimeData('b', 10);
+                    a.sendTimeData('c', 10);
+                    a.sendTimeData('c', 10);
+                    a.sendTimeData('c', 10);
+                    a.Analysis();
+                }
+
+                Game_Controller.wordDiff = a.computeWordDiff(); //ไม่ค่อยชัว ไม่เก็บมันละกัน 5555555555 แต่ ณ ตรงนี้อ่ะจะได้ Word's Diff เริ่มต้นมาแบ้ววววว
+                List<string> weakness = a.computeWeakness(); //แค่เอาออกมาแล้วก็ทิ้งไปกร๊ากกกกก
+                Debug.Log("Word's Diff Starter is!!!!: " + Game_Controller.wordDiff);
+
+                Time.timeScale = 1;
+                //Refill เลือดหน่อย 55555555
+                Game_Controller.playerInThisMap.HP = Game_Controller.playerInThisMap.MaxHP;
+                Game_Controller.playerInThisMap.SP = Game_Controller.playerInThisMap.MaxSP;
+
+                Application.LoadLevel("Town");
+
+
+                //เอางี้ มันจะเป็นข้อมูลไงดีหว่า 55555555555555
+
+            }
+
+            else if(npcInThisMap.j!=0 && npcInThisMap.isStart == true)
+            {
+                if (npcInThisMap.Starterface[npcInThisMap.j] == 0)
+                {
+                    Game_Controller.display.sprite = npcInThisMap.NPCface;
+                    Game_Controller.NPCname.text = npcInThisMap.nameNPC;
+                    Game_Controller.talk.text = npcInThisMap.Starterstory[npcInThisMap.j];
+                }
+                else if (npcInThisMap.Starterface[npcInThisMap.j] == 1)
+                {
+                    Game_Controller.display.sprite = npcInThisMap.gameControllerScript.playerFace;
+                    Game_Controller.NPCname.text = Game_Controller.playerName;
+                    Game_Controller.talk.text = npcInThisMap.Starterstory[npcInThisMap.j];
+                }
+
+                npcInThisMap.j++;
+
+            }
+
+            //ต้องเพิ่มในอีก World ด้วยนะ
+            else if(npcInThisMap.i == npcInThisMap.face.Count && npcInThisMap.isStart == true)
+            {
                 Game_Controller.NPCnameGameObj.SetActive(false);
+                Game_Controller.talkGameObj.SetActive(false);
+                Game_Controller.continueButton.SetActive(false);
+                Game_Controller.conversation.SetActive(false);
+                Game_Controller.blackScene.SetActive(false);
+                Game_Controller.displayGameObj.SetActive(false);
+
+                Time.timeScale = 1;
+            }
+            else if(npcInThisMap.i == npcInThisMap.face.Count && npcInThisMap.isTheEnd == true)
+            {
+                Game_Controller.NPCnameGameObj.SetActive(false);
+                Game_Controller.talkGameObj.SetActive(false);
+                Game_Controller.continueButton.SetActive(false);
+                Game_Controller.conversation.SetActive(false);
+                Game_Controller.blackScene.SetActive(false);
+                Game_Controller.displayGameObj.SetActive(false);
 
                 Game_Controller.ClearGameScene.SetActive(true);
                 Game_Controller.clearButton.SetActive(true);
@@ -161,7 +237,79 @@ public class NPCManager : MonoBehaviour {
         else if (Game_Controller.world == 1)
         {
 
-            if (npcInThisMap.i == npcInThisMap.face.Count && npcInThisMap.isTheEnd == true)
+            if (npcInThisMap.j == npcInThisMap.Starterstory.Count && npcInThisMap.isStart == true)
+            {
+                Game_Controller.NPCnameGameObj.SetActive(false);
+                Game_Controller.talkGameObj.SetActive(false);
+                Game_Controller.continueButton.SetActive(false);
+                Game_Controller.conversation.SetActive(false);
+                Game_Controller.blackScene.SetActive(false);
+                Game_Controller.displayGameObj.SetActive(false);
+
+                Game_Controller.LoadScene.SetActive(true);
+                a.Analysis();
+                if (a.check < 3) //ดักไว้เลย ว่ายังไงก็มีศัพท์แน่อนนล่ะวะ
+                {
+                    Debug.Log("It Must Come Here");
+                    a.sendTimeData('a', 10);
+                    a.sendTimeData('a', 10);
+                    a.sendTimeData('a', 10);
+                    a.sendTimeData('b', 10);
+                    a.sendTimeData('b', 10);
+                    a.sendTimeData('b', 10);
+                    a.sendTimeData('c', 10);
+                    a.sendTimeData('c', 10);
+                    a.sendTimeData('c', 10);
+                    a.Analysis();
+                }
+
+
+                Game_Controller.wordDiff = a.computeWordDiff(); //ไม่ค่อยชัว ไม่เก็บมันละกัน 5555555555 แต่ ณ ตรงนี้อ่ะจะได้ Word's Diff เริ่มต้นมาแบ้ววววว
+                List<string> weakness = a.computeWeakness(); //แค่เอาออกมาแล้วก็ทิ้งไปกร๊ากกกกก
+                Debug.Log("Word's Diff Starter is!!!!: " + Game_Controller.wordDiff);
+
+                Time.timeScale = 1;
+                //Refill เลือดหน่อย 55555555
+                Game_Controller.playerInThisMap.HP = Game_Controller.playerInThisMap.MaxHP;
+                Game_Controller.playerInThisMap.SP = Game_Controller.playerInThisMap.MaxSP;
+
+                Application.LoadLevel("Town");
+
+                
+            }
+
+            else if (npcInThisMap.j != 0 && npcInThisMap.isStart == true)
+            {
+                if (npcInThisMap.Starterface[npcInThisMap.j] == 0)
+                {
+                    Game_Controller.display.sprite = npcInThisMap.NPCface;
+                    Game_Controller.NPCname.text = npcInThisMap.nameNPC;
+                    Game_Controller.talk.text = npcInThisMap.Starterstory[npcInThisMap.j];
+                }
+                else if (npcInThisMap.Starterface[npcInThisMap.j] == 1)
+                {
+                    Game_Controller.display.sprite = npcInThisMap.gameControllerScript.playerFace;
+                    Game_Controller.NPCname.text = Game_Controller.playerName;
+                    Game_Controller.talk.text = npcInThisMap.Starterstory[npcInThisMap.j];
+                }
+
+                npcInThisMap.j++;
+
+            }
+
+            else if (npcInThisMap.i == npcInThisMap.face.Count && npcInThisMap.isStart == true)
+            {
+                Game_Controller.NPCnameGameObj.SetActive(false);
+                Game_Controller.talkGameObj.SetActive(false);
+                Game_Controller.continueButton.SetActive(false);
+                Game_Controller.conversation.SetActive(false);
+                Game_Controller.blackScene.SetActive(false);
+                Game_Controller.displayGameObj.SetActive(false);
+
+                Time.timeScale = 1;
+            }
+
+            else if (npcInThisMap.i == npcInThisMap.face.Count && npcInThisMap.isTheEnd == true)
             {
                 Game_Controller.NPCnameGameObj.SetActive(false);
                 Game_Controller.talkGameObj.SetActive(false);
@@ -184,7 +332,7 @@ public class NPCManager : MonoBehaviour {
 
             }
 
-            if (npcInThisMap.i == npcInThisMap.face2.Count)
+            else if (npcInThisMap.i == npcInThisMap.face2.Count)
             {
 
                 Game_Controller.NPCnameGameObj.SetActive(false);

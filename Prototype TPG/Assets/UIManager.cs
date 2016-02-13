@@ -45,7 +45,7 @@ public class UIManager : MonoBehaviour {
         if (level == 1){
 
             Game_Controller.LoadScene.SetActive(false);
-            //NPCManager.npcInThisMap = GameObject.Find("NPC").GetComponent<NPCstory>();
+            NPCManager.npcInThisMap = GameObject.Find("NPC").GetComponent<NPCstory>();
 
             Transform player = GameObject.FindGameObjectWithTag("Player").transform;
             player.position = new Vector3(32.4f, -19.6f, 0f);

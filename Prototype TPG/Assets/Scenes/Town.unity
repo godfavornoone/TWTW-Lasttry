@@ -343,6 +343,8 @@ MonoBehaviour:
   - t
   - ggg
   - ggggg
+  Starterstory: []
+  Starterface: 
   face: 0000000001000000000000000100000000000000
   face2: 0000000001000000000000000100000000000000
   World1choice: Yeeha
@@ -361,7 +363,10 @@ MonoBehaviour:
   NPCface: {fileID: 21300000, guid: b0a60623f2afb9d4dab5e3cb0903ca9e, type: 3}
   gameControllerScript: {fileID: 0}
   check: 0
+  isTheEnd: 0
+  isStart: 0
   i: 0
+  j: 0
 --- !u!212 &714545220
 SpriteRenderer:
   m_ObjectHideFlags: 0
