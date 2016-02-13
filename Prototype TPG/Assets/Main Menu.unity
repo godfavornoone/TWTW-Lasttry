@@ -1231,6 +1231,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d375519ce095a845bd3b09124d5d236, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  useSlow: 0
   tmpSlowTime: 0
   slowLVL: 1
   coolDownSkillSlow: 10
@@ -10936,6 +10937,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6a04fc795f4b934ba1abd339e546837, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  useIce: 0
   tmpIceTime: 0
   iceLVL: 1
   coolDownSkillIce: 10

@@ -4,7 +4,9 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class Player : MonoBehaviour {
-	
+
+	textManager textscript;
+
 	//Player Status
 	public float baseHP;
 	public float baseSP;
@@ -64,6 +66,7 @@ public class Player : MonoBehaviour {
 		DontDestroyOnLoad(transform.gameObject);
 		rbd2D = GetComponent<Rigidbody2D> ();
 		anim = GetComponent<Animator> ();
+		textscript = GameObject.Find ("TextManager").GetComponent<textManager> ();
 	}
 
 	// Use this for initialization
@@ -310,6 +313,8 @@ public class Player : MonoBehaviour {
 	}
 	
 	public void PlayerDeath(){
+		textscript.clearAllVocab ();
+		Game_Controller.indexGlobal = 0;
 		Debug.Log("Death");
 	}
 

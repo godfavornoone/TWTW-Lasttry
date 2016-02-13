@@ -49,14 +49,20 @@ public class Typing_Input : MonoBehaviour {
 				skill.CheckWrongAllSkill(textFieldChar);
 			}
 
+			foreach(Treasure treasure in Game_Controller.treasureMinigame){
+				if(treasure.gameObject.activeInHierarchy && treasure.gameObject.activeSelf){
+					treasure.CheckWrongAll(textFieldChar);
+				}
+			}
+
 			foreach(Enemy enemy in Game_Controller.enemyInThisMap){
 
 				if(enemy.gameObject.activeInHierarchy && enemy.gameObject.activeSelf){
 					enemy.CheckWrongAll(textFieldChar);
 				}
 			}
-			
-			if(!Game_Controller.wrongAll || !Skill_Controller.checkWrongAllSkillInPanel){
+
+			if(!Game_Controller.wrongAll || !Skill_Controller.checkWrongAllSkillInPanel || !Game_Controller.chestWrongAll){
 
 				foreach(Player_Skill skill in Skill_Controller.Allskill){
 					skill.CheckSkill(textFieldChar);
@@ -66,7 +72,12 @@ public class Typing_Input : MonoBehaviour {
 					if(enemy.gameObject.activeInHierarchy && enemy.gameObject.activeSelf){
 						enemy.CheckLetter(textFieldChar);
 					}
+				}
 
+				foreach(Treasure chest in Game_Controller.treasureMinigame){
+					if(chest.gameObject.activeInHierarchy && chest.gameObject.activeSelf){
+						chest.CheckLetter(textFieldChar);
+					}
 				}
 
                 if (timer != 0)
@@ -77,6 +88,7 @@ public class Typing_Input : MonoBehaviour {
 
 
                 Game_Controller.indexGlobal++;
+				Game_Controller.chestWrongAll = true;
 				Game_Controller.wrongAll = true;
 				Skill_Controller.checkWrongAllSkillInPanel = true;
 			}

@@ -4,6 +4,7 @@ using System.Collections;
 public class Skill_Slow : MonoBehaviour {
 
 	Player_Skill skill;
+	public bool useSlow = false;
 
 	[HideInInspector]
 	public float tmpSlowTime = 0;
@@ -45,6 +46,7 @@ public class Skill_Slow : MonoBehaviour {
 			if(Game_Controller.playerInThisMap.SP >= slowMana){
 				if(skill.skillTextTyping[0].text.Equals("slow")){
 					skill.skillTextTyping[0].color = Color.white;
+
 					skill.UseSkill();
 				}
 			}
@@ -59,6 +61,9 @@ public class Skill_Slow : MonoBehaviour {
 
 	void SlowEnemy(float timer){
 		if(nowSlow){
+			if(useSlow){
+				Game_Controller.playerInThisMap.SPReduce(slowMana);
+			}
 			foreach(Enemy enemy in Game_Controller.enemyInThisMap){
 				if(enemy.gameObject.activeInHierarchy && enemy.gameObject.activeSelf){
 					enemy.runSpeed = enemy.baseRunSpeed * 0.6f;
@@ -71,9 +76,9 @@ public class Skill_Slow : MonoBehaviour {
 					enemy.runSpeed = enemy.baseRunSpeed;
 				}
 				nowSlow = false;
-                Game_Controller.playerInThisMap.SPReduce(slowMana); //Skill now reduce mana here...It should be up there
+                 //Skill now reduce mana here...It should be up there
+
             }
-            
 		}
 	}
 
