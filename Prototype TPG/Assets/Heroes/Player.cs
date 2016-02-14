@@ -124,6 +124,7 @@ public class Player : MonoBehaviour {
 	void Player_Attack(){
 		foreach (Enemy enemy in Game_Controller.enemyInThisMap) {
 			if (enemy.takedDMG && isSword) {
+
 				Debug.Log(enemy.distanceBetweenEVP);
 				anim.SetBool ("Arrow_Right", false);
 				anim.SetBool ("Arrow_Left", false);
@@ -228,6 +229,7 @@ public class Player : MonoBehaviour {
                 }
 
                 Debug.Log("Damage After Cri: " + dmg);
+                SPIncrease(10 * lvl);
 				enemy.HpDown (dmg);
 				if(enemy.takedDMG && enemy.hitPoint > 0){
 					enemy.WordInstantiate();
@@ -364,8 +366,8 @@ public class Player : MonoBehaviour {
 				}
 				
 				Debug.Log("Damage After Cri: " + dmg);
-
-				enemy.HpDown (dmg);
+                SPIncrease(10 * lvl);
+                enemy.HpDown (dmg);
 				if(enemy.takedDMG && enemy.hitPoint > 0){
 					enemy.WordInstantiate();
 				}
@@ -429,10 +431,12 @@ public class Player : MonoBehaviour {
     {
         if(SP+increaseSP > MaxSP)
         {
+            Debug.Log("เกิน");
             SP = MaxSP;
         }
         else
         {
+            Debug.Log("ไม่เกิน");
             SP += increaseSP;
         }
     }

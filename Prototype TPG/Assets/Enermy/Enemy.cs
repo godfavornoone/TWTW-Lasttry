@@ -197,7 +197,13 @@ public class Enemy : MonoBehaviour {
         
         hitPoint = hitPoint - dmg;
 
-		if(hitPoint <= 0){
+        if (!optionWord)
+        {
+            Debug.Log("return Text complete" + " text is: " + textTyping[1].text);
+            textManagerScript.returnText(textTyping[1].text, wordDifficult);
+        }
+
+        if (hitPoint <= 0){
 			walk = false;
 			runSpeed = 0;
 
@@ -226,11 +232,14 @@ public class Enemy : MonoBehaviour {
 
             //Because even enemy die, they still ask for Text, so we have to return it!
 
+            /*
             if(!optionWord)
             {
+                Debug.Log("in HPDown");
                 Debug.Log("return Text complete" + " text is: " + textTyping[1].text);
                 textManagerScript.returnText(textTyping[1].text, wordDifficult);
             }
+            */
 
 			Invoke("DelayDestroyForEffect", 0.2f);
 
@@ -303,7 +312,7 @@ public class Enemy : MonoBehaviour {
                 Game_Controller.indexGlobal = 0;
 
                 Game_Controller.oneEnemyWordChange = true;
-                Game_Controller.playerInThisMap.SPIncrease(10 * Game_Controller.playerInThisMap.lvl);
+                
 
                 if (optionWord) //start here if it false go ELSE
                 {

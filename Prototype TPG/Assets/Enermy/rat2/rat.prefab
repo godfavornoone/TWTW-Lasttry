@@ -374,8 +374,8 @@ MonoBehaviour:
   setStroke: {fileID: 0}
   walk: 1
   distanceBetweenEVP: {x: 0, y: 0, z: 0}
-  baseHP: 75
-  baseAttack: 30
+  baseHP: 50
+  baseAttack: 50
   baseRunSpeed: 3
   baseEXP: 20
   baseDropRate: 10
@@ -386,7 +386,7 @@ MonoBehaviour:
   EXP: 0
   dropRate: 0
   runSpeed: 0
-  wordLengthDifficulty: 0400000004000000040000000400000004000000
+  wordLengthDifficulty: 0100000001000000010000000200000002000000
   wordLevelDifficulty: 0000000000000000000000000000000000000000
   textTyping: []
   takedDMG: 0
@@ -542,11 +542,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: baseHP
-      value: 75
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: baseAttack
-      value: 30
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: baseRunSpeed
@@ -566,11 +566,27 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: wordLengthDifficulty.Array.data[0]
-      value: 4
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_SortingOrder
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: wordLengthDifficulty.Array.data[1]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: wordLengthDifficulty.Array.data[2]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: wordLengthDifficulty.Array.data[3]
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: wordLengthDifficulty.Array.data[4]
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
