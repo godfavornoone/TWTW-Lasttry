@@ -198,7 +198,9 @@ public class Enemy : MonoBehaviour {
         hitPoint = hitPoint - dmg;
 
 		if(hitPoint <= 0){
-			
+			walk = false;
+			runSpeed = 0;
+
 			Game_Controller.indexGlobal = 0;
 			textTyping[0].text = "";
 			textTyping[1].text = "";
@@ -230,7 +232,7 @@ public class Enemy : MonoBehaviour {
                 textManagerScript.returnText(textTyping[1].text, wordDifficult);
             }
 
-			Invoke("DelayDestroyForEffect", 0.3f);
+			Invoke("DelayDestroyForEffect", 0.2f);
 
 
 //			Destroy(gameObject);
