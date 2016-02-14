@@ -17,6 +17,7 @@ public class Skill_Ice : MonoBehaviour {
 	[HideInInspector]
 	public bool nowIce = false;
 	private float tmpspd;
+	public float tmpatk;
 
 	void Awake(){
 		skill = GetComponent<Player_Skill> ();
@@ -64,19 +65,24 @@ public class Skill_Ice : MonoBehaviour {
 		if(nowIce){
 			if(useIce){
 				Game_Controller.playerInThisMap.SPReduce(iceMana);
+				foreach(Enemy enemy in Game_Controller.enemyInThisMap){
+					tmpspd = enemy.runSpeed;
+					tmpatk = enemy.Attack;
+				}
 				useIce = false;
 			}
 			foreach(Enemy enemy in Game_Controller.enemyInThisMap){
 				if(enemy.gameObject.activeInHierarchy && enemy.gameObject.activeSelf){
-					tmpspd = enemy.baseRunSpeed;
 					enemy.runSpeed = 0;
+					enemy.Attack = 0;
 				}
 			}
 
             if (tmpIceTime >= timer){
 				foreach(Enemy enemy in Game_Controller.enemyInThisMap){
 					if(enemy.gameObject.activeInHierarchy && enemy.gameObject.activeSelf){
-						enemy.runSpeed = enemy.baseRunSpeed;
+						enemy.runSpeed = tmpspd;
+						enemy.Attack = tmpatk;
 					}
 				}
                 

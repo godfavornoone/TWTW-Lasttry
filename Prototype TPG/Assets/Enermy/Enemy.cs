@@ -6,7 +6,8 @@ public class Enemy : MonoBehaviour {
 
 	public int set;
 
-	Vector3 positionBorn;
+	[HideInInspector]
+	public Vector3 positionBorn;
 
 	[HideInInspector]
 	public bool struckPlayer = false;
@@ -48,8 +49,10 @@ public class Enemy : MonoBehaviour {
 	//Enemy Text Controller
 	public List<int> wordLengthDifficulty = new List<int>();
 	public List<int> wordLevelDifficulty = new List<int>();
-	private int wordLength;
-	private int wordDifficult;
+	[HideInInspector]
+	public int wordLength;
+	[HideInInspector]
+	public int wordDifficult;
 	private Typing_Input textCheck;
 	[HideInInspector]
 	public TextMesh[] textTyping;
@@ -100,6 +103,11 @@ public class Enemy : MonoBehaviour {
 //		{
 //			takedDMG = true;
 //		}
+		if(Game_Controller.oneEnemyDie){
+			textTyping[0].text = "";
+			Game_Controller.oneEnemyDie = false;
+		}
+
 		PushESC (Game_Controller.ESC);
 	}
 	
@@ -204,6 +212,9 @@ public class Enemy : MonoBehaviour {
         }
 
         if (hitPoint <= 0){
+			Game_Controller.enemyStruckPlayer = false;
+			Game_Controller.oneEnemyDie = true;
+
 			walk = false;
 			runSpeed = 0;
 
@@ -687,7 +698,7 @@ public class Enemy : MonoBehaviour {
 
 	public void DistanceToBorn(){
 		float distance = Vector2.Distance (Game_Controller.playerInThisMap.transform.position, gameObject.transform.position);
-		if(distance < 20){
+		if(distance < 15){
 			gameObject.SetActive(true);
 		}
 	}

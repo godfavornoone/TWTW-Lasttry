@@ -45,10 +45,6 @@ public class Player_Skill : MonoBehaviour {
 		}
 	}
 
-	void LateUpdate(){
-
-	}
-
 	public void CheckWrongAllSkill(char txt){
 		if (skillTextTyping[0].color == Color.white){
 			if (Game_Controller.indexGlobal == localIndexSkill) {
