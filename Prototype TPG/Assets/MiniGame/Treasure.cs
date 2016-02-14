@@ -149,7 +149,8 @@ public class Treasure : MonoBehaviour {
 	void TimeOut(){
 		if(timeHP <= 0){
 			treasureOpen.SetBool("Open", true);
-			textTyping[1].gameObject.SetActive(false);
+			textTyping[1].text = "";
+			textTyping[0].text = "";
 			Invoke("CloseChest", 3f);
 		}
 	}
