@@ -84,6 +84,13 @@ public class NPCManager : MonoBehaviour {
         a.Analysis();
         string b = a.computeWeakness();
         int WPM = a.computeWPM();
+
+
+        if (b.Length < 3)
+        {
+            b = "abc";
+        }
+
         Game_Controller.playerInThisMap.historyWeaknesses.Add(b);
         Game_Controller.playerInThisMap.historyWPM.Add(WPM);
         //เอาไอ่บ้านี้ไว้ดึงศัพท์นะ...
