@@ -23,10 +23,9 @@ public class SaveData : MonoBehaviour {
 
 	}
 
-	public static void Save(string Slot,int value,bool Log)
+	public static void Save(string Slot,int value)
 	{
 		PlayerPrefs.SetInt (Slot, value);
-		if(Log)
 		Debug.Log ("SaveComplete" + Slot + "int"+value);
 		
 	}
@@ -40,10 +39,9 @@ public class SaveData : MonoBehaviour {
 			Debug.Log ("LoadFail" + Slot + "int"+valueload);
 			return -9999;
 	}
-	public static void Save(string Slot,float value,bool Log)
+	public static void Save(string Slot,float value)
 	{
 		PlayerPrefs.SetFloat (Slot, value);
-		if(Log)
 		Debug.Log ("SaveComplete" + Slot + "float"+value);
 			
 	}
@@ -58,11 +56,10 @@ public class SaveData : MonoBehaviour {
 			return -9999;
 		}
 	}
-	public static void Save(string Slot,string value,bool Log)
+	public static void Save(string Slot,string value)
 	{
 		PlayerPrefs.SetString (Slot, value);
-		if(Log)
-		Debug.Log ("SaveComplete" + Slot + "float"+value);
+		Debug.Log ("SaveComplete" + Slot + "string"+value);
 			
 	}
 	public static string Load(string Slot,string valueload,bool Log){
@@ -77,7 +74,7 @@ public class SaveData : MonoBehaviour {
 
 		}
 	}
-	public static void Save(string Slot,bool value,bool Log)
+	public static void Save(string Slot,bool value)
 	{
 		int boolean = 0;
 		if (value) {
@@ -86,7 +83,6 @@ public class SaveData : MonoBehaviour {
 			boolean	= 0;
 		}
 		PlayerPrefs.SetInt (Slot, boolean);
-		if(Log)
 		Debug.Log ("SaveComplete" + Slot + "bool"+value);
 			
 	}
@@ -108,12 +104,11 @@ public class SaveData : MonoBehaviour {
 		
 		}
 	}
-	public static void Save(string Slot,char value,bool Log)
+	public static void Save(string Slot,char value)
 	{
 		string chars = value.ToString();
 
 		PlayerPrefs.SetString (Slot, chars);
-		if(Log)
 		Debug.Log ("SaveComplete" + Slot + "Char"+value);
 			
 	}

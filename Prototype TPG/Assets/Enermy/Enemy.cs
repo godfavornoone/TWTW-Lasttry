@@ -193,7 +193,9 @@ public class Enemy : MonoBehaviour {
         
         hitPoint = hitPoint - dmg;
 		if(hitPoint <= 0){
-			Game_Controller.oneEnemyWordChange = true;
+            //Game_Controller.indexGlobal = 0;
+
+            Game_Controller.oneEnemyWordChange = true;
 			Game_Controller.playerInThisMap.PlayerLVLUp(EXP);
             
 			Debug.Log ("recieve = " + EXP);
@@ -226,7 +228,7 @@ public class Enemy : MonoBehaviour {
 
 
 
-            Game_Controller.indexGlobal = 0; //Even Enemy Die The Word Will Pop Out...So If you can type...I Clear IndexGlobal Here!
+            //Game_Controller.indexGlobal = 0; //Even Enemy Die The Word Will Pop Out...So If you can type...I Clear IndexGlobal Here!
 		}
         
         
@@ -285,8 +287,11 @@ public class Enemy : MonoBehaviour {
 	public void WordInstantiate(){
 		if (Game_Controller.indexGlobal == indexLocal) {
 			if (textTyping [1].text.Equals (textTyping [0].text)){
-                
-				Game_Controller.oneEnemyWordChange = true;
+
+                indexLocal = 0;
+                Game_Controller.indexGlobal = 0;
+
+                Game_Controller.oneEnemyWordChange = true;
                 Game_Controller.playerInThisMap.SPIncrease(10 * Game_Controller.playerInThisMap.lvl);
 
                 if (optionWord) //start here if it false go ELSE

@@ -62,6 +62,9 @@ public class Player : MonoBehaviour {
     public TextMesh notification;
     public GameObject notify;
 
+    public List<int> historyWPM = new List<int>();
+    public List<string> historyWeaknesses = new List<string>();
+
 	void Awake(){
 		DontDestroyOnLoad(transform.gameObject);
 		rbd2D = GetComponent<Rigidbody2D> ();
@@ -399,15 +402,15 @@ public class Player : MonoBehaviour {
         MaxSP = temp + baseSP;
         SP = MaxSP;
 
-        float baseOne = baseAtk;
+        float baseOne = baseAtk; //ก็ว่าอยู่ ทำไมดาเมจมันแรงๆ -_- สภาพนี้นะ ธนูแม่งจะโครงแรง
+
+        baseAtk = baseAtk + 20;
 
         float temp3 = SwordAtk - baseOne; 
-        baseAtk = baseAtk + 25;
-        SwordAtk = temp3 + baseAtk;
+        SwordAtk = temp3 + baseAtk + 20;
 
         float temp4 = BowAtk - baseOne;
-        baseAtk = baseAtk + 5;
-        BowAtk = temp3 + baseAtk;
+        BowAtk = temp3 + baseAtk + 5;
 
         Game_Controller.playerInThisMap.notify.SetActive(true);
         Game_Controller.playerInThisMap.notification.text = "Level up!";

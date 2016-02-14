@@ -5,7 +5,7 @@ public class PlayerTestByPop : MonoBehaviour {
 
     GameObject inventory;
     Inventory inventoryScript;
-    Game_Controller a;
+    //Game_Controller a;
     bool check = false;
 
 	// Use this for initialization
@@ -13,7 +13,7 @@ public class PlayerTestByPop : MonoBehaviour {
 
         inventory = GameObject.Find("Inventory");
         inventoryScript = inventory.GetComponent<Inventory>();
-        a = GameObject.Find("Game_Controller").GetComponent<Game_Controller>();
+        //a = GameObject.Find("Game_Controller").GetComponent<Game_Controller>();
 
     }
 	
@@ -27,8 +27,8 @@ public class PlayerTestByPop : MonoBehaviour {
 
         if (other.gameObject.tag == "Item")
         {
-           
 
+            /*
             if(Inventory.checkCollectedItem>0)
             {
                 Inventory.checkCollectedItem--;
@@ -46,7 +46,21 @@ public class PlayerTestByPop : MonoBehaviour {
                 Game_Controller.playerInThisMap.notify.SetActive(false);
 
             }
-            
+            */
+
+            if (inventoryScript.addItem(other.gameObject)==1)
+            {
+                Destroy(other.gameObject);
+            }
+            else 
+            {
+                Game_Controller.playerInThisMap.notify.SetActive(true);
+                Game_Controller.playerInThisMap.notification.text = "Inventory is Full!";
+                yield return new WaitForSeconds(3);
+                Game_Controller.playerInThisMap.notify.SetActive(false);
+
+            }
+
         }
     }
 

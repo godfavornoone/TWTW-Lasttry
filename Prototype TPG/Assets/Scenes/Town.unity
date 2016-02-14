@@ -349,7 +349,7 @@ MonoBehaviour:
   World1TextonDetail2: -Go This
   World2TextonDetail1: '- Tak This'
   World2TextonDetail2: '- Fuck'
-  World1warpPoint: {fileID: 539328145}
+  World1warpPoint: {fileID: 1307211907}
   World1warpPoint2: {fileID: 1854590256}
   World2warpPoint: {fileID: 1307211907}
   World2warpPoint2: {fileID: 539328145}
@@ -399,7 +399,7 @@ Transform:
   m_Children:
   - {fileID: 1783331017}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
 --- !u!1001 &1307211906
 Prefab:
   m_ObjectHideFlags: 0
@@ -726,7 +726,7 @@ Transform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
 --- !u!114 &1939763785
 MonoBehaviour:
   m_ObjectHideFlags: 0

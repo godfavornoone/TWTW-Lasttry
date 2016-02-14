@@ -47,11 +47,11 @@ public class textManager : MonoBehaviour {
     public TextAsset vocab;
     public TextAsset vocabHard;
 
-    List<string> ingameVocabEasy = new List<string>();
-    List<string> ingameVocabHard = new List<string>();
+    public List<string> ingameVocabEasy = new List<string>();
+    public List<string> ingameVocabHard = new List<string>();
 
-    List<bool> checkVocabEasy = new List<bool>();
-    List<bool> checkVocabHard = new List<bool>();
+    public List<bool> checkVocabEasy = new List<bool>();
+    public List<bool> checkVocabHard = new List<bool>();
 
     List<string> ingameVocab = new List<string>(); //ไม่ได้ใช้จริง ไว้ใช้เช็คเฉยๆ
 
@@ -554,9 +554,11 @@ public class textManager : MonoBehaviour {
         return result / x;
     }
     
-    public List<string> computeWeakness()
+    public string computeWeakness()
     {
-        List<string> yahoo = new List<string>();
+
+        string weakness="";
+        
 
         comparestupid(stupid("a"), "a");
         comparestupid(stupid("b"), "b");
@@ -585,13 +587,13 @@ public class textManager : MonoBehaviour {
         comparestupid(stupid("y"), "y");
         comparestupid(stupid("z"), "z");
 
-        yahoo.Add(chartoptop1);
-        yahoo.Add(chartoptop2);
-        yahoo.Add(chartoptop3);
-
+        weakness += chartoptop1;
+        weakness += chartoptop2;
+        weakness += chartoptop3;
+        
         Weaknesscollection.Clear();
 
-        return yahoo;
+        return weakness;
     }
 
     public int stupid(string a)
@@ -665,9 +667,9 @@ public class textManager : MonoBehaviour {
 
     }
 
-    public int computeWordDiff()
+    public int computeWordDiff(int WPM)
     {
-        int WPM = computeWPM();
+        
         if(WPM >= 110)
         {
             return 4;

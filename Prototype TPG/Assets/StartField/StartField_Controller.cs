@@ -20,6 +20,7 @@ public class StartField_Controller : MonoBehaviour {
 	GameObject[] setI;
 	// Use this for initialization
 	void Start () {
+        Game_Controller.gameDiff = 1;
         Game_Controller.wordDiff = 0;
         a = GameObject.Find("NPC").GetComponent<NPCstory>();
         a.forStartField();

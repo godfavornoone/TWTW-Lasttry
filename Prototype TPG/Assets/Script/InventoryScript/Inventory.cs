@@ -13,7 +13,7 @@ public class Inventory : MonoBehaviour {
     public GameObject inventorySlot; //ลากใส่เองใน Inspector อ่ะ Prefab Slot กับ Item
     public GameObject inventoryItem;
 
-    int slotAmount;
+    public int slotAmount;
     public List<Item> items = new List<Item>(); //เก็บ item ไว้ใน Slot น่ะ ข้อมูลของ Item
     //public List<int> damage = new List<int>();
     //public List<Sprite> image = new List<Sprite>();
@@ -67,13 +67,13 @@ public class Inventory : MonoBehaviour {
         inventoryPanel.SetActive(false);
     }
 
-    /*
-    public void addItem(GameObject item)
+    
+    public int addItem(GameObject item)
     {
 
         for(int i =0;i<slotAmount;i++)
         {
-            if(checkSlot[i]==-1)
+            if(checkSlot[i]==-1) //นี่คือ -1 คือ ว่างอ่ะ
             {
                 checkSlot[i] = 0;
                 Item itemToAdd = new Item(item.GetComponent<Weapon_Status>().attack, item.GetComponent<Weapon_Status>().image, item.GetComponent<Weapon_Status>().type, item.GetComponent<Weapon_Status>().title, item.GetComponent<Weapon_Status>().option, item.GetComponent<Weapon_Status>().optionChance,item.GetComponent<Weapon_Status>().hitpoint);
@@ -90,13 +90,13 @@ public class Inventory : MonoBehaviour {
                 itemObj.GetComponent<Image>().sprite = items[i].image;
                 itemObj.transform.SetParent(slots[i].transform); //item ก็จะเป็นลูกของ Slot ไงจ้ะ
                 itemObj.transform.GetComponent<RectTransform>().localPosition= new Vector2(0, 0);
-                break;
-
+                return 1;
             }
         }
+        return 0;
     }
-    */
-
+    
+    /*ของใหม่
     public void addItem(Item item)
     {
         for (int i = 0; i < slotAmount; i++)
@@ -117,6 +117,7 @@ public class Inventory : MonoBehaviour {
         }
 
     }
+    */
 
     /*
     public void trytry()
@@ -144,12 +145,17 @@ public class Inventory : MonoBehaviour {
     
     public void openInventory()
     {
+        /*
         inventoryPanel.SetActive(true);
         Game_Controller.blackScene.SetActive(true);
         for (int i = 0; i<collectedItem.Count;i++)
         {
             addItem(collectedItem[i]);
         }
+        Time.timeScale = 0;
+        */
+        inventoryPanel.SetActive(true);
+        Game_Controller.blackScene.SetActive(true);
         Time.timeScale = 0;
     }
     
@@ -158,6 +164,7 @@ public class Inventory : MonoBehaviour {
 
     public void closeInventory()
     {
+        /*
         inventoryPanel.SetActive(false);
         Game_Controller.blackScene.SetActive(false);
 
@@ -172,6 +179,12 @@ public class Inventory : MonoBehaviour {
                 checkCollectedItem++;
             }
         }
+
+        Time.timeScale = 1;
+        */
+
+        inventoryPanel.SetActive(false);
+        Game_Controller.blackScene.SetActive(false);
 
         Time.timeScale = 1;
     }

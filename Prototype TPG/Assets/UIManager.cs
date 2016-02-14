@@ -105,7 +105,7 @@ public class UIManager : MonoBehaviour {
 			Game_Controller.nowScene = "DeadForestEntrance";
 		}else if(level == 4){
             Game_Controller.LoadScene.SetActive(false);
-            //NPCManager.npcInThisMap = GameObject.Find("NPC").GetComponent<NPCstory>();
+            NPCManager.npcInThisMap = GameObject.Find("NPC").GetComponent<NPCstory>();
             Transform player = GameObject.FindGameObjectWithTag("Player").transform;
 			player.position = new Vector3(5.068f,-24.59527f,0f);
 			GameObject[] enemySpawn = GameObject.FindGameObjectsWithTag("Enemy");
@@ -126,7 +126,7 @@ public class UIManager : MonoBehaviour {
 			Game_Controller.nowScene = "NormalForest";
 		}else if(level == 5){
             Game_Controller.LoadScene.SetActive(false);
-            //NPCManager.npcInThisMap = GameObject.Find("NPC").GetComponent<NPCstory>();
+            NPCManager.npcInThisMap = GameObject.Find("NPC").GetComponent<NPCstory>();
             Transform player = GameObject.FindGameObjectWithTag("Player").transform;
 			player.position = new Vector3(5.668777f,-3.787293f,0f);
 			GameObject[] enemySpawn = GameObject.FindGameObjectsWithTag("Enemy");
@@ -168,7 +168,7 @@ public class UIManager : MonoBehaviour {
 			Game_Controller.nowScene = "Crypt";
 		}else if(level == 7){
             Game_Controller.LoadScene.SetActive(false);
-            //NPCManager.npcInThisMap = GameObject.Find("NPC").GetComponent<NPCstory>();
+            NPCManager.npcInThisMap = GameObject.Find("NPC").GetComponent<NPCstory>();
             Transform player = GameObject.FindGameObjectWithTag("Player").transform;
 			player.position = new Vector3(4.812857f,-22.82976f,0f);
 			GameObject[] enemySpawn = GameObject.FindGameObjectsWithTag("Enemy");
@@ -189,7 +189,7 @@ public class UIManager : MonoBehaviour {
 			Game_Controller.nowScene = "Fortess01";
 		}else if(level == 8){
             Game_Controller.LoadScene.SetActive(false);
-            //NPCManager.npcInThisMap = GameObject.Find("NPC").GetComponent<NPCstory>();
+            NPCManager.npcInThisMap = GameObject.Find("NPC").GetComponent<NPCstory>();
             Transform player = GameObject.FindGameObjectWithTag("Player").transform;
 			player.position = new Vector3(10.01f,-29.08f,0f);
 			GameObject[] enemySpawn = GameObject.FindGameObjectsWithTag("Enemy");
@@ -210,7 +210,7 @@ public class UIManager : MonoBehaviour {
 			Game_Controller.nowScene = "Fortess02";
 		}else if(level == 9){
             Game_Controller.LoadScene.SetActive(false);
-            //NPCManager.npcInThisMap = GameObject.Find("NPC").GetComponent<NPCstory>();
+            NPCManager.npcInThisMap = GameObject.Find("NPC").GetComponent<NPCstory>();
             Transform player = GameObject.FindGameObjectWithTag("Player").transform;
 			player.position = new Vector3(4.15f,-7.63f,0f);
 			GameObject[] enemySpawn = GameObject.FindGameObjectsWithTag("Enemy");
@@ -231,7 +231,7 @@ public class UIManager : MonoBehaviour {
 			Game_Controller.nowScene = "D01";
 		}else if(level == 10){
             Game_Controller.LoadScene.SetActive(false);
-            //NPCManager.npcInThisMap = GameObject.Find("NPC").GetComponent<NPCstory>();
+            NPCManager.npcInThisMap = GameObject.Find("NPC").GetComponent<NPCstory>();
             Transform player = GameObject.FindGameObjectWithTag("Player").transform;
 			player.position = new Vector3(25.43914f,-3.585174f,0f);
 			GameObject[] enemySpawn = GameObject.FindGameObjectsWithTag("Enemy");

@@ -1317,6 +1317,10 @@ Prefab:
       propertyPath: m_Name
       value: warpToCrypt
       objectReference: {fileID: 0}
+    - target: {fileID: 120288, guid: e0a9cbf77a68ecb4bb6eae1de7989c91, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e0a9cbf77a68ecb4bb6eae1de7989c91, type: 2}
   m_IsPrefabParent: 0

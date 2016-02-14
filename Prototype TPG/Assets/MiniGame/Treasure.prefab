@@ -281,8 +281,8 @@ MonoBehaviour:
   baseTimeHP: 10
   maxTimeHP: 0
   timeHP: 0
-  wordLengthDifficulty: 04000000
-  wordLevelDifficulty: 00000000
+  wordLengthDifficulty: 0400000004000000040000000400000004000000
+  wordLevelDifficulty: 0000000000000000000000000000000000000000
   textTyping: []
   gameScript: {fileID: 0}
   textManagerScript: {fileID: 0}
@@ -486,7 +486,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 0}
       propertyPath: wordLevelDifficulty.Array.size
-      value: 1
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: wordLengthDifficulty.Array.size
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_IsTrigger
