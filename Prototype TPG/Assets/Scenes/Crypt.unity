@@ -1045,31 +1045,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9066cde3e61408547aa538559ee2c8be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nameNPC: Sasipa
+  nameNPC: Delonse
   story:
-  - ttttt
-  - world
-  - woo
-  - boo
-  - at
+  - Why this name...
+  - I play...
+  - what?
+  - Seven Knight
+  - '.....'
   story2:
-  - kakkkk
-  - Oam
-  - Pump
-  - Toppizz
-  - Polawat nung Furrr
+  - It should be Jeff!
+  - No...
+  - Why?
+  - I got this one
+  - Oh...
   Starterstory: []
   Starterface: 
   face: 0000000001000000000000000100000000000000
   face2: 0000000001000000000000000100000000000000
-  World1choice: Yeeha
-  World1choice2: Yahoo
-  World2choice: YEB
-  World2choice2: YED
-  World1TextonDetail1: -Go Yoo hoo
-  World1TextonDetail2: -Go This
-  World2TextonDetail1: '- KKK'
-  World2TextonDetail2: '- YYY'
+  World1choice: 
+  World1choice2: 
+  World2choice: 
+  World2choice2: 
+  World1TextonDetail1: 
+  World1TextonDetail2: 
+  World2TextonDetail1: 
+  World2TextonDetail2: 
   World1warpPoint: {fileID: 0}
   World1warpPoint2: {fileID: 0}
   World2warpPoint: {fileID: 0}

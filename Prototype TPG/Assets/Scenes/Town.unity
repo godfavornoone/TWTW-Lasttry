@@ -324,31 +324,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9066cde3e61408547aa538559ee2c8be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nameNPC: Yongyot
+  nameNPC: Veleona
   story:
-  - hello
-  - world
-  - woo
-  - boo
-  - at
+  - Phew, look like I made it just in time!
+  - '...'
+  - Hey, I already tried my best!
+  - You don't say!
+  - Help me one thing!
   story2:
-  - yeah
-  - ya
-  - t
-  - ggg
-  - ggggg
+  - Hurray! We can save the village!
+  - Thanks to me!
+  - No, we all did together!
+  - blurhhhh
+  - (Sigh)
   Starterstory: []
   Starterface: 
   face: 0000000001000000000000000100000000000000
   face2: 0000000001000000000000000100000000000000
-  World1choice: Yeeha
-  World1choice2: Yahoo
-  World2choice: Woohoo
-  World2choice2: Weeha
-  World1TextonDetail1: -Go Yoo hoo
-  World1TextonDetail2: -Go This
-  World2TextonDetail1: '- Tak This'
-  World2TextonDetail2: '- Fuck'
+  World1choice: Go
+  World1choice2: Don't Go
+  World2choice: Ignore
+  World2choice2: Yes
+  World1TextonDetail1: -Go to Dead Forest on top of the village
+  World1TextonDetail2: -Go to the east forest and find the clue
+  World2TextonDetail1: -Go to Dead forest and investigate it!
+  World2TextonDetail2: -Go to Desert of Dead to find out
   World1warpPoint: {fileID: 1307211907}
   World1warpPoint2: {fileID: 1854590256}
   World2warpPoint: {fileID: 1307211907}

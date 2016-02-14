@@ -667,31 +667,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9066cde3e61408547aa538559ee2c8be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nameNPC: Yongyot
+  nameNPC: Veleona
   story:
-  - hello
-  - world
-  - woo
-  - boo
-  - at
+  - Why you are here?
+  - I try to find you
+  - Why...
+  - Because...
+  - '?'
   story2:
-  - yeah
-  - ya
-  - t
-  - ggg
-  - ggggg
+  - Hey there!
+  - Why you are here?
+  - I try to find you
+  - Why....
+  - Because...
   Starterstory: []
   Starterface: 
   face: 0000000001000000000000000100000000000000
   face2: 0000000001000000000000000100000000000000
-  World1choice: Yeeha
-  World1choice2: Yahoo
-  World2choice: Woohoo
-  World2choice2: Weeha
-  World1TextonDetail1: -Go Yoo hoo
-  World1TextonDetail2: -Go This
-  World2TextonDetail1: '- Tak This'
-  World2TextonDetail2: '- Fuck'
+  World1choice: 
+  World1choice2: 
+  World2choice: 
+  World2choice2: 
+  World1TextonDetail1: 
+  World1TextonDetail2: 
+  World2TextonDetail1: 
+  World2TextonDetail2: 
   World1warpPoint: {fileID: 0}
   World1warpPoint2: {fileID: 0}
   World2warpPoint: {fileID: 0}
@@ -737,7 +737,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 402250200}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 58.8499985, y: -1.28999996, z: 0}
+  m_LocalPosition: {x: 55.7299995, y: -10.6099997, z: 0}
   m_LocalScale: {x: 2.5, y: 2.5, z: 1.18556213}
   m_Children:
   - {fileID: 1516787233}

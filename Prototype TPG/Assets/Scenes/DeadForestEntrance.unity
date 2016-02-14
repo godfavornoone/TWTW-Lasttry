@@ -939,31 +939,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9066cde3e61408547aa538559ee2c8be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nameNPC: Sasipa
+  nameNPC: Marmin
   story:
-  - ttttt
-  - world
-  - woo
-  - boo
-  - at
+  - hi there!
+  - '....'
+  - I hate you.
+  - I also hate you!
+  - why?!
   story2:
-  - chut
-  - chut
-  - chuttt
-  - chutttt
-  - chutttttt
+  - (Crying)
+  - '...'
+  - (Crying...)
+  - '....'
+  - (Crying......)
   Starterstory: []
   Starterface: 
   face: 0000000001000000000000000100000000000000
   face2: 0000000001000000000000000100000000000000
-  World1choice: Yeeha
-  World1choice2: Yahoo
-  World2choice: KAK
-  World2choice2: NOOB
-  World1TextonDetail1: -Go Yoo hoo
-  World1TextonDetail2: -Go This
-  World2TextonDetail1: '- KKK'
-  World2TextonDetail2: '- YYY'
+  World1choice: you cry..
+  World1choice2: '....'
+  World2choice: ignore
+  World2choice2: slap
+  World1TextonDetail1: -Only way to go is to the Crypt
+  World1TextonDetail2: -Only way to go is to the Crypt
+  World2TextonDetail1: -Only way to go is to the Crypt
+  World2TextonDetail2: -Only way to go is to the Crypt
   World1warpPoint: {fileID: 1422099139}
   World1warpPoint2: {fileID: 1422099139}
   World2warpPoint: {fileID: 1422099139}

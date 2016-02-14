@@ -1826,7 +1826,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1939368384}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 46.2299995, y: -10.4700003, z: 0}
+  m_LocalPosition: {x: 46.4199982, y: -10.9200001, z: 0}
   m_LocalScale: {x: 2.5, y: 2.5, z: 1.18556213}
   m_Children:
   - {fileID: 1762340294}
@@ -1856,31 +1856,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9066cde3e61408547aa538559ee2c8be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nameNPC: Yongyot
+  nameNPC: Red hair
   story:
-  - hello
-  - world
-  - woo
-  - boo
-  - at
+  - you again?!
+  - yes I am
+  - this quote is from Abdul?
+  - yes
+  - you will pay for this!
   story2:
-  - yeah
-  - ya
-  - t
-  - ggg
-  - ggggg
+  - hello
+  - who are you?
+  - not your business
+  - oh then bye
+  - just wait!!
   Starterstory: []
   Starterface: 
   face: 0000000001000000000000000100000000000000
   face2: 0000000001000000000000000100000000000000
-  World1choice: Yeeha
-  World1choice2: Yahoo
-  World2choice: Woohoo
-  World2choice2: Weeha
-  World1TextonDetail1: -Go Yoo hoo
-  World1TextonDetail2: -Go This
-  World2TextonDetail1: '- Tak This'
-  World2TextonDetail2: '- Fuck'
+  World1choice: 
+  World1choice2: 
+  World2choice: 
+  World2choice2: 
+  World1TextonDetail1: 
+  World1TextonDetail2: 
+  World2TextonDetail1: 
+  World2TextonDetail2: 
   World1warpPoint: {fileID: 0}
   World1warpPoint2: {fileID: 0}
   World2warpPoint: {fileID: 0}
