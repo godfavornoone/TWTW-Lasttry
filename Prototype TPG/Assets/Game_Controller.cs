@@ -117,6 +117,8 @@ public class Game_Controller : MonoBehaviour {
     public static GameObject OptionPanel;
     public static GameObject CreditPanel;
     public static GameObject DisclaimerPanel;
+
+    public static GameObject noData;
     
 
 	void Awake(){
@@ -125,6 +127,7 @@ public class Game_Controller : MonoBehaviour {
 	}
 
 	void Start(){
+        noData = GameObject.Find("Nodata");
         OptionPanel = GameObject.Find("OptionPanel");
         CreditPanel = GameObject.Find("CreditPanel");
         DisclaimerPanel = GameObject.Find("DisclaimerPanel");
@@ -189,6 +192,7 @@ public class Game_Controller : MonoBehaviour {
         choice1Text = choice1.transform.GetChild(0).GetComponent<Text>();
         choice2Text = choice2.transform.GetChild(0).GetComponent<Text>();
 
+        noData.SetActive(false);
         OptionPanel.SetActive(false);
         DisclaimerPanel.SetActive(false);
         CreditPanel.SetActive(false);
@@ -249,6 +253,12 @@ public class Game_Controller : MonoBehaviour {
 		}
 
 	}
+
+    public void noDataClose()
+    {
+        noData.SetActive(false);
+        blackScene.SetActive(false);
+    }
 
     public void SkillOpen()
     {
@@ -586,101 +596,103 @@ public class Game_Controller : MonoBehaviour {
         Application.Quit();
     }
 
+    public void deleteAll()
+    {
+        Debug.Log("Delete Already");
+        PlayerPrefs.DeleteAll();
+    }
+
     public void mainMenuOpen()
-    {/*
-            public static Text characterLevel;
-    public static Text characterWorld;
-    public static Text characterStory;
-    public static Text wordDifficultyChar;
-    public static Text gameDifficultyChar;
-    */
-     /*
-         SaveData.Save("currentLevel", Game_Controller.playerInThisMap.lvl);
-         SaveData.Save("currentScene", "Town");
-         SaveData.Save("currentGameDifficulty", (Game_Controller.gameDiff + 1));
-         SaveData.Save("currentWordDifficulty", a.computeWordDiff(WPM));
-         SaveData.Save("currentParallelWorld", 1);
- */
-        //Debug.Log("ของพี่เค้า " + SaveData.Load("currentLevel", 1.5f, true));
-
-        characterLevel.text = "Lv. " + SaveData.Load("currentLevel", 1.5f, true).ToString();
-        
-        if(PlayerPrefs.GetInt("currentParallelWorld")==0)
+    {
+        if(!PlayerPrefs.HasKey("currentParallelWorld"))
         {
-            characterWorld.text = "\"Alpha\"";
-        }
-        else if (PlayerPrefs.GetInt("currentParallelWorld") == 1)
-        {
-            characterWorld.text = "\"Beta\"";
-        }
-
-        characterStory.text = "\"" + PlayerPrefs.GetString("currentScene") + "\"";
-
-        //me 0-4 WORD DIFF
-        if(SaveData.Load("currentWordDifficulty", 1, true) == 0)
-        {
-            wordDifficultyChar.text = "\"Newbie\"";
-        }
-        else if(SaveData.Load("currentWordDifficulty", 1, true) == 1)
-        {
-            wordDifficultyChar.text = "\"Beginner\"";
-        }
-        else if (SaveData.Load("currentWordDifficulty", 1, true) == 2)
-        {
-            wordDifficultyChar.text = "\"Advanced\"";
-        }
-        else if (SaveData.Load("currentWordDifficulty", 1, true) == 3)
-        {
-            wordDifficultyChar.text = "\"Master\"";
-        }
-        else if (SaveData.Load("currentWordDifficulty", 1, true) == 4)
-        {
-            wordDifficultyChar.text = "\"Expert\"";
-        }
-
-        //GameDiff
-        if (SaveData.Load("maxGameDifficulty", 1, true) == 1)
-        {
-            gameDifficultyChar.text = "\"Normal\"";
-            currentGameDifficulty.text = "\"Normal\"";
-            tempGameDiff = 1;
-        }
-        else if (SaveData.Load("maxGameDifficulty", 1, true) == 2)
-        {
-            gameDifficultyChar.text = "\"Hard\"";
-            currentGameDifficulty.text = "\"Hard\"";
-            tempGameDiff = 2;
-        }
-        else if (SaveData.Load("maxGameDifficulty", 1, true) == 3)
-        {
-            gameDifficultyChar.text = "\"Very Hard\"";
-            currentGameDifficulty.text = "\"Very Hard\"";
-            tempGameDiff = 3;
-        }
-        else if (SaveData.Load("maxGameDifficulty", 1, true) == 4)
-        {
-            gameDifficultyChar.text = "\"Insane\"";
-            currentGameDifficulty.text = "\"Insane\"";
-            tempGameDiff = 4;
-        }
-        else if (SaveData.Load("maxGameDifficulty", 1, true) == 5)
-        {
-            gameDifficultyChar.text = "\"Nightmare\"";
-            currentGameDifficulty.text = "\"Nightmare\"";
-            tempGameDiff = 5;
+            Debug.Log("Not here");
+            noData.SetActive(true);
+            blackScene.SetActive(true);
         }
         else
         {
-            int woohoo = SaveData.Load("maxGameDifficulty", 1, true) - 5;
-            gameDifficultyChar.text = "\"Nightmare+" + woohoo.ToString() + "\"";
-            currentGameDifficulty.text = "\"Nightmare+" + woohoo.ToString() + "\"";
-            tempGameDiff = SaveData.Load("maxGameDifficulty", 1, true);
+            characterLevel.text = "Lv. " + SaveData.Load("currentLevel", 1.5f, true).ToString();
+
+            if (PlayerPrefs.GetInt("currentParallelWorld") == 0)
+            {
+                characterWorld.text = "\"Alpha\"";
+            }
+            else if (PlayerPrefs.GetInt("currentParallelWorld") == 1)
+            {
+                characterWorld.text = "\"Beta\"";
+            }
+
+            characterStory.text = "\"" + PlayerPrefs.GetString("currentScene") + "\"";
+
+            //me 0-4 WORD DIFF
+            if (SaveData.Load("currentWordDifficulty", 1, true) == 0)
+            {
+                wordDifficultyChar.text = "\"Newbie\"";
+            }
+            else if (SaveData.Load("currentWordDifficulty", 1, true) == 1)
+            {
+                wordDifficultyChar.text = "\"Beginner\"";
+            }
+            else if (SaveData.Load("currentWordDifficulty", 1, true) == 2)
+            {
+                wordDifficultyChar.text = "\"Advanced\"";
+            }
+            else if (SaveData.Load("currentWordDifficulty", 1, true) == 3)
+            {
+                wordDifficultyChar.text = "\"Master\"";
+            }
+            else if (SaveData.Load("currentWordDifficulty", 1, true) == 4)
+            {
+                wordDifficultyChar.text = "\"Expert\"";
+            }
+
+            //GameDiff
+            if (SaveData.Load("maxGameDifficulty", 1, true) == 1)
+            {
+                gameDifficultyChar.text = "\"Normal\"";
+                currentGameDifficulty.text = "\"Normal\"";
+                tempGameDiff = 1;
+            }
+            else if (SaveData.Load("maxGameDifficulty", 1, true) == 2)
+            {
+                gameDifficultyChar.text = "\"Hard\"";
+                currentGameDifficulty.text = "\"Hard\"";
+                tempGameDiff = 2;
+            }
+            else if (SaveData.Load("maxGameDifficulty", 1, true) == 3)
+            {
+                gameDifficultyChar.text = "\"Very Hard\"";
+                currentGameDifficulty.text = "\"Very Hard\"";
+                tempGameDiff = 3;
+            }
+            else if (SaveData.Load("maxGameDifficulty", 1, true) == 4)
+            {
+                gameDifficultyChar.text = "\"Insane\"";
+                currentGameDifficulty.text = "\"Insane\"";
+                tempGameDiff = 4;
+            }
+            else if (SaveData.Load("maxGameDifficulty", 1, true) == 5)
+            {
+                gameDifficultyChar.text = "\"Nightmare\"";
+                currentGameDifficulty.text = "\"Nightmare\"";
+                tempGameDiff = 5;
+            }
+            else
+            {
+                int woohoo = SaveData.Load("maxGameDifficulty", 1, true) - 5;
+                gameDifficultyChar.text = "\"Nightmare+" + woohoo.ToString() + "\"";
+                currentGameDifficulty.text = "\"Nightmare+" + woohoo.ToString() + "\"";
+                tempGameDiff = SaveData.Load("maxGameDifficulty", 1, true);
+            }
+
+            //ได้เวลาโหลดค่ากันแล้ววววววว หรือไม่ดี -..- ไว้โหลดตอนกด Resume เลยเหรอ =3= ดังนั้น....เอ่อ งั้นก็....แค่โชว์ผลป้ะ 555
+
+            mainMenu.SetActive(true);
+            blackScene.SetActive(true);
         }
 
-        //ได้เวลาโหลดค่ากันแล้ววววววว หรือไม่ดี -..- ไว้โหลดตอนกด Resume เลยเหรอ =3= ดังนั้น....เอ่อ งั้นก็....แค่โชว์ผลป้ะ 555
-
-        mainMenu.SetActive(true);
-        blackScene.SetActive(true);
+        
     }
 
     public void increaseButton()
