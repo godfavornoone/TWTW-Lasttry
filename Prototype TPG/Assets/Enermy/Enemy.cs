@@ -106,7 +106,8 @@ public class Enemy : MonoBehaviour {
         //takeDMG();
         if (textTyping[1].text.Equals(textTyping[0].text))
         {
-			WordInstantiate();
+			takedDMG = true;
+//			WordInstantiate();
         }
 	}
 	
@@ -193,6 +194,9 @@ public class Enemy : MonoBehaviour {
         
         hitPoint = hitPoint - dmg;
 		if(hitPoint <= 0){
+			Game_Controller.indexGlobal = 0;
+			textTyping[0].text = "";
+			textTyping[1].text = "";
             //Game_Controller.indexGlobal = 0;
 
             Game_Controller.oneEnemyWordChange = true;
@@ -305,7 +309,7 @@ public class Enemy : MonoBehaviour {
                     textManagerScript.returnText(textTyping[1].text, wordDifficult);
                 }
                 
-				takedDMG = true;
+//				takedDMG = true;
 				textTyping [0].text = "";
 
                 //Start with One Letter Option

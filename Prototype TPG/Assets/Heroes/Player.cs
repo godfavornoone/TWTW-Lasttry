@@ -228,9 +228,13 @@ public class Player : MonoBehaviour {
                 }
 
                 Debug.Log("Damage After Cri: " + dmg);
+				enemy.HpDown (dmg);
+				if(enemy.takedDMG && enemy.hitPoint > 0){
+					enemy.WordInstantiate();
+				}
 
                 enemy.takedDMG = false;
-				enemy.HpDown (dmg);
+
 			} else if (enemy.takedDMG && !isSword) {
 				anim.SetBool ("Sword_Down", false);
 				anim.SetBool ("Sword_Right", false);
@@ -292,6 +296,79 @@ public class Player : MonoBehaviour {
 							aL.ShootingArrow (enemy.transform, angletmp, enemy.name);
 						}
 					}
+				}
+
+				int chanceCri;
+				bool oneTimeOnly = true;
+				float dmg = Game_Controller.playerInThisMap.BowAtk;
+				
+				Debug.Log("Damage Before Cri: " + dmg);
+				
+				if (Game_Controller.playerInThisMap.currentBoot.hitpoint != 0 && oneTimeOnly)
+				{
+					
+					if (Game_Controller.playerInThisMap.currentBoot.option[3] != 0)
+					{
+						chanceCri = Random.Range(0, 100);
+						if (chanceCri <= Game_Controller.playerInThisMap.currentBoot.optionChance[3])
+						{
+							Debug.Log("Cri by boot! in currentWP = bow");
+							dmg = dmg + dmg;
+							oneTimeOnly = false;
+						}
+					}
+				}
+				
+				if (Game_Controller.playerInThisMap.currentCloth.hitpoint != 0 && oneTimeOnly)
+				{
+					
+					if (Game_Controller.playerInThisMap.currentCloth.option[3] != 0)
+					{
+						chanceCri = Random.Range(0, 100);
+						if (chanceCri <= Game_Controller.playerInThisMap.currentCloth.optionChance[3])
+						{
+							Debug.Log("Cri by cloth! in currentWP = bow");
+							dmg = dmg + dmg;
+							oneTimeOnly = false;
+						}
+					}
+				}
+				
+				if (Game_Controller.playerInThisMap.currentSword.damage != 0 && oneTimeOnly)
+				{
+					
+					if (Game_Controller.playerInThisMap.currentSword.option[3] != 0)
+					{
+						chanceCri = Random.Range(0, 100);
+						if (chanceCri <= Game_Controller.playerInThisMap.currentSword.optionChance[3])
+						{
+							Debug.Log("Cri by sword! in currentWP = bow");
+							dmg = dmg + dmg;
+							oneTimeOnly = false;
+						}
+					}
+				}
+				
+				if (Game_Controller.playerInThisMap.currentBow.damage != 0 && oneTimeOnly)
+				{
+					
+					if (Game_Controller.playerInThisMap.currentBow.option[3] != 0)
+					{
+						chanceCri = Random.Range(0, 100);
+						if (chanceCri <= Game_Controller.playerInThisMap.currentBow.optionChance[3])
+						{
+							Debug.Log("Cri by bow! in currentWP = bow");
+							dmg = dmg + dmg;
+							oneTimeOnly = false;
+						}
+					}
+				}
+				
+				Debug.Log("Damage After Cri: " + dmg);
+
+				enemy.HpDown (dmg);
+				if(enemy.takedDMG && enemy.hitPoint > 0){
+					enemy.WordInstantiate();
 				}
 				enemy.takedDMG = false;
 			}
