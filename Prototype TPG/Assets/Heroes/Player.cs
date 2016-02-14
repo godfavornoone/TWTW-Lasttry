@@ -232,7 +232,6 @@ public class Player : MonoBehaviour {
 				if(enemy.takedDMG && enemy.hitPoint > 0){
 					enemy.WordInstantiate();
 				}
-
                 enemy.takedDMG = false;
 
 			} else if (enemy.takedDMG && !isSword) {
@@ -538,4 +537,5 @@ public class Player : MonoBehaviour {
 		Game_Controller.playerInThisMap.HP = (Game_Controller.playerInThisMap.MaxHP + Game_Controller.playerInThisMap.currentCloth.hitpoint + Game_Controller.playerInThisMap.currentBoot.hitpoint)/2;
 		Application.LoadLevel (sName);
 	}
+
 }

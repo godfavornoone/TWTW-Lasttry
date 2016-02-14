@@ -96,7 +96,10 @@ public class Enemy : MonoBehaviour {
 	void Update () {
         charStorage = textTyping [1].text.ToCharArray ();
 		EnableTyping ();
-        
+//		if (textTyping[1].text.Equals(textTyping[0].text))
+//		{
+//			takedDMG = true;
+//		}
 		PushESC (Game_Controller.ESC);
 	}
 	
@@ -193,7 +196,9 @@ public class Enemy : MonoBehaviour {
 	public void HpDown(float dmg){
         
         hitPoint = hitPoint - dmg;
+
 		if(hitPoint <= 0){
+			
 			Game_Controller.indexGlobal = 0;
 			textTyping[0].text = "";
 			textTyping[1].text = "";
@@ -225,8 +230,8 @@ public class Enemy : MonoBehaviour {
                 textManagerScript.returnText(textTyping[1].text, wordDifficult);
             }
 
-			gameObject.SetActive(false);
-			gameObject.transform.position = positionBorn;
+			Invoke("DelayDestroyForEffect", 0.3f);
+
 
 //			Destroy(gameObject);
 
@@ -671,7 +676,7 @@ public class Enemy : MonoBehaviour {
 
 	public void DistanceToBorn(){
 		float distance = Vector2.Distance (Game_Controller.playerInThisMap.transform.position, gameObject.transform.position);
-		if(distance < 8){
+		if(distance < 20){
 			gameObject.SetActive(true);
 		}
 	}
@@ -682,6 +687,11 @@ public class Enemy : MonoBehaviour {
 		} else {
 			gameObject.SetActive(true);
 		}
+	}
+
+	void DelayDestroyForEffect(){
+		gameObject.SetActive(false);
+		gameObject.transform.position = positionBorn;
 	}
 
 }

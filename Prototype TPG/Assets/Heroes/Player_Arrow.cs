@@ -3,7 +3,6 @@ using System.Collections;
 
 public class Player_Arrow : MonoBehaviour {
 
-
 	float speed;
 	Vector2 _direction;
 	bool isReady;
@@ -44,6 +43,7 @@ public class Player_Arrow : MonoBehaviour {
 	void OnTriggerEnter2D (Collider2D other){
 		if(other.gameObject.name.Equals(name)){
 			Destroy(gameObject);
+			
 //			foreach(Enemy enemy in Game_Controller.enemyInThisMap){
 //				if(enemy.name.Equals(name)){
 //

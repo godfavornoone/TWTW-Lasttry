@@ -5,6 +5,8 @@ using System.Collections.Generic;
 
 public class Game_Controller : MonoBehaviour {
 
+	public static float bowCri;
+
 	public GameObject target;
 	List<Vector3> playerStartPosition = new List<Vector3>();
 	public static List<Treasure> treasureMinigame = new List<Treasure> ();
