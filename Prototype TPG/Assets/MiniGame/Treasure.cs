@@ -9,8 +9,9 @@ public class Treasure : MonoBehaviour {
 
 	Animator treasureOpen;
 	public Transform player;
+    public float baseDropRate;
 
-	public float baseTimeHP;
+    public float baseTimeHP;
 	[HideInInspector]
 	public float maxTimeHP;
 	[HideInInspector]
@@ -26,7 +27,10 @@ public class Treasure : MonoBehaviour {
 	private char[] charStorage;
 	private int indexLocal = 0;
 
-	private float distanceAttack;
+    [HideInInspector]
+    public float dropRate;
+
+    private float distanceAttack;
 
 	public Game_Controller gameScript;
 	public textManager textManagerScript;
@@ -92,6 +96,7 @@ public class Treasure : MonoBehaviour {
 	void realStatus(int gameDifficult){
 		timeHP = baseTimeHP * gameDifficult;
 		maxTimeHP = timeHP;
+        dropRate = baseDropRate + (gameDifficult * 2);
 	}
 
 	public void CheckWrongAll(char txt){
@@ -126,7 +131,18 @@ public class Treasure : MonoBehaviour {
 			if(textTyping [1].text.Equals (textTyping [0].text)){
 				textTyping[0].text = "";
 				textTyping[1].text = textManagerScript.sendText(wordLength, wordDifficult);
-				indexLocal = 0;
+
+                int dropchance = Random.Range(0, 100);
+                Debug.Log("dropChance is: " + dropchance);
+                Debug.Log("dropRate is: " + dropRate);
+                if (dropchance <= dropRate)
+                {
+                    Debug.Log("YEEEEE");
+                    int item = Random.Range(0, 20);
+                    Instantiate(gameScript.itemPrefab[item], this.transform.position, Quaternion.identity);
+
+                }
+                indexLocal = 0;
 				Game_Controller.indexGlobal = 0;
 			}
 		}
@@ -150,7 +166,7 @@ public class Treasure : MonoBehaviour {
 		if(timeHP <= 0){
 			treasureOpen.SetBool("Open", true);
 			textTyping[1].text = "";
-			textTyping[0].text = "";
+			textTyping[0].text = " ";
 			Invoke("CloseChest", 3f);
 		}
 	}

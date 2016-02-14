@@ -71,7 +71,7 @@ GameObject:
   m_Layer: 0
   m_Name: Treasure
   m_TagString: Treasure
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -278,12 +278,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   setStroke: {fileID: 0}
   player: {fileID: 0}
+  baseDropRate: 100
   baseTimeHP: 10
   maxTimeHP: 0
   timeHP: 0
   wordLengthDifficulty: 0400000004000000040000000400000004000000
   wordLevelDifficulty: 0000000000000000000000000000000000000000
   textTyping: []
+  dropRate: 0
   gameScript: {fileID: 0}
   textManagerScript: {fileID: 0}
   HPEnemyScript: {fileID: 0}
@@ -416,7 +418,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
-  m_SortingOrder: 3
+  m_SortingOrder: 5
   m_Sprite: {fileID: 21300012, guid: 4398c1aee4b38c74387afd926d69482e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!222 &22262018
@@ -519,6 +521,14 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_Constraints
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: baseDropRate
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_SortingOrder
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

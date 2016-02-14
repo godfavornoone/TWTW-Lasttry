@@ -614,6 +614,8 @@ public class Game_Controller : MonoBehaviour {
         {
             characterLevel.text = "Lv. " + SaveData.Load("currentLevel", 1.5f, true).ToString();
 
+            Debug.Log("Current level Before is: " + SaveData.Load("currentLevel", 1.5f, true));
+
             if (PlayerPrefs.GetInt("currentParallelWorld") == 0)
             {
                 characterWorld.text = "\"Alpha\"";
@@ -834,7 +836,15 @@ public class Game_Controller : MonoBehaviour {
             playerInThisMap.historyWeaknesses.Add(SaveData.Load(key2, "yaha", true));
         }
 
+        //characterLevel.text = "Lv. " + SaveData.Load("currentLevel", 1.5f, true).ToString();
+
+        Debug.Log("Current level After is: " + SaveData.Load("currentLevel", 1.5f, true));
+
         playerInThisMap.lvl = SaveData.Load("currentLevel", 1.5f, true);
+
+        Debug.Log("Fuck Level is: " + playerInThisMap.lvl);
+
+        Debug.Log("Current level After2 is: " + SaveData.Load("currentLevel", 1.5f, true));
         playerInThisMap.lvlup = SaveData.Load("EXPLeft", 1.5f, true);
         playerInThisMap.MaxHP = SaveData.Load("maxHP", 1.5f, true);
         playerInThisMap.MaxSP = SaveData.Load("maxSP", 1.5f, true);

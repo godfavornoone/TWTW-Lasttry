@@ -14,5 +14,7 @@ public class LevelTextScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         a.text = "Lv. " + Game_Controller.playerInThisMap.lvl;
+
+        //Debug.Log(Game_Controller.playerInThisMap.lvl);
     }
 }

@@ -26,11 +26,11 @@ public class Skill_Fire : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		EnableUseFire ();
-	}
+    }
 
 	void LateUpdate(){
-		FireEnemy (fireDMG);
-	}
+        FireEnemy(fireDMG);
+    }
 
 	public void EnableUseFire(){
 
