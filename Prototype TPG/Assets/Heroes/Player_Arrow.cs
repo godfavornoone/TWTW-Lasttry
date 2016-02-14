@@ -3,7 +3,6 @@ using System.Collections;
 
 public class Player_Arrow : MonoBehaviour {
 
-
 	float speed;
 	Vector2 _direction;
 	bool isReady;
@@ -114,7 +113,6 @@ public class Player_Arrow : MonoBehaviour {
                     }
 
                     Debug.Log("Damage After Cri: " + dmg);
-
 
 
                     enemy.HpDown(dmg);

@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
@@ -155,6 +155,7 @@ public class Treasure : MonoBehaviour {
 	}
 
 	void CloseChest(){
+		Game_Controller.indexGlobal = 0;
 		Game_Controller.playerInMinigame = false;
 		gameObject.SetActive(false);
 	}
