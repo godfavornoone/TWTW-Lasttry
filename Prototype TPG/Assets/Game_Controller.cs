@@ -20,7 +20,7 @@ public class Game_Controller : MonoBehaviour {
 	public static bool enemyStruckPlayer = false;
 	public static List<Enemy> enemyInThisMap = new List<Enemy>();
 	public static Player playerInThisMap;
-	public static string nowScene;
+	public static string nowScene="";
 
     //for story
     public static GameObject conversation;
@@ -111,6 +111,10 @@ public class Game_Controller : MonoBehaviour {
     public BowPanel bowPanel;
     public ClothPanel clothPanel;
     public BootPanel bootPanel;
+
+    public static GameObject OptionPanel;
+    public static GameObject CreditPanel;
+    public static GameObject DisclaimerPanel;
     
 
 	void Awake(){
@@ -119,6 +123,9 @@ public class Game_Controller : MonoBehaviour {
 	}
 
 	void Start(){
+        OptionPanel = GameObject.Find("OptionPanel");
+        CreditPanel = GameObject.Find("CreditPanel");
+        DisclaimerPanel = GameObject.Find("DisclaimerPanel");
         swordPanel = GameObject.Find("SwordPanel").GetComponent<SwordPanel>();
         bowPanel = GameObject.Find("BowPanel").GetComponent<BowPanel>();
         clothPanel = GameObject.Find("ClothPanel").GetComponent<ClothPanel>();
@@ -180,7 +187,9 @@ public class Game_Controller : MonoBehaviour {
         choice1Text = choice1.transform.GetChild(0).GetComponent<Text>();
         choice2Text = choice2.transform.GetChild(0).GetComponent<Text>();
 
-        
+        OptionPanel.SetActive(false);
+        DisclaimerPanel.SetActive(false);
+        CreditPanel.SetActive(false);
         playerStatus.SetActive(false);
         weaponPanel.SetActive(false);
         skillPanel.SetActive(false);
@@ -241,12 +250,14 @@ public class Game_Controller : MonoBehaviour {
 
     public void SkillOpen()
     {
+        Time.timeScale = 0;
         blackScene.SetActive(true);
         SkillPanel.SetActive(true);
     }
 
     public void SkillClose()
     {
+        Time.timeScale = 1;
         blackScene.SetActive(false);
         SkillPanel.SetActive(false);
     }
@@ -273,6 +284,7 @@ public class Game_Controller : MonoBehaviour {
             temp--;
         }
 
+        Time.timeScale = 0;
         typingProgressMenu.SetActive(true);
         blackScene.SetActive(true);
 
@@ -280,9 +292,296 @@ public class Game_Controller : MonoBehaviour {
 
     public void TypingProgressClose()
     {
+        Time.timeScale = 1;
         typingProgressMenu.SetActive(false);
         blackScene.SetActive(false);
 
+    }
+
+    public void optionOpen()
+    {
+        Time.timeScale = 0;
+        OptionPanel.SetActive(true);
+        blackScene.SetActive(true);
+
+    }
+
+    public void optionClose()
+    {
+        Time.timeScale = 1;
+        OptionPanel.SetActive(false);
+        blackScene.SetActive(false);
+
+    }
+
+    public void creditOpen()
+    {
+        Time.timeScale = 0;
+        CreditPanel.SetActive(true);
+
+    }
+
+    public void creditClose()
+    {
+        Time.timeScale = 1;
+        CreditPanel.SetActive(false);
+
+    }
+
+    public void disclaimerOpen()
+    {
+        Time.timeScale = 0;
+        DisclaimerPanel.SetActive(true);
+
+    }
+
+    public void disclaimerClose()
+    {
+
+        Time.timeScale = 1;
+        DisclaimerPanel.SetActive(false);
+    }
+
+    public void pressExitGame()
+    {
+        //ถ้าผู้เล่นพึ่ง Start Game แล้ว Exit เลย ? จะเปนยังไงอ่ะ
+
+        //ตรงนี้น่ากลัวอยู่
+        //ตอนแรกสุดอ่ะ มันจะมีแต่ Letter ปัญหาทั้ง 3 นะ ดังนั้นถ
+
+        //Analysis แมพสุดท้ายอ่ะจ้ะ...
+        a.Analysis();
+        string b = a.computeWeakness();
+        int WPM = a.computeWPM();
+
+        if(b.Length<3)
+        {
+            b = "abc";
+        }
+
+        //อย่าลืมไปใส่อีกที่ แต่นั่นไม่น่าเกิด เพราะน่าจะตายรัวๆอ่ะ -....-
+        Game_Controller.playerInThisMap.historyWeaknesses.Add(b);
+        Game_Controller.playerInThisMap.historyWPM.Add(WPM);
+        //เอาไอ่บ้านี้ไว้ดึงศัพท์นะ...
+        SaveData.Save("top3Weakness", b);
+
+        //ดาบ
+
+        //ก็ถ้ามันไม่มีดาบ มันก็จะไม่มีชื่อ =3=
+        //มีตัวแปรชื่อ haveCurrentSword ไรงี้มะ ถ้าไม่มี ก็ไม่ต้องยุ่งอะไรกับ Key ของ Sword ตรงนี้ทั้งหมด
+        //ถ้ามีค่อยยุ่งไรงี้ ??
+        if (Game_Controller.playerInThisMap.currentSword.damage != 0)
+        {
+            SaveData.Save("HasSword", true);
+            SaveData.Save("SwordImage", Game_Controller.playerInThisMap.currentSword.image.name);
+            SaveData.Save("SwordDamage", Game_Controller.playerInThisMap.currentSword.damage);
+            SaveData.Save("SwordType", Game_Controller.playerInThisMap.currentSword.type);
+            SaveData.Save("SwordTitle", Game_Controller.playerInThisMap.currentSword.title);
+            SaveData.Save("SwordHitpoint", Game_Controller.playerInThisMap.currentSword.hitpoint);
+            SaveData.Save("SwordOption1", Game_Controller.playerInThisMap.currentSword.option[0]);
+            SaveData.Save("SwordOption2", Game_Controller.playerInThisMap.currentSword.option[1]);
+            SaveData.Save("SwordOption3", Game_Controller.playerInThisMap.currentSword.option[2]);
+            SaveData.Save("SwordOption4", Game_Controller.playerInThisMap.currentSword.option[3]);
+            SaveData.Save("SwordOption1Chance", Game_Controller.playerInThisMap.currentSword.optionChance[0]);
+            SaveData.Save("SwordOption2Chance", Game_Controller.playerInThisMap.currentSword.optionChance[1]);
+            SaveData.Save("SwordOption3Chance", Game_Controller.playerInThisMap.currentSword.optionChance[2]);
+            SaveData.Save("SwordOption4Chance", Game_Controller.playerInThisMap.currentSword.optionChance[3]);
+        }
+        else
+        {
+            SaveData.Save("HasSword", false);
+        }
+
+        if (Game_Controller.playerInThisMap.currentBow.damage != 0)
+        {
+            SaveData.Save("HasBow", true);
+            //ธนู
+            SaveData.Save("BowImage", Game_Controller.playerInThisMap.currentBow.image.name);
+            SaveData.Save("BowDamage", Game_Controller.playerInThisMap.currentBow.damage);
+            SaveData.Save("BowType", Game_Controller.playerInThisMap.currentBow.type);
+            SaveData.Save("BowTitle", Game_Controller.playerInThisMap.currentBow.title);
+            SaveData.Save("BowHitpoint", Game_Controller.playerInThisMap.currentBow.hitpoint);
+            SaveData.Save("BowOption1", Game_Controller.playerInThisMap.currentBow.option[0]);
+            SaveData.Save("BowOption2", Game_Controller.playerInThisMap.currentBow.option[1]);
+            SaveData.Save("BowOption3", Game_Controller.playerInThisMap.currentBow.option[2]);
+            SaveData.Save("BowOption4", Game_Controller.playerInThisMap.currentBow.option[3]);
+            SaveData.Save("BowOption1Chance", Game_Controller.playerInThisMap.currentBow.optionChance[0]);
+            SaveData.Save("BowOption2Chance", Game_Controller.playerInThisMap.currentBow.optionChance[1]);
+            SaveData.Save("BowOption3Chance", Game_Controller.playerInThisMap.currentBow.optionChance[2]);
+            SaveData.Save("BowOption4Chance", Game_Controller.playerInThisMap.currentBow.optionChance[3]);
+        }
+        else
+        {
+            SaveData.Save("HasBow", false);
+        }
+
+        if (Game_Controller.playerInThisMap.currentCloth.hitpoint != 0)
+        {
+            SaveData.Save("HasCloth", true);
+            //เสื้อ
+            SaveData.Save("ClothImage", Game_Controller.playerInThisMap.currentCloth.image.name);
+            SaveData.Save("ClothDamage", Game_Controller.playerInThisMap.currentCloth.damage);
+            SaveData.Save("ClothType", Game_Controller.playerInThisMap.currentCloth.type);
+            SaveData.Save("ClothTitle", Game_Controller.playerInThisMap.currentCloth.title);
+            SaveData.Save("ClothHitpoint", Game_Controller.playerInThisMap.currentCloth.hitpoint);
+            SaveData.Save("ClothOption1", Game_Controller.playerInThisMap.currentCloth.option[0]);
+            SaveData.Save("ClothOption2", Game_Controller.playerInThisMap.currentCloth.option[1]);
+            SaveData.Save("ClothOption3", Game_Controller.playerInThisMap.currentCloth.option[2]);
+            SaveData.Save("ClothOption4", Game_Controller.playerInThisMap.currentCloth.option[3]);
+            SaveData.Save("ClothOption1Chance", Game_Controller.playerInThisMap.currentCloth.optionChance[0]);
+            SaveData.Save("ClothOption2Chance", Game_Controller.playerInThisMap.currentCloth.optionChance[1]);
+            SaveData.Save("ClothOption3Chance", Game_Controller.playerInThisMap.currentCloth.optionChance[2]);
+            SaveData.Save("ClothOption4Chance", Game_Controller.playerInThisMap.currentCloth.optionChance[3]);
+        }
+        else
+        {
+            SaveData.Save("HasCloth", false);
+        }
+
+        if (Game_Controller.playerInThisMap.currentBoot.hitpoint != 0)
+        {
+            SaveData.Save("HasBoot", true);
+            //รองเท้า
+            SaveData.Save("BootImage", Game_Controller.playerInThisMap.currentBoot.image.name);
+            SaveData.Save("BootDamage", Game_Controller.playerInThisMap.currentBoot.damage);
+            SaveData.Save("BootType", Game_Controller.playerInThisMap.currentBoot.type);
+            SaveData.Save("BootTitle", Game_Controller.playerInThisMap.currentBoot.title);
+            SaveData.Save("BootHitpoint", Game_Controller.playerInThisMap.currentBoot.hitpoint);
+            SaveData.Save("BootOption1", Game_Controller.playerInThisMap.currentBoot.option[0]);
+            SaveData.Save("BootOption2", Game_Controller.playerInThisMap.currentBoot.option[1]);
+            SaveData.Save("BootOption3", Game_Controller.playerInThisMap.currentBoot.option[2]);
+            SaveData.Save("BootOption4", Game_Controller.playerInThisMap.currentBoot.option[3]);
+            SaveData.Save("BootOption1Chance", Game_Controller.playerInThisMap.currentBoot.optionChance[0]);
+            SaveData.Save("BootOption2Chance", Game_Controller.playerInThisMap.currentBoot.optionChance[1]);
+            SaveData.Save("BootOption3Chance", Game_Controller.playerInThisMap.currentBoot.optionChance[2]);
+            SaveData.Save("BootOption4Chance", Game_Controller.playerInThisMap.currentBoot.optionChance[3]);
+
+        }
+        else
+        {
+            SaveData.Save("HasBoot", false);
+        }
+
+
+
+
+        //ถ้าไม่มีของในช่องนั้นต้องลบ Key นั้นออกไปด้วยอ่ะ....ไม่งั้นนะ มันจะวุ่นมั้ง
+        for (int i = 0; i < inv.slotAmount; i++)
+        {
+            string key = "Slot" + i;
+
+            if (inv.checkSlot[i] != -1) //เอาช่องที่ไม่ว่าง ช่องนี้มีของนะจ้ะ
+            {
+                SaveData.Save(key + "Image", inv.slots[i].transform.GetChild(0).GetComponent<ItemData>().item.image.name);
+                SaveData.Save(key + "Damage", inv.slots[i].transform.GetChild(0).GetComponent<ItemData>().item.damage);
+                SaveData.Save(key + "Type", inv.slots[i].transform.GetChild(0).GetComponent<ItemData>().item.type);
+                SaveData.Save(key + "Title", inv.slots[i].transform.GetChild(0).GetComponent<ItemData>().item.title);
+                SaveData.Save(key + "Hitpoint", inv.slots[i].transform.GetChild(0).GetComponent<ItemData>().item.hitpoint);
+                SaveData.Save(key + "Option1", inv.slots[i].transform.GetChild(0).GetComponent<ItemData>().item.option[0]);
+                SaveData.Save(key + "Option2", inv.slots[i].transform.GetChild(0).GetComponent<ItemData>().item.option[1]);
+                SaveData.Save(key + "Option3", inv.slots[i].transform.GetChild(0).GetComponent<ItemData>().item.option[2]);
+                SaveData.Save(key + "Option4", inv.slots[i].transform.GetChild(0).GetComponent<ItemData>().item.option[3]);
+                SaveData.Save(key + "Option1Chance", inv.slots[i].transform.GetChild(0).GetComponent<ItemData>().item.optionChance[0]);
+                SaveData.Save(key + "Option2Chance", inv.slots[i].transform.GetChild(0).GetComponent<ItemData>().item.optionChance[1]);
+                SaveData.Save(key + "Option3Chance", inv.slots[i].transform.GetChild(0).GetComponent<ItemData>().item.optionChance[2]);
+                SaveData.Save(key + "Option4Chance", inv.slots[i].transform.GetChild(0).GetComponent<ItemData>().item.optionChance[3]);
+            }
+            else
+            {
+                PlayerPrefs.DeleteKey(key + "Image");
+                PlayerPrefs.DeleteKey(key + "Damage");
+                PlayerPrefs.DeleteKey(key + "Type");
+                PlayerPrefs.DeleteKey(key + "Title");
+                PlayerPrefs.DeleteKey(key + "Hitpoint");
+                PlayerPrefs.DeleteKey(key + "Option1");
+                PlayerPrefs.DeleteKey(key + "Option2");
+                PlayerPrefs.DeleteKey(key + "Option3");
+                PlayerPrefs.DeleteKey(key + "Option4");
+                PlayerPrefs.DeleteKey(key + "Option1Chance");
+                PlayerPrefs.DeleteKey(key + "Option2Chance");
+                PlayerPrefs.DeleteKey(key + "Option3Chance");
+                PlayerPrefs.DeleteKey(key + "Option4Chance");
+            }
+        }
+
+        //สมมติว่า 5 เงี้ย มันก็จะวิ่งตั้งแต่ 0 - 4 นะ
+        SaveData.Save("indexOfHistoryTyping", Game_Controller.playerInThisMap.historyWeaknesses.Count);
+
+        for (int i = 0; i < Game_Controller.playerInThisMap.historyWeaknesses.Count; i++)
+        {
+            string key = "WPM" + i;
+            string key2 = "Weakness" + i;
+
+            SaveData.Save(key, Game_Controller.playerInThisMap.historyWPM[i]);
+            SaveData.Save(key2, Game_Controller.playerInThisMap.historyWeaknesses[i]);
+        }
+
+        SaveData.Save("currentLevel", Game_Controller.playerInThisMap.lvl);
+        SaveData.Save("EXPLeft", Game_Controller.playerInThisMap.lvlup);
+        SaveData.Save("maxHP", Game_Controller.playerInThisMap.MaxHP);
+        SaveData.Save("maxSP", Game_Controller.playerInThisMap.MaxSP);
+        SaveData.Save("currentHP", Game_Controller.playerInThisMap.HP);
+        SaveData.Save("currentSP", Game_Controller.playerInThisMap.SP);
+        SaveData.Save("currentSkillPoint", Game_Controller.playerInThisMap.skillPoint);
+        SaveData.Save("BowAtk", Game_Controller.playerInThisMap.BowAtk);
+        SaveData.Save("SwordAtk", Game_Controller.playerInThisMap.SwordAtk);
+        SaveData.Save("baseHP", Game_Controller.playerInThisMap.baseHP);
+        SaveData.Save("baseSP", Game_Controller.playerInThisMap.baseSP);
+        SaveData.Save("baseAtk", Game_Controller.playerInThisMap.baseAtk);
+
+        //สกิลละ
+        SaveData.Save("trapLVL", Game_Controller.skillTrap.trapLVL);
+        SaveData.Save("trapMana", Game_Controller.skillTrap.trapMana);
+        SaveData.Save("trapDMG", Skill_Controller.trapDmg);
+
+        SaveData.Save("knockLVL", Game_Controller.skillKnock.knockLVL);
+        SaveData.Save("cooldownSkillKnock", Game_Controller.skillKnock.coolDownSkillKnock);
+        SaveData.Save("KnockMana", Game_Controller.skillKnock.knockMana);
+
+        SaveData.Save("HealLVL", Game_Controller.skillHeal.healLVL);
+        SaveData.Save("HealDMG", Game_Controller.skillHeal.healDMG);
+        SaveData.Save("HealMana", Game_Controller.skillHeal.healMana);
+
+        SaveData.Save("SlowLVL", Game_Controller.skillSlow.slowLVL);
+        SaveData.Save("nowSlowTime", Game_Controller.skillSlow.nowSlowTime);
+        SaveData.Save("SlowMana", Game_Controller.skillSlow.slowMana);
+
+        SaveData.Save("IceLVL", Game_Controller.skillIce.iceLVL);
+        SaveData.Save("nowIceTime", Game_Controller.skillIce.nowIceTime);
+        SaveData.Save("IceMana", Game_Controller.skillIce.iceMana);
+
+        SaveData.Save("FireLVL", Game_Controller.skillFire.fireLVL);
+        SaveData.Save("fireDMG", Game_Controller.skillFire.fireDMG);
+        SaveData.Save("fireMana", Game_Controller.skillFire.fireMana);
+
+
+        //แถวๆนี้โคตรน่าระวัง เพราะนี่คือการเคลียเกมนะ gameDiff มันเลยจะ +1 ตลอดอ่ะ
+        if (!PlayerPrefs.HasKey("maxGameDifficulty"))
+        {
+            SaveData.Save("maxGameDifficulty", 1);
+        }
+
+        SaveData.Save("currentWordDifficulty", a.computeWordDiff(WPM));
+
+        //ถ้าตอนจบอ่ะจะสลับโลกคู่ขนานให้ละกัน ซึ่งถ้าไม่ใช่เคลีย ต้องไม่ใช่แบบนี้อ่ะ
+        SaveData.Save("currentParallelWorld", Game_Controller.world);
+
+
+        //ไอ่บ้านี่อ่ะมันจะ FIX ให้ไปที่ Town นะ
+        //ถ้าปกติก็ควรจะ Game_Controller.nowScene
+        //Debug.Log("YAHA PEN NGI: " + string.IsNullOrEmpty(Game_Controller.nowScene));
+
+        if(string.IsNullOrEmpty(Game_Controller.nowScene))
+        {
+            Game_Controller.nowScene = "StartField";
+        }
+
+        SaveData.Save("currentScene", Game_Controller.nowScene);
+        //ล้างข้อมูล Quest อันนี้น่าจะต้องทำทุกอันนะ 55555555555+
+        Game_Controller.detail.text = "";
+
+
+        Application.Quit();
     }
 
     public void mainMenuOpen()

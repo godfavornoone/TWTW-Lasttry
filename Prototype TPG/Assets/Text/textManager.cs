@@ -550,8 +550,16 @@ public class textManager : MonoBehaviour {
 
         int x = WPMcollection.Count;
         WPMcollection.Clear();
+        if(x==0)
+        {
+            return 0;
+        }
+        else
+        {
+            return result / x;
+        }
 
-        return result / x;
+       
     }
     
     public string computeWeakness()
