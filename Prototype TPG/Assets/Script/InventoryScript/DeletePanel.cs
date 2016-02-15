@@ -32,13 +32,13 @@ public class DeletePanel : MonoBehaviour, IDropHandler
 
             Game_Controller.playerInThisMap.EquipSword(new Item());
             
-            for (int i = 0; i < inv.items.Count; i++)
-            {
-                Debug.Log("Inventory List: " + "i is: " + i + " " + inv.items[i].damage.ToString());
-
-            }
-            Debug.Log("Sword: " + inv.itemSword.damage);
-            Debug.Log("Bow: " + inv.itemBow.damage);
+//            for (int i = 0; i < inv.items.Count; i++)
+//            {
+//                Debug.Log("Inventory List: " + "i is: " + i + " " + inv.items[i].damage.ToString());
+//
+//            }
+//            Debug.Log("Sword: " + inv.itemSword.damage);
+//            Debug.Log("Bow: " + inv.itemBow.damage);
         }
 
         else if (droppedItem.gameObject.transform.parent.name.Equals("InventoryPanel") && droppedItem.item.type.Equals("bow"))
@@ -49,13 +49,13 @@ public class DeletePanel : MonoBehaviour, IDropHandler
 
             Game_Controller.playerInThisMap.EquipBow(new Item());
 
-            for (int i = 0; i < inv.items.Count; i++)
-            {
-                Debug.Log("Inventory List: " + "i is: " + i + " " + inv.items[i].damage.ToString());
-
-            }
-            Debug.Log("Sword: " + inv.itemSword.damage);
-            Debug.Log("Bow: " + inv.itemBow.damage);
+//            for (int i = 0; i < inv.items.Count; i++)
+//            {
+//                Debug.Log("Inventory List: " + "i is: " + i + " " + inv.items[i].damage.ToString());
+//
+//            }
+//            Debug.Log("Sword: " + inv.itemSword.damage);
+//            Debug.Log("Bow: " + inv.itemBow.damage);
         }
 
         else if (droppedItem.gameObject.transform.parent.name.Equals("InventoryPanel") && droppedItem.item.type.Equals("boot"))
@@ -66,13 +66,13 @@ public class DeletePanel : MonoBehaviour, IDropHandler
 
             Game_Controller.playerInThisMap.EquipBoot(new Item());
 
-            for (int i = 0; i < inv.items.Count; i++)
-            {
-                Debug.Log("Inventory List: " + "i is: " + i + " " + inv.items[i].damage.ToString());
-
-            }
-            Debug.Log("Sword: " + inv.itemSword.damage);
-            Debug.Log("Bow: " + inv.itemBow.damage);
+//            for (int i = 0; i < inv.items.Count; i++)
+//            {
+//                Debug.Log("Inventory List: " + "i is: " + i + " " + inv.items[i].damage.ToString());
+//
+//            }
+//            Debug.Log("Sword: " + inv.itemSword.damage);
+//            Debug.Log("Bow: " + inv.itemBow.damage);
         }
 
         else if (droppedItem.gameObject.transform.parent.name.Equals("InventoryPanel") && droppedItem.item.type.Equals("cloth"))
@@ -83,13 +83,13 @@ public class DeletePanel : MonoBehaviour, IDropHandler
 
             Game_Controller.playerInThisMap.EquipCloth(new Item());
 
-            for (int i = 0; i < inv.items.Count; i++)
-            {
-                Debug.Log("Inventory List: " + "i is: " + i + " " + inv.items[i].damage.ToString());
-
-            }
-            Debug.Log("Sword: " + inv.itemSword.damage);
-            Debug.Log("Bow: " + inv.itemBow.damage);
+//            for (int i = 0; i < inv.items.Count; i++)
+//            {
+//                Debug.Log("Inventory List: " + "i is: " + i + " " + inv.items[i].damage.ToString());
+//
+//            }
+//            Debug.Log("Sword: " + inv.itemSword.damage);
+//            Debug.Log("Bow: " + inv.itemBow.damage);
         }
 
         //แน่นอนตรงนี้ก็ต้องมีของ Armor อ่ะ
@@ -100,13 +100,13 @@ public class DeletePanel : MonoBehaviour, IDropHandler
             inv.items[droppedItem.slot] = new Item();
             Destroy(droppedItem.gameObject);
 
-            for (int i = 0; i < inv.items.Count; i++)
-            {
-                Debug.Log("YEAHHHH" + "i is: " + i + " " + inv.items[i].damage.ToString());
-
-            }
-            Debug.Log("Weapon: " + inv.itemSword.damage);
-            Debug.Log("Bow: " + inv.itemBow.damage);
+//            for (int i = 0; i < inv.items.Count; i++)
+//            {
+//                Debug.Log("YEAHHHH" + "i is: " + i + " " + inv.items[i].damage.ToString());
+//
+//            }
+//            Debug.Log("Weapon: " + inv.itemSword.damage);
+//            Debug.Log("Bow: " + inv.itemBow.damage);
         }
 
             

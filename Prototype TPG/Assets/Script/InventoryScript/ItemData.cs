@@ -43,7 +43,7 @@ public class ItemData : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
     public void OnEndDrag(PointerEventData eventData)
     {
         //เหมือนแค่กลับที่เดิมเลย 55555555555555555555
-        Debug.Log("Slot is: " + slot);
+//        Debug.Log("Slot is: " + slot);
 
         //ตรงนี้อ่ะ ถ้าปล่อยไม่ถูกที่ คือมันจับ Slot ไม่ได้ จะกลายเป็น 0 แต่ถ้าจับได้ จะมีค่าของอันนั้นจ้า
 

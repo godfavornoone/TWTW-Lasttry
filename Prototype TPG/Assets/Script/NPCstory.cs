@@ -63,7 +63,7 @@ public class NPCstory : MonoBehaviour {
     void OnCollisionEnter2D(Collision2D other)
     {
 
-        Debug.Log(other.gameObject.tag);
+        //Debug.Log(other.gameObject.tag);
 
         if (other.gameObject.tag == "Player")
         {
@@ -78,8 +78,8 @@ public class NPCstory : MonoBehaviour {
         {
             check = false;
             Time.timeScale = 0;
-            Debug.Log("yaha");
-            Debug.Log("Check the index: " + i);
+            //Debug.Log("yaha");
+            //Debug.Log("Check the index: " + i);
 
             Game_Controller.conversation.SetActive(true);
             Game_Controller.blackScene.SetActive(true);

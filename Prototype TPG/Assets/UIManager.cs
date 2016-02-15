@@ -38,9 +38,9 @@ public class UIManager : MonoBehaviour {
 
 	void OnLevelWasLoaded(int level)
 	{
-		Debug.Log ("OnLevel work");
+		//Debug.Log ("OnLevel work");
 
-        Debug.Log("hey");
+        //Debug.Log("hey");
 
         if (level == 1){
 
@@ -79,11 +79,11 @@ public class UIManager : MonoBehaviour {
 				Game_Controller.enemyInThisMap.Add(enemy.GetComponent<Enemy>());
 			}
 			foreach(GameObject enemy in enemySpawn){
-				Debug.Log("enemy");
+				//Debug.Log("enemy");
 				enemy.SetActive(false);
 			}
 			foreach (GameObject chest in treasureInMap) {
-				Debug.Log("treasure");
+				//Debug.Log("treasure");
 				Game_Controller.treasureMinigame.Add (chest.GetComponent<Treasure>());
 			}
 			foreach(Player_Skill skill in Skill_Controller.Allskill){

@@ -1358,7 +1358,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 45
+  m_RootOrder: 44
 --- !u!114 &912131944
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2426,52 +2426,6 @@ Prefab:
     - target: {fileID: 436952, guid: eedb448c42bd7714ebeca8b4561e0a1a, type: 2}
       propertyPath: m_RootOrder
       value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: eedb448c42bd7714ebeca8b4561e0a1a, type: 2}
-  m_IsPrefabParent: 0
---- !u!1001 &1976427817
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 436952, guid: eedb448c42bd7714ebeca8b4561e0a1a, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 25.9693832
-      objectReference: {fileID: 0}
-    - target: {fileID: 436952, guid: eedb448c42bd7714ebeca8b4561e0a1a, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -4.64923573
-      objectReference: {fileID: 0}
-    - target: {fileID: 436952, guid: eedb448c42bd7714ebeca8b4561e0a1a, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 436952, guid: eedb448c42bd7714ebeca8b4561e0a1a, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 436952, guid: eedb448c42bd7714ebeca8b4561e0a1a, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 436952, guid: eedb448c42bd7714ebeca8b4561e0a1a, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 436952, guid: eedb448c42bd7714ebeca8b4561e0a1a, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 436952, guid: eedb448c42bd7714ebeca8b4561e0a1a, type: 2}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 156540, guid: eedb448c42bd7714ebeca8b4561e0a1a, type: 2}
-      propertyPath: m_Name
-      value: rat (10)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: eedb448c42bd7714ebeca8b4561e0a1a, type: 2}
