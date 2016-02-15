@@ -38,11 +38,11 @@ public class Player_Skill : MonoBehaviour {
 	void Update () {
 		skillStorage = skillTextTyping[0].text.ToCharArray();
 		PushESC (Game_Controller.ESC);
-		if(Game_Controller.oneEnemyWordChange){
-			skillTextTyping[1].text = "";
-			localIndexSkill = 0;
-			Game_Controller.oneEnemyWordChange = false;
-		}
+//		if(Game_Controller.oneEnemyWordChange){
+//			skillTextTyping[1].text = "";
+//			localIndexSkill = 0;
+//			Game_Controller.oneEnemyWordChange = false;
+//		}
 	}
 
 	public void CheckWrongAllSkill(char txt){

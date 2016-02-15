@@ -245,14 +245,15 @@ public class Game_Controller : MonoBehaviour {
     }
 	
 	void Update(){
-		foreach(Enemy enemy in enemyInThisMap){
-			if(enemy.set == 0 && !playerInMinigame){
-				enemy.DistanceToBorn();	
-			}else if(playerInMinigame){
-				enemy.DisableInMinigame();
+		if (!nowScene.Equals ("Town")) {
+			foreach(Enemy enemy in enemyInThisMap){
+				if(enemy.set == 0 && !playerInMinigame){
+					enemy.DistanceToBorn();	
+				}else if(playerInMinigame){
+					enemy.DisableInMinigame();
+				}
 			}
 		}
-
 	}
 
     public void noDataClose()

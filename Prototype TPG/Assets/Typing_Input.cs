@@ -3,6 +3,8 @@ using System.Collections;
 
 public class Typing_Input : MonoBehaviour {
 
+	AudioSource error;
+
 	[HideInInspector]
 	public string textFieldString;
 
@@ -15,6 +17,7 @@ public class Typing_Input : MonoBehaviour {
 
     void Start()
     {
+		error = GetComponent<AudioSource> ();
         textManagerScript = GameObject.Find("TextManager").GetComponent<textManager>();
     }
 
@@ -88,6 +91,8 @@ public class Typing_Input : MonoBehaviour {
 				Game_Controller.chestWrongAll = true;
 				Game_Controller.wrongAll = true;
 				Skill_Controller.checkWrongAllSkillInPanel = true;
+			}else if(!Input.GetKey(KeyCode.LeftShift) && Game_Controller.chestWrongAll && Game_Controller.wrongAll && Skill_Controller.checkWrongAllSkillInPanel){
+				error.Play();
 			}
 
             
@@ -98,4 +103,5 @@ public class Typing_Input : MonoBehaviour {
 			//it should get the result of true or false...if it is true then go to down...
 		}
 	}
+	
 }

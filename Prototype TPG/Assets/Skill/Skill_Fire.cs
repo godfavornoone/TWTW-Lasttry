@@ -4,6 +4,8 @@ using System.Collections;
 
 public class Skill_Fire : MonoBehaviour {
 
+	public GameObject fireSprite;
+
 	Player_Skill skill;
 
 	public int fireLVL = 1;
@@ -61,6 +63,8 @@ public class Skill_Fire : MonoBehaviour {
 			foreach(Enemy enemy in Game_Controller.enemyInThisMap){
 				if(enemy.gameObject.activeInHierarchy && enemy.gameObject.activeSelf){
 					if(enemy.hitPoint - fireDMG > 0){
+						Debug.Log(enemy.name + " = fire");
+						Instantiate(fireSprite, enemy.transform.position, Quaternion.identity);
 						enemy.hitPoint -= fireDMG;
 					}else if(enemy.hitPoint - fireDMG <= 0){
 

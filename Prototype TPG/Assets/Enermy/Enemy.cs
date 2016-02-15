@@ -6,6 +6,8 @@ public class Enemy : MonoBehaviour {
 
 	public int set;
 
+	public GameObject deadSprite;
+
 	[HideInInspector]
 	public Vector3 positionBorn;
 
@@ -214,6 +216,12 @@ public class Enemy : MonoBehaviour {
         if (hitPoint <= 0){
 			Game_Controller.enemyStruckPlayer = false;
 			Game_Controller.oneEnemyDie = true;
+//			Game_Controller.oneEnemyWordChange = true;
+
+			foreach(Player_Skill skill in Skill_Controller.Allskill){
+				skill.skillTextTyping[1].text = "";
+				skill.localIndexSkill = 0;
+			}
 
 			walk = false;
 			runSpeed = 0;
@@ -222,8 +230,7 @@ public class Enemy : MonoBehaviour {
 			textTyping[0].text = "";
 			textTyping[1].text = "";
             //Game_Controller.indexGlobal = 0;
-
-            Game_Controller.oneEnemyWordChange = true;
+            
 			Game_Controller.playerInThisMap.PlayerLVLUp(EXP);
             
 			Debug.Log ("recieve = " + EXP);
@@ -251,8 +258,8 @@ public class Enemy : MonoBehaviour {
                 textManagerScript.returnText(textTyping[1].text, wordDifficult);
             }
             */
-
-			Invoke("DelayDestroyForEffect", 0.2f);
+			Instantiate (deadSprite, transform.position, Quaternion.identity);
+			Invoke("DelayDestroyForEffect", 0.1f);
 
 
 //			Destroy(gameObject);
