@@ -105,10 +105,10 @@ public class Enemy : MonoBehaviour {
 //		{
 //			takedDMG = true;
 //		}
-		if(Game_Controller.oneEnemyDie){
-			textTyping[0].text = "";
-			Game_Controller.oneEnemyDie = false;
-		}
+//		if(Game_Controller.oneEnemyDie){
+//			textTyping[0].text = "";
+//			Game_Controller.oneEnemyDie = false;
+//		}
 
 		PushESC (Game_Controller.ESC);
 	}
@@ -215,9 +215,13 @@ public class Enemy : MonoBehaviour {
 
         if (hitPoint <= 0){
 			Game_Controller.enemyStruckPlayer = false;
-			Game_Controller.oneEnemyDie = true;
+//			Game_Controller.oneEnemyDie = true;
 //			Game_Controller.oneEnemyWordChange = true;
 
+			foreach(Enemy enemy in Game_Controller.enemyInThisMap){
+				enemy.textTyping[0].text = "";
+				enemy.indexLocal = 0;
+			}
 			foreach(Player_Skill skill in Skill_Controller.Allskill){
 				skill.skillTextTyping[1].text = "";
 				skill.localIndexSkill = 0;

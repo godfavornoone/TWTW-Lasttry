@@ -91,7 +91,7 @@ public class Typing_Input : MonoBehaviour {
 				Game_Controller.chestWrongAll = true;
 				Game_Controller.wrongAll = true;
 				Skill_Controller.checkWrongAllSkillInPanel = true;
-			}else if(!Input.GetKey(KeyCode.LeftShift) && Game_Controller.chestWrongAll && Game_Controller.wrongAll && Skill_Controller.checkWrongAllSkillInPanel){
+			}else if(!Input.GetKeyDown(KeyCode.Space) && !Input.GetKeyDown(KeyCode.Tab) && !Input.GetKeyDown(KeyCode.Mouse0) && !Input.GetKeyDown(KeyCode.Return) && !Input.GetKey(KeyCode.LeftShift) && Game_Controller.chestWrongAll && Game_Controller.wrongAll && Skill_Controller.checkWrongAllSkillInPanel){
 				error.Play();
 			}
 
