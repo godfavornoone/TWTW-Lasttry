@@ -7378,7 +7378,7 @@ GameObject:
   - 222: {fileID: 748701182}
   - 114: {fileID: 748701181}
   m_Layer: 5
-  m_Name: TypingProgressDetail
+  m_Name: Disclaimer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13858,7 +13858,7 @@ GameObject:
   - 222: {fileID: 1489428128}
   - 114: {fileID: 1489428127}
   m_Layer: 5
-  m_Name: TypingProgressDetail
+  m_Name: Credit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
