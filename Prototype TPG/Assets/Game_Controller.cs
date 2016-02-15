@@ -14,6 +14,7 @@ public class Game_Controller : MonoBehaviour {
 	public static bool oneEnemyWordChange = false;
 	public static bool chestWrongAll = true;
 	public static bool playerInMinigame = false;
+	public static bool oneEnemyDie = false;
 
 //	public Text_Outline setStroke;
 	public static int indexGlobal = 0;
@@ -244,14 +245,15 @@ public class Game_Controller : MonoBehaviour {
     }
 	
 	void Update(){
-		foreach(Enemy enemy in enemyInThisMap){
-			if(enemy.set == 0 && !playerInMinigame){
-				enemy.DistanceToBorn();	
-			}else if(playerInMinigame){
-				enemy.DisableInMinigame();
+		if (!nowScene.Equals ("Town")) {
+			foreach(Enemy enemy in enemyInThisMap){
+				if(enemy.set == 0 && !playerInMinigame){
+					enemy.DistanceToBorn();	
+				}else if(playerInMinigame){
+					enemy.DisableInMinigame();
+				}
 			}
 		}
-
 	}
 
     public void noDataClose()

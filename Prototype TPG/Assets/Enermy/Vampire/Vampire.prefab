@@ -443,6 +443,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   set: 0
+  deadSprite: {fileID: 190140, guid: 550124f6d0f0e6b4094ea6437588af6d, type: 2}
+  positionBorn: {x: 0, y: 0, z: 0}
   struckPlayer: 0
   player: {fileID: 0}
   setStroke: {fileID: 0}
@@ -462,6 +464,8 @@ MonoBehaviour:
   runSpeed: 0
   wordLengthDifficulty: 0400000004000000050000000500000006000000
   wordLevelDifficulty: 0000000000000000000000000100000001000000
+  wordLength: 0
+  wordDifficult: 0
   textTyping: []
   takedDMG: 0
   optionWord: 0
@@ -646,6 +650,10 @@ Prefab:
       propertyPath: wordLevelDifficulty.Array.data[4]
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: deadSprite
+      value: 
+      objectReference: {fileID: 190140, guid: 550124f6d0f0e6b4094ea6437588af6d, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 143238}

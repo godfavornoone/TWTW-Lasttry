@@ -221,6 +221,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60c8f49aac782a94d81f5484e445b5c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attackedByEnemy: {fileID: 158922, guid: fe4d127e067342e48a11bdf1b07d6a0a, type: 2}
   baseHP: 300
   baseSP: 200
   baseAtk: 50
@@ -308,6 +309,10 @@ Prefab:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 0}
+      propertyPath: m_Animations.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
@@ -359,6 +364,22 @@ Prefab:
       propertyPath: m_SortingOrder
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: attackedByEnemy
+      value: 
+      objectReference: {fileID: 158922, guid: fe4d127e067342e48a11bdf1b07d6a0a, type: 2}
+    - target: {fileID: 0}
+      propertyPath: m_PlayAutomatically
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Animation
+      value: 
+      objectReference: {fileID: 7400000, guid: cfe7d380aa2972646a02a7481b012d22, type: 2}
+    - target: {fileID: 0}
+      propertyPath: m_Animations.Array.data[0]
+      value: 
+      objectReference: {fileID: 7400000, guid: cfe7d380aa2972646a02a7481b012d22, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 132006}

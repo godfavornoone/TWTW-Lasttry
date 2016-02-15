@@ -58,6 +58,11 @@ public class UIManager : MonoBehaviour {
 			foreach(GameObject enemy in enemySpawn){
 				enemy.SetActive(false);
 			}
+			foreach(Player_Skill skill in Skill_Controller.Allskill){
+				skill.skillTextTyping[1].text = "";
+				skill.localIndexSkill = 0;
+			}
+			Game_Controller.indexGlobal = 0;
 			Game_Controller.nowScene = "StartField";
 		}else if (level == 2) {
             Game_Controller.LoadScene.SetActive(false);
@@ -81,6 +86,11 @@ public class UIManager : MonoBehaviour {
 				Debug.Log("treasure");
 				Game_Controller.treasureMinigame.Add (chest.GetComponent<Treasure>());
 			}
+			foreach(Player_Skill skill in Skill_Controller.Allskill){
+				skill.skillTextTyping[1].text = "";
+				skill.localIndexSkill = 0;
+			}
+			Game_Controller.indexGlobal = 0;
 			Game_Controller.nowScene = "Town";
 		}else if(level == 3){
             Game_Controller.LoadScene.SetActive(false);
@@ -102,6 +112,11 @@ public class UIManager : MonoBehaviour {
 			foreach (GameObject chest in treasureInMap) {
 				Game_Controller.treasureMinigame.Add (chest.GetComponent<Treasure>());
 			}
+			foreach(Player_Skill skill in Skill_Controller.Allskill){
+				skill.skillTextTyping[1].text = "";
+				skill.localIndexSkill = 0;
+			}
+			Game_Controller.indexGlobal = 0;
 			Game_Controller.nowScene = "DeadForestEntrance";
 		}else if(level == 4){
             Game_Controller.LoadScene.SetActive(false);
@@ -123,6 +138,11 @@ public class UIManager : MonoBehaviour {
 			foreach (GameObject chest in treasureInMap) {
 				Game_Controller.treasureMinigame.Add (chest.GetComponent<Treasure>());
 			}
+			foreach(Player_Skill skill in Skill_Controller.Allskill){
+				skill.skillTextTyping[1].text = "";
+				skill.localIndexSkill = 0;
+			}
+			Game_Controller.indexGlobal = 0;
 			Game_Controller.nowScene = "NormalForest";
 		}else if(level == 5){
             Game_Controller.LoadScene.SetActive(false);
@@ -144,6 +164,11 @@ public class UIManager : MonoBehaviour {
 			foreach (GameObject chest in treasureInMap) {
 				Game_Controller.treasureMinigame.Add (chest.GetComponent<Treasure>());
 			}
+			foreach(Player_Skill skill in Skill_Controller.Allskill){
+				skill.skillTextTyping[1].text = "";
+				skill.localIndexSkill = 0;
+			}
+			Game_Controller.indexGlobal = 0;
 			Game_Controller.nowScene = "FtoD";
 		}else if(level == 6){
             Game_Controller.LoadScene.SetActive(false);
@@ -165,6 +190,11 @@ public class UIManager : MonoBehaviour {
 			foreach (GameObject chest in treasureInMap) {
 				Game_Controller.treasureMinigame.Add (chest.GetComponent<Treasure>());
 			}
+			foreach(Player_Skill skill in Skill_Controller.Allskill){
+				skill.skillTextTyping[1].text = "";
+				skill.localIndexSkill = 0;
+			}
+			Game_Controller.indexGlobal = 0;
 			Game_Controller.nowScene = "Crypt";
 		}else if(level == 7){
             Game_Controller.LoadScene.SetActive(false);
@@ -186,6 +216,11 @@ public class UIManager : MonoBehaviour {
 			foreach (GameObject chest in treasureInMap) {
 				Game_Controller.treasureMinigame.Add (chest.GetComponent<Treasure>());
 			}
+			foreach(Player_Skill skill in Skill_Controller.Allskill){
+				skill.skillTextTyping[1].text = "";
+				skill.localIndexSkill = 0;
+			}
+			Game_Controller.indexGlobal = 0;
 			Game_Controller.nowScene = "Fortess01";
 		}else if(level == 8){
             Game_Controller.LoadScene.SetActive(false);
@@ -207,6 +242,11 @@ public class UIManager : MonoBehaviour {
 			foreach (GameObject chest in treasureInMap) {
 				Game_Controller.treasureMinigame.Add (chest.GetComponent<Treasure>());
 			}
+			foreach(Player_Skill skill in Skill_Controller.Allskill){
+				skill.skillTextTyping[1].text = "";
+				skill.localIndexSkill = 0;
+			}
+			Game_Controller.indexGlobal = 0;
 			Game_Controller.nowScene = "Fortess02";
 		}else if(level == 9){
             Game_Controller.LoadScene.SetActive(false);
@@ -228,6 +268,11 @@ public class UIManager : MonoBehaviour {
 			foreach (GameObject chest in treasureInMap) {
 				Game_Controller.treasureMinigame.Add (chest.GetComponent<Treasure>());
 			}
+			foreach(Player_Skill skill in Skill_Controller.Allskill){
+				skill.skillTextTyping[1].text = "";
+				skill.localIndexSkill = 0;
+			}
+			Game_Controller.indexGlobal = 0;
 			Game_Controller.nowScene = "D01";
 		}else if(level == 10){
             Game_Controller.LoadScene.SetActive(false);
@@ -249,6 +294,11 @@ public class UIManager : MonoBehaviour {
 			foreach (GameObject chest in treasureInMap) {
 				Game_Controller.treasureMinigame.Add (chest.GetComponent<Treasure>());
 			}
+			foreach(Player_Skill skill in Skill_Controller.Allskill){
+				skill.skillTextTyping[1].text = "";
+				skill.localIndexSkill = 0;
+			}
+			Game_Controller.indexGlobal = 0;
 			Game_Controller.nowScene = "D02";
 		}
 	}

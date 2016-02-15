@@ -3,6 +3,8 @@ using System.Collections;
 
 public class Skill_Ice : MonoBehaviour {
 
+	public GameObject iceSprite;
+
 	Player_Skill skill;
 	public bool useIce = false;
 
@@ -17,6 +19,7 @@ public class Skill_Ice : MonoBehaviour {
 	[HideInInspector]
 	public bool nowIce = false;
 	private float tmpspd;
+	public float tmpatk;
 
 	void Awake(){
 		skill = GetComponent<Player_Skill> ();
@@ -64,26 +67,34 @@ public class Skill_Ice : MonoBehaviour {
 		if(nowIce){
 			if(useIce){
 				Game_Controller.playerInThisMap.SPReduce(iceMana);
+				foreach(Enemy enemy in Game_Controller.enemyInThisMap){
+					if(enemy.gameObject.activeInHierarchy && enemy.gameObject.activeSelf){
+						Instantiate(iceSprite, enemy.transform.position, Quaternion.identity);
+						tmpspd = enemy.runSpeed;
+						tmpatk = enemy.Attack;
+					}
+				}
 				useIce = false;
 			}
 			foreach(Enemy enemy in Game_Controller.enemyInThisMap){
 				if(enemy.gameObject.activeInHierarchy && enemy.gameObject.activeSelf){
-					tmpspd = enemy.baseRunSpeed;
 					enemy.runSpeed = 0;
+					enemy.Attack = 0;
 				}
 			}
 
-            if (tmpIceTime >= timer){
-				foreach(Enemy enemy in Game_Controller.enemyInThisMap){
-					if(enemy.gameObject.activeInHierarchy && enemy.gameObject.activeSelf){
-						enemy.runSpeed = enemy.baseRunSpeed;
-					}
-				}
-                
-                nowIce = false;
-                 //Skill now reduce mana here...It should be up there
-
-            }
+			Invoke("ReturnStatus", nowIceTime);
+//            if (tmpIceTime >= timer){
+//				foreach(Enemy enemy in Game_Controller.enemyInThisMap){
+//					if(enemy.gameObject.activeInHierarchy && enemy.gameObject.activeSelf){
+//						enemy.runSpeed = tmpspd;
+//						enemy.Attack = tmpatk;
+//					}
+//				}
+//                
+//                nowIce = false;
+//                
+//            }
             
 		}
 	}
@@ -94,6 +105,16 @@ public class Skill_Ice : MonoBehaviour {
 			nowIceTime += 0.5f;
             iceMana += 20;
 			Game_Controller.playerInThisMap.skillPoint--;
+		}
+	}
+
+	void ReturnStatus(){
+		foreach(Enemy enemy in Game_Controller.enemyInThisMap){
+			if(enemy.gameObject.activeInHierarchy && enemy.gameObject.activeSelf){
+				enemy.runSpeed = tmpspd;
+				enemy.Attack = tmpatk;
+			}
+			nowIce = false;
 		}
 	}
 }

@@ -5,6 +5,8 @@ using System.Collections.Generic;
 
 public class Player : MonoBehaviour {
 
+	public GameObject attackedByEnemy;
+
 	textManager textscript;
 
 	//Player Status
@@ -124,7 +126,6 @@ public class Player : MonoBehaviour {
 	void Player_Attack(){
 		foreach (Enemy enemy in Game_Controller.enemyInThisMap) {
 			if (enemy.takedDMG && isSword) {
-
 				Debug.Log(enemy.distanceBetweenEVP);
 				anim.SetBool ("Arrow_Right", false);
 				anim.SetBool ("Arrow_Left", false);
@@ -415,6 +416,7 @@ public class Player : MonoBehaviour {
 	
 	public void EnemyAttacked(float dmg){
 		HP = HP - dmg;
+		Instantiate (attackedByEnemy, transform.position, Quaternion.identity);
 		if(HP <= 0){
 			PlayerDeath();
 			ReSceneWhenScene(Game_Controller.nowScene);
@@ -542,4 +544,6 @@ public class Player : MonoBehaviour {
 		Application.LoadLevel (sName);
 	}
 
+
+	
 }
