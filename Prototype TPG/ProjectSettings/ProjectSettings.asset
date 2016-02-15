@@ -11,7 +11,7 @@ PlayerSettings:
   accelerometerFrequency: 60
   companyName: First Sight
   productName: Thousand Words Thousand Worlds
-  defaultCursor: {fileID: 2800000, guid: ae244edc5ec9a084dbd35d3f43b7505f, type: 3}
+  defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_ShowUnitySplashScreen: 1
   defaultScreenWidth: 1024

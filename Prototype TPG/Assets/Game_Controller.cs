@@ -289,12 +289,15 @@ public class Game_Controller : MonoBehaviour {
             string key2 = "Weakness" + i;
 
             int WPM = SaveData.Load(key, 1,true);
+            Debug.Log(key + WPM);
             string Weakness = SaveData.Load(key2, "yaha",true);
+            Debug.Log(key2 + Weakness);
             char[] characters = Weakness.ToCharArray();
 
             //เริ่มที่ ช่อง 0 หรอ ของใหม่อยู่ช่องท้ายสุดอ่ะ
             
             TypingProgressDetail.text = temp + ". WPM is: " + WPM + " Weaknesses are: " +characters[0] + ", " + characters[1] + ", "+ characters[2] + "\n" +TypingProgressDetail.text;
+            Debug.Log(TypingProgressDetail.text);
             temp--;
         }
 
@@ -600,7 +603,7 @@ public class Game_Controller : MonoBehaviour {
 
     public void deleteAll()
     {
-        //Debug.Log("Delete Already");
+        Debug.Log("Delete Already");
         PlayerPrefs.DeleteAll();
     }
 
@@ -608,7 +611,7 @@ public class Game_Controller : MonoBehaviour {
     {
         if(!PlayerPrefs.HasKey("currentParallelWorld"))
         {
-            //Debug.Log("Not here");
+            Debug.Log("Not here");
             noData.SetActive(true);
             blackScene.SetActive(true);
         }
@@ -616,7 +619,7 @@ public class Game_Controller : MonoBehaviour {
         {
             characterLevel.text = "Lv. " + SaveData.Load("currentLevel", 1.5f, true).ToString();
 
-            //Debug.Log("Current level Before is: " + SaveData.Load("currentLevel", 1.5f, true));
+            Debug.Log("Current level Before is: " + SaveData.Load("currentLevel", 1.5f, true));
 
             if (PlayerPrefs.GetInt("currentParallelWorld") == 0)
             {
@@ -840,13 +843,13 @@ public class Game_Controller : MonoBehaviour {
 
         //characterLevel.text = "Lv. " + SaveData.Load("currentLevel", 1.5f, true).ToString();
 
-        //Debug.Log("Current level After is: " + SaveData.Load("currentLevel", 1.5f, true));
+        Debug.Log("Current level After is: " + SaveData.Load("currentLevel", 1.5f, true));
 
         playerInThisMap.lvl = SaveData.Load("currentLevel", 1.5f, true);
 
-        //Debug.Log("Fuck Level is: " + playerInThisMap.lvl);
+        Debug.Log("Fuck Level is: " + playerInThisMap.lvl);
 
-        //Debug.Log("Current level After2 is: " + SaveData.Load("currentLevel", 1.5f, true));
+        Debug.Log("Current level After2 is: " + SaveData.Load("currentLevel", 1.5f, true));
         playerInThisMap.lvlup = SaveData.Load("EXPLeft", 1.5f, true);
         playerInThisMap.MaxHP = SaveData.Load("maxHP", 1.5f, true);
         playerInThisMap.MaxSP = SaveData.Load("maxSP", 1.5f, true);
@@ -891,7 +894,7 @@ public class Game_Controller : MonoBehaviour {
         {
             if(inv.currentSword.transform.childCount!=0)
             {
-                //Debug.Log("TONG ME NEE");
+                Debug.Log("TONG ME NEE");
                 Destroy(inv.currentSword.transform.GetChild(0).gameObject);
             }
             List<int> option = new List<int>();
@@ -919,7 +922,7 @@ public class Game_Controller : MonoBehaviour {
         {
             if (inv.currentBow.transform.childCount != 0)
             {
-                //Debug.Log("TONG ME NEE");
+                Debug.Log("TONG ME NEE");
                 Destroy(inv.currentBow.transform.GetChild(0).gameObject);
             }
             List<int> option = new List<int>();
@@ -948,7 +951,7 @@ public class Game_Controller : MonoBehaviour {
         {
             if (inv.currentCloth.transform.childCount != 0)
             {
-                //Debug.Log("TONG ME NEE");
+                Debug.Log("TONG ME NEE");
                 Destroy(inv.currentCloth.transform.GetChild(0).gameObject);
             }
             List<int> option = new List<int>();
@@ -977,7 +980,7 @@ public class Game_Controller : MonoBehaviour {
         {
             if (inv.currentBoot.transform.childCount != 0)
             {
-                //Debug.Log("TONG ME NEE");
+                Debug.Log("TONG ME NEE");
                 Destroy(inv.currentBoot.transform.GetChild(0).gameObject);
             }
             List<int> option = new List<int>();
@@ -1011,7 +1014,7 @@ public class Game_Controller : MonoBehaviour {
             {
                 if(inv.slots[i].transform.childCount!=0)
                 {
-                    //Debug.Log("Tong me nee");
+                    Debug.Log("Tong me nee");
                     Destroy(inv.slots[i].transform.GetChild(0).gameObject);
                 }
                 inv.checkSlot[i] = 0;
