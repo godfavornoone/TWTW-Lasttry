@@ -126,7 +126,7 @@ public class Player : MonoBehaviour {
 	void Player_Attack(){
 		foreach (Enemy enemy in Game_Controller.enemyInThisMap) {
 			if (enemy.takedDMG && isSword) {
-				Debug.Log(enemy.distanceBetweenEVP);
+				//Debug.Log(enemy.distanceBetweenEVP);
 				anim.SetBool ("Arrow_Right", false);
 				anim.SetBool ("Arrow_Left", false);
 				anim.SetBool ("Arrow_Up", false);
@@ -167,7 +167,7 @@ public class Player : MonoBehaviour {
                 bool oneTimeOnly = true;
                 float dmg = SwordAtk;
 
-                Debug.Log("Damage Before Cri: " + dmg);
+                //Debug.Log("Damage Before Cri: " + dmg);
 
                 if (Game_Controller.playerInThisMap.currentBoot.hitpoint != 0 && oneTimeOnly)
                 {
@@ -177,7 +177,7 @@ public class Player : MonoBehaviour {
                         chanceCri = Random.Range(0, 100);
                         if (chanceCri <= Game_Controller.playerInThisMap.currentBoot.optionChance[3])
                         {
-                            Debug.Log("Cri by boot! in currentWP = sword");
+                            //Debug.Log("Cri by boot! in currentWP = sword");
                             dmg = dmg + dmg;
                             oneTimeOnly = false;
                         }
@@ -192,7 +192,7 @@ public class Player : MonoBehaviour {
                         chanceCri = Random.Range(0, 100);
                         if (chanceCri <= Game_Controller.playerInThisMap.currentCloth.optionChance[3])
                         {
-                            Debug.Log("Cri by cloth! in currentWP = sword");
+                            //Debug.Log("Cri by cloth! in currentWP = sword");
                             dmg = dmg + dmg;
                             oneTimeOnly = false;
                         }
@@ -207,7 +207,7 @@ public class Player : MonoBehaviour {
                         chanceCri = Random.Range(0, 100);
                         if (chanceCri <= Game_Controller.playerInThisMap.currentSword.optionChance[3])
                         {
-                            Debug.Log("Cri by sword! in currentWP = sword");
+                            //Debug.Log("Cri by sword! in currentWP = sword");
                             dmg = dmg + dmg;
                             oneTimeOnly = false;
                         }
@@ -222,14 +222,14 @@ public class Player : MonoBehaviour {
                         chanceCri = Random.Range(0, 100);
                         if (chanceCri <= Game_Controller.playerInThisMap.currentBow.optionChance[3])
                         {
-                            Debug.Log("Cri by bow! in currentWP = sword");
+                            //Debug.Log("Cri by bow! in currentWP = sword");
                             dmg = dmg + dmg;
                             oneTimeOnly = false;
                         }
                     }
                 }
 
-                Debug.Log("Damage After Cri: " + dmg);
+                //Debug.Log("Damage After Cri: " + dmg);
                 SPIncrease(10 * lvl);
 				enemy.HpDown (dmg);
 				if(enemy.takedDMG && enemy.hitPoint > 0){
@@ -304,7 +304,7 @@ public class Player : MonoBehaviour {
 				bool oneTimeOnly = true;
 				float dmg = Game_Controller.playerInThisMap.BowAtk;
 				
-				Debug.Log("Damage Before Cri: " + dmg);
+				//Debug.Log("Damage Before Cri: " + dmg);
 				
 				if (Game_Controller.playerInThisMap.currentBoot.hitpoint != 0 && oneTimeOnly)
 				{
@@ -314,7 +314,7 @@ public class Player : MonoBehaviour {
 						chanceCri = Random.Range(0, 100);
 						if (chanceCri <= Game_Controller.playerInThisMap.currentBoot.optionChance[3])
 						{
-							Debug.Log("Cri by boot! in currentWP = bow");
+							//Debug.Log("Cri by boot! in currentWP = bow");
 							dmg = dmg + dmg;
 							oneTimeOnly = false;
 						}
@@ -329,7 +329,7 @@ public class Player : MonoBehaviour {
 						chanceCri = Random.Range(0, 100);
 						if (chanceCri <= Game_Controller.playerInThisMap.currentCloth.optionChance[3])
 						{
-							Debug.Log("Cri by cloth! in currentWP = bow");
+							//Debug.Log("Cri by cloth! in currentWP = bow");
 							dmg = dmg + dmg;
 							oneTimeOnly = false;
 						}
@@ -344,7 +344,7 @@ public class Player : MonoBehaviour {
 						chanceCri = Random.Range(0, 100);
 						if (chanceCri <= Game_Controller.playerInThisMap.currentSword.optionChance[3])
 						{
-							Debug.Log("Cri by sword! in currentWP = bow");
+							//Debug.Log("Cri by sword! in currentWP = bow");
 							dmg = dmg + dmg;
 							oneTimeOnly = false;
 						}
@@ -359,14 +359,14 @@ public class Player : MonoBehaviour {
 						chanceCri = Random.Range(0, 100);
 						if (chanceCri <= Game_Controller.playerInThisMap.currentBow.optionChance[3])
 						{
-							Debug.Log("Cri by bow! in currentWP = bow");
+							//Debug.Log("Cri by bow! in currentWP = bow");
 							dmg = dmg + dmg;
 							oneTimeOnly = false;
 						}
 					}
 				}
 				
-				Debug.Log("Damage After Cri: " + dmg);
+				//Debug.Log("Damage After Cri: " + dmg);
                 SPIncrease(10 * lvl);
                 enemy.HpDown (dmg);
 				if(enemy.takedDMG && enemy.hitPoint > 0){
@@ -383,21 +383,21 @@ public class Player : MonoBehaviour {
 			weaponState = 1;
             WeaponPanel.transform.GetChild(0).gameObject.SetActive(false);
             WeaponPanel.transform.GetChild(1).gameObject.SetActive(true);
-            Debug.Log("Bow Damage is: " + BowAtk);
+            //Debug.Log("Bow Damage is: " + BowAtk);
         }
         else if(Input.GetKeyDown (KeyCode.Tab) && weaponState == 1){
 			isSword = true;
 			weaponState = 0;
             WeaponPanel.transform.GetChild(0).gameObject.SetActive(true);
             WeaponPanel.transform.GetChild(1).gameObject.SetActive(false);
-            Debug.Log("Sword Damage is: " + SwordAtk);
+            //Debug.Log("Sword Damage is: " + SwordAtk);
         }
 	}
 	
 	public void PlayerDeath(){
 		textscript.clearAllVocab ();
 		Game_Controller.indexGlobal = 0;
-		Debug.Log("Death");
+		//Debug.Log("Death");
 	}
 
 
@@ -426,28 +426,28 @@ public class Player : MonoBehaviour {
     public void SPReduce(float reduceSP)
     {
         SP = SP - reduceSP;
-        Debug.Log("SP Left is: " + SP);
+        //Debug.Log("SP Left is: " + SP);
     }
 
     public void SPIncrease(float increaseSP)
     {
         if(SP+increaseSP > MaxSP)
         {
-            Debug.Log("เกิน");
+            //Debug.Log("เกิน");
             SP = MaxSP;
         }
         else
         {
-            Debug.Log("ไม่เกิน");
+            //Debug.Log("ไม่เกิน");
             SP += increaseSP;
         }
     }
 	
 	public void PlayerLVLUp(float exp){
 		if (lvlup - exp > 0) {
-            Debug.Log("เคสนี้");
+            //Debug.Log("เคสนี้");
 			lvlup = lvlup - exp;
-            Debug.Log(lvlup);
+            //Debug.Log(lvlup);
             
         } else if (lvlup - exp < 0) { //อันนี้คือเวลอัพแล้วมันเกิน
 			float tmp = exp - lvlup;
@@ -456,17 +456,17 @@ public class Player : MonoBehaviour {
 			lvlup = lvlup - tmp;
 			StartCoroutine(StatusUp());
 			skillPoint++;
-			Debug.Log("LVLUP");
+			//Debug.Log("LVLUP");
 		} else { //เวลอัพแล้วมันพอดีจ้า
-            Debug.Log("Level ก่อนเพิ่ม: " + lvl);
+            //Debug.Log("Level ก่อนเพิ่ม: " + lvl);
 			lvl++;
-            Debug.Log("Level หลังเพิ่ม: " + lvl);
+            //Debug.Log("Level หลังเพิ่ม: " + lvl);
             lvlup = baselvlup * lvl;
-            Debug.Log("lvl up ที่น่าจะ 200: " + lvlup);
+            //Debug.Log("lvl up ที่น่าจะ 200: " + lvlup);
 			skillPoint++;
             StartCoroutine(StatusUp());
-			Debug.Log("LVLUP");
-			Debug.Log(lvl);
+			//Debug.Log("LVLUP");
+			//Debug.Log(lvl);
             
         }
 
@@ -500,7 +500,7 @@ public class Player : MonoBehaviour {
         Game_Controller.playerInThisMap.notify.SetActive(false);
 
 
-        Debug.Log("HP = " + MaxHP + " SP = " + MaxSP);
+        //Debug.Log("HP = " + MaxHP + " SP = " + MaxSP);
 	}
 
     public void EquipCloth(Item cloth)
@@ -508,7 +508,7 @@ public class Player : MonoBehaviour {
         MaxHP = MaxHP - currentCloth.hitpoint;
         currentCloth = cloth;
         MaxHP = MaxHP + currentCloth.hitpoint; //คือถ้าเราใช้ BaseHP ตรงนี้นะ ไอ่ที่ตอน Level Up ได้ไรเพิ่มนี่ไม่เห็นผลเลย
-        Debug.Log("After Equip Cloth!!: " + MaxHP);
+        //Debug.Log("After Equip Cloth!!: " + MaxHP);
     }
 
     public void EquipBoot(Item boot)
@@ -516,7 +516,7 @@ public class Player : MonoBehaviour {
         MaxHP = MaxHP - currentBoot.hitpoint;
         currentBoot = boot;
         MaxHP = MaxHP + currentBoot.hitpoint;
-        Debug.Log("After Equip Boot!!: " + MaxHP);
+        //Debug.Log("After Equip Boot!!: " + MaxHP);
     }
 
     public void EquipBow(Item bow)
@@ -537,7 +537,7 @@ public class Player : MonoBehaviour {
 		if((Game_Controller.playerInThisMap.lvlup + (((Game_Controller.playerInThisMap.baselvlup * Game_Controller.playerInThisMap.lvl) - Game_Controller.playerInThisMap.lvlup)/2)) >= (Game_Controller.playerInThisMap.baselvlup * Game_Controller.playerInThisMap.lvl)){
 			Game_Controller.playerInThisMap.lvlup = Game_Controller.playerInThisMap.baselvlup * Game_Controller.playerInThisMap.lvl;
 		}else{
-			Debug.Log("sad");
+			//Debug.Log("sad");
 			Game_Controller.playerInThisMap.lvlup += ((Game_Controller.playerInThisMap.baselvlup * Game_Controller.playerInThisMap.lvl) - Game_Controller.playerInThisMap.lvlup)/2;
 		}
 		Game_Controller.playerInThisMap.HP = (Game_Controller.playerInThisMap.MaxHP + Game_Controller.playerInThisMap.currentCloth.hitpoint + Game_Controller.playerInThisMap.currentBoot.hitpoint)/2;

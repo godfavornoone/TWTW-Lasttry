@@ -63,7 +63,7 @@ public class Skill_Fire : MonoBehaviour {
 			foreach(Enemy enemy in Game_Controller.enemyInThisMap){
 				if(enemy.gameObject.activeInHierarchy && enemy.gameObject.activeSelf){
 					if(enemy.hitPoint - fireDMG > 0){
-						Debug.Log(enemy.name + " = fire");
+						//Debug.Log(enemy.name + " = fire");
 						Instantiate(fireSprite, enemy.transform.position, Quaternion.identity);
 						enemy.hitPoint -= fireDMG;
 					}else if(enemy.hitPoint - fireDMG <= 0){
@@ -72,7 +72,7 @@ public class Skill_Fire : MonoBehaviour {
 
 						if (!enemy.optionWord)
 						{
-							Debug.Log("return Text complete" + " text is: " + enemy.textTyping[1].text);
+							//Debug.Log("return Text complete" + " text is: " + enemy.textTyping[1].text);
 							enemy.textManagerScript.returnText(enemy.textTyping[1].text, enemy.wordDifficult);
 						}
 						
@@ -91,14 +91,14 @@ public class Skill_Fire : MonoBehaviour {
 							Game_Controller.oneEnemyWordChange = true;
 							Game_Controller.playerInThisMap.PlayerLVLUp(enemy.EXP);
 							
-							Debug.Log ("recieve = " + enemy.EXP);
+							//Debug.Log ("recieve = " + enemy.EXP);
 							//การ Drop ไอเทมละ
 							int dropchance = Random.Range(0, 100);
-							Debug.Log("dropChance is: " + dropchance);
-							Debug.Log("dropRate is: " + enemy.dropRate);
+							//Debug.Log("dropChance is: " + dropchance);
+							//Debug.Log("dropRate is: " + enemy.dropRate);
 							if (dropchance<=enemy.dropRate)
 							{
-								Debug.Log("YEEEEE");
+								//Debug.Log("YEEEEE");
 								int item = Random.Range(0, 20);
 								Instantiate(enemy.gameScript.itemPrefab[item], this.transform.position, Quaternion.identity);
 								

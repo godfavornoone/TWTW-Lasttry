@@ -133,11 +133,11 @@ public class Treasure : MonoBehaviour {
 				textTyping[1].text = textManagerScript.sendText(wordLength, wordDifficult);
 
                 int dropchance = Random.Range(0, 100);
-                Debug.Log("dropChance is: " + dropchance);
-                Debug.Log("dropRate is: " + dropRate);
+                //Debug.Log("dropChance is: " + dropchance);
+                //Debug.Log("dropRate is: " + dropRate);
                 if (dropchance <= dropRate)
                 {
-                    Debug.Log("YEEEEE");
+                    //Debug.Log("YEEEEE");
                     int item = Random.Range(0, 20);
                     Instantiate(gameScript.itemPrefab[item], this.transform.position, Quaternion.identity);
 

@@ -316,78 +316,78 @@ public class NPCManager : MonoBehaviour {
         //ล้างข้อมูล Quest อันนี้น่าจะต้องทำทุกอันนะ 55555555555+
         Game_Controller.detail.text = "";
 
-        //It's TIME TO DEBUGGGGGGG !!!!
-        Debug.Log("Weaknesses: " + b);
+        //It's TIME TO //DebugGGGGGG !!!!
+        //Debug.Log("Weaknesses: " + b);
 
         if(Game_Controller.playerInThisMap.currentSword.damage!=0)
         {
-            Debug.Log("SwordImage " + Game_Controller.playerInThisMap.currentSword.image.name);
-            Debug.Log("SwordDamage " + Game_Controller.playerInThisMap.currentSword.damage);
-            Debug.Log("SwordType " + Game_Controller.playerInThisMap.currentSword.type);
-            Debug.Log("SwordTitle " + Game_Controller.playerInThisMap.currentSword.title);
-            Debug.Log("SwordHitpoint " + Game_Controller.playerInThisMap.currentSword.hitpoint);
-            Debug.Log("SwordOption1 " + Game_Controller.playerInThisMap.currentSword.option[0]);
-            Debug.Log("SwordOption2 " + Game_Controller.playerInThisMap.currentSword.option[1]);
-            Debug.Log("SwordOption3 " + Game_Controller.playerInThisMap.currentSword.option[2]);
-            Debug.Log("SwordOption4 " + Game_Controller.playerInThisMap.currentSword.option[3]);
-            Debug.Log("SwordOption1Chance " + Game_Controller.playerInThisMap.currentSword.optionChance[0]);
-            Debug.Log("SwordOption2Chance " + Game_Controller.playerInThisMap.currentSword.optionChance[1]);
-            Debug.Log("SwordOption3Chance " + Game_Controller.playerInThisMap.currentSword.optionChance[2]);
-            Debug.Log("SwordOption4Chance " + Game_Controller.playerInThisMap.currentSword.optionChance[3]);
+            //Debug.Log("SwordImage " + Game_Controller.playerInThisMap.currentSword.image.name);
+            //Debug.Log("SwordDamage " + Game_Controller.playerInThisMap.currentSword.damage);
+            //Debug.Log("SwordType " + Game_Controller.playerInThisMap.currentSword.type);
+            //Debug.Log("SwordTitle " + Game_Controller.playerInThisMap.currentSword.title);
+            //Debug.Log("SwordHitpoint " + Game_Controller.playerInThisMap.currentSword.hitpoint);
+            //Debug.Log("SwordOption1 " + Game_Controller.playerInThisMap.currentSword.option[0]);
+            //Debug.Log("SwordOption2 " + Game_Controller.playerInThisMap.currentSword.option[1]);
+            //Debug.Log("SwordOption3 " + Game_Controller.playerInThisMap.currentSword.option[2]);
+            //Debug.Log("SwordOption4 " + Game_Controller.playerInThisMap.currentSword.option[3]);
+            //Debug.Log("SwordOption1Chance " + Game_Controller.playerInThisMap.currentSword.optionChance[0]);
+            //Debug.Log("SwordOption2Chance " + Game_Controller.playerInThisMap.currentSword.optionChance[1]);
+            //Debug.Log("SwordOption3Chance " + Game_Controller.playerInThisMap.currentSword.optionChance[2]);
+            //Debug.Log("SwordOption4Chance " + Game_Controller.playerInThisMap.currentSword.optionChance[3]);
         }
         
         if(Game_Controller.playerInThisMap.currentBow.damage!=0)
         {
             //ธนู
-            Debug.Log("BowImage " + Game_Controller.playerInThisMap.currentBow.image.name);
-            Debug.Log("BowDamage " + Game_Controller.playerInThisMap.currentBow.damage);
-            Debug.Log("BowType " + Game_Controller.playerInThisMap.currentBow.type);
-            Debug.Log("BowTitle " + Game_Controller.playerInThisMap.currentBow.title);
-            Debug.Log("BowHitpoint " + Game_Controller.playerInThisMap.currentBow.hitpoint);
-            Debug.Log("BowOption1 " + Game_Controller.playerInThisMap.currentBow.option[0]);
-            Debug.Log("BowOption2 " + Game_Controller.playerInThisMap.currentBow.option[1]);
-            Debug.Log("BowOption3 " + Game_Controller.playerInThisMap.currentBow.option[2]);
-            Debug.Log("BowOption4 " + Game_Controller.playerInThisMap.currentBow.option[3]);
-            Debug.Log("BowOption1Chance " + Game_Controller.playerInThisMap.currentBow.optionChance[0]);
-            Debug.Log("BowOption2Chance " + Game_Controller.playerInThisMap.currentBow.optionChance[1]);
-            Debug.Log("BowOption3Chance " + Game_Controller.playerInThisMap.currentBow.optionChance[2]);
-            Debug.Log("BowOption4Chance " + Game_Controller.playerInThisMap.currentBow.optionChance[3]);
+            //Debug.Log("BowImage " + Game_Controller.playerInThisMap.currentBow.image.name);
+            //Debug.Log("BowDamage " + Game_Controller.playerInThisMap.currentBow.damage);
+            //Debug.Log("BowType " + Game_Controller.playerInThisMap.currentBow.type);
+            //Debug.Log("BowTitle " + Game_Controller.playerInThisMap.currentBow.title);
+            //Debug.Log("BowHitpoint " + Game_Controller.playerInThisMap.currentBow.hitpoint);
+            //Debug.Log("BowOption1 " + Game_Controller.playerInThisMap.currentBow.option[0]);
+            //Debug.Log("BowOption2 " + Game_Controller.playerInThisMap.currentBow.option[1]);
+            //Debug.Log("BowOption3 " + Game_Controller.playerInThisMap.currentBow.option[2]);
+            //Debug.Log("BowOption4 " + Game_Controller.playerInThisMap.currentBow.option[3]);
+            //Debug.Log("BowOption1Chance " + Game_Controller.playerInThisMap.currentBow.optionChance[0]);
+            //Debug.Log("BowOption2Chance " + Game_Controller.playerInThisMap.currentBow.optionChance[1]);
+            //Debug.Log("BowOption3Chance " + Game_Controller.playerInThisMap.currentBow.optionChance[2]);
+            //Debug.Log("BowOption4Chance " + Game_Controller.playerInThisMap.currentBow.optionChance[3]);
         }
         
         if(Game_Controller.playerInThisMap.currentCloth.hitpoint!=0)
         {
             //เสื้อ
-            Debug.Log("ClothImage " + Game_Controller.playerInThisMap.currentCloth.image.name);
-            Debug.Log("ClothDamage " + Game_Controller.playerInThisMap.currentCloth.damage);
-            Debug.Log("ClothType " + Game_Controller.playerInThisMap.currentCloth.type);
-            Debug.Log("ClothTitle " + Game_Controller.playerInThisMap.currentCloth.title);
-            Debug.Log("ClothHitpoint " + Game_Controller.playerInThisMap.currentCloth.hitpoint);
-            Debug.Log("ClothOption1 " + Game_Controller.playerInThisMap.currentCloth.option[0]);
-            Debug.Log("ClothOption2 " + Game_Controller.playerInThisMap.currentCloth.option[1]);
-            Debug.Log("ClothOption3 " + Game_Controller.playerInThisMap.currentCloth.option[2]);
-            Debug.Log("ClothOption4 " + Game_Controller.playerInThisMap.currentCloth.option[3]);
-            Debug.Log("ClothOption1Chance " + Game_Controller.playerInThisMap.currentCloth.optionChance[0]);
-            Debug.Log("ClothOption2Chance " + Game_Controller.playerInThisMap.currentCloth.optionChance[1]);
-            Debug.Log("ClothOption3Chance " + Game_Controller.playerInThisMap.currentCloth.optionChance[2]);
-            Debug.Log("ClothOption4Chance " + Game_Controller.playerInThisMap.currentCloth.optionChance[3]);
+            //Debug.Log("ClothImage " + Game_Controller.playerInThisMap.currentCloth.image.name);
+            //Debug.Log("ClothDamage " + Game_Controller.playerInThisMap.currentCloth.damage);
+            //Debug.Log("ClothType " + Game_Controller.playerInThisMap.currentCloth.type);
+            //Debug.Log("ClothTitle " + Game_Controller.playerInThisMap.currentCloth.title);
+            //Debug.Log("ClothHitpoint " + Game_Controller.playerInThisMap.currentCloth.hitpoint);
+            //Debug.Log("ClothOption1 " + Game_Controller.playerInThisMap.currentCloth.option[0]);
+            //Debug.Log("ClothOption2 " + Game_Controller.playerInThisMap.currentCloth.option[1]);
+            //Debug.Log("ClothOption3 " + Game_Controller.playerInThisMap.currentCloth.option[2]);
+            //Debug.Log("ClothOption4 " + Game_Controller.playerInThisMap.currentCloth.option[3]);
+            //Debug.Log("ClothOption1Chance " + Game_Controller.playerInThisMap.currentCloth.optionChance[0]);
+            //Debug.Log("ClothOption2Chance " + Game_Controller.playerInThisMap.currentCloth.optionChance[1]);
+            //Debug.Log("ClothOption3Chance " + Game_Controller.playerInThisMap.currentCloth.optionChance[2]);
+            //Debug.Log("ClothOption4Chance " + Game_Controller.playerInThisMap.currentCloth.optionChance[3]);
         }
 
         if(Game_Controller.playerInThisMap.currentBoot.hitpoint!=0)
         {
             //รองเท้า
-            Debug.Log("BootImage " + Game_Controller.playerInThisMap.currentBoot.image.name);
-            Debug.Log("BootDamage " + Game_Controller.playerInThisMap.currentBoot.damage);
-            Debug.Log("BootType " + Game_Controller.playerInThisMap.currentBoot.type);
-            Debug.Log("BootTitle " + Game_Controller.playerInThisMap.currentBoot.title);
-            Debug.Log("BootHitpoint " + Game_Controller.playerInThisMap.currentBoot.hitpoint);
-            Debug.Log("BootOption1 " + Game_Controller.playerInThisMap.currentBoot.option[0]);
-            Debug.Log("BootOption2 " + Game_Controller.playerInThisMap.currentBoot.option[1]);
-            Debug.Log("BootOption3 " + Game_Controller.playerInThisMap.currentBoot.option[2]);
-            Debug.Log("BootOption4 " + Game_Controller.playerInThisMap.currentBoot.option[3]);
-            Debug.Log("BootOption1Chance " + Game_Controller.playerInThisMap.currentBoot.optionChance[0]);
-            Debug.Log("BootOption2Chance " + Game_Controller.playerInThisMap.currentBoot.optionChance[1]);
-            Debug.Log("BootOption3Chance " + Game_Controller.playerInThisMap.currentBoot.optionChance[2]);
-            Debug.Log("BootOption4Chance " + Game_Controller.playerInThisMap.currentBoot.optionChance[3]);
+            //Debug.Log("BootImage " + Game_Controller.playerInThisMap.currentBoot.image.name);
+            //Debug.Log("BootDamage " + Game_Controller.playerInThisMap.currentBoot.damage);
+            //Debug.Log("BootType " + Game_Controller.playerInThisMap.currentBoot.type);
+            //Debug.Log("BootTitle " + Game_Controller.playerInThisMap.currentBoot.title);
+            //Debug.Log("BootHitpoint " + Game_Controller.playerInThisMap.currentBoot.hitpoint);
+            //Debug.Log("BootOption1 " + Game_Controller.playerInThisMap.currentBoot.option[0]);
+            //Debug.Log("BootOption2 " + Game_Controller.playerInThisMap.currentBoot.option[1]);
+            //Debug.Log("BootOption3 " + Game_Controller.playerInThisMap.currentBoot.option[2]);
+            //Debug.Log("BootOption4 " + Game_Controller.playerInThisMap.currentBoot.option[3]);
+            //Debug.Log("BootOption1Chance " + Game_Controller.playerInThisMap.currentBoot.optionChance[0]);
+            //Debug.Log("BootOption2Chance " + Game_Controller.playerInThisMap.currentBoot.optionChance[1]);
+            //Debug.Log("BootOption3Chance " + Game_Controller.playerInThisMap.currentBoot.optionChance[2]);
+            //Debug.Log("BootOption4Chance " + Game_Controller.playerInThisMap.currentBoot.optionChance[3]);
 
         }
 
@@ -399,101 +399,101 @@ public class NPCManager : MonoBehaviour {
 
             if (inv.checkSlot[i] != -1) //เอาช่องที่ไม่ว่าง ช่องนี้มีของนะจ้ะ
             {
-                Debug.Log(key + "Image " + inv.slots[i].transform.GetChild(0).GetComponent<ItemData>().item.image.name);
-                Debug.Log(key + "Damage " + inv.slots[i].transform.GetChild(0).GetComponent<ItemData>().item.damage);
-                Debug.Log(key + "Type " + inv.slots[i].transform.GetChild(0).GetComponent<ItemData>().item.type);
-                Debug.Log(key + "Title " + inv.slots[i].transform.GetChild(0).GetComponent<ItemData>().item.title);
-                Debug.Log(key + "Hitpoint " + inv.slots[i].transform.GetChild(0).GetComponent<ItemData>().item.hitpoint);
-                Debug.Log(key + "Option1 " + inv.slots[i].transform.GetChild(0).GetComponent<ItemData>().item.option[0]);
-                Debug.Log(key + "Option2 " + inv.slots[i].transform.GetChild(0).GetComponent<ItemData>().item.option[1]);
-                Debug.Log(key + "Option3 " + inv.slots[i].transform.GetChild(0).GetComponent<ItemData>().item.option[2]);
-                Debug.Log(key + "Option4 " + inv.slots[i].transform.GetChild(0).GetComponent<ItemData>().item.option[3]);
-                Debug.Log(key + "Option1Chance " + inv.slots[i].transform.GetChild(0).GetComponent<ItemData>().item.optionChance[0]);
-                Debug.Log(key + "Option2Chance " + inv.slots[i].transform.GetChild(0).GetComponent<ItemData>().item.optionChance[1]);
-                Debug.Log(key + "Option3Chance " + inv.slots[i].transform.GetChild(0).GetComponent<ItemData>().item.optionChance[2]);
-                Debug.Log(key + "Option4Chance " + inv.slots[i].transform.GetChild(0).GetComponent<ItemData>().item.optionChance[3]);
+                //Debug.Log(key + "Image " + inv.slots[i].transform.GetChild(0).GetComponent<ItemData>().item.image.name);
+                //Debug.Log(key + "Damage " + inv.slots[i].transform.GetChild(0).GetComponent<ItemData>().item.damage);
+                //Debug.Log(key + "Type " + inv.slots[i].transform.GetChild(0).GetComponent<ItemData>().item.type);
+                //Debug.Log(key + "Title " + inv.slots[i].transform.GetChild(0).GetComponent<ItemData>().item.title);
+                //Debug.Log(key + "Hitpoint " + inv.slots[i].transform.GetChild(0).GetComponent<ItemData>().item.hitpoint);
+                //Debug.Log(key + "Option1 " + inv.slots[i].transform.GetChild(0).GetComponent<ItemData>().item.option[0]);
+                //Debug.Log(key + "Option2 " + inv.slots[i].transform.GetChild(0).GetComponent<ItemData>().item.option[1]);
+                //Debug.Log(key + "Option3 " + inv.slots[i].transform.GetChild(0).GetComponent<ItemData>().item.option[2]);
+                //Debug.Log(key + "Option4 " + inv.slots[i].transform.GetChild(0).GetComponent<ItemData>().item.option[3]);
+                //Debug.Log(key + "Option1Chance " + inv.slots[i].transform.GetChild(0).GetComponent<ItemData>().item.optionChance[0]);
+                //Debug.Log(key + "Option2Chance " + inv.slots[i].transform.GetChild(0).GetComponent<ItemData>().item.optionChance[1]);
+                //Debug.Log(key + "Option3Chance " + inv.slots[i].transform.GetChild(0).GetComponent<ItemData>().item.optionChance[2]);
+                //Debug.Log(key + "Option4Chance " + inv.slots[i].transform.GetChild(0).GetComponent<ItemData>().item.optionChance[3]);
             }
             else
             {
-                Debug.Log("PlayerPrefs.DeleteKey " +key + "Image");
-                Debug.Log("PlayerPrefs.DeleteKey "+key + "Damage");
-                Debug.Log("PlayerPrefs.DeleteKey "+key + "Type");
-                Debug.Log("PlayerPrefs.DeleteKey "+key + "Title");
-                Debug.Log("PlayerPrefs.DeleteKey "+key + "Hitpoint");
-                Debug.Log("PlayerPrefs.DeleteKey "+key + "Option1");
-                Debug.Log("PlayerPrefs.DeleteKey "+key + "Option2");
-                Debug.Log("PlayerPrefs.DeleteKey "+key + "Option3");
-                Debug.Log("PlayerPrefs.DeleteKey "+key + "Option4");
-                Debug.Log("PlayerPrefs.DeleteKey "+key + "Option1Chance");
-                Debug.Log("PlayerPrefs.DeleteKey "+key + "Option2Chance");
-                Debug.Log("PlayerPrefs.DeleteKey "+key + "Option3Chance");
-                Debug.Log("PlayerPrefs.DeleteKey "+key + "Option4Chance");
+                //Debug.Log("PlayerPrefs.DeleteKey " +key + "Image");
+                //Debug.Log("PlayerPrefs.DeleteKey "+key + "Damage");
+                //Debug.Log("PlayerPrefs.DeleteKey "+key + "Type");
+                //Debug.Log("PlayerPrefs.DeleteKey "+key + "Title");
+                //Debug.Log("PlayerPrefs.DeleteKey "+key + "Hitpoint");
+                //Debug.Log("PlayerPrefs.DeleteKey "+key + "Option1");
+                //Debug.Log("PlayerPrefs.DeleteKey "+key + "Option2");
+                //Debug.Log("PlayerPrefs.DeleteKey "+key + "Option3");
+                //Debug.Log("PlayerPrefs.DeleteKey "+key + "Option4");
+                //Debug.Log("PlayerPrefs.DeleteKey "+key + "Option1Chance");
+                //Debug.Log("PlayerPrefs.DeleteKey "+key + "Option2Chance");
+                //Debug.Log("PlayerPrefs.DeleteKey "+key + "Option3Chance");
+                //Debug.Log("PlayerPrefs.DeleteKey "+key + "Option4Chance");
             }
         }
 
         //สมมติว่า 5 เงี้ย มันก็จะวิ่งตั้งแต่ 0 - 4 นะ
-        Debug.Log("indexOfHistoryTyping "+Game_Controller.playerInThisMap.historyWeaknesses.Count);
+        //Debug.Log("indexOfHistoryTyping "+Game_Controller.playerInThisMap.historyWeaknesses.Count);
 
         for (int i = 0; i < Game_Controller.playerInThisMap.historyWeaknesses.Count; i++)
         {
             string key = "WPM" + i;
             string key2 = "Weakness" + i;
 
-            Debug.Log(key+" " +Game_Controller.playerInThisMap.historyWeaknesses[i]);
-            Debug.Log(key2+" "+Game_Controller.playerInThisMap.historyWPM[i]);
+            //Debug.Log(key+" " +Game_Controller.playerInThisMap.historyWeaknesses[i]);
+            //Debug.Log(key2+" "+Game_Controller.playerInThisMap.historyWPM[i]);
         }
 
-        Debug.Log("currentLevel "+Game_Controller.playerInThisMap.lvl);
-        Debug.Log("EXPLeft "+Game_Controller.playerInThisMap.lvlup);
-        Debug.Log("maxHP "+Game_Controller.playerInThisMap.MaxHP);
-        Debug.Log("maxSP "+Game_Controller.playerInThisMap.MaxSP);
-        Debug.Log("currentHP "+Game_Controller.playerInThisMap.HP);
-        Debug.Log("currentSP "+Game_Controller.playerInThisMap.SP);
-        Debug.Log("currentSkillPoint "+Game_Controller.playerInThisMap.skillPoint);
-        Debug.Log("BowAtk "+Game_Controller.playerInThisMap.BowAtk);
-        Debug.Log("SwordAtk "+Game_Controller.playerInThisMap.SwordAtk);
-        Debug.Log("baseHP "+Game_Controller.playerInThisMap.baseHP);
-        Debug.Log("baseSP "+Game_Controller.playerInThisMap.baseSP);
-        Debug.Log("baseAtk "+Game_Controller.playerInThisMap.baseAtk);
+        //Debug.Log("currentLevel "+Game_Controller.playerInThisMap.lvl);
+        //Debug.Log("EXPLeft "+Game_Controller.playerInThisMap.lvlup);
+        //Debug.Log("maxHP "+Game_Controller.playerInThisMap.MaxHP);
+        //Debug.Log("maxSP "+Game_Controller.playerInThisMap.MaxSP);
+        //Debug.Log("currentHP "+Game_Controller.playerInThisMap.HP);
+        //Debug.Log("currentSP "+Game_Controller.playerInThisMap.SP);
+        //Debug.Log("currentSkillPoint "+Game_Controller.playerInThisMap.skillPoint);
+        //Debug.Log("BowAtk "+Game_Controller.playerInThisMap.BowAtk);
+        //Debug.Log("SwordAtk "+Game_Controller.playerInThisMap.SwordAtk);
+        //Debug.Log("baseHP "+Game_Controller.playerInThisMap.baseHP);
+        //Debug.Log("baseSP "+Game_Controller.playerInThisMap.baseSP);
+        //Debug.Log("baseAtk "+Game_Controller.playerInThisMap.baseAtk);
         //ตรงนี้ขอข้อมูลของ Typing's progress อีกอัน...
-        Debug.Log("trapLVL "+Game_Controller.skillTrap.trapLVL);
-        Debug.Log("trapMana "+Game_Controller.skillTrap.trapMana);
-        Debug.Log("trapDMG "+Skill_Controller.trapDmg);
+        //Debug.Log("trapLVL "+Game_Controller.skillTrap.trapLVL);
+        //Debug.Log("trapMana "+Game_Controller.skillTrap.trapMana);
+        //Debug.Log("trapDMG "+Skill_Controller.trapDmg);
 
-        Debug.Log("knockLVL "+Game_Controller.skillKnock.knockLVL);
-        Debug.Log("cooldownSkillKnock "+Game_Controller.skillKnock.coolDownSkillKnock);
-        Debug.Log("KnockMana "+Game_Controller.skillKnock.knockMana);
+        //Debug.Log("knockLVL "+Game_Controller.skillKnock.knockLVL);
+        //Debug.Log("cooldownSkillKnock "+Game_Controller.skillKnock.coolDownSkillKnock);
+        //Debug.Log("KnockMana "+Game_Controller.skillKnock.knockMana);
 
-        Debug.Log("HealLVL "+Game_Controller.skillHeal.healLVL);
-        Debug.Log("HealDMG "+Game_Controller.skillHeal.healDMG);
-        Debug.Log("HealMana "+Game_Controller.skillHeal.healMana);
+        //Debug.Log("HealLVL "+Game_Controller.skillHeal.healLVL);
+        //Debug.Log("HealDMG "+Game_Controller.skillHeal.healDMG);
+        //Debug.Log("HealMana "+Game_Controller.skillHeal.healMana);
 
-        Debug.Log("SlowLVL "+Game_Controller.skillSlow.slowLVL);
-        Debug.Log("nowSlowTime "+Game_Controller.skillSlow.nowSlowTime);
-        Debug.Log("SlowMana "+Game_Controller.skillSlow.slowMana);
+        //Debug.Log("SlowLVL "+Game_Controller.skillSlow.slowLVL);
+        //Debug.Log("nowSlowTime "+Game_Controller.skillSlow.nowSlowTime);
+        //Debug.Log("SlowMana "+Game_Controller.skillSlow.slowMana);
 
-        Debug.Log("IceLVL "+Game_Controller.skillIce.iceLVL);
-        Debug.Log("nowIceTime "+Game_Controller.skillIce.nowIceTime);
-        Debug.Log("IceMana "+Game_Controller.skillIce.iceMana);
+        //Debug.Log("IceLVL "+Game_Controller.skillIce.iceLVL);
+        //Debug.Log("nowIceTime "+Game_Controller.skillIce.nowIceTime);
+        //Debug.Log("IceMana "+Game_Controller.skillIce.iceMana);
 
-        Debug.Log("FireLVL "+Game_Controller.skillFire.fireLVL);
-        Debug.Log("fireDMG "+Game_Controller.skillFire.fireDMG);
-        Debug.Log("fireMana "+Game_Controller.skillFire.fireMana);
+        //Debug.Log("FireLVL "+Game_Controller.skillFire.fireLVL);
+        //Debug.Log("fireDMG "+Game_Controller.skillFire.fireDMG);
+        //Debug.Log("fireMana "+Game_Controller.skillFire.fireMana);
 
         //ยังขาด word Diff
-        Debug.Log("maxGameDifficulty "+(Game_Controller.gameDiff + 1));
-        Debug.Log("currentWordDifficulty "+a.computeWordDiff(WPM));
+        //Debug.Log("maxGameDifficulty "+(Game_Controller.gameDiff + 1));
+        //Debug.Log("currentWordDifficulty "+a.computeWordDiff(WPM));
         if (Game_Controller.world == 0)
         {
-            Debug.Log("currentParallelWorld"+1);
+            //Debug.Log("currentParallelWorld"+1);
         }
         else
         {
-            Debug.Log("currentParallelWorld"+0);
+            //Debug.Log("currentParallelWorld"+0);
         }
         //ไอ่บ้านี่อ่ะมันจะ FIX ให้ไปที่ Town นะ
         //ถ้าปกติก็ควรจะ Game_Controller.nowScene
-        Debug.Log("currentScene "+"Town");
+        //Debug.Log("currentScene "+"Town");
 
 
         Game_Controller.ClearGameScene.SetActive(false);
@@ -537,7 +537,7 @@ public class NPCManager : MonoBehaviour {
                 a.Analysis();
                 if(a.check<3) //ดักไว้เลย ว่ายังไงก็มีศัพท์แน่อนนล่ะวะ
                 {
-                    Debug.Log("It Must Come Here");
+                    //Debug.Log("It Must Come Here");
                     a.sendTimeData('a', 10);
                     a.sendTimeData('a', 10);
                     a.sendTimeData('a', 10);
@@ -552,7 +552,7 @@ public class NPCManager : MonoBehaviour {
 
                 Game_Controller.wordDiff = a.computeWordDiff(a.computeWPM()); //ไม่ค่อยชัว ไม่เก็บมันละกัน 5555555555 แต่ ณ ตรงนี้อ่ะจะได้ Word's Diff เริ่มต้นมาแบ้ววววว
                 string weakness = a.computeWeakness(); //แค่เอาออกมาแล้วก็ทิ้งไปกร๊ากกกกก
-                Debug.Log("Word's Diff Starter is!!!!: " + Game_Controller.wordDiff);
+                //Debug.Log("Word's Diff Starter is!!!!: " + Game_Controller.wordDiff);
 
                 Time.timeScale = 1;
                 //Refill เลือดหน่อย 55555555
@@ -671,7 +671,7 @@ public class NPCManager : MonoBehaviour {
                 a.Analysis();
                 if (a.check < 3) //ดักไว้เลย ว่ายังไงก็มีศัพท์แน่อนนล่ะวะ
                 {
-                    Debug.Log("It Must Come Here");
+                    //Debug.Log("It Must Come Here");
                     a.sendTimeData('a', 10);
                     a.sendTimeData('a', 10);
                     a.sendTimeData('a', 10);
@@ -687,7 +687,7 @@ public class NPCManager : MonoBehaviour {
 
                 Game_Controller.wordDiff = a.computeWordDiff(a.computeWPM()); //ไม่ค่อยชัว ไม่เก็บมันละกัน 5555555555 แต่ ณ ตรงนี้อ่ะจะได้ Word's Diff เริ่มต้นมาแบ้ววววว
                 string weakness = a.computeWeakness(); //แค่เอาออกมาแล้วก็ทิ้งไปกร๊ากกกกก
-                Debug.Log("Word's Diff Starter is!!!!: " + Game_Controller.wordDiff);
+                //Debug.Log("Word's Diff Starter is!!!!: " + Game_Controller.wordDiff);
 
                 Time.timeScale = 1;
                 //Refill เลือดหน่อย 55555555

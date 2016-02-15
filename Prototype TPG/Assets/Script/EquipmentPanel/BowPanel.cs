@@ -56,13 +56,13 @@ public class BowPanel : MonoBehaviour,IDropHandler
 
         }
 
-        for (int i = 0; i < inv.items.Count; i++)
-        {
-            Debug.Log("YEAHHHH" + "i is: " + i + " " + inv.items[i].damage.ToString());
-
-        }
-        Debug.Log("Sword: " + inv.itemSword.damage);
-        Debug.Log("Bow: " + inv.itemBow.damage);
+//        for (int i = 0; i < inv.items.Count; i++)
+//        {
+//            Debug.Log("YEAHHHH" + "i is: " + i + " " + inv.items[i].damage.ToString());
+//
+//        }
+//        Debug.Log("Sword: " + inv.itemSword.damage);
+//        Debug.Log("Bow: " + inv.itemBow.damage);
     }
 
 

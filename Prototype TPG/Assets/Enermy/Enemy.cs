@@ -209,7 +209,7 @@ public class Enemy : MonoBehaviour {
 
         if (!optionWord)
         {
-            Debug.Log("return Text complete" + " text is: " + textTyping[1].text);
+            //Debug.Log("return Text complete" + " text is: " + textTyping[1].text);
             textManagerScript.returnText(textTyping[1].text, wordDifficult);
         }
 
@@ -237,14 +237,14 @@ public class Enemy : MonoBehaviour {
             
 			Game_Controller.playerInThisMap.PlayerLVLUp(EXP);
             
-			Debug.Log ("recieve = " + EXP);
+//			Debug.Log ("recieve = " + EXP);
             //การ Drop ไอเทมละ
             int dropchance = Random.Range(0, 100);
-            Debug.Log("dropChance is: " + dropchance);
-            Debug.Log("dropRate is: " + dropRate);
+//            Debug.Log("dropChance is: " + dropchance);
+//            Debug.Log("dropRate is: " + dropRate);
             if (dropchance<=dropRate)
             {
-                Debug.Log("YEEEEE");
+//                Debug.Log("YEEEEE");
                 int item = Random.Range(0, 20);
                 Instantiate(gameScript.itemPrefab[item], this.transform.position, Quaternion.identity);
 
@@ -257,8 +257,8 @@ public class Enemy : MonoBehaviour {
             /*
             if(!optionWord)
             {
-                Debug.Log("in HPDown");
-                Debug.Log("return Text complete" + " text is: " + textTyping[1].text);
+                //Debug.Log("in HPDown");
+                //Debug.Log("return Text complete" + " text is: " + textTyping[1].text);
                 textManagerScript.returnText(textTyping[1].text, wordDifficult);
             }
             */
@@ -274,7 +274,7 @@ public class Enemy : MonoBehaviour {
 		}
         
         
-//		Debug.Log (gameObject.name + " = " +hitPoint);
+//		//Debug.Log (gameObject.name + " = " +hitPoint);
 
         
     }
@@ -338,12 +338,12 @@ public class Enemy : MonoBehaviour {
 
                 if (optionWord) //start here if it false go ELSE
                 {
-                    Debug.Log("no return text");
+//                    Debug.Log("no return text");
                     optionWord = false;
                 }
                 else
                 {
-                    Debug.Log("return Text complete" + " text is: " + textTyping[1].text);
+//                    Debug.Log("return Text complete" + " text is: " + textTyping[1].text);
                     textManagerScript.returnText(textTyping[1].text, wordDifficult);
                 }
                 
@@ -361,12 +361,12 @@ public class Enemy : MonoBehaviour {
                         chance = Random.Range(0, 100);
                         if (chance <= Game_Controller.playerInThisMap.currentBoot.optionChance[0])
                         {
-                            Debug.Log("one Letter option from Boot");
+//                            //Debug.Log("one Letter option from Boot");
 
                             char tmp = textTyping[1].text[0];
                             string tmp2;
 
-                            Debug.Log("first char of last string is: " + tmp);
+//                            //Debug.Log("first char of last string is: " + tmp);
 
                             tmp2 = "" + tmp;
 
@@ -386,12 +386,12 @@ public class Enemy : MonoBehaviour {
                         chance = Random.Range(0, 100);
                         if (chance <= Game_Controller.playerInThisMap.currentCloth.optionChance[0])
                         {
-                            Debug.Log("one Letter option from cloth");
+//                            //Debug.Log("one Letter option from cloth");
 
                             char tmp = textTyping[1].text[0];
                             string tmp2;
 
-                            Debug.Log("first char of last string is: " + tmp);
+//                            //Debug.Log("first char of last string is: " + tmp);
 
                             tmp2 = "" + tmp;
 
@@ -413,12 +413,12 @@ public class Enemy : MonoBehaviour {
                         chance = Random.Range(0, 100);
                         if (chance <= Game_Controller.playerInThisMap.currentSword.optionChance[0])
                         {
-                            Debug.Log("one Letter option from sword");
+//                            //Debug.Log("one Letter option from sword");
 
                             char tmp = textTyping[1].text[0];
                             string tmp2;
 
-                            Debug.Log("first char of last string is: " + tmp);
+//                            //Debug.Log("first char of last string is: " + tmp);
 
                             tmp2 = "" + tmp;
 
@@ -439,12 +439,12 @@ public class Enemy : MonoBehaviour {
                         chance = Random.Range(0, 100);
                         if (chance <= Game_Controller.playerInThisMap.currentBow.optionChance[0])
                         {
-                            Debug.Log("one Letter option from bow");
+//                            //Debug.Log("one Letter option from bow");
 
                             char tmp = textTyping[1].text[0];
                             string tmp2;
 
-                            Debug.Log("first char of last string is: " + tmp);
+//                            //Debug.Log("first char of last string is: " + tmp);
 
                             tmp2 = "" + tmp;
 
@@ -466,24 +466,24 @@ public class Enemy : MonoBehaviour {
                         chance = Random.Range(0, 100);
                         if (chance <= Game_Controller.playerInThisMap.currentBoot.optionChance[1])
                         {
-                            Debug.Log("same Letter option from boot");
+//                            //Debug.Log("same Letter option from boot");
 
                             char tmp = textTyping[1].text[0];
                             string tmp2;
                             string tmp3 = "";
 
-                            Debug.Log("first char of last string is: " + tmp);
+//                            //Debug.Log("first char of last string is: " + tmp);
 
                             tmp2 = "" + tmp;
 
-                            Debug.Log("tmp2 before is: " + tmp2);
+//                            //Debug.Log("tmp2 before is: " + tmp2);
 
                             for(int i =0;i<textTyping[1].text.Length;i++)
                             {
                                 tmp3 += tmp2;
                             }
 
-                            Debug.Log("tmp2 after is: " + tmp2);
+//                            //Debug.Log("tmp2 after is: " + tmp2);
 
                             textTyping[1].text = tmp3;
 
@@ -501,24 +501,24 @@ public class Enemy : MonoBehaviour {
                         chance = Random.Range(0, 100);
                         if (chance <= Game_Controller.playerInThisMap.currentCloth.optionChance[1])
                         {
-                            Debug.Log("same Letter option from cloth");
+//                            //Debug.Log("same Letter option from cloth");
 
                             char tmp = textTyping[1].text[0];
                             string tmp2;
                             string tmp3="";
 
-                            Debug.Log("first char of last string is: " + tmp);
+//                            //Debug.Log("first char of last string is: " + tmp);
 
                             tmp2 = "" + tmp;
 
-                            Debug.Log("tmp2 before is: " + tmp2);
+//                            //Debug.Log("tmp2 before is: " + tmp2);
 
                             for (int i = 0; i < textTyping[1].text.Length; i++)
                             {
                                 tmp3 += tmp2;
                             }
 
-                            Debug.Log("tmp2 after is: " + tmp2);
+                            //Debug.Log("tmp2 after is: " + tmp2);
 
                             textTyping[1].text = tmp3;
 
@@ -538,24 +538,24 @@ public class Enemy : MonoBehaviour {
                         {
 
 
-                            Debug.Log("same Letter option from sword");
+                            //Debug.Log("same Letter option from sword");
 
                             char tmp = textTyping[1].text[0];
                             string tmp2;
                             string tmp3 = "";
 
-                            Debug.Log("first char of last string is: " + tmp);
+                            //Debug.Log("first char of last string is: " + tmp);
 
                             tmp2 = "" + tmp;
 
-                            Debug.Log("tmp2 before is: " + tmp2);
+                            //Debug.Log("tmp2 before is: " + tmp2);
 
                             for (int i = 0; i < textTyping[1].text.Length; i++)
                             {
                                 tmp3 += tmp2;
                             }
 
-                            Debug.Log("tmp2 after is: " + tmp2);
+                            //Debug.Log("tmp2 after is: " + tmp2);
 
                             textTyping[1].text = tmp3;
 
@@ -573,24 +573,24 @@ public class Enemy : MonoBehaviour {
                         chance = Random.Range(0, 100);
                         if (chance <= Game_Controller.playerInThisMap.currentBow.optionChance[1])
                         {
-                            Debug.Log("same Letter option from bow");
+                            //Debug.Log("same Letter option from bow");
 
                             char tmp = textTyping[1].text[0];
                             string tmp2;
                             string tmp3 = "";
 
-                            Debug.Log("first char of last string is: " + tmp);
+                            //Debug.Log("first char of last string is: " + tmp);
 
                             tmp2 = "" + tmp;
 
-                            Debug.Log("tmp2 before is: " + tmp2);
+                            //Debug.Log("tmp2 before is: " + tmp2);
 
                             for (int i = 0; i < textTyping[1].text.Length; i++)
                             {
                                 tmp3 += tmp2;
                             }
 
-                            Debug.Log("tmp2 after is: " + tmp2);
+                            //Debug.Log("tmp2 after is: " + tmp2);
 
                             textTyping[1].text = tmp3;
 
@@ -609,7 +609,7 @@ public class Enemy : MonoBehaviour {
                         chance = Random.Range(0, 100);
                         if (chance <= Game_Controller.playerInThisMap.currentBoot.optionChance[2])
                         {
-                            Debug.Log("same word on boot");
+                            //Debug.Log("same word on boot");
                             optionWord = true;
                             oneOptiononly = false;
 
@@ -625,7 +625,7 @@ public class Enemy : MonoBehaviour {
                         chance = Random.Range(0, 100);
                         if (chance <= Game_Controller.playerInThisMap.currentCloth.optionChance[2])
                         {
-                            Debug.Log("same word on cloth");
+                            //Debug.Log("same word on cloth");
                             optionWord = true;
                             oneOptiononly = false;
 
@@ -640,7 +640,7 @@ public class Enemy : MonoBehaviour {
                         chance = Random.Range(0, 100);
                         if (chance <= Game_Controller.playerInThisMap.currentSword.optionChance[2])
                         {
-                            Debug.Log("same word on sword");
+                            //Debug.Log("same word on sword");
                             optionWord = true;
                             oneOptiononly = false;
 
@@ -655,7 +655,7 @@ public class Enemy : MonoBehaviour {
                         chance = Random.Range(0, 100);
                         if (chance <= Game_Controller.playerInThisMap.currentBow.optionChance[2])
                         {
-                            Debug.Log("same word on bow");
+                            //Debug.Log("same word on bow");
                             optionWord = true;
                             oneOptiononly = false;
 
@@ -665,7 +665,7 @@ public class Enemy : MonoBehaviour {
 
                 if(!optionWord)
                 {
-                    Debug.Log("Give new Text not from Option");
+                    //Debug.Log("Give new Text not from Option");
                     textTyping[1].text = textManagerScript.sendText(wordLength, wordDifficult);
 
                 }

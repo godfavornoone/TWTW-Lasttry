@@ -38,7 +38,7 @@ public class Slot : MonoBehaviour, IDropHandler {
             }
             else if(inv.items[id].type.Equals("sword")) //ถ้าหากไม่ใช่ ต้องมีการสลับกันนะจ้ะ
             {
-                Debug.Log("มานี่ใช่ไหมจ้าาาา");
+//                Debug.Log("มานี่ใช่ไหมจ้าาาา");
 
                 //Transform item = inv.currentSword.transform.GetChild(0); //ไอเทมที่อยู่ใน sword แต่แรก //มันหายไปแล้วไงล่ะะะะะ เพราะมึงดึงมันขึ้นมา 55555555555555555555555
 
@@ -66,13 +66,13 @@ public class Slot : MonoBehaviour, IDropHandler {
 
             
 
-            for (int i = 0; i < inv.items.Count; i++)
-            {
-                Debug.Log("Inventory List: " + "i is: " + i + " " + inv.items[i].damage.ToString());
-
-            }
-            Debug.Log("Sword: " + inv.itemSword.damage);
-            Debug.Log("Bow: " + inv.itemBow.damage);
+//            for (int i = 0; i < inv.items.Count; i++)
+//            {
+//                Debug.Log("Inventory List: " + "i is: " + i + " " + inv.items[i].damage.ToString());
+//
+//            }
+//            Debug.Log("Sword: " + inv.itemSword.damage);
+//            Debug.Log("Bow: " + inv.itemBow.damage);
         }
 
         else if (droppedItem.gameObject.transform.parent.name.Equals("InventoryPanel") && droppedItem.item.type.Equals("bow"))
@@ -93,7 +93,7 @@ public class Slot : MonoBehaviour, IDropHandler {
 
                 Game_Controller.playerInThisMap.EquipBow(inv.items[id]);
 
-                Debug.Log("มานี่ใช่ไหมจ้าาาา");
+//                Debug.Log("มานี่ใช่ไหมจ้าาาา");
 
                 //Transform item = inv.currentSword.transform.GetChild(0); //ไอเทมที่อยู่ใน sword แต่แรก //มันหายไปแล้วไงล่ะะะะะ เพราะมึงดึงมันขึ้นมา 55555555555555555555555
 
@@ -116,13 +116,13 @@ public class Slot : MonoBehaviour, IDropHandler {
 
             }
 
-            for (int i = 0; i < inv.items.Count; i++)
-            {
-                Debug.Log("Inventory List: " + "i is: " + i + " " + inv.items[i].damage.ToString());
-
-            }
-            Debug.Log("Sword: " + inv.itemSword.damage);
-            Debug.Log("Bow: " + inv.itemBow.damage);
+//            for (int i = 0; i < inv.items.Count; i++)
+//            {
+//                Debug.Log("Inventory List: " + "i is: " + i + " " + inv.items[i].damage.ToString());
+//
+//            }
+//            Debug.Log("Sword: " + inv.itemSword.damage);
+//            Debug.Log("Bow: " + inv.itemBow.damage);
         }
 
         else if (droppedItem.gameObject.transform.parent.name.Equals("InventoryPanel") && droppedItem.item.type.Equals("boot"))
@@ -142,7 +142,7 @@ public class Slot : MonoBehaviour, IDropHandler {
             {
 
                 Game_Controller.playerInThisMap.EquipBoot(inv.items[id]);
-                Debug.Log("มานี่ใช่ไหมจ้าาาา");
+//                Debug.Log("มานี่ใช่ไหมจ้าาาา");
 
                 //Transform item = inv.currentSword.transform.GetChild(0); //ไอเทมที่อยู่ใน sword แต่แรก //มันหายไปแล้วไงล่ะะะะะ เพราะมึงดึงมันขึ้นมา 55555555555555555555555
 
@@ -165,13 +165,13 @@ public class Slot : MonoBehaviour, IDropHandler {
 
             }
 
-            for (int i = 0; i < inv.items.Count; i++)
-            {
-                Debug.Log("Inventory List: " + "i is: " + i + " " + inv.items[i].damage.ToString());
-
-            }
-            Debug.Log("Sword: " + inv.itemSword.damage);
-            Debug.Log("Bow: " + inv.itemBow.damage);
+//            for (int i = 0; i < inv.items.Count; i++)
+//            {
+//                Debug.Log("Inventory List: " + "i is: " + i + " " + inv.items[i].damage.ToString());
+//
+//            }
+//            Debug.Log("Sword: " + inv.itemSword.damage);
+//            Debug.Log("Bow: " + inv.itemBow.damage);
         }
 
         else if (droppedItem.gameObject.transform.parent.name.Equals("InventoryPanel") && droppedItem.item.type.Equals("cloth"))
@@ -191,7 +191,7 @@ public class Slot : MonoBehaviour, IDropHandler {
             {
 
                 Game_Controller.playerInThisMap.EquipCloth(inv.items[id]);
-                Debug.Log("มานี่ใช่ไหมจ้าาาา");
+//                Debug.Log("มานี่ใช่ไหมจ้าาาา");
 
                 //Transform item = inv.currentSword.transform.GetChild(0); //ไอเทมที่อยู่ใน sword แต่แรก //มันหายไปแล้วไงล่ะะะะะ เพราะมึงดึงมันขึ้นมา 55555555555555555555555
 
@@ -213,14 +213,14 @@ public class Slot : MonoBehaviour, IDropHandler {
                 inv.items[id] = droppedItem.item;
 
             }
-
-            for (int i = 0; i < inv.items.Count; i++)
-            {
-                Debug.Log("Inventory List: " + "i is: " + i + " " + inv.items[i].damage.ToString());
-
-            }
-            Debug.Log("Sword: " + inv.itemSword.damage);
-            Debug.Log("Bow: " + inv.itemBow.damage);
+//
+//            for (int i = 0; i < inv.items.Count; i++)
+//            {
+//                Debug.Log("Inventory List: " + "i is: " + i + " " + inv.items[i].damage.ToString());
+//
+//            }
+//            Debug.Log("Sword: " + inv.itemSword.damage);
+//            Debug.Log("Bow: " + inv.itemBow.damage);
         }
 
         //ตรงนี้ก็จะมี else if Armor อีกอันนึงนะจ้ะ ^_^
@@ -234,13 +234,13 @@ public class Slot : MonoBehaviour, IDropHandler {
             droppedItem.slot = id; //อันนี้ก็บอกว่า Item ที่แตะอยู่อ่ะ ให้เปลี่ยนค่า Slot ให้เป็นอันปัจจุบันจ้า
             inv.checkSlot[id] = 1; //น่าจะมีอันนี้นะ ที่ของเค้าไม่ต้องใส่ ก็เพราะว่า เวลาเค้ายัด มันมีเลข ID ตามไปอยู่แล้ว
 
-            for (int i = 0; i < inv.items.Count; i++)
-            {
-                Debug.Log("Inventory List: " + "i is: " + i + " " + inv.items[i].damage.ToString());
-
-            }
-            Debug.Log("Sword: " + inv.itemSword.damage);
-            Debug.Log("Bow: " + inv.itemBow.damage);
+//            for (int i = 0; i < inv.items.Count; i++)
+//            {
+//                Debug.Log("Inventory List: " + "i is: " + i + " " + inv.items[i].damage.ToString());
+//
+//            }
+//            Debug.Log("Sword: " + inv.itemSword.damage);
+//            Debug.Log("Bow: " + inv.itemBow.damage);
 
             //แล้วไม่เซ็ตให้ช่องนี้ไม่ว่างเหรอ ??
 
@@ -257,34 +257,34 @@ public class Slot : MonoBehaviour, IDropHandler {
 
             //droppedItem มันคือ 0
             item.GetComponent<ItemData>().slot = droppedItem.slot; //เดี๋ยวนะ อันนี้มึงเล่นเอาค่า slot ของตัวดรอปลงมาใส่ แสดงว่า slot ของ item = 0...
-            Debug.Log("ช่องที่ 2 หลังจากนั้น: " + item.GetComponent<ItemData>().slot);
+//            Debug.Log("ช่องที่ 2 หลังจากนั้น: " + item.GetComponent<ItemData>().slot);
             item.transform.SetParent(inv.slots[droppedItem.slot].transform);
             item.transform.position = inv.slots[droppedItem.slot].transform.position;
 
-            Debug.Log("ช่องที่ 1 ตอนนี้เท่าไหร่: " + droppedItem.slot); //ต้อง 0 !!!
+//            Debug.Log("ช่องที่ 1 ตอนนี้เท่าไหร่: " + droppedItem.slot); //ต้อง 0 !!!
             droppedItem.slot = id; //ถ้าอันนี้เดาไม่ผิดจะต้องเป็น 1 แล้วนะ
-            Debug.Log("ช่องที่ 1 หลังจากนั้น: " + droppedItem.slot); //ต้อง 1
+//            Debug.Log("ช่องที่ 1 หลังจากนั้น: " + droppedItem.slot); //ต้อง 1
             droppedItem.transform.SetParent(this.transform);
             droppedItem.transform.position = this.transform.position;
 
 
 
-            Debug.Log("ก่อนนะจ้ะ");
-            Debug.Log(item.GetComponent<ItemData>().item.damage);
-            Debug.Log(droppedItem.item.damage);
+//            Debug.Log("ก่อนนะจ้ะ");
+//            Debug.Log(item.GetComponent<ItemData>().item.damage);
+//            Debug.Log(droppedItem.item.damage);
 
 
             inv.items[droppedItem.slot] = droppedItem.item;
             inv.items[item.GetComponent<ItemData>().slot] = item.GetComponent<ItemData>().item;
             
 
-            for (int i = 0; i < inv.items.Count; i++)
-            {
-                Debug.Log("YEAHHHH" + "i is: " + i + " " + inv.items[i].damage.ToString());
-
-            }
-            Debug.Log("Sword: " + inv.itemSword.damage);
-            Debug.Log("Bow: " + inv.itemBow.damage);
+//            for (int i = 0; i < inv.items.Count; i++)
+//            {
+//                Debug.Log("YEAHHHH" + "i is: " + i + " " + inv.items[i].damage.ToString());
+//
+//            }
+//            Debug.Log("Sword: " + inv.itemSword.damage);
+//            Debug.Log("Bow: " + inv.itemBow.damage);
 
         }
         
