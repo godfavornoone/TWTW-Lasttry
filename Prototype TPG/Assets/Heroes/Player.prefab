@@ -222,13 +222,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackedByEnemy: {fileID: 158922, guid: fe4d127e067342e48a11bdf1b07d6a0a, type: 2}
-  baseHP: 300
+  baseHP: 400
   baseSP: 200
-  baseAtk: 50
   baseRange: 0
   baseSpeed: 4
   baselvlup: 100
   baselvl: 1
+  baseBowAtk: 50
+  baseSwordAtk: 80
+  BonusSwordAtkperLevel: 30
+  BonusBowAtkperLevel: 15
+  BonusHPperLevel: 100
+  BonusSPperLevel: 50
   skillPoint: 0
   MaxHP: 0
   HP: 0
@@ -346,7 +351,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: baseHP
-      value: 300
+      value: 400
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_Enabled
@@ -380,6 +385,30 @@ Prefab:
       propertyPath: m_Animations.Array.data[0]
       value: 
       objectReference: {fileID: 7400000, guid: cfe7d380aa2972646a02a7481b012d22, type: 2}
+    - target: {fileID: 0}
+      propertyPath: BonusHPperLevel
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: BonusSPperLevel
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: baseBowAtk
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: baseSwordAtk
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: BonusSwordAtkperLevel
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: BonusBowAtkperLevel
+      value: 15
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 132006}

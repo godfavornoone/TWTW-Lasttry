@@ -254,11 +254,9 @@ public class NPCManager : MonoBehaviour {
         SaveData.Save("currentHP", Game_Controller.playerInThisMap.HP);
         SaveData.Save("currentSP", Game_Controller.playerInThisMap.SP);
         SaveData.Save("currentSkillPoint", Game_Controller.playerInThisMap.skillPoint);
+        SaveData.Save("currentSpeed", Game_Controller.playerInThisMap.speed);
         SaveData.Save("BowAtk", Game_Controller.playerInThisMap.BowAtk);
         SaveData.Save("SwordAtk", Game_Controller.playerInThisMap.SwordAtk);
-        SaveData.Save("baseHP", Game_Controller.playerInThisMap.baseHP);
-        SaveData.Save("baseSP", Game_Controller.playerInThisMap.baseSP);
-        SaveData.Save("baseAtk", Game_Controller.playerInThisMap.baseAtk);
 
         //สกิลละ
         SaveData.Save("trapLVL", Game_Controller.skillTrap.trapLVL);

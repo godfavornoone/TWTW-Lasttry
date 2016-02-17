@@ -19,6 +19,8 @@ public class UIManager : MonoBehaviour {
         Game_Controller.LoadScene.SetActive(true);
 
         Game_Controller.playerInThisMap.gameObject.SetActive(true);
+        //When It is all Start player's status is here !!!!
+        Game_Controller.playerInThisMap.realStatus();
 
         Game_Controller.playerStatus.SetActive(true);
         Game_Controller.weaponPanel.SetActive(true);

@@ -12,12 +12,19 @@ public class Player : MonoBehaviour {
 	//Player Status
 	public float baseHP;
 	public float baseSP;
-	public float baseAtk;
 	public float baseRange;
 	public float baseSpeed;
 	public float baselvlup;
 	public float baselvl;
-	public int skillPoint = 0;
+    public float baseBowAtk;
+    public float baseSwordAtk;
+    //What you get when you Lvlup !!
+    public float BonusSwordAtkperLevel;
+    public float BonusBowAtkperLevel;
+    public float BonusHPperLevel;
+    public float BonusSPperLevel;
+
+    public int skillPoint = 0;
 
     //Current Sword/Bow/Boot/Cloth
     public Item currentSword = new Item();
@@ -46,9 +53,11 @@ public class Player : MonoBehaviour {
     [HideInInspector]
     public float SwordAtk;
 
+
+
     //Player Controller
-//	Player_Status pStatus;
-	Arrow_Launch aL;
+    //	Player_Status pStatus;
+    Arrow_Launch aL;
 	Rigidbody2D rbd2D;
 	Animator anim;
 	int attackHash = Animator.StringToHash("Attack");
@@ -76,7 +85,6 @@ public class Player : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		realStatus ();
 		aL = (Arrow_Launch)FindObjectOfType (typeof(Arrow_Launch));
         WeaponPanel = GameObject.Find("WeaponPanel");
         HPScript = GameObject.Find("HPBar").GetComponent<HPBarScript>();
@@ -400,19 +408,20 @@ public class Player : MonoBehaviour {
 		//Debug.Log("Death");
 	}
 
-
+    
 	//Player Status
-	void realStatus(){
-		MaxHP = baseHP;
+	public void realStatus(){
+		MaxHP = baseHP+BonusHPperLevel;
         HP = MaxHP;
-		SP = baseSP;
-        MaxSP = baseSP;
+        MaxSP = baseSP+BonusSPperLevel;
+        SP = MaxSP;
 		speed = baseSpeed;
-        BowAtk = baseAtk;
-        SwordAtk = baseAtk;
+        BowAtk = baseBowAtk+BonusBowAtkperLevel;
+        SwordAtk = baseSwordAtk+BonusSwordAtkperLevel;
 		lvl = baselvl; //เลเวลเริ่มต้น
 		lvlup = baselvlup * lvl; //100*1
 	}
+    
 	
 	public void EnemyAttacked(float dmg){
 		HP = HP - dmg;
@@ -474,33 +483,20 @@ public class Player : MonoBehaviour {
 	
 	IEnumerator StatusUp(){
 
-        float temp = MaxHP - baseHP;
-        baseHP = baseHP + 25;
-        MaxHP = temp + baseHP;
-        HP = MaxHP;
 
-        float temp2 = MaxSP - baseSP;
-        baseSP = baseSP + 20;
-        MaxSP = temp + baseSP;
+        MaxHP = MaxHP + BonusHPperLevel;
+        HP = MaxHP;
+        MaxSP = MaxSP + BonusSPperLevel;
         SP = MaxSP;
 
-        float baseOne = baseAtk; //ก็ว่าอยู่ ทำไมดาเมจมันแรงๆ -_- สภาพนี้นะ ธนูแม่งจะโครงแรง
-
-        baseAtk = baseAtk + 20;
-
-        float temp3 = SwordAtk - baseOne; 
-        SwordAtk = temp3 + baseAtk + 20;
-
-        float temp4 = BowAtk - baseOne;
-        BowAtk = temp3 + baseAtk + 5;
+        SwordAtk = SwordAtk + BonusSwordAtkperLevel;
+        BowAtk = BowAtk + BonusBowAtkperLevel;
 
         Game_Controller.playerInThisMap.notify.SetActive(true);
         Game_Controller.playerInThisMap.notification.text = "Level up!";
         yield return new WaitForSeconds(3);
         Game_Controller.playerInThisMap.notify.SetActive(false);
 
-
-        //Debug.Log("HP = " + MaxHP + " SP = " + MaxSP);
 	}
 
     public void EquipCloth(Item cloth)

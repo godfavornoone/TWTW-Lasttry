@@ -15,7 +15,9 @@ public class Camera_Follow : MonoBehaviour {
 	public Vector3 minCameraPos;
 	public Vector3 maxCameraPos;
 
-	void Awake(){
+    int a = 0;
+
+    void Awake(){
 
 	}
 
@@ -26,7 +28,15 @@ public class Camera_Follow : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-		float posX = Mathf.SmoothDamp (transform.position.x, player.transform.position.x, ref velocity.x, smoothTimeX);
+        /*
+        while (a > 0)
+        {
+            transform.position = Random.insideUnitCircle * 1;
+            a--;
+        }
+        */
+
+        float posX = Mathf.SmoothDamp (transform.position.x, player.transform.position.x, ref velocity.x, smoothTimeX);
 		float posY = Mathf.SmoothDamp (transform.position.y, player.transform.position.y, ref velocity.y, smoothTimeY);
 		
 		transform.position = new Vector3 (posX, posY, transform.position.z);
@@ -37,5 +47,15 @@ public class Camera_Follow : MonoBehaviour {
 			                                 Mathf.Clamp(transform.position.z, minCameraPos.z, maxCameraPos.z));
 
 		}
-	}
+        
+
+        /*
+        if (Input.anyKeyDown)
+        {
+            a = 10;
+
+        }
+        */
+        //transform.position = Random.insideUnitCircle * 1;
+    }
 }

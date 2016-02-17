@@ -539,12 +539,10 @@ public class Game_Controller : MonoBehaviour {
         SaveData.Save("maxSP", Game_Controller.playerInThisMap.MaxSP);
         SaveData.Save("currentHP", Game_Controller.playerInThisMap.HP);
         SaveData.Save("currentSP", Game_Controller.playerInThisMap.SP);
+        SaveData.Save("currentSpeed", Game_Controller.playerInThisMap.speed);
         SaveData.Save("currentSkillPoint", Game_Controller.playerInThisMap.skillPoint);
         SaveData.Save("BowAtk", Game_Controller.playerInThisMap.BowAtk);
         SaveData.Save("SwordAtk", Game_Controller.playerInThisMap.SwordAtk);
-        SaveData.Save("baseHP", Game_Controller.playerInThisMap.baseHP);
-        SaveData.Save("baseSP", Game_Controller.playerInThisMap.baseSP);
-        SaveData.Save("baseAtk", Game_Controller.playerInThisMap.baseAtk);
 
         //สกิลละ
         SaveData.Save("trapLVL", Game_Controller.skillTrap.trapLVL);
@@ -856,11 +854,9 @@ public class Game_Controller : MonoBehaviour {
         playerInThisMap.HP = SaveData.Load("currentHP", 1.5f, true);
         playerInThisMap.SP = SaveData.Load("currentSP", 1.5f, true);
         playerInThisMap.skillPoint = SaveData.Load("currentSkillPoint", 1, true);
+        playerInThisMap.speed = SaveData.Load("currentSpeed", 1.5f, true);
         playerInThisMap.BowAtk = SaveData.Load("BowAtk", 1.5f, true);
         playerInThisMap.SwordAtk = SaveData.Load("SwordAtk", 1.5f, true);
-        playerInThisMap.baseHP = SaveData.Load("baseHP", 1.5f, true);
-        playerInThisMap.baseSP = SaveData.Load("baseSP", 1.5f, true);
-        playerInThisMap.baseAtk = SaveData.Load("baseAtk", 1.5f, true);
 
         skillTrap.trapLVL =SaveData.Load("trapLVL", 1,true);
         skillTrap.trapMana =SaveData.Load("trapMana", 1.5f,true);
