@@ -4,6 +4,8 @@ using System.Collections.Generic;
 
 public class Enemy : MonoBehaviour {
 
+	public AudioClip[] audioClip;
+
 	public int set;
 
 	public GameObject deadSprite;
@@ -319,6 +321,7 @@ public class Enemy : MonoBehaviour {
 			if (Game_Controller.indexGlobal == indexLocal) {
 				if (txt.Equals (charStorage [Game_Controller.indexGlobal])) {
 					textTyping [0].text += txt;
+//					PlaySound(0);
 					indexLocal++;
 				}else {
 					textTyping [0].text = "";
@@ -741,6 +744,12 @@ public class Enemy : MonoBehaviour {
 		}
 		gameObject.SetActive(false);
 		gameObject.transform.position = positionBorn;
+	}
+
+	void PlaySound(int clip){
+		AudioSource audio = GetComponent<AudioSource> ();
+		audio.clip = audioClip [clip];
+		audio.Play ();
 	}
 
 }
