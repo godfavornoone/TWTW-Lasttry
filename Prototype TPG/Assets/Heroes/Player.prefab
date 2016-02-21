@@ -232,7 +232,7 @@ MonoBehaviour:
   baseSwordAtk: 80
   BonusSwordAtkperLevel: 30
   BonusBowAtkperLevel: 15
-  BonusHPperLevel: 100
+  BonusHPperLevel: 500
   BonusSPperLevel: 50
   skillPoint: 0
   MaxHP: 0
@@ -387,7 +387,7 @@ Prefab:
       objectReference: {fileID: 7400000, guid: cfe7d380aa2972646a02a7481b012d22, type: 2}
     - target: {fileID: 0}
       propertyPath: BonusHPperLevel
-      value: 100
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: BonusSPperLevel

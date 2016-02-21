@@ -207,6 +207,7 @@ public class Enemy : MonoBehaviour {
         
         hitPoint = hitPoint - dmg;
 
+        //ถ้าตามอันนี้นะ ถ้าคิดไม่ผิดนะ....โดนสกิลเราก็คืนคำหมดอ่ะ 5555555555 โดน fire ทีนี่ อู้วมั่นใจมาก ทุกตัวคืน
         if (!optionWord)
         {
             //Debug.Log("return Text complete" + " text is: " + textTyping[1].text);
