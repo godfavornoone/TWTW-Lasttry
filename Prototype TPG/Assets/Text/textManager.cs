@@ -531,7 +531,7 @@ public class textManager : MonoBehaviour {
 
         for (int i = 0; i < lines.Length; i++)
         {
-            if (lines[i].Contains(chartop1) || lines[i].Contains(chartop2) || lines[i].Contains(chartop3))
+            if (lines[i].Contains(chartop1) || lines[i].Contains(chartop2) || lines[i].Contains(chartop3) || lines[i].Length==1)
             {
                 ingameVocab.Add(lines[i]);
                 checkVocab.Add(false);
