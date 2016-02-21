@@ -1,9 +1,12 @@
 ﻿using UnityEngine;
+using UnityEngine.Audio;
 using System.Collections;
 using System.Globalization;
 using System;
 
 public class Typing_Input : MonoBehaviour {
+
+	public AudioClip[] audioClip;
 
 	AudioSource error;
 
@@ -19,7 +22,6 @@ public class Typing_Input : MonoBehaviour {
 
     void Start()
     {
-		error = GetComponent<AudioSource> ();
         textManagerScript = GameObject.Find("TextManager").GetComponent<textManager>();
     }
 
@@ -42,9 +44,12 @@ public class Typing_Input : MonoBehaviour {
 
         if (Input.GetKeyDown(KeyCode.Escape)){
 			Game_Controller.ESC = true;
+
 		}else if (!Input.GetKey(KeyCode.LeftShift) && !Input.GetKeyDown(KeyCode.Tab) && !Input.GetKeyDown(KeyCode.Mouse0) && Input.anyKeyDown) {
 
             //ตอนแรกมัน GetKeyDown LeftShift อ่ะ
+
+			PlaySound(0);
             Game_Controller.ESC = false;
 			textFieldString = Input.inputString;
             //textFieldChar = textFieldString[0]; อันนี้ของเก่า
@@ -63,51 +68,54 @@ public class Typing_Input : MonoBehaviour {
 			}
 
 			foreach(Enemy enemy in Game_Controller.enemyInThisMap){
-
 				if(enemy.gameObject.activeInHierarchy && enemy.gameObject.activeSelf){
 					enemy.CheckWrongAll(textFieldChar);
 				}
 			}
 //			
-			if(!Game_Controller.chestWrongAll || !Game_Controller.wrongAll || !Skill_Controller.checkWrongAllSkillInPanel){
 
+			if(!Input.GetKeyDown(KeyCode.Space) && !Input.GetKeyDown(KeyCode.Tab) && !Input.GetKeyDown(KeyCode.Mouse0) && !Input.GetKeyDown(KeyCode.Return) && !Input.GetKey(KeyCode.LeftShift) && Game_Controller.chestWrongAll && Game_Controller.wrongAll && Skill_Controller.checkWrongAllSkillInPanel){
+				PlaySound(1);
+			}else if(!Game_Controller.chestWrongAll || !Game_Controller.wrongAll || !Skill_Controller.checkWrongAllSkillInPanel){
+				
 				foreach(Player_Skill skill in Skill_Controller.Allskill){
 					skill.CheckSkill(textFieldChar);
 				}
-
+				
 				foreach(Enemy enemy in Game_Controller.enemyInThisMap){
 					if(enemy.gameObject.activeInHierarchy && enemy.gameObject.activeSelf){
 						enemy.CheckLetter(textFieldChar);
 					}
 				}
-
+				
 				foreach(Treasure chest in Game_Controller.treasureMinigame){
 					chest.CheckLetter(textFieldChar);
 				}
+				PlaySound(0);
+				
+				if (timer != 0)
+				{
+					textManagerScript.sendTimeData(textFieldChar, timer);
+					timer = 0;
+				}
 
-
-                if (timer != 0)
-                {
-                    textManagerScript.sendTimeData(textFieldChar, timer);
-                    timer = 0;
-                }
-
-
-                Game_Controller.indexGlobal++;
+				Game_Controller.indexGlobal++;
 				Game_Controller.chestWrongAll = true;
 				Game_Controller.wrongAll = true;
-				Skill_Controller.checkWrongAllSkillInPanel = true;
-			}else if(!Input.GetKeyDown(KeyCode.Space) && !Input.GetKeyDown(KeyCode.Tab) && !Input.GetKeyDown(KeyCode.Mouse0) && !Input.GetKeyDown(KeyCode.Return) && !Input.GetKey(KeyCode.LeftShift) && Game_Controller.chestWrongAll && Game_Controller.wrongAll && Skill_Controller.checkWrongAllSkillInPanel){
-				error.Play();
+				Skill_Controller.checkWrongAllSkillInPanel = true;	
 			}
-
-            
-
-            //จะนับเมื่อตัวที่ 2 เป็นต้นไป
-            
+				
+				//จะนับเมื่อตัวที่ 2 เป็นต้นไป
+				
 			//if wrongall = true kue mun pid mod we won't do down but if it is false we will do
 			//it should get the result of true or false...if it is true then go to down...
 		}
+	}
+
+	void PlaySound(int clip){
+		AudioSource audio = GetComponent<AudioSource> ();
+		audio.clip = audioClip [clip];
+		audio.Play ();
 	}
 	
 }

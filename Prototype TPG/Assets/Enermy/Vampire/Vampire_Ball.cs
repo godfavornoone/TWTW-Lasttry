@@ -7,7 +7,8 @@ public class Vampire_Ball : MonoBehaviour {
 	Vector2 _direction;
 	bool isReady;
 	float damage;
-	
+
+
 	void Awake(){
 		speed = 20f;
 		isReady = false;

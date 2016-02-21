@@ -4,6 +4,8 @@ using System.Collections.Generic;
 
 public class Enemy : MonoBehaviour {
 
+	public AudioClip[] audioClip;
+
 	public int set;
 
 	public GameObject deadSprite;
@@ -16,6 +18,7 @@ public class Enemy : MonoBehaviour {
 
 	public Transform player;
 	Animator enemy_Anim;
+	Enemy enemyScript;
 
 	public Text_Outline setStroke;
 
@@ -72,6 +75,7 @@ public class Enemy : MonoBehaviour {
 
     void Awake(){
 //		setStroke = GetComponent<Text_Outline> ();
+		enemyScript = GetComponent<Enemy> ();
 		//Call Animator of Enemy
 		enemy_Anim = GetComponent<Animator> ();
 		//Call Script typing
@@ -263,8 +267,9 @@ public class Enemy : MonoBehaviour {
                 textManagerScript.returnText(textTyping[1].text, wordDifficult);
             }
             */
-			Instantiate (deadSprite, transform.position, Quaternion.identity);
-			Invoke("DelayDestroyForEffect", 0.1f);
+//			Instantiate (deadSprite, transform.position, Quaternion.identity);
+			Invoke("DelayDead", 0.1f);
+			Invoke("DelayDestroyForEffect", 0.2f);
 
 
 //			Destroy(gameObject);
@@ -296,8 +301,11 @@ public class Enemy : MonoBehaviour {
         }
     }
     */
-	
-	
+	void DelayDead(){
+		Instantiate (deadSprite, transform.position, Quaternion.identity);
+	}
+
+
 	//Enemy Text Controller
 	public void CheckWrongAll(char txt){
 		if (textTyping [1].color == Color.white){
@@ -314,6 +322,7 @@ public class Enemy : MonoBehaviour {
 			if (Game_Controller.indexGlobal == indexLocal) {
 				if (txt.Equals (charStorage [Game_Controller.indexGlobal])) {
 					textTyping [0].text += txt;
+//					PlaySound(0);
 					indexLocal++;
 				}else {
 					textTyping [0].text = "";
@@ -693,10 +702,17 @@ public class Enemy : MonoBehaviour {
 		distanceAttack = Vector2.Distance (gameObject.transform.position, player.position);
 		if (distanceAttack < 3 && Game_Controller.playerInThisMap.isSword) {
 			textTyping [1].color = Color.white;
+			if(!Game_Controller.enemySplash.Contains(enemyScript)){
+				Game_Controller.enemySplash.Add(enemyScript);
+			}
 		} else if (distanceAttack < 6 && !Game_Controller.playerInThisMap.isSword) {
 			textTyping [1].color = Color.white;
+			Game_Controller.enemySplash.Clear();
 		} else {
 			textTyping [1].color = Color.grey;
+			if(Game_Controller.enemySplash.Contains(enemyScript)){
+				Game_Controller.enemySplash.Remove(enemyScript);
+			}
 		}
 	}
 	
@@ -724,8 +740,17 @@ public class Enemy : MonoBehaviour {
 	}
 
 	void DelayDestroyForEffect(){
+		if(Game_Controller.enemySplash.Contains(enemyScript)){
+			Game_Controller.enemySplash.Remove(enemyScript);
+		}
 		gameObject.SetActive(false);
 		gameObject.transform.position = positionBorn;
+	}
+
+	void PlaySound(int clip){
+		AudioSource audio = GetComponent<AudioSource> ();
+		audio.clip = audioClip [clip];
+		audio.Play ();
 	}
 
 }

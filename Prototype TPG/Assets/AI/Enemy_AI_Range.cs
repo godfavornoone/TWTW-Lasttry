@@ -16,7 +16,7 @@ public class Enemy_AI_Range : MonoBehaviour {
 	}
 	// Use this for initialization
 	void Start () {
-		vA = (Vampire_Attack)FindObjectOfType (typeof(Vampire_Attack));
+		vA = GetComponentInChildren<Vampire_Attack> ();
 	}
 
 	// Update is called once per frame

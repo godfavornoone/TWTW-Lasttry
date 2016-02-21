@@ -966,6 +966,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 468da5400043b9b459928ce2a635b4a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioClip:
+  - {fileID: 8300000, guid: 7fb9a215a3a195c48b8c08b4169127a1, type: 3}
+  - {fileID: 8300000, guid: fb3be59ea7b243142b3f389b407dcaed, type: 3}
   textFieldString: 
   textManagerScript: {fileID: 0}
   check: 0
@@ -990,7 +993,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: fb3be59ea7b243142b3f389b407dcaed, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -7398,7 +7401,7 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -596}
+  m_AnchoredPosition: {x: 0, y: -596.5}
   m_SizeDelta: {x: 0, y: 1193}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &748701181
@@ -10233,7 +10236,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 534501578}
   m_Direction: 2
   m_Value: 1
-  m_Size: .0442033336
+  m_Size: .0442033298
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -14975,7 +14978,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2094546316}
   m_HandleRect: {fileID: 2094546315}
   m_Direction: 2
-  m_Value: .99958086
+  m_Value: 1
   m_Size: .269442737
   m_NumberOfSteps: 0
   m_OnValueChanged:
