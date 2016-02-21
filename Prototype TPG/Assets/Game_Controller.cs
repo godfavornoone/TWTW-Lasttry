@@ -11,6 +11,7 @@ public class Game_Controller : MonoBehaviour {
 	List<Vector3> playerStartPosition = new List<Vector3>();
 	public static List<Treasure> treasureMinigame = new List<Treasure> ();
 	public static List<GameObject> enemySpawnInMap = new List<GameObject> ();
+	public static List<Enemy> enemySplash = new List<Enemy> ();
 	public static bool oneEnemyWordChange = false;
 	public static bool chestWrongAll = true;
 	public static bool playerInMinigame = false;
@@ -254,6 +255,9 @@ public class Game_Controller : MonoBehaviour {
 				}
 			}
 		}
+//		foreach(Enemy enemy in enemySplash){
+//			Debug.Log(enemy.name);
+//		}
 	}
 
     public void noDataClose()

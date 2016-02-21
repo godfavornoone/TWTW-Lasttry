@@ -16,6 +16,7 @@ public class Enemy : MonoBehaviour {
 
 	public Transform player;
 	Animator enemy_Anim;
+	Enemy enemyScript;
 
 	public Text_Outline setStroke;
 
@@ -72,6 +73,7 @@ public class Enemy : MonoBehaviour {
 
     void Awake(){
 //		setStroke = GetComponent<Text_Outline> ();
+		enemyScript = GetComponent<Enemy> ();
 		//Call Animator of Enemy
 		enemy_Anim = GetComponent<Animator> ();
 		//Call Script typing
@@ -692,10 +694,17 @@ public class Enemy : MonoBehaviour {
 		distanceAttack = Vector2.Distance (gameObject.transform.position, player.position);
 		if (distanceAttack < 3 && Game_Controller.playerInThisMap.isSword) {
 			textTyping [1].color = Color.white;
+			if(!Game_Controller.enemySplash.Contains(enemyScript)){
+				Game_Controller.enemySplash.Add(enemyScript);
+			}
 		} else if (distanceAttack < 6 && !Game_Controller.playerInThisMap.isSword) {
 			textTyping [1].color = Color.white;
+			Game_Controller.enemySplash.Clear();
 		} else {
 			textTyping [1].color = Color.grey;
+			if(Game_Controller.enemySplash.Contains(enemyScript)){
+				Game_Controller.enemySplash.Remove(enemyScript);
+			}
 		}
 	}
 	
@@ -723,6 +732,9 @@ public class Enemy : MonoBehaviour {
 	}
 
 	void DelayDestroyForEffect(){
+		if(Game_Controller.enemySplash.Contains(enemyScript)){
+			Game_Controller.enemySplash.Remove(enemyScript);
+		}
 		gameObject.SetActive(false);
 		gameObject.transform.position = positionBorn;
 	}

@@ -239,11 +239,25 @@ public class Player : MonoBehaviour {
 
                 //Debug.Log("Damage After Cri: " + dmg);
                 SPIncrease(10 * lvl);
-				enemy.HpDown (dmg);
-				if(enemy.takedDMG && enemy.hitPoint > 0){
-					enemy.WordInstantiate();
+
+				foreach(Enemy enemySplashBySword in Game_Controller.enemySplash){
+					if(enemySplashBySword.textTyping[1].color == Color.white){
+						enemySplashBySword.HpDown (dmg);
+						Debug.Log(enemySplashBySword.name);
+					}
+					if(enemySplashBySword.takedDMG && enemySplashBySword.hitPoint > 0){
+						enemySplashBySword.WordInstantiate();
+						Debug.Log(enemySplashBySword.name);
+					}
+					enemySplashBySword.takedDMG = false;
 				}
-                enemy.takedDMG = false;
+//				if(enemy.textTyping[1].color == Color.white){
+//					enemy.HpDown (dmg);
+//				}
+//				if(enemy.takedDMG && enemy.hitPoint > 0){
+//					enemy.WordInstantiate();
+//				}
+              	
 
 			} else if (enemy.takedDMG && !isSword) {
 				anim.SetBool ("Sword_Down", false);
@@ -539,7 +553,5 @@ public class Player : MonoBehaviour {
 		Game_Controller.playerInThisMap.HP = (Game_Controller.playerInThisMap.MaxHP + Game_Controller.playerInThisMap.currentCloth.hitpoint + Game_Controller.playerInThisMap.currentBoot.hitpoint)/2;
 		Application.LoadLevel (sName);
 	}
-
-
 	
 }
