@@ -264,8 +264,9 @@ public class Enemy : MonoBehaviour {
                 textManagerScript.returnText(textTyping[1].text, wordDifficult);
             }
             */
-			Instantiate (deadSprite, transform.position, Quaternion.identity);
-			Invoke("DelayDestroyForEffect", 0.1f);
+//			Instantiate (deadSprite, transform.position, Quaternion.identity);
+			Invoke("DelayDead", 0.1f);
+			Invoke("DelayDestroyForEffect", 0.2f);
 
 
 //			Destroy(gameObject);
@@ -297,8 +298,11 @@ public class Enemy : MonoBehaviour {
         }
     }
     */
-	
-	
+	void DelayDead(){
+		Instantiate (deadSprite, transform.position, Quaternion.identity);
+	}
+
+
 	//Enemy Text Controller
 	public void CheckWrongAll(char txt){
 		if (textTyping [1].color == Color.white){

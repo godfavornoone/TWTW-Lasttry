@@ -22,8 +22,7 @@ public class Vampire_Attack : MonoBehaviour {
 		GameObject ball = (GameObject)Instantiate (vampireBall);
 		ball.transform.position = transform.position;
 		Vector2 direction = player.position - ball.transform.position;
-		Debug.Log (direction);
+//		Debug.Log (direction);
 		ball.GetComponent<Vampire_Ball> ().SetDirection (direction, enemy.Attack);
-		
 	}
 }

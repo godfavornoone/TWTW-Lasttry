@@ -54,6 +54,7 @@ public class UIManager : MonoBehaviour {
 			GameObject[] enemySpawn = GameObject.FindGameObjectsWithTag("Enemy");
 			Game_Controller.enemyInThisMap.Clear ();
 			Game_Controller.enemySpawnInMap.Clear();
+			Game_Controller.enemySplash.Clear();
 			foreach(GameObject enemy in enemySpawn){
 				Game_Controller.enemyInThisMap.Add(enemy.GetComponent<Enemy>());
 			}
@@ -76,6 +77,7 @@ public class UIManager : MonoBehaviour {
 			Game_Controller.enemyInThisMap.Clear ();
 			Game_Controller.enemySpawnInMap.Clear();
 			Game_Controller.treasureMinigame.Clear();
+			Game_Controller.enemySplash.Clear();
 			foreach(GameObject enemy in enemySpawn){
 				Game_Controller.enemySpawnInMap.Add(enemy);
 				Game_Controller.enemyInThisMap.Add(enemy.GetComponent<Enemy>());
@@ -104,6 +106,7 @@ public class UIManager : MonoBehaviour {
 			Game_Controller.enemyInThisMap.Clear ();
 			Game_Controller.enemySpawnInMap.Clear();
 			Game_Controller.treasureMinigame.Clear();
+			Game_Controller.enemySplash.Clear();
 			foreach(GameObject enemy in enemySpawn){
 				Game_Controller.enemySpawnInMap.Add(enemy);
 				Game_Controller.enemyInThisMap.Add(enemy.GetComponent<Enemy>());
@@ -130,6 +133,7 @@ public class UIManager : MonoBehaviour {
 			Game_Controller.enemyInThisMap.Clear ();
 			Game_Controller.enemySpawnInMap.Clear();
 			Game_Controller.treasureMinigame.Clear();
+			Game_Controller.enemySplash.Clear();
 			foreach(GameObject enemy in enemySpawn){
 				Game_Controller.enemySpawnInMap.Add(enemy);
 				Game_Controller.enemyInThisMap.Add(enemy.GetComponent<Enemy>());
@@ -156,6 +160,7 @@ public class UIManager : MonoBehaviour {
 			Game_Controller.enemyInThisMap.Clear ();
 			Game_Controller.enemySpawnInMap.Clear();
 			Game_Controller.treasureMinigame.Clear();
+			Game_Controller.enemySplash.Clear();
 			foreach(GameObject enemy in enemySpawn){
 				Game_Controller.enemySpawnInMap.Add(enemy);
 				Game_Controller.enemyInThisMap.Add(enemy.GetComponent<Enemy>());
@@ -182,6 +187,7 @@ public class UIManager : MonoBehaviour {
 			Game_Controller.enemyInThisMap.Clear ();
 			Game_Controller.enemySpawnInMap.Clear();
 			Game_Controller.treasureMinigame.Clear();
+			Game_Controller.enemySplash.Clear();
 			foreach(GameObject enemy in enemySpawn){
 				Game_Controller.enemySpawnInMap.Add(enemy);
 				Game_Controller.enemyInThisMap.Add(enemy.GetComponent<Enemy>());
@@ -208,6 +214,7 @@ public class UIManager : MonoBehaviour {
 			Game_Controller.enemyInThisMap.Clear ();
 			Game_Controller.enemySpawnInMap.Clear();
 			Game_Controller.treasureMinigame.Clear();
+			Game_Controller.enemySplash.Clear();
 			foreach(GameObject enemy in enemySpawn){
 				Game_Controller.enemySpawnInMap.Add(enemy);
 				Game_Controller.enemyInThisMap.Add(enemy.GetComponent<Enemy>());
@@ -234,6 +241,7 @@ public class UIManager : MonoBehaviour {
 			Game_Controller.enemyInThisMap.Clear ();
 			Game_Controller.enemySpawnInMap.Clear();
 			Game_Controller.treasureMinigame.Clear();
+			Game_Controller.enemySplash.Clear();
 			foreach(GameObject enemy in enemySpawn){
 				Game_Controller.enemySpawnInMap.Add(enemy);
 				Game_Controller.enemyInThisMap.Add(enemy.GetComponent<Enemy>());
@@ -260,6 +268,7 @@ public class UIManager : MonoBehaviour {
 			Game_Controller.enemyInThisMap.Clear ();
 			Game_Controller.enemySpawnInMap.Clear();
 			Game_Controller.treasureMinigame.Clear();
+			Game_Controller.enemySplash.Clear();
 			foreach(GameObject enemy in enemySpawn){
 				Game_Controller.enemySpawnInMap.Add(enemy);
 				Game_Controller.enemyInThisMap.Add(enemy.GetComponent<Enemy>());
@@ -286,6 +295,7 @@ public class UIManager : MonoBehaviour {
 			Game_Controller.enemySpawnInMap.Clear();
 			Game_Controller.enemyInThisMap.Clear ();
 			Game_Controller.treasureMinigame.Clear();
+			Game_Controller.enemySplash.Clear();
 			foreach(GameObject enemy in enemySpawn){
 				Game_Controller.enemySpawnInMap.Add(enemy);
 				Game_Controller.enemyInThisMap.Add(enemy.GetComponent<Enemy>());

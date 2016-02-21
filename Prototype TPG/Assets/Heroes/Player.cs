@@ -6,7 +6,7 @@ using System.Collections.Generic;
 public class Player : MonoBehaviour {
 
 	public GameObject attackedByEnemy;
-
+	public GameObject swordAttack;
 	textManager textscript;
 
 	//Player Status
@@ -243,20 +243,13 @@ public class Player : MonoBehaviour {
 				foreach(Enemy enemySplashBySword in Game_Controller.enemySplash){
 					if(enemySplashBySword.textTyping[1].color == Color.white){
 						enemySplashBySword.HpDown (dmg);
-						Debug.Log(enemySplashBySword.name);
+						Instantiate(swordAttack, enemySplashBySword.transform.position, Quaternion.identity);
 					}
 					if(enemySplashBySword.takedDMG && enemySplashBySword.hitPoint > 0){
 						enemySplashBySword.WordInstantiate();
-						Debug.Log(enemySplashBySword.name);
 					}
 					enemySplashBySword.takedDMG = false;
 				}
-//				if(enemy.textTyping[1].color == Color.white){
-//					enemy.HpDown (dmg);
-//				}
-//				if(enemy.takedDMG && enemy.hitPoint > 0){
-//					enemy.WordInstantiate();
-//				}
               	
 
 			} else if (enemy.takedDMG && !isSword) {
