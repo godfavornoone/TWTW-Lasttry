@@ -3,7 +3,9 @@ using UnityEngine.UI;
 using System.Collections;
 
 public class Player_Skill : MonoBehaviour {
-	
+
+	public AudioClip[] audioClip;
+
 	[HideInInspector]
 	public Text[] skillTextTyping;
 	Typing_Input textCheck;
@@ -89,9 +91,10 @@ public class Player_Skill : MonoBehaviour {
 			fire.fireTimer = 0;
 			fire.nowFire = true;
 		}else if(skillName.Equals("ice")){
+			PlaySound(0);
 			ice.iceTimer = 0;
 			ice.tmpIceTime = 0;
-			ice.nowIce = true;
+			Skill_Controller.nowIce = true;
 			ice.useIce = true;
 		}else if(skillName.Equals("knock")){
 			knock.knockTimer = 0;
@@ -99,9 +102,10 @@ public class Player_Skill : MonoBehaviour {
 		}else if(skillName.Equals("slow")){
 			slow.slowTimer = 0;
 			slow.tmpSlowTime = 0;
-			slow.nowSlow = true;
+			Skill_Controller.nowSlow = true;
 			slow.useSlow = true;
 		}else if(skillName.Equals("heal")){
+			PlaySound(0);
 			heal.healTimer = 0;
 			heal.nowHeal = true;
 		}else if(skillName.Equals("trap")){
@@ -118,4 +122,10 @@ public class Player_Skill : MonoBehaviour {
 		}
 	}
 
+	void PlaySound(int clip){
+		AudioSource audio = GetComponent<AudioSource> ();
+		audio.clip = audioClip[clip];
+		audio.Play ();
+	}
+	
 }

@@ -14,8 +14,8 @@ public class Skill_Slow : MonoBehaviour {
 	public float slowTimer;
 	public float nowSlowTime = 3f;
     public float slowMana = 100;
-	[HideInInspector]
-	public bool nowSlow = false;
+//	[HideInInspector]
+//	public bool nowSlow = false;
 
 	void Awake(){
 		skill = GetComponent<Player_Skill> ();
@@ -60,26 +60,29 @@ public class Skill_Slow : MonoBehaviour {
 	}
 
 	void SlowEnemy(float timer){
-		if(nowSlow){
+		if(Skill_Controller.nowSlow){
 			if(useSlow){
 				Game_Controller.playerInThisMap.SPReduce(slowMana);
 				useSlow = false;
 			}
-			foreach(Enemy enemy in Game_Controller.enemyInThisMap){
-				if(enemy.gameObject.activeInHierarchy && enemy.gameObject.activeSelf){
-					enemy.runSpeed = enemy.baseRunSpeed * 0.6f;
-				}
-			}
-
-			tmpSlowTime += Time.deltaTime;
-			if(tmpSlowTime >= timer){
+			if(!Skill_Controller.nowIce){
 				foreach(Enemy enemy in Game_Controller.enemyInThisMap){
-					enemy.runSpeed = enemy.baseRunSpeed;
+					if(enemy.gameObject.activeInHierarchy){
+						enemy.runSpeed = enemy.baseRunSpeed * 0.6f;
+					}
 				}
-				nowSlow = false;
-                 //Skill now reduce mana here...It should be up there
-
-            }
+				tmpSlowTime += Time.deltaTime;
+				if(tmpSlowTime >= timer){
+					foreach(Enemy enemy in Game_Controller.enemyInThisMap){
+						enemy.runSpeed = enemy.baseRunSpeed;
+					}
+					Skill_Controller.nowSlow = false;
+					//Skill now reduce mana here...It should be up there
+					
+				}
+			}else{
+				Skill_Controller.nowSlow = false;
+			}
 		}
 	}
 

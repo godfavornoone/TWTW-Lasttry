@@ -17,7 +17,7 @@ public class Skill_Ice : MonoBehaviour {
 	public float nowIceTime = 3f;
     public float iceMana = 100;
 	[HideInInspector]
-	public bool nowIce = false;
+//	public bool nowIce = false;
 	private float tmpspd;
 	public float tmpatk;
 
@@ -64,20 +64,24 @@ public class Skill_Ice : MonoBehaviour {
 	}
 
 	void IceEnemy(float timer){
-		if(nowIce){
+		if(Skill_Controller.nowIce){
 			if(useIce){
 				Game_Controller.playerInThisMap.SPReduce(iceMana);
-				foreach(Enemy enemy in Game_Controller.enemyInThisMap){
-					if(enemy.gameObject.activeInHierarchy && enemy.gameObject.activeSelf){
-						Instantiate(iceSprite, enemy.transform.position, Quaternion.identity);
-						tmpspd = enemy.runSpeed;
-						tmpatk = enemy.Attack;
+				if(!Skill_Controller.nowSlow){
+					foreach(Enemy enemy in Game_Controller.enemyInThisMap){
+						if(enemy.gameObject.activeSelf){
+							GameObject iceOnEnemy =  Instantiate(iceSprite, enemy.transform.position, Quaternion.identity) as GameObject;
+							iceOnEnemy.transform.SetParent(enemy.transform);
+							tmpspd = enemy.baseRunSpeed;
+							tmpatk = enemy.Attack;
+						}
 					}
+					useIce = false;
 				}
-				useIce = false;
 			}
+
 			foreach(Enemy enemy in Game_Controller.enemyInThisMap){
-				if(enemy.gameObject.activeInHierarchy && enemy.gameObject.activeSelf){
+				if(enemy.gameObject.activeSelf){
 					enemy.runSpeed = 0;
 					enemy.Attack = 0;
 				}
@@ -110,11 +114,11 @@ public class Skill_Ice : MonoBehaviour {
 
 	void ReturnStatus(){
 		foreach(Enemy enemy in Game_Controller.enemyInThisMap){
-			if(enemy.gameObject.activeInHierarchy && enemy.gameObject.activeSelf){
+			if(enemy.gameObject.activeSelf){
 				enemy.runSpeed = tmpspd;
 				enemy.Attack = tmpatk;
 			}
-			nowIce = false;
+			Skill_Controller.nowIce = false;
 		}
 	}
 }

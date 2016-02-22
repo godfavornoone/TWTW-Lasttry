@@ -1918,7 +1918,6 @@ MonoBehaviour:
   slowTimer: 0
   nowSlowTime: 3
   slowMana: 100
-  nowSlow: 0
 --- !u!114 &160521596
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1930,6 +1929,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 978fed17854b37c4eb9fb0b201285a5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioClip: []
   skillTextTyping: []
   localIndexSkill: 0
 --- !u!114 &160521597
@@ -8165,6 +8165,7 @@ GameObject:
   - 114: {fileID: 833616281}
   - 114: {fileID: 833616280}
   - 114: {fileID: 833616279}
+  - 82: {fileID: 833616283}
   m_Layer: 5
   m_Name: HealSkillPanel
   m_TagString: Skill
@@ -8221,6 +8222,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 978fed17854b37c4eb9fb0b201285a5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioClip:
+  - {fileID: 8300000, guid: ed2ea83078b5bb74885e80edf606a975, type: 3}
   skillTextTyping: []
   localIndexSkill: 0
 --- !u!114 &833616281
@@ -8250,6 +8253,75 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 833616277}
+--- !u!82 &833616283
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 833616277}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
 --- !u!1 &847095008
 GameObject:
   m_ObjectHideFlags: 0
@@ -9336,7 +9408,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &973970551
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9560,6 +9632,7 @@ GameObject:
   - 114: {fileID: 988614636}
   - 114: {fileID: 988614635}
   - 114: {fileID: 988614634}
+  - 82: {fileID: 988614638}
   m_Layer: 5
   m_Name: FireSkillPanel
   m_TagString: Skill
@@ -9617,6 +9690,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 978fed17854b37c4eb9fb0b201285a5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioClip:
+  - {fileID: 0}
   skillTextTyping: []
   localIndexSkill: 0
 --- !u!114 &988614636
@@ -9646,6 +9721,75 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 988614632}
+--- !u!82 &988614638
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 988614632}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
 --- !u!1 &1014614111
 GameObject:
   m_ObjectHideFlags: 0
@@ -10236,7 +10380,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 534501578}
   m_Direction: 2
   m_Value: 1
-  m_Size: .0442033336
+  m_Size: .0442033298
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -14314,6 +14458,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 978fed17854b37c4eb9fb0b201285a5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioClip: []
   skillTextTyping: []
   localIndexSkill: 0
 --- !u!114 &1582353053
@@ -14604,6 +14749,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 978fed17854b37c4eb9fb0b201285a5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioClip: []
   skillTextTyping: []
   localIndexSkill: 0
 --- !u!114 &1634717705
@@ -16313,6 +16459,7 @@ GameObject:
   - 114: {fileID: 1855654878}
   - 114: {fileID: 1855654877}
   - 114: {fileID: 1855654876}
+  - 82: {fileID: 1855654880}
   m_Layer: 5
   m_Name: IceSkillPanel
   m_TagString: Skill
@@ -16360,7 +16507,6 @@ MonoBehaviour:
   iceTimer: 0
   nowIceTime: 3
   iceMana: 100
-  nowIce: 0
   tmpatk: 0
 --- !u!114 &1855654877
 MonoBehaviour:
@@ -16373,6 +16519,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 978fed17854b37c4eb9fb0b201285a5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioClip:
+  - {fileID: 8300000, guid: 89274e11fa3c9fb4ba7679ed634b10e8, type: 3}
+  - {fileID: 0}
   skillTextTyping: []
   localIndexSkill: 0
 --- !u!114 &1855654878
@@ -16402,6 +16551,75 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1855654874}
+--- !u!82 &1855654880
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1855654874}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Priority: 0
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
 --- !u!1 &1865346041
 GameObject:
   m_ObjectHideFlags: 0
