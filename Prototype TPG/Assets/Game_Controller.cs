@@ -69,7 +69,7 @@ public class Game_Controller : MonoBehaviour {
     //for TypingProgress
     public static GameObject typingProgressMenu;
 
-    public textManager a;
+    public static textManager a;
 
     public static GameObject ClearGameScene;
     public static GameObject clearButton;
