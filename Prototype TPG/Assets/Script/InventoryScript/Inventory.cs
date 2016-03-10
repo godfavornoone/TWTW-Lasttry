@@ -48,6 +48,7 @@ public class Inventory : MonoBehaviour {
         currentCloth = GameObject.Find("ClothPanel");
         currentBoot = GameObject.Find("BootPanel");
         itemSword = new Item();
+        //Debug.Log("itemSword " + itemSword.option.Count);
         itemBow = new Item();
         itemCloth = new Item();
         itemBoot = new Item();
@@ -199,8 +200,8 @@ public class Item
     public string type;
     public string title;
     public int hitpoint;
-    public List<int> option = new List<int>();
-    public List<int> optionChance = new List<int>();
+    public List<int> option = new List<int>(4);
+    public List<int> optionChance = new List<int>(4);
 
     public Item(int a , Sprite b, string c, string d, List<int> e, List<int> f, int g)
     {
@@ -214,6 +215,15 @@ public class Item
     }
     public Item()
     {
-
+        //Debug.Log("It comes here");
+        option.Add(0);
+        option.Add(0);
+        option.Add(0);
+        option.Add(0);
+        optionChance.Add(0);
+        optionChance.Add(0);
+        optionChance.Add(0);
+        optionChance.Add(0);
+        //optionChance = new List<int>(4);
     }
 }

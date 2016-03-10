@@ -235,14 +235,13 @@ public class Game_Controller : MonoBehaviour {
 			enemy.SetActive(false);
 		}
 
-
         playerInThisMap.gameObject.SetActive(false);
 
 		foreach (GameObject chest in treasureInMap) {
 
 			treasureMinigame.Add (chest.GetComponent<Treasure>());
 		}
-
+       
     }
 	
 	void Update(){

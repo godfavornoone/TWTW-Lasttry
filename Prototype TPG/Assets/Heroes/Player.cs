@@ -76,6 +76,8 @@ public class Player : MonoBehaviour {
     public List<int> historyWPM = new List<int>();
     public List<string> historyWeaknesses = new List<string>();
 
+    bool isOptionActivate = false;
+
 	void Awake(){
 		DontDestroyOnLoad(transform.gameObject);
 		rbd2D = GetComponent<Rigidbody2D> ();
@@ -237,14 +239,52 @@ public class Player : MonoBehaviour {
                     }
                 }
 
-                //Debug.Log("Damage After Cri: " + dmg);
                 SPIncrease(10 * lvl);
 
 				foreach(Enemy enemySplashBySword in Game_Controller.enemySplash){
 					if(enemySplashBySword.textTyping[1].color == Color.white){
 						enemySplashBySword.HpDown (dmg);
-						Instantiate(swordAttack, enemySplashBySword.transform.position, Quaternion.identity);
-					}
+
+
+                        if (enemySplashBySword.sameWord == true)
+                        {
+                            //Effect of sameWord Option
+                            //Open the sound of sameWord here
+                            enemySplashBySword.sameWord = false;
+                            isOptionActivate = true;
+                        }
+                        else if (enemySplashBySword.sameLetter == true)
+                        {
+                            //Effect of sameLetter Option
+                            //Open the sound of sameLetter here
+                            enemySplashBySword.sameLetter = false;
+                            isOptionActivate = true;
+                        }
+                        else if (enemySplashBySword.oneLetter == true)
+                        {
+                            //Effect of oneLetter Option
+                            //Open the sound of oneLetter here
+                            enemySplashBySword.oneLetter = false;
+                            isOptionActivate = true;
+                        }
+
+                        if (oneTimeOnly == false)
+                        {
+                            //Effect of critical
+                            //Open the sound of critical here
+                            isOptionActivate = true;
+                        }
+
+                        if(!isOptionActivate)
+                        {
+                            Instantiate(swordAttack, enemySplashBySword.transform.position, Quaternion.identity);
+                            //Open the sound of sword hit here
+                        }
+
+                        isOptionActivate = false;
+                        
+
+                    }
 					if(enemySplashBySword.takedDMG && enemySplashBySword.hitPoint > 0){
 						enemySplashBySword.WordInstantiate();
 					}
@@ -383,8 +423,47 @@ public class Player : MonoBehaviour {
 				
 				//Debug.Log("Damage After Cri: " + dmg);
                 SPIncrease(10 * lvl);
+
                 enemy.HpDown (dmg);
-				if(enemy.takedDMG && enemy.hitPoint > 0){
+
+                if (enemy.sameWord == true)
+                {
+                    //Effect of sameWord Option
+                    //Open the sound of sameWord here
+                    enemy.sameWord = false;
+                    isOptionActivate = true;
+                }
+                else if (enemy.sameLetter == true)
+                {
+                    //Effect of sameLetter Option
+                    //Open the sound of sameLetter here
+                    enemy.sameLetter = false;
+                    isOptionActivate = true;
+                }
+                else if (enemy.oneLetter == true)
+                {
+                    //Effect of oneLetter Option
+                    //Open the sound of oneLetter here
+                    enemy.oneLetter = false;
+                    isOptionActivate = true;
+                }
+
+                if (oneTimeOnly == false)
+                {
+                    //Effect of critical
+                    //Open the sound of critical here
+                    isOptionActivate = true;
+                }
+
+                if (!isOptionActivate)
+                {
+                    //Effect of Arrow hit enemy here
+                    //Open the sound of Arror hit here
+                }
+
+                isOptionActivate = false;
+
+                if (enemy.takedDMG && enemy.hitPoint > 0){
 					enemy.WordInstantiate();
 				}
 				enemy.takedDMG = false;
