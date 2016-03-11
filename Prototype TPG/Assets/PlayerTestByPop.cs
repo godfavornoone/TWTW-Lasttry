@@ -22,7 +22,7 @@ public class PlayerTestByPop : MonoBehaviour {
         
     }
 
-    IEnumerator OnTriggerEnter2D(Collider2D other)
+    void OnTriggerEnter2D(Collider2D other)
     {
 
         if (other.gameObject.tag == "Item")
@@ -54,10 +54,23 @@ public class PlayerTestByPop : MonoBehaviour {
             }
             else 
             {
-                Game_Controller.playerInThisMap.notify.SetActive(true);
-                Game_Controller.playerInThisMap.notification.text = "Inventory is Full!";
-                yield return new WaitForSeconds(3);
-                Game_Controller.playerInThisMap.notify.SetActive(false);
+
+                Game_Controller.levelUp.SetActive(false);
+                Game_Controller.fireNoti.SetActive(false);
+                Game_Controller.iceNoti.SetActive(false);
+                Game_Controller.slowNoti.SetActive(false);
+                Game_Controller.knockNoti.SetActive(false);
+                Game_Controller.healNoti.SetActive(false);
+                Game_Controller.trapNoti.SetActive(false);
+                Game_Controller.sameLetterNoti.SetActive(false);
+                Game_Controller.sameWordNoti.SetActive(false);
+                Game_Controller.oneLetterNoti.SetActive(false);
+                Game_Controller.inventoryFull.SetActive(true);
+                //StartCoroutine(Game_Controller.inventoryFullScript.waitForDisappear());
+                /*
+                yield return new WaitForSeconds(2);
+                Game_Controller.inventoryFull.SetActive(false);
+                */
 
             }
 

@@ -121,14 +121,66 @@ public class Game_Controller : MonoBehaviour {
     public static GameObject DisclaimerPanel;
 
     public static GameObject noData;
-    
 
-	void Awake(){
+    public GameObject damageOutput;
+    public GameObject criticalOutput;
+
+    public static Game_Controller gameController;
+    public static GameObject levelUp;
+    public static GameObject inventoryFull;
+    public static GameObject fireNoti;
+    public static GameObject iceNoti;
+    public static GameObject slowNoti;
+    public static GameObject knockNoti;
+    public static GameObject healNoti;
+    public static GameObject trapNoti;
+    public static GameObject sameLetterNoti;
+    public static GameObject sameWordNoti;
+    public static GameObject oneLetterNoti;
+
+    public static NotiController levelUpScript;
+    public static NotiController inventoryFullScript;
+    public static NotiController fireNotiScript;
+    public static NotiController iceNotiScript;
+    public static NotiController slowNotiScript;
+    public static NotiController knockNotiScript;
+    public static NotiController healNotiScript;
+    public static NotiController trapNotiScript;
+    public static NotiController sameLetterNotiScript;
+    public static NotiController sameWordNotiScript;
+    public static NotiController oneLetterNotiScript;
+
+    void Awake(){
 		DontDestroyOnLoad(transform.gameObject);
 //		Instantiate (target, new Vector3(-7.0f,0.3f,0f),Quaternion.identity);
 	}
 
 	void Start(){
+        levelUp = GameObject.Find("levelUp");
+        inventoryFull = GameObject.Find("inventoryFull");
+        fireNoti = GameObject.Find("fireNoti");
+        iceNoti = GameObject.Find("iceNoti");
+        slowNoti = GameObject.Find("slowNoti");
+        knockNoti = GameObject.Find("knockNoti");
+        healNoti = GameObject.Find("healNoti");
+        trapNoti = GameObject.Find("trapNoti");
+        sameLetterNoti = GameObject.Find("sameLetterNoti");
+        sameWordNoti = GameObject.Find("sameWordNoti");
+        oneLetterNoti = GameObject.Find("oneLetterNoti");
+
+        levelUpScript = levelUp.GetComponent<NotiController>();
+        inventoryFullScript = inventoryFull.GetComponent<NotiController>();
+        fireNotiScript = fireNoti.GetComponent<NotiController>();
+        iceNotiScript = iceNoti.GetComponent<NotiController>();
+        slowNotiScript = slowNoti.GetComponent<NotiController>();
+        knockNotiScript = knockNoti.GetComponent<NotiController>();
+        healNotiScript = healNoti.GetComponent<NotiController>();
+        trapNotiScript = trapNoti.GetComponent<NotiController>();
+        sameLetterNotiScript = sameLetterNoti.GetComponent<NotiController>();
+        sameWordNotiScript = sameWordNoti.GetComponent<NotiController>();
+        oneLetterNotiScript = oneLetterNoti.GetComponent<NotiController>();
+
+        gameController = GameObject.Find("Game_Controller").GetComponent<Game_Controller>();
         noData = GameObject.Find("Nodata");
         OptionPanel = GameObject.Find("OptionPanel");
         CreditPanel = GameObject.Find("CreditPanel");
@@ -193,6 +245,18 @@ public class Game_Controller : MonoBehaviour {
         talk = talkGameObj.GetComponent<Text>();
         choice1Text = choice1.transform.GetChild(0).GetComponent<Text>();
         choice2Text = choice2.transform.GetChild(0).GetComponent<Text>();
+
+        levelUp.SetActive(false);
+        inventoryFull.SetActive(false);
+        fireNoti.SetActive(false);
+        iceNoti.SetActive(false);
+        slowNoti.SetActive(false);
+        knockNoti.SetActive(false);
+        healNoti.SetActive(false);
+        trapNoti.SetActive(false);
+        sameLetterNoti.SetActive(false);
+        sameWordNoti.SetActive(false);
+        oneLetterNoti.SetActive(false);
 
         noData.SetActive(false);
         OptionPanel.SetActive(false);

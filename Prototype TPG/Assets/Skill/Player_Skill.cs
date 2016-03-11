@@ -87,29 +87,101 @@ public class Player_Skill : MonoBehaviour {
 	}
 
 	public void SkillActive(string skillName){
-		if(skillName.Equals("fire")){
-			fire.fireTimer = 0;
+		if(skillName.Equals("1")){
+            Game_Controller.levelUp.SetActive(false);
+            Game_Controller.inventoryFull.SetActive(false);
+            Game_Controller.fireNoti.SetActive(true);
+            Game_Controller.iceNoti.SetActive(false);
+            Game_Controller.slowNoti.SetActive(false);
+            Game_Controller.knockNoti.SetActive(false);
+            Game_Controller.healNoti.SetActive(false);
+            Game_Controller.trapNoti.SetActive(false);
+            Game_Controller.sameLetterNoti.SetActive(false);
+            Game_Controller.sameWordNoti.SetActive(false);
+            Game_Controller.oneLetterNoti.SetActive(false);
+            //StartCoroutine(Game_Controller.fireNotiScript.waitForDisappear());
+            fire.fireTimer = 0;
 			fire.nowFire = true;
-		}else if(skillName.Equals("ice")){
-			PlaySound(0);
+		}else if(skillName.Equals("2")){
+            Game_Controller.levelUp.SetActive(false);
+            Game_Controller.inventoryFull.SetActive(false);
+            Game_Controller.fireNoti.SetActive(false);
+            Game_Controller.iceNoti.SetActive(true);
+            Game_Controller.slowNoti.SetActive(false);
+            Game_Controller.knockNoti.SetActive(false);
+            Game_Controller.healNoti.SetActive(false);
+            Game_Controller.trapNoti.SetActive(false);
+            Game_Controller.sameLetterNoti.SetActive(false);
+            Game_Controller.sameWordNoti.SetActive(false);
+            Game_Controller.oneLetterNoti.SetActive(false);
+            //StartCoroutine(Game_Controller.iceNotiScript.waitForDisappear());
+            PlaySound(0);
 			ice.iceTimer = 0;
 			ice.tmpIceTime = 0;
 			Skill_Controller.nowIce = true;
 			ice.useIce = true;
-		}else if(skillName.Equals("knock")){
-			knock.knockTimer = 0;
+		}else if(skillName.Equals("5")){
+            Game_Controller.levelUp.SetActive(false);
+            Game_Controller.inventoryFull.SetActive(false);
+            Game_Controller.fireNoti.SetActive(false);
+            Game_Controller.iceNoti.SetActive(false);
+            Game_Controller.slowNoti.SetActive(false);
+            Game_Controller.knockNoti.SetActive(true);
+            Game_Controller.healNoti.SetActive(false);
+            Game_Controller.trapNoti.SetActive(false);
+            Game_Controller.sameLetterNoti.SetActive(false);
+            Game_Controller.sameWordNoti.SetActive(false);
+            Game_Controller.oneLetterNoti.SetActive(false);
+            //StartCoroutine(Game_Controller.knockNotiScript.waitForDisappear());
+            knock.knockTimer = 0;
 			knock.nowKnock = true;
-		}else if(skillName.Equals("slow")){
-			slow.slowTimer = 0;
+		}else if(skillName.Equals("3")){
+            Game_Controller.levelUp.SetActive(false);
+            Game_Controller.inventoryFull.SetActive(false);
+            Game_Controller.fireNoti.SetActive(false);
+            Game_Controller.iceNoti.SetActive(false);
+            Game_Controller.slowNoti.SetActive(true);
+            Game_Controller.knockNoti.SetActive(false);
+            Game_Controller.healNoti.SetActive(false);
+            Game_Controller.trapNoti.SetActive(false);
+            Game_Controller.sameLetterNoti.SetActive(false);
+            Game_Controller.sameWordNoti.SetActive(false);
+            Game_Controller.oneLetterNoti.SetActive(false);
+            //StartCoroutine(Game_Controller.slowNotiScript.waitForDisappear());
+            slow.slowTimer = 0;
 			slow.tmpSlowTime = 0;
 			Skill_Controller.nowSlow = true;
 			slow.useSlow = true;
-		}else if(skillName.Equals("heal")){
-			PlaySound(0);
+		}else if(skillName.Equals("4")){
+            Game_Controller.levelUp.SetActive(false);
+            Game_Controller.inventoryFull.SetActive(false);
+            Game_Controller.fireNoti.SetActive(false);
+            Game_Controller.iceNoti.SetActive(false);
+            Game_Controller.slowNoti.SetActive(false);
+            Game_Controller.knockNoti.SetActive(false);
+            Game_Controller.healNoti.SetActive(true);
+            Game_Controller.trapNoti.SetActive(false);
+            Game_Controller.sameLetterNoti.SetActive(false);
+            Game_Controller.sameWordNoti.SetActive(false);
+            Game_Controller.oneLetterNoti.SetActive(false);
+            //StartCoroutine(Game_Controller.healNotiScript.waitForDisappear());
+            PlaySound(0);
 			heal.healTimer = 0;
 			heal.nowHeal = true;
-		}else if(skillName.Equals("trap")){
-			trap.trapTimer = 0;
+		}else if(skillName.Equals("6")){
+            Game_Controller.levelUp.SetActive(false);
+            Game_Controller.inventoryFull.SetActive(false);
+            Game_Controller.fireNoti.SetActive(false);
+            Game_Controller.iceNoti.SetActive(false);
+            Game_Controller.slowNoti.SetActive(false);
+            Game_Controller.knockNoti.SetActive(false);
+            Game_Controller.healNoti.SetActive(false);
+            Game_Controller.trapNoti.SetActive(true);
+            Game_Controller.sameLetterNoti.SetActive(false);
+            Game_Controller.sameWordNoti.SetActive(false);
+            Game_Controller.oneLetterNoti.SetActive(false);
+            //StartCoroutine(Game_Controller.trapNotiScript.waitForDisappear());
+            trap.trapTimer = 0;
 			trap.nowTrap = true;
 		}
 	}

@@ -70,13 +70,11 @@ public class Player : MonoBehaviour {
     public SPBarScript SPScript;
     public EXPBarScript EXPScript;
 
-    public TextMesh notification;
-    public GameObject notify;
-
     public List<int> historyWPM = new List<int>();
     public List<string> historyWeaknesses = new List<string>();
 
     bool isOptionActivate = false;
+
 
 	void Awake(){
 		DontDestroyOnLoad(transform.gameObject);
@@ -92,9 +90,7 @@ public class Player : MonoBehaviour {
         HPScript = GameObject.Find("HPBar").GetComponent<HPBarScript>();
         SPScript = GameObject.Find("SPBar").GetComponent<SPBarScript>();
         EXPScript = GameObject.Find("EXPBar").GetComponent<EXPBarScript>();
-        notify = transform.GetChild(1).gameObject;
-        notification = notify.GetComponentInChildren<TextMesh>();
-        notify.SetActive(false);
+
         
     }
 
@@ -245,6 +241,22 @@ public class Player : MonoBehaviour {
 					if(enemySplashBySword.textTyping[1].color == Color.white){
 						enemySplashBySword.HpDown (dmg);
 
+                        if (oneTimeOnly == false)
+                        {
+                            Vector3 a = enemySplashBySword.gameObject.transform.position;
+                            a.y += 1.7f;
+                            a.x -= 0.5f;
+                            GameObject damageShow = (GameObject)Instantiate(Game_Controller.gameController.criticalOutput, a, Quaternion.identity);
+                            damageShow.GetComponent<TextMesh>().text = "Critical " + dmg.ToString() + " !!";
+                        }
+                        else
+                        {
+                            Vector3 a = enemySplashBySword.gameObject.transform.position;
+                            a.y += 1.7f;
+                            a.x -= 0.5f;
+                            GameObject damageShow = (GameObject)Instantiate(Game_Controller.gameController.damageOutput, a, Quaternion.identity);
+                            damageShow.GetComponent<TextMesh>().text = dmg.ToString();
+                        }
 
                         if (enemySplashBySword.sameWord == true)
                         {
@@ -425,7 +437,23 @@ public class Player : MonoBehaviour {
                 SPIncrease(10 * lvl);
 
                 enemy.HpDown (dmg);
-
+                if(oneTimeOnly==false)
+                {
+                    Vector3 a = enemy.gameObject.transform.position;
+                    a.y += 1.7f;
+                    a.x -= 0.5f;
+                    GameObject damageShow = (GameObject)Instantiate(Game_Controller.gameController.criticalOutput, a, Quaternion.identity);
+                    damageShow.GetComponent<TextMesh>().text = "Critical " + dmg.ToString() + " !!";
+                }
+                else
+                {
+                    Vector3 a = enemy.gameObject.transform.position;
+                    a.y += 1.7f;
+                    a.x -= 0.5f;
+                    GameObject damageShow = (GameObject)Instantiate(Game_Controller.gameController.damageOutput, a, Quaternion.identity);
+                    damageShow.GetComponent<TextMesh>().text = dmg.ToString();
+                }
+                
                 if (enemy.sameWord == true)
                 {
                     //Effect of sameWord Option
@@ -549,7 +577,7 @@ public class Player : MonoBehaviour {
 			lvl++;
 			lvlup = baselvlup * lvl;
 			lvlup = lvlup - tmp;
-			StartCoroutine(StatusUp());
+			StatusUp();
 			skillPoint++;
 			//Debug.Log("LVLUP");
 		} else { //เวลอัพแล้วมันพอดีจ้า
@@ -559,7 +587,7 @@ public class Player : MonoBehaviour {
             lvlup = baselvlup * lvl;
             //Debug.Log("lvl up ที่น่าจะ 200: " + lvlup);
 			skillPoint++;
-            StartCoroutine(StatusUp());
+            StatusUp();
 			//Debug.Log("LVLUP");
 			//Debug.Log(lvl);
             
@@ -567,7 +595,7 @@ public class Player : MonoBehaviour {
 
     }
 	
-	IEnumerator StatusUp(){
+	void StatusUp(){
 
 
         MaxHP = MaxHP + BonusHPperLevel;
@@ -578,10 +606,23 @@ public class Player : MonoBehaviour {
         SwordAtk = SwordAtk + BonusSwordAtkperLevel;
         BowAtk = BowAtk + BonusBowAtkperLevel;
 
-        Game_Controller.playerInThisMap.notify.SetActive(true);
-        Game_Controller.playerInThisMap.notification.text = "Level up!";
-        yield return new WaitForSeconds(3);
-        Game_Controller.playerInThisMap.notify.SetActive(false);
+        Game_Controller.inventoryFull.SetActive(false);
+        Game_Controller.fireNoti.SetActive(false);
+        Game_Controller.iceNoti.SetActive(false);
+        Game_Controller.slowNoti.SetActive(false);
+        Game_Controller.knockNoti.SetActive(false);
+        Game_Controller.healNoti.SetActive(false);
+        Game_Controller.trapNoti.SetActive(false);
+        Game_Controller.sameLetterNoti.SetActive(false);
+        Game_Controller.sameWordNoti.SetActive(false);
+        Game_Controller.oneLetterNoti.SetActive(false);
+
+        Game_Controller.levelUp.SetActive(true);
+        //StartCoroutine(Game_Controller.levelUpScript.waitForDisappear());
+        /*
+        yield return new WaitForSeconds(2);
+        Game_Controller.levelUp.SetActive(false);
+        */
 
 	}
 

@@ -42,13 +42,13 @@ public class Skill_Knock : MonoBehaviour {
 
         if (knockTimer >= coolDownSkillKnock){
 			if(Game_Controller.playerInThisMap.SP >= knockMana){
-				if(skill.skillTextTyping[0].text.Equals("knock")){
+				if(skill.skillTextTyping[0].text.Equals("5")){
 					skill.skillTextTyping[0].color = Color.white;
 					skill.UseSkill();
 				}
 			}
 		}else{
-			if(skill.skillTextTyping[0].text.Equals("knock")){
+			if(skill.skillTextTyping[0].text.Equals("5")){
 				skill.skillTextTyping[0].color = Color.grey;
 			}
 			knockTimer += Time.deltaTime;

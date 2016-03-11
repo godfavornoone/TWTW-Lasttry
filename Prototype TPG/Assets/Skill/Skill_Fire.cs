@@ -44,13 +44,13 @@ public class Skill_Fire : MonoBehaviour {
 
         if (fireTimer >= coolDownSkillFire) {
 			if (Game_Controller.playerInThisMap.SP >= fireMana) {
-				if(skill.skillTextTyping[0].text.Equals("fire")){
+				if(skill.skillTextTyping[0].text.Equals("1")){
 					skill.skillTextTyping [0].color = Color.white;
 					skill.UseSkill ();
 				}
 			}
 		} else {
-			if(skill.skillTextTyping[0].text.Equals("fire")){
+			if(skill.skillTextTyping[0].text.Equals("1")){
 				skill.skillTextTyping [0].color = Color.grey;
 			}
 			fireTimer += Time.deltaTime;
@@ -65,7 +65,12 @@ public class Skill_Fire : MonoBehaviour {
 					if(enemy.hitPoint - fireDMG > 0){
 						//Debug.Log(enemy.name + " = fire");
 						Instantiate(fireSprite, enemy.transform.position, Quaternion.identity);
-						enemy.hitPoint -= fireDMG;
+                        Vector3 a = enemy.gameObject.transform.position;
+                        a.y += 1.7f;
+                        a.x -= 0.5f;
+                        GameObject damageShow = (GameObject)Instantiate(Game_Controller.gameController.damageOutput, a, Quaternion.identity);
+                        damageShow.GetComponent<TextMesh>().text = dmg.ToString();
+                        enemy.hitPoint -= fireDMG;
 					}else if(enemy.hitPoint - fireDMG <= 0){
 
 						enemy.hitPoint -= fireDMG;

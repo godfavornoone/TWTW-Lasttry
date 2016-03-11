@@ -48,13 +48,13 @@ public class Skill_Ice : MonoBehaviour {
 
         if (iceTimer >= coolDownSkillIce){
 			if(Game_Controller.playerInThisMap.SP >= iceMana){
-				if(skill.skillTextTyping[0].text.Equals("ice")){
+				if(skill.skillTextTyping[0].text.Equals("2")){
 					skill.skillTextTyping[0].color = Color.white;
 					skill.UseSkill();
 				}
 			}
 		}else{
-			if(skill.skillTextTyping[0].text.Equals("ice")){
+			if(skill.skillTextTyping[0].text.Equals("2")){
 				skill.skillTextTyping[0].color = Color.grey;
 			}
 			tmpIceTime += Time.deltaTime;

@@ -40,14 +40,14 @@ public class Skill_Trap : MonoBehaviour {
 
         if (trapTimer >= coolDownSkillTrap) {
 			if (Game_Controller.playerInThisMap.SP >= trapMana) {
-				if(skill.skillTextTyping[0].text.Equals("trap")){
+				if(skill.skillTextTyping[0].text.Equals("6")){
 					skill.skillTextTyping [0].color = Color.white;
 					skill.UseSkill (); //มันมี Reset Cooldown ตรงนี้ด้วยเฮ้ย -_____- คือ trapTimer = 0 ณ ตรงนี้อ่ะ..
 				}
 			}
             
 		} else { //นี่คือตอนมันใช้ สกิล อ่ะ
-			if(skill.skillTextTyping[0].text.Equals("trap")){
+			if(skill.skillTextTyping[0].text.Equals("6")){
 				skill.skillTextTyping[0].color = Color.grey;
 			}
 			trapTimer += Time.deltaTime;
