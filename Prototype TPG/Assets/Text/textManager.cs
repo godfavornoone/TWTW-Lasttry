@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 using System;
+using System.Collections;
 
 public class textManager : MonoBehaviour {
 
@@ -30,6 +31,14 @@ public class textManager : MonoBehaviour {
     public List<double> xData = new List<double>();
     public List<double> yData = new List<double>();
     public List<double> zData = new List<double>();
+
+    //for Quiz to type Minigame
+    public string[] question;
+    public string[] choice1;
+    public string[] choice2;
+    public string[] answer;
+    int indexLastQuestion=-1000;
+    int dropchance = -1000;
 
     public double top1 = 0;
     public double top2 = 0;
@@ -69,6 +78,27 @@ public class textManager : MonoBehaviour {
     public string chartoptop2;
     public string chartoptop3;
     //end of stupid
+
+    public string[] getQuestionAndAns()
+    {
+        
+        
+        while(dropchance==indexLastQuestion)
+        {
+            dropchance = UnityEngine.Random.Range(0, 10);
+        }
+
+        indexLastQuestion = dropchance;
+
+        string[] set = new string[4];
+        set[0] = question[dropchance];
+        set[1] = answer[dropchance];
+        set[2] = choice1[dropchance];
+        set[3] = choice2[dropchance];
+
+        return set;
+
+    }
 
     public void sendTimeData(char yaha, double time)
     {
@@ -355,6 +385,23 @@ public class textManager : MonoBehaviour {
 
         //getVocab(vocab);
         //getVocab(vocabHard);
+        /*
+        int i = 10;
+      
+
+        while(i>0)
+        {
+            string[] set = Game_Controller.a.getQuestionAndAns();
+            Debug.Log("YAGA" + set[0]);
+            Debug.Log(set[1]);
+            Debug.Log(set[2]);
+            Debug.Log(set[3]);
+            i--;
+        }
+        */
+
+
+
 
     }
 
