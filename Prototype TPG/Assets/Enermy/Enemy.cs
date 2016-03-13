@@ -68,6 +68,10 @@ public class Enemy : MonoBehaviour {
 	public bool takedDMG = false;
     public bool optionWord = false;
 
+    public bool oneLetter = false;
+    public bool sameLetter = false;
+    public bool sameWord = false;
+
     public Game_Controller gameScript;
     public textManager textManagerScript;
 
@@ -138,7 +142,12 @@ public class Enemy : MonoBehaviour {
 		}
 		if(other.gameObject.tag == "Trap"){
 			HpDown(Skill_Controller.trapDmg);
-			Destroy(other.gameObject);
+            Vector3 a = gameObject.transform.position;
+            a.y += 1.7f;
+            a.x -= 0.5f;
+            GameObject damageShow = (GameObject)Instantiate(Game_Controller.gameController.damageOutput, a, Quaternion.identity);
+            damageShow.GetComponent<TextMesh>().text = Skill_Controller.trapDmg.ToString();
+            Destroy(other.gameObject);
 		}
 	}
 	
@@ -211,12 +220,15 @@ public class Enemy : MonoBehaviour {
         
         hitPoint = hitPoint - dmg;
 
-        //ถ้าตามอันนี้นะ ถ้าคิดไม่ผิดนะ....โดนสกิลเราก็คืนคำหมดอ่ะ 5555555555 โดน fire ทีนี่ อู้วมั่นใจมาก ทุกตัวคืน
-        if (!optionWord)
+        if (optionWord) //start here if it false go ELSE
         {
-            //Debug.Log("return Text complete" + " text is: " + textTyping[1].text);
+            optionWord = false;
+        }
+        else
+        {
             textManagerScript.returnText(textTyping[1].text, wordDifficult);
         }
+
 
         if (hitPoint <= 0){
 			Game_Controller.enemyStruckPlayer = false;
@@ -249,7 +261,6 @@ public class Enemy : MonoBehaviour {
 //            Debug.Log("dropRate is: " + dropRate);
             if (dropchance<=dropRate)
             {
-//                Debug.Log("YEEEEE");
                 int item = Random.Range(0, 20);
                 Instantiate(gameScript.itemPrefab[item], this.transform.position, Quaternion.identity);
 
@@ -257,16 +268,6 @@ public class Enemy : MonoBehaviour {
 			Game_Controller.enemyInThisMap.Remove(gameObject.GetComponent<Enemy>());
 			Game_Controller.enemyStruckPlayer = false;
 
-            //Because even enemy die, they still ask for Text, so we have to return it!
-
-            /*
-            if(!optionWord)
-            {
-                //Debug.Log("in HPDown");
-                //Debug.Log("return Text complete" + " text is: " + textTyping[1].text);
-                textManagerScript.returnText(textTyping[1].text, wordDifficult);
-            }
-            */
 //			Instantiate (deadSprite, transform.position, Quaternion.identity);
 			Invoke("DelayDead", 0.1f);
 			Invoke("DelayDestroyForEffect", 0.2f);
@@ -345,24 +346,12 @@ public class Enemy : MonoBehaviour {
 
                 Game_Controller.oneEnemyWordChange = true;
                 
-
-                if (optionWord) //start here if it false go ELSE
-                {
-//                    Debug.Log("no return text");
-                    optionWord = false;
-                }
-                else
-                {
-//                    Debug.Log("return Text complete" + " text is: " + textTyping[1].text);
-                    textManagerScript.returnText(textTyping[1].text, wordDifficult);
-                }
-                
-//				takedDMG = true;
 				textTyping [0].text = "";
 
                 //Start with One Letter Option
                 int chance;
                 bool oneOptiononly = true;
+
 
                 if (Game_Controller.playerInThisMap.currentBoot.hitpoint != 0 && oneOptiononly)
                 {
@@ -383,8 +372,23 @@ public class Enemy : MonoBehaviour {
 
                             textTyping[1].text = tmp2;
                             optionWord = true;
+                            oneLetter = true;
                             oneOptiononly = false;
-                            
+
+                            //Game_Controller.oneLetterNoti.SetActive(false);
+                            Game_Controller.levelUp.SetActive(false);
+                            Game_Controller.inventoryFull.SetActive(false);
+                            Game_Controller.fireNoti.SetActive(false);
+                            Game_Controller.iceNoti.SetActive(false);
+                            Game_Controller.slowNoti.SetActive(false);
+                            Game_Controller.knockNoti.SetActive(false);
+                            Game_Controller.healNoti.SetActive(false);
+                            Game_Controller.trapNoti.SetActive(false);
+                            Game_Controller.sameLetterNoti.SetActive(false);
+                            Game_Controller.sameWordNoti.SetActive(false);
+                            Game_Controller.oneLetterNoti.SetActive(true);
+                            //StartCoroutine(Game_Controller.oneLetterNotiScript.waitForDisappear());
+
                         }
                     }
                 }
@@ -409,8 +413,23 @@ public class Enemy : MonoBehaviour {
                             textTyping[1].text = tmp2;
 
                             optionWord = true;
+                            oneLetter = true;
                             oneOptiononly = false;
-                           
+
+                            //Game_Controller.oneLetterNoti.SetActive(false);
+                            Game_Controller.levelUp.SetActive(false);
+                            Game_Controller.inventoryFull.SetActive(false);
+                            Game_Controller.fireNoti.SetActive(false);
+                            Game_Controller.iceNoti.SetActive(false);
+                            Game_Controller.slowNoti.SetActive(false);
+                            Game_Controller.knockNoti.SetActive(false);
+                            Game_Controller.healNoti.SetActive(false);
+                            Game_Controller.trapNoti.SetActive(false);
+                            Game_Controller.sameLetterNoti.SetActive(false);
+                            Game_Controller.sameWordNoti.SetActive(false);
+                            Game_Controller.oneLetterNoti.SetActive(true);
+                            //StartCoroutine(Game_Controller.oneLetterNotiScript.waitForDisappear());
+
                         }
                     }
                 }
@@ -436,8 +455,23 @@ public class Enemy : MonoBehaviour {
                             textTyping[1].text = tmp2;
 
                             optionWord = true;
+                            oneLetter = true;
                             oneOptiononly = false;
-                            
+
+                            //Game_Controller.oneLetterNoti.SetActive(false);
+                            Game_Controller.levelUp.SetActive(false);
+                            Game_Controller.inventoryFull.SetActive(false);
+                            Game_Controller.fireNoti.SetActive(false);
+                            Game_Controller.iceNoti.SetActive(false);
+                            Game_Controller.slowNoti.SetActive(false);
+                            Game_Controller.knockNoti.SetActive(false);
+                            Game_Controller.healNoti.SetActive(false);
+                            Game_Controller.trapNoti.SetActive(false);
+                            Game_Controller.sameLetterNoti.SetActive(false);
+                            Game_Controller.sameWordNoti.SetActive(false);
+                            Game_Controller.oneLetterNoti.SetActive(true);
+                            //StartCoroutine(Game_Controller.oneLetterNotiScript.waitForDisappear());
+
                         }
                     }
                 }
@@ -462,8 +496,25 @@ public class Enemy : MonoBehaviour {
                             textTyping[1].text = tmp2;
 
                             optionWord = true;
+                            oneLetter = true;
                             oneOptiononly = false;
-                            
+
+                            //Game_Controller.oneLetterNoti.SetActive(false);
+                            Game_Controller.levelUp.SetActive(false);
+                            Game_Controller.inventoryFull.SetActive(false);
+                            Game_Controller.fireNoti.SetActive(false);
+                            Game_Controller.iceNoti.SetActive(false);
+                            Game_Controller.slowNoti.SetActive(false);
+                            Game_Controller.knockNoti.SetActive(false);
+                            Game_Controller.healNoti.SetActive(false);
+                            Game_Controller.trapNoti.SetActive(false);
+                            Game_Controller.sameLetterNoti.SetActive(false);
+                            Game_Controller.sameWordNoti.SetActive(false);
+
+
+                            Game_Controller.oneLetterNoti.SetActive(true);
+                            //StartCoroutine(Game_Controller.oneLetterNotiScript.waitForDisappear());
+
                         }
                     }
                 }
@@ -498,7 +549,21 @@ public class Enemy : MonoBehaviour {
                             textTyping[1].text = tmp3;
 
                             optionWord = true;
+                            sameLetter = true;
                             oneOptiononly = false;
+
+                            Game_Controller.levelUp.SetActive(false);
+                            Game_Controller.inventoryFull.SetActive(false);
+                            Game_Controller.fireNoti.SetActive(false);
+                            Game_Controller.iceNoti.SetActive(false);
+                            Game_Controller.slowNoti.SetActive(false);
+                            Game_Controller.knockNoti.SetActive(false);
+                            Game_Controller.healNoti.SetActive(false);
+                            Game_Controller.trapNoti.SetActive(false);
+                            Game_Controller.sameLetterNoti.SetActive(true);
+                            Game_Controller.sameWordNoti.SetActive(false);
+                            Game_Controller.oneLetterNoti.SetActive(false);
+                            //StartCoroutine(Game_Controller.sameLetterNotiScript.waitForDisappear());
 
                         }
                     }
@@ -533,7 +598,21 @@ public class Enemy : MonoBehaviour {
                             textTyping[1].text = tmp3;
 
                             optionWord = true;
+                            sameLetter = true;
                             oneOptiononly = false;
+
+                            Game_Controller.levelUp.SetActive(false);
+                            Game_Controller.inventoryFull.SetActive(false);
+                            Game_Controller.fireNoti.SetActive(false);
+                            Game_Controller.iceNoti.SetActive(false);
+                            Game_Controller.slowNoti.SetActive(false);
+                            Game_Controller.knockNoti.SetActive(false);
+                            Game_Controller.healNoti.SetActive(false);
+                            Game_Controller.trapNoti.SetActive(false);
+                            Game_Controller.sameLetterNoti.SetActive(true);
+                            Game_Controller.sameWordNoti.SetActive(false);
+                            Game_Controller.oneLetterNoti.SetActive(false);
+                            //StartCoroutine(Game_Controller.sameLetterNotiScript.waitForDisappear());
 
                         }
                     }
@@ -570,7 +649,21 @@ public class Enemy : MonoBehaviour {
                             textTyping[1].text = tmp3;
 
                             optionWord = true;
+                            sameLetter = true;
                             oneOptiononly = false;
+
+                            Game_Controller.levelUp.SetActive(false);
+                            Game_Controller.inventoryFull.SetActive(false);
+                            Game_Controller.fireNoti.SetActive(false);
+                            Game_Controller.iceNoti.SetActive(false);
+                            Game_Controller.slowNoti.SetActive(false);
+                            Game_Controller.knockNoti.SetActive(false);
+                            Game_Controller.healNoti.SetActive(false);
+                            Game_Controller.trapNoti.SetActive(false);
+                            Game_Controller.sameLetterNoti.SetActive(true);
+                            Game_Controller.sameWordNoti.SetActive(false);
+                            Game_Controller.oneLetterNoti.SetActive(false);
+                            //StartCoroutine(Game_Controller.sameLetterNotiScript.waitForDisappear());
 
                         }
                     }
@@ -605,7 +698,21 @@ public class Enemy : MonoBehaviour {
                             textTyping[1].text = tmp3;
 
                             optionWord = true;
+                            sameLetter = true;
                             oneOptiononly = false;
+
+                            Game_Controller.levelUp.SetActive(false);
+                            Game_Controller.inventoryFull.SetActive(false);
+                            Game_Controller.fireNoti.SetActive(false);
+                            Game_Controller.iceNoti.SetActive(false);
+                            Game_Controller.slowNoti.SetActive(false);
+                            Game_Controller.knockNoti.SetActive(false);
+                            Game_Controller.healNoti.SetActive(false);
+                            Game_Controller.trapNoti.SetActive(false);
+                            Game_Controller.sameLetterNoti.SetActive(true);
+                            Game_Controller.sameWordNoti.SetActive(false);
+                            Game_Controller.oneLetterNoti.SetActive(false);
+                            //StartCoroutine(Game_Controller.sameLetterNotiScript.waitForDisappear());
 
                         }
                     }
@@ -621,7 +728,21 @@ public class Enemy : MonoBehaviour {
                         {
                             //Debug.Log("same word on boot");
                             optionWord = true;
+                            sameWord = true;
                             oneOptiononly = false;
+
+                            Game_Controller.levelUp.SetActive(false);
+                            Game_Controller.inventoryFull.SetActive(false);
+                            Game_Controller.fireNoti.SetActive(false);
+                            Game_Controller.iceNoti.SetActive(false);
+                            Game_Controller.slowNoti.SetActive(false);
+                            Game_Controller.knockNoti.SetActive(false);
+                            Game_Controller.healNoti.SetActive(false);
+                            Game_Controller.trapNoti.SetActive(false);
+                            Game_Controller.sameLetterNoti.SetActive(false);
+                            Game_Controller.sameWordNoti.SetActive(true);
+                            Game_Controller.oneLetterNoti.SetActive(false);
+                            //StartCoroutine(Game_Controller.sameWordNotiScript.waitForDisappear());
 
                         }
                     }
@@ -637,7 +758,21 @@ public class Enemy : MonoBehaviour {
                         {
                             //Debug.Log("same word on cloth");
                             optionWord = true;
+                            sameWord = true;
                             oneOptiononly = false;
+
+                            Game_Controller.levelUp.SetActive(false);
+                            Game_Controller.inventoryFull.SetActive(false);
+                            Game_Controller.fireNoti.SetActive(false);
+                            Game_Controller.iceNoti.SetActive(false);
+                            Game_Controller.slowNoti.SetActive(false);
+                            Game_Controller.knockNoti.SetActive(false);
+                            Game_Controller.healNoti.SetActive(false);
+                            Game_Controller.trapNoti.SetActive(false);
+                            Game_Controller.sameLetterNoti.SetActive(false);
+                            Game_Controller.sameWordNoti.SetActive(true);
+                            Game_Controller.oneLetterNoti.SetActive(false);
+                            //StartCoroutine(Game_Controller.sameWordNotiScript.waitForDisappear());
 
                         }
                     }
@@ -652,7 +787,21 @@ public class Enemy : MonoBehaviour {
                         {
                             //Debug.Log("same word on sword");
                             optionWord = true;
+                            sameWord = true;
                             oneOptiononly = false;
+
+                            Game_Controller.levelUp.SetActive(false);
+                            Game_Controller.inventoryFull.SetActive(false);
+                            Game_Controller.fireNoti.SetActive(false);
+                            Game_Controller.iceNoti.SetActive(false);
+                            Game_Controller.slowNoti.SetActive(false);
+                            Game_Controller.knockNoti.SetActive(false);
+                            Game_Controller.healNoti.SetActive(false);
+                            Game_Controller.trapNoti.SetActive(false);
+                            Game_Controller.sameLetterNoti.SetActive(false);
+                            Game_Controller.sameWordNoti.SetActive(true);
+                            Game_Controller.oneLetterNoti.SetActive(false);
+                            //StartCoroutine(Game_Controller.sameWordNotiScript.waitForDisappear());
 
                         }
                     }
@@ -667,13 +816,28 @@ public class Enemy : MonoBehaviour {
                         {
                             //Debug.Log("same word on bow");
                             optionWord = true;
+                            sameWord = true;
                             oneOptiononly = false;
+
+                            Game_Controller.levelUp.SetActive(false);
+                            Game_Controller.inventoryFull.SetActive(false);
+                            Game_Controller.fireNoti.SetActive(false);
+                            Game_Controller.iceNoti.SetActive(false);
+                            Game_Controller.slowNoti.SetActive(false);
+                            Game_Controller.knockNoti.SetActive(false);
+                            Game_Controller.healNoti.SetActive(false);
+                            Game_Controller.trapNoti.SetActive(false);
+                            Game_Controller.sameLetterNoti.SetActive(false);
+                            Game_Controller.sameWordNoti.SetActive(true);
+                            Game_Controller.oneLetterNoti.SetActive(false);
+                            //StartCoroutine(Game_Controller.sameWordNotiScript.waitForDisappear());
 
                         }
                     }
                 }
+                
 
-                if(!optionWord)
+                if (!optionWord)
                 {
                     //Debug.Log("Give new Text not from Option");
                     textTyping[1].text = textManagerScript.sendText(wordLength, wordDifficult);

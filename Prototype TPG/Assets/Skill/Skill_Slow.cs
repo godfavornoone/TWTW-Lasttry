@@ -44,14 +44,14 @@ public class Skill_Slow : MonoBehaviour {
 
 		if(slowTimer >= coolDownSkillSlow){
 			if(Game_Controller.playerInThisMap.SP >= slowMana){
-				if(skill.skillTextTyping[0].text.Equals("slow")){
+				if(skill.skillTextTyping[0].text.Equals("3")){
 					skill.skillTextTyping[0].color = Color.white;
 
 					skill.UseSkill();
 				}
 			}
 		}else{
-			if(skill.skillTextTyping[0].text.Equals("slow")){
+			if(skill.skillTextTyping[0].text.Equals("3")){
 				skill.skillTextTyping[0].color = Color.grey;
 			}
 			slowTimer += Time.deltaTime;

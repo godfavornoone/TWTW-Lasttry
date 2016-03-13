@@ -41,13 +41,13 @@ public class Skill_Heal : MonoBehaviour {
 
         if (healTimer >= coolDownSkillHeal){
 			if(Game_Controller.playerInThisMap.SP >= healMana){
-				if(skill.skillTextTyping[0].text.Equals("heal")){
+				if(skill.skillTextTyping[0].text.Equals("4")){
 					skill.skillTextTyping[0].color = Color.white;
 					skill.UseSkill();
 				}
 			}
 		}else{
-			if(skill.skillTextTyping[0].text.Equals("heal")){
+			if(skill.skillTextTyping[0].text.Equals("4")){
 				skill.skillTextTyping[0].color = Color.grey;
 			}
 			healTimer += Time.deltaTime;
