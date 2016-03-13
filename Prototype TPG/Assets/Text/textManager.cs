@@ -80,9 +80,7 @@ public class textManager : MonoBehaviour {
     //end of stupid
 
     public string[] getQuestionAndAns()
-    {
-        
-        
+    {   
         while(dropchance==indexLastQuestion)
         {
             dropchance = UnityEngine.Random.Range(0, 10);

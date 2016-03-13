@@ -81,7 +81,6 @@ public class Player_Skill : MonoBehaviour {
 				skillTextTyping [1].text = "";
 				localIndexSkill = 0;
 				Game_Controller.indexGlobal = 0;
-
 			}
 		}
 	}

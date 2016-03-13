@@ -18,6 +18,8 @@ TagManager:
   - HealSkill
   - TrapSkill
   - Treasure
+  - QnT
+  - QnTAns
   layers:
   - Default
   - TransparentFX

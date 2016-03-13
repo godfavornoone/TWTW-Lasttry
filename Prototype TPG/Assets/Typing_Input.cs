@@ -59,12 +59,16 @@ public class Typing_Input : MonoBehaviour {
 			Debug.Log(textFieldChar);
             */
 
-            foreach (Player_Skill skill in Skill_Controller.Allskill){
+			foreach (Player_Skill skill in Skill_Controller.Allskill){
 				skill.CheckWrongAllSkill(textFieldChar);
 			}
 
 			foreach(Treasure treasure in Game_Controller.treasureMinigame){
 				treasure.CheckWrongAll(textFieldChar);
+			}
+
+			foreach(QnTChoice QuiznType in Game_Controller.QuizNTypeMinigame){
+				QuiznType.CheckWrongAll(textFieldChar);
 			}
 
 			foreach(Enemy enemy in Game_Controller.enemyInThisMap){
@@ -74,10 +78,14 @@ public class Typing_Input : MonoBehaviour {
 			}
 //			
 
-			if(!Input.GetKeyDown(KeyCode.Space) && !Input.GetKeyDown(KeyCode.Tab) && !Input.GetKeyDown(KeyCode.Mouse0) && !Input.GetKeyDown(KeyCode.Return) && !Input.GetKey(KeyCode.LeftShift) && Game_Controller.chestWrongAll && Game_Controller.wrongAll && Skill_Controller.checkWrongAllSkillInPanel){
+			if(!Input.GetKeyDown(KeyCode.Space) && !Input.GetKeyDown(KeyCode.Tab) && !Input.GetKeyDown(KeyCode.Mouse0) && !Input.GetKeyDown(KeyCode.Return) && !Input.GetKey(KeyCode.LeftShift) && Game_Controller.chestWrongAll && Game_Controller.wrongAll && Skill_Controller.checkWrongAllSkillInPanel && Game_Controller.QnTWrongAll){
 				PlaySound(1);
-			}else if(!Game_Controller.chestWrongAll || !Game_Controller.wrongAll || !Skill_Controller.checkWrongAllSkillInPanel){
-				
+			}else if(!Game_Controller.chestWrongAll || !Game_Controller.wrongAll || !Skill_Controller.checkWrongAllSkillInPanel || !Game_Controller.QnTWrongAll){
+
+				foreach(QnTChoice monQnT in Game_Controller.QuizNTypeMinigame){
+					monQnT.CheckLetter(textFieldChar);
+				}
+
 				foreach(Player_Skill skill in Skill_Controller.Allskill){
 					skill.CheckSkill(textFieldChar);
 				}
@@ -101,6 +109,7 @@ public class Typing_Input : MonoBehaviour {
 
 				Game_Controller.indexGlobal++;
 				Game_Controller.chestWrongAll = true;
+				Game_Controller.QnTWrongAll = true;
 				Game_Controller.wrongAll = true;
 				Skill_Controller.checkWrongAllSkillInPanel = true;	
 			}

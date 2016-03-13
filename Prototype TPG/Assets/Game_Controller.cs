@@ -10,12 +10,16 @@ public class Game_Controller : MonoBehaviour {
 	public GameObject target;
 	List<Vector3> playerStartPosition = new List<Vector3>();
 	public static List<Treasure> treasureMinigame = new List<Treasure> ();
+	public static List<QnTChoice> QuizNTypeMinigame = new List<QnTChoice> ();
 	public static List<GameObject> enemySpawnInMap = new List<GameObject> ();
 	public static List<Enemy> enemySplash = new List<Enemy> ();
 	public static bool oneEnemyWordChange = false;
 	public static bool chestWrongAll = true;
+	public static bool QnTWrongAll = true;
+	public static bool QnTMiniGame = false;
 	public static bool playerInMinigame = false;
 	public static bool oneEnemyDie = false;
+	public static GameObject cameraFirst;
 
 //	public Text_Outline setStroke;
 	public static int indexGlobal = 0;

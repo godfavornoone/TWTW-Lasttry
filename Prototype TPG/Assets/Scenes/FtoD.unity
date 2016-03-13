@@ -1280,6 +1280,48 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: eedb448c42bd7714ebeca8b4561e0a1a, type: 2}
   m_IsPrefabParent: 0
+--- !u!1001 &928894629
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 478002, guid: 1554472e3cdf03d47bcabc9981e6964e, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 48.4000015
+      objectReference: {fileID: 0}
+    - target: {fileID: 478002, guid: 1554472e3cdf03d47bcabc9981e6964e, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -22.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 478002, guid: 1554472e3cdf03d47bcabc9981e6964e, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 478002, guid: 1554472e3cdf03d47bcabc9981e6964e, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 478002, guid: 1554472e3cdf03d47bcabc9981e6964e, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 478002, guid: 1554472e3cdf03d47bcabc9981e6964e, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 478002, guid: 1554472e3cdf03d47bcabc9981e6964e, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 478002, guid: 1554472e3cdf03d47bcabc9981e6964e, type: 2}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 1554472e3cdf03d47bcabc9981e6964e, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1001 &965284827
 Prefab:
   m_ObjectHideFlags: 0
@@ -1600,7 +1642,7 @@ Transform:
   m_Children:
   - {fileID: 1930599393}
   m_Father: {fileID: 0}
-  m_RootOrder: 35
+  m_RootOrder: 36
 --- !u!61 &1040258237
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2284,7 +2326,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 41
+  m_RootOrder: 42
 --- !u!114 &1951183605
 MonoBehaviour:
   m_ObjectHideFlags: 0

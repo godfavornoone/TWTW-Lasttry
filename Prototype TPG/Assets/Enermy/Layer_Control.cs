@@ -6,7 +6,7 @@ public class Layer_Control : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		gameObject.GetComponent<MeshRenderer> ().sortingOrder = 7;
+		gameObject.GetComponent<MeshRenderer> ().sortingOrder = 20;
 	}
 
 }
