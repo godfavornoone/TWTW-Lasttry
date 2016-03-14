@@ -64,7 +64,7 @@ public class QnT : MonoBehaviour {
 		}
 		HPEnemyScript.updateenemyHP(timeHP /maxTimeHP);
 		if(correct){
-			Invoke("WordInstantiate", 2f);
+			Invoke("WordInstantiate", 1f);
 		}
 	}
 

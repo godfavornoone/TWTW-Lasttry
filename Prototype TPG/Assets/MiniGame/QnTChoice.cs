@@ -34,6 +34,7 @@ public class QnTChoice : MonoBehaviour {
 			correct.transform.SetParent(gameObject.transform);
 			QnTScript.correct = true;
 			QnTScript.incorrect = false;
+			indexLocal = 0;
 		}else {
 			Debug.Log("incorrect");
 			QnTScript.incorrect = true;
