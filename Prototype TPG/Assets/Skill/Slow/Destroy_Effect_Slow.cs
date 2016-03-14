@@ -1,17 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Destroy_Effect_Ice : MonoBehaviour {
+public class Destroy_Effect_Slow : MonoBehaviour {
 
-	Skill_Ice requestIceData;
-
-	void Awake(){
-		requestIceData = GameObject.Find ("IceSkillPanel").GetComponent<Skill_Ice> ();
-	}
+	Skill_Slow requestSlowData;
 
 	// Use this for initialization
-	void Start () {
-
+	void Awake () {
+		requestSlowData = GameObject.Find ("SlowSkillPanel").GetComponent<Skill_Slow> ();
 	}
 	
 	// Update is called once per frame
@@ -21,11 +17,10 @@ public class Destroy_Effect_Ice : MonoBehaviour {
 	
 	private IEnumerator AnimateAndDestroy(){
 		yield return new WaitForSeconds (0f);
-		Invoke ("Delay", requestIceData.nowIceTime);
+		Invoke ("Delay", requestSlowData.nowSlowTime);
 	}
-
+	
 	void Delay(){
 		Destroy (gameObject);
 	}
-
 }

@@ -3,6 +3,8 @@ using System.Collections;
 
 public class Skill_Slow : MonoBehaviour {
 
+	public GameObject slowSprite;
+
 	Player_Skill skill;
 	public bool useSlow = false;
 
@@ -14,6 +16,8 @@ public class Skill_Slow : MonoBehaviour {
 	public float slowTimer;
 	public float nowSlowTime = 3f;
     public float slowMana = 100;
+
+	private float tmpspd;
 //	[HideInInspector]
 //	public bool nowSlow = false;
 
@@ -63,26 +67,46 @@ public class Skill_Slow : MonoBehaviour {
 		if(Skill_Controller.nowSlow){
 			if(useSlow){
 				Game_Controller.playerInThisMap.SPReduce(slowMana);
-				useSlow = false;
-			}
-			if(!Skill_Controller.nowIce){
-				foreach(Enemy enemy in Game_Controller.enemyInThisMap){
-					if(enemy.gameObject.activeInHierarchy){
-						enemy.runSpeed = enemy.baseRunSpeed * 0.6f;
-					}
-				}
-				tmpSlowTime += Time.deltaTime;
-				if(tmpSlowTime >= timer){
+//				useSlow = false;
+				if(!Skill_Controller.nowIce){
 					foreach(Enemy enemy in Game_Controller.enemyInThisMap){
-						enemy.runSpeed = enemy.baseRunSpeed;
+						if(enemy.gameObject.activeSelf){
+							Debug.Log(enemy.name);
+							GameObject slowOnEnemy =  Instantiate(slowSprite, enemy.transform.position, Quaternion.identity) as GameObject;
+							slowOnEnemy.transform.SetParent(enemy.transform);
+							tmpspd = enemy.baseRunSpeed;
+						}
 					}
-					Skill_Controller.nowSlow = false;
+					useSlow = false;
+				}
+			}
+//				foreach(Enemy enemy in Game_Controller.enemyInThisMap){
+//					if(enemy.gameObject.activeInHierarchy){
+//						Debug.Log(enemy.name);
+//						GameObject slowOnEnemy =  Instantiate(slowSprite, enemy.transform.position, Quaternion.identity) as GameObject;
+//						slowOnEnemy.transform.SetParent(enemy.transform);
+//						enemy.runSpeed = enemy.baseRunSpeed * 0.6f;
+//					}
+//				}
+			foreach(Enemy enemy in Game_Controller.enemyInThisMap){
+				if(enemy.gameObject.activeSelf){
+					enemy.runSpeed = enemy.baseRunSpeed * 0.6f;
+				}
+			}
+
+			Invoke("ReturnStatus", nowSlowTime);
+//				tmpSlowTime += Time.deltaTime;
+//				if(tmpSlowTime >= timer){
+//					foreach(Enemy enemy in Game_Controller.enemyInThisMap){
+//						enemy.runSpeed = enemy.baseRunSpeed;
+//					}
+//					Skill_Controller.nowSlow = false;
 					//Skill now reduce mana here...It should be up there
 					
-				}
-			}else{
-				Skill_Controller.nowSlow = false;
-			}
+//				}
+//			}else{
+//				Skill_Controller.nowSlow = false;
+//			}
 		}
 	}
 
@@ -92,6 +116,15 @@ public class Skill_Slow : MonoBehaviour {
 			nowSlowTime += 0.5f;
             slowMana += 20;
 			Game_Controller.playerInThisMap.skillPoint--;
+		}
+	}
+
+	void ReturnStatus(){
+		foreach(Enemy enemy in Game_Controller.enemyInThisMap){
+			if(enemy.gameObject.activeSelf){
+				enemy.runSpeed = tmpspd;
+			}
+			Skill_Controller.nowSlow = false;
 		}
 	}
 

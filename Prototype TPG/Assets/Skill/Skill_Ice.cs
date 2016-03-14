@@ -70,6 +70,7 @@ public class Skill_Ice : MonoBehaviour {
 				if(!Skill_Controller.nowSlow){
 					foreach(Enemy enemy in Game_Controller.enemyInThisMap){
 						if(enemy.gameObject.activeSelf){
+							Debug.Log(enemy.name);
 							GameObject iceOnEnemy =  Instantiate(iceSprite, enemy.transform.position, Quaternion.identity) as GameObject;
 							iceOnEnemy.transform.SetParent(enemy.transform);
 							tmpspd = enemy.baseRunSpeed;

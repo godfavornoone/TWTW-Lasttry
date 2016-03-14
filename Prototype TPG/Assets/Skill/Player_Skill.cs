@@ -99,6 +99,7 @@ public class Player_Skill : MonoBehaviour {
             Game_Controller.sameWordNoti.SetActive(false);
             Game_Controller.oneLetterNoti.SetActive(false);
             //StartCoroutine(Game_Controller.fireNotiScript.waitForDisappear());
+			PlaySound(0);
             fire.fireTimer = 0;
 			fire.nowFire = true;
 		}else if(skillName.Equals("2")){
@@ -132,6 +133,7 @@ public class Player_Skill : MonoBehaviour {
             Game_Controller.sameWordNoti.SetActive(false);
             Game_Controller.oneLetterNoti.SetActive(false);
             //StartCoroutine(Game_Controller.knockNotiScript.waitForDisappear());
+			PlaySound(0);
             knock.knockTimer = 0;
 			knock.nowKnock = true;
 		}else if(skillName.Equals("3")){
@@ -147,6 +149,7 @@ public class Player_Skill : MonoBehaviour {
             Game_Controller.sameWordNoti.SetActive(false);
             Game_Controller.oneLetterNoti.SetActive(false);
             //StartCoroutine(Game_Controller.slowNotiScript.waitForDisappear());
+			PlaySound(0);
             slow.slowTimer = 0;
 			slow.tmpSlowTime = 0;
 			Skill_Controller.nowSlow = true;
@@ -180,6 +183,7 @@ public class Player_Skill : MonoBehaviour {
             Game_Controller.sameWordNoti.SetActive(false);
             Game_Controller.oneLetterNoti.SetActive(false);
             //StartCoroutine(Game_Controller.trapNotiScript.waitForDisappear());
+			PlaySound(0);
             trap.trapTimer = 0;
 			trap.nowTrap = true;
 		}

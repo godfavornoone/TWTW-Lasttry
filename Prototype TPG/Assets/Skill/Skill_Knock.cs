@@ -3,6 +3,8 @@ using System.Collections;
 
 public class Skill_Knock : MonoBehaviour {
 
+	public GameObject KnockSprite;
+
 	Player_Skill skill;
 
 	public int knockLVL = 1;
@@ -60,6 +62,7 @@ public class Skill_Knock : MonoBehaviour {
 		if(nowKnock){
 			foreach(Enemy enemy in Game_Controller.enemyInThisMap){
 				if(enemy.gameObject.activeInHierarchy && enemy.gameObject.activeSelf){
+					GameObject KnockEnemy = Instantiate(KnockSprite, enemy.transform.position, Quaternion.identity) as GameObject;
 					if(enemy.distanceBetweenEVP.x == 0){
 						if(enemy.distanceBetweenEVP.y > 0){
 							enemy.transform.position += new Vector3(0,knockLong,0).normalized * knockSpeed * Time.deltaTime;

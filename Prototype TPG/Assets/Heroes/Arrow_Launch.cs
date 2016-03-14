@@ -3,6 +3,8 @@ using System.Collections;
 
 public class Arrow_Launch : MonoBehaviour {
 
+	public AudioClip[] audioClip;
+
 	public GameObject playerArrow;
 
 	// Use this for initialization
@@ -16,12 +18,18 @@ public class Arrow_Launch : MonoBehaviour {
 	}
 
 	public void ShootingArrow(Transform enemy, float angle, string eName){
-
 		GameObject arrow = (GameObject)Instantiate (playerArrow);
 		arrow.transform.position = transform.position;
 		arrow.transform.rotation = Quaternion.Euler (0, 0, angle);
 		Vector2 direction = enemy.position - arrow.transform.position;
 		arrow.GetComponent<Player_Arrow> ().SetDirection (direction, eName);
+		PlaySound (0);
 
+	}
+
+	void PlaySound(int clip){
+		AudioSource audio = GetComponent<AudioSource> ();
+		audio.clip = audioClip[clip];
+		audio.Play ();
 	}
 }

@@ -389,6 +389,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8305e6d6f94b654488db9ef98ec1fdec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TrapDmgSprite: {fileID: 172428, guid: 6211da95bfbbf9e49b593b142ac3709a, type: 2}
+  audioClip: []
   set: 0
   deadSprite: {fileID: 190140, guid: 550124f6d0f0e6b4094ea6437588af6d, type: 2}
   positionBorn: {x: 0, y: 0, z: 0}
@@ -416,6 +418,9 @@ MonoBehaviour:
   textTyping: []
   takedDMG: 0
   optionWord: 0
+  oneLetter: 0
+  sameLetter: 0
+  sameWord: 0
   gameScript: {fileID: 0}
   textManagerScript: {fileID: 0}
   HPEnemyScript: {fileID: 0}
@@ -724,6 +729,10 @@ Prefab:
       propertyPath: m_FontStyle
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: TrapDmgSprite
+      value: 
+      objectReference: {fileID: 172428, guid: 6211da95bfbbf9e49b593b142ac3709a, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 178068}

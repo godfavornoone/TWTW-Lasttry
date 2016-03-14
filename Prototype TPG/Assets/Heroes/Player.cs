@@ -5,6 +5,13 @@ using System.Collections.Generic;
 
 public class Player : MonoBehaviour {
 
+	public AudioClip[] audioClip;
+
+	public GameObject arrow_Hit;
+	public GameObject critical;
+	public GameObject oneLetter;
+	public GameObject sameWord;
+	public GameObject sameLetter;
 	public GameObject attackedByEnemy;
 	public GameObject swordAttack;
 	textManager textscript;
@@ -261,21 +268,27 @@ public class Player : MonoBehaviour {
                         if (enemySplashBySword.sameWord == true)
                         {
                             //Effect of sameWord Option
+							Instantiate(sameWord, enemySplashBySword.transform.position, Quaternion.identity);
                             //Open the sound of sameWord here
+							PlaySound(3);
                             enemySplashBySword.sameWord = false;
                             isOptionActivate = true;
                         }
                         else if (enemySplashBySword.sameLetter == true)
                         {
                             //Effect of sameLetter Option
+							Instantiate(sameLetter, enemySplashBySword.transform.position, Quaternion.identity);
                             //Open the sound of sameLetter here
+							PlaySound(4);
                             enemySplashBySword.sameLetter = false;
                             isOptionActivate = true;
                         }
                         else if (enemySplashBySword.oneLetter == true)
                         {
                             //Effect of oneLetter Option
+							Instantiate(oneLetter, enemySplashBySword.transform.position, Quaternion.identity);
                             //Open the sound of oneLetter here
+							PlaySound(2);
                             enemySplashBySword.oneLetter = false;
                             isOptionActivate = true;
                         }
@@ -283,7 +296,9 @@ public class Player : MonoBehaviour {
                         if (oneTimeOnly == false)
                         {
                             //Effect of critical
+							Instantiate(critical, enemySplashBySword.transform.position, Quaternion.identity);
                             //Open the sound of critical here
+							PlaySound(1);
                             isOptionActivate = true;
                         }
 
@@ -291,6 +306,7 @@ public class Player : MonoBehaviour {
                         {
                             Instantiate(swordAttack, enemySplashBySword.transform.position, Quaternion.identity);
                             //Open the sound of sword hit here
+							PlaySound(0);
                         }
 
                         isOptionActivate = false;
@@ -457,21 +473,27 @@ public class Player : MonoBehaviour {
                 if (enemy.sameWord == true)
                 {
                     //Effect of sameWord Option
+					Instantiate(sameWord, enemy.transform.position, Quaternion.identity);
                     //Open the sound of sameWord here
+					PlaySound(3);
                     enemy.sameWord = false;
                     isOptionActivate = true;
                 }
                 else if (enemy.sameLetter == true)
                 {
                     //Effect of sameLetter Option
+					Instantiate(sameLetter, enemy.transform.position, Quaternion.identity);
                     //Open the sound of sameLetter here
+					PlaySound(4);
                     enemy.sameLetter = false;
                     isOptionActivate = true;
                 }
                 else if (enemy.oneLetter == true)
                 {
                     //Effect of oneLetter Option
+					Instantiate(oneLetter, enemy.transform.position, Quaternion.identity);
                     //Open the sound of oneLetter here
+					PlaySound(2);
                     enemy.oneLetter = false;
                     isOptionActivate = true;
                 }
@@ -479,14 +501,18 @@ public class Player : MonoBehaviour {
                 if (oneTimeOnly == false)
                 {
                     //Effect of critical
+					Instantiate(critical, enemy.transform.position, Quaternion.identity);
                     //Open the sound of critical here
+					PlaySound(1);
                     isOptionActivate = true;
                 }
 
                 if (!isOptionActivate)
                 {
                     //Effect of Arrow hit enemy here
+					Instantiate(arrow_Hit, enemy.transform.position, Quaternion.identity);
                     //Open the sound of Arror hit here
+					PlaySound (5);
                 }
 
                 isOptionActivate = false;
@@ -666,5 +692,11 @@ public class Player : MonoBehaviour {
 		Game_Controller.playerInThisMap.HP = (Game_Controller.playerInThisMap.MaxHP + Game_Controller.playerInThisMap.currentCloth.hitpoint + Game_Controller.playerInThisMap.currentBoot.hitpoint)/2;
 		Application.LoadLevel (sName);
 	}
-	
+
+	void PlaySound(int clip){
+		AudioSource audio = GetComponent<AudioSource> ();
+		audio.clip = audioClip[clip];
+		audio.Play ();
+	}
+
 }

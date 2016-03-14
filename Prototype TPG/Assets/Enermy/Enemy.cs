@@ -4,6 +4,8 @@ using System.Collections.Generic;
 
 public class Enemy : MonoBehaviour {
 
+	public GameObject TrapDmgSprite;
+
 	public AudioClip[] audioClip;
 
 	public int set;
@@ -141,6 +143,7 @@ public class Enemy : MonoBehaviour {
 			}
 		}
 		if(other.gameObject.tag == "Trap"){
+			GameObject trapSprite = Instantiate(TrapDmgSprite, gameObject.transform.position, Quaternion.identity) as GameObject;
 			HpDown(Skill_Controller.trapDmg);
             Vector3 a = gameObject.transform.position;
             a.y += 1.7f;
