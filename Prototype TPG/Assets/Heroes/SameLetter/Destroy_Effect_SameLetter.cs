@@ -14,7 +14,7 @@ public class Destroy_Effect_SameLetter : MonoBehaviour {
 	}
 	
 	private IEnumerator AnimateAndDestroy(){
-		yield return new WaitForSeconds (0.2f);
+		yield return new WaitForSeconds (0.1f);
 		Destroy (gameObject);
 	}
 }

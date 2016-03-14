@@ -351,6 +351,18 @@ public class Enemy : MonoBehaviour {
                 
 				textTyping [0].text = "";
 
+
+                foreach (Enemy enemy in Game_Controller.enemyInThisMap)
+                {
+                    enemy.textTyping[0].text = "";
+                    enemy.indexLocal = 0;
+                }
+                foreach (Player_Skill skill in Skill_Controller.Allskill)
+                {
+                    skill.skillTextTyping[1].text = "";
+                    skill.localIndexSkill = 0;
+                }
+
                 //Start with One Letter Option
                 int chance;
                 bool oneOptiononly = true;
@@ -850,7 +862,9 @@ public class Enemy : MonoBehaviour {
 				indexLocal = 0;
 				Game_Controller.indexGlobal = 0;
 
-			}
+
+
+            }
 
 
 		} else {
