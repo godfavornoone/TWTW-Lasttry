@@ -560,6 +560,8 @@ public class Player : MonoBehaviour {
         SwordAtk = baseSwordAtk+BonusSwordAtkperLevel;
 		lvl = baselvl; //เลเวลเริ่มต้น
 		lvlup = baselvlup * lvl; //100*1
+        historyWeaknesses.Clear();
+        historyWPM.Clear();
 	}
     
 	

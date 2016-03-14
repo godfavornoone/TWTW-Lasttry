@@ -10,16 +10,17 @@ public class QnTChoice : MonoBehaviour {
 	public TextMesh[] textTyping;
 	private int indexLocal = 0;
 	QnT QnTScript;
+    public Game_Controller gameScript;
 
-	// Use this for initialization
-	void Awake(){
+    // Use this for initialization
+    void Awake(){
 		QnTScript = GameObject.Find ("QnT").GetComponent<QnT> ();
 		textTyping = GetComponentsInChildren<TextMesh> ();
 	}
 
 	void Start () {
-
-	}
+        gameScript = GameObject.Find("Game_Controller").GetComponent<Game_Controller>();
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -35,7 +36,18 @@ public class QnTChoice : MonoBehaviour {
 			QnTScript.correct = true;
 			QnTScript.incorrect = false;
 			indexLocal = 0;
-		}else {
+            int dropchance = Random.Range(0, 100);
+            //Debug.Log("dropChance is: " + dropchance);
+            //Debug.Log("dropRate is: " + dropRate);
+            if (dropchance <= QnTScript.dropRate)
+            {
+                //Debug.Log("YEEEEE");
+                int item = Random.Range(0, 20);
+                Instantiate(gameScript.itemPrefab[item], QnTScript.gameObject.transform.position, Quaternion.identity);
+
+            }
+        }
+        else {
 			Debug.Log("incorrect");
 			QnTScript.incorrect = true;
 			WordInstantiate();

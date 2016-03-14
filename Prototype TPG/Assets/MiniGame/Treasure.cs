@@ -73,8 +73,19 @@ public class Treasure : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D other){
 		if(other.gameObject.tag == "Player"){
-			textTyping [1].color = Color.white;
+
+            foreach (Enemy enemy in Game_Controller.enemyInThisMap)
+            {
+                enemy.textTyping[0].text = "";
+                enemy.indexLocal = 0;
+            }
+
+            Game_Controller.indexGlobal = 0;
+
+            textTyping [1].color = Color.white;
 			Game_Controller.playerInMinigame = true;
+
+
 		}
 	}
 
@@ -89,7 +100,14 @@ public class Treasure : MonoBehaviour {
 		if(other.gameObject.tag == "Player"){
 			textTyping[1].color = Color.grey;
 			Game_Controller.playerInMinigame = false;
-		}
+
+            
+            textTyping[0].text = "";
+            indexLocal = 0;
+            
+            Game_Controller.indexGlobal = 0;
+
+        }
 	}
 	
 
@@ -167,12 +185,14 @@ public class Treasure : MonoBehaviour {
 			treasureOpen.SetBool("Open", true);
 			textTyping[1].text = "";
 			textTyping[0].text = " ";
-			Invoke("CloseChest", 3f);
-		}
+            Game_Controller.indexGlobal = 0;
+            Invoke("CloseChest", 3f);
+            
+        }
 	}
 
 	void CloseChest(){
-		Game_Controller.indexGlobal = 0;
+		
 		Game_Controller.playerInMinigame = false;
 		gameObject.SetActive(false);
 	}

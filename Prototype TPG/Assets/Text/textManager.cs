@@ -504,15 +504,20 @@ public class textManager : MonoBehaviour {
             Weaknesscollection.Add(chartop2);
             Weaknesscollection.Add(chartop3);
 
-           
 
+
+            chartop1 = null;
+            chartop2 = null;
+            chartop3 = null;
+            chartoptop1 = null;
+            chartoptop2 = null;
+            chartoptop3 = null;
             top1 = 0;
             top2 = 0;
             top3 = 0;
-
-            chartop1 = "";
-            chartop2 = "";
-            chartop3 = "";
+            toptop1 = 0;
+            toptop2 = 0;
+            toptop3 = 0;
 
             CPM = 0;
             WPM = 0;
@@ -595,6 +600,18 @@ public class textManager : MonoBehaviour {
 
         int x = WPMcollection.Count;
         WPMcollection.Clear();
+        chartop1 = null;
+        chartop2 = null;
+        chartop3 = null;
+        chartoptop1 = null;
+        chartoptop2 = null;
+        chartoptop3 = null;
+        top1 = 0;
+        top2 = 0;
+        top3 = 0;
+        toptop1 = 0;
+        toptop2 = 0;
+        toptop3 = 0;
         if(x==0)
         {
             return 0;
@@ -643,7 +660,20 @@ public class textManager : MonoBehaviour {
         weakness += chartoptop1;
         weakness += chartoptop2;
         weakness += chartoptop3;
-        
+
+        chartop1 = null;
+        chartop2 = null;
+        chartop3 = null;
+        chartoptop1 = null;
+        chartoptop2 = null;
+        chartoptop3 = null;
+        top1 = 0;
+        top2 = 0;
+        top3 = 0;
+        toptop1 = 0;
+        toptop2 = 0;
+        toptop3 = 0;
+
         Weaknesscollection.Clear();
 
         return weakness;

@@ -79,7 +79,7 @@ public class NPCManager : MonoBehaviour {
     {
 
         Game_Controller.playerInThisMap.transform.position = new Vector3(-1827f, -1542f, 0f);
-
+        Debug.Log("FUCK COUNT: " + Game_Controller.playerInThisMap.historyWeaknesses.Count);
         //Analysis แมพสุดท้ายอ่ะจ้ะ...
         a.Analysis();
         string b = a.computeWeakness();
@@ -93,15 +93,19 @@ public class NPCManager : MonoBehaviour {
 
         Game_Controller.playerInThisMap.historyWeaknesses.Add(b);
         Game_Controller.playerInThisMap.historyWPM.Add(WPM);
+        Debug.Log(WPM);
         //เอาไอ่บ้านี้ไว้ดึงศัพท์นะ...
         SaveData.Save("top3Weakness", b);
+
+        Debug.Log("FUCK COUNT: " + Game_Controller.playerInThisMap.historyWeaknesses.Count);
 
         //ดาบ
 
         //ก็ถ้ามันไม่มีดาบ มันก็จะไม่มีชื่อ =3=
         //มีตัวแปรชื่อ haveCurrentSword ไรงี้มะ ถ้าไม่มี ก็ไม่ต้องยุ่งอะไรกับ Key ของ Sword ตรงนี้ทั้งหมด
         //ถ้ามีค่อยยุ่งไรงี้ ??
-        if(Game_Controller.playerInThisMap.currentSword.damage!=0)
+
+        if (Game_Controller.playerInThisMap.currentSword.damage!=0)
         {
             SaveData.Save("HasSword", true);
             SaveData.Save("SwordImage", Game_Controller.playerInThisMap.currentSword.image.name);
@@ -122,8 +126,10 @@ public class NPCManager : MonoBehaviour {
         {
             SaveData.Save("HasSword", false);
         }
-        
-        if(Game_Controller.playerInThisMap.currentBow.damage!=0)
+
+        Debug.Log("FUCK COUNT: " + Game_Controller.playerInThisMap.historyWeaknesses.Count);
+
+        if (Game_Controller.playerInThisMap.currentBow.damage!=0)
         {
             SaveData.Save("HasBow", true);
             //ธนู
@@ -145,8 +151,10 @@ public class NPCManager : MonoBehaviour {
         {
             SaveData.Save("HasBow", false);
         }
-        
-        if(Game_Controller.playerInThisMap.currentCloth.hitpoint!=0)
+
+        Debug.Log("FUCK COUNT: " + Game_Controller.playerInThisMap.historyWeaknesses.Count);
+
+        if (Game_Controller.playerInThisMap.currentCloth.hitpoint!=0)
         {
             SaveData.Save("HasCloth", true);
             //เสื้อ
@@ -194,7 +202,7 @@ public class NPCManager : MonoBehaviour {
         }
 
 
-
+        Debug.Log("FUCK COUNT: " + Game_Controller.playerInThisMap.historyWeaknesses.Count);
 
         //ถ้าไม่มีของในช่องนั้นต้องลบ Key นั้นออกไปด้วยอ่ะ....ไม่งั้นนะ มันจะวุ่นมั้ง
         for (int i = 0;i<inv.slotAmount;i++)
@@ -235,8 +243,12 @@ public class NPCManager : MonoBehaviour {
             }
         }
 
+        Debug.Log("FUCK COUNT: " + Game_Controller.playerInThisMap.historyWeaknesses.Count);
+
         //สมมติว่า 5 เงี้ย มันก็จะวิ่งตั้งแต่ 0 - 4 นะ
         SaveData.Save("indexOfHistoryTyping", Game_Controller.playerInThisMap.historyWeaknesses.Count);
+
+        Debug.Log(Game_Controller.playerInThisMap.historyWeaknesses.Count);
 
         for(int i =0;i<Game_Controller.playerInThisMap.historyWeaknesses.Count;i++)
         {
@@ -434,8 +446,8 @@ public class NPCManager : MonoBehaviour {
 
         for (int i = 0; i < Game_Controller.playerInThisMap.historyWeaknesses.Count; i++)
         {
-            string key = "WPM" + i;
-            string key2 = "Weakness" + i;
+            //string key = "WPM" + i;
+            //string key2 = "Weakness" + i;
 
             //Debug.Log(key+" " +Game_Controller.playerInThisMap.historyWeaknesses[i]);
             //Debug.Log(key2+" "+Game_Controller.playerInThisMap.historyWPM[i]);

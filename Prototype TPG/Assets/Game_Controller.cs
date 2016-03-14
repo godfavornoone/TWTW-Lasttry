@@ -372,6 +372,7 @@ public class Game_Controller : MonoBehaviour {
             temp--;
         }
 
+       
         Time.timeScale = 0;
         typingProgressMenu.SetActive(true);
         blackScene.SetActive(true);
@@ -889,6 +890,9 @@ public class Game_Controller : MonoBehaviour {
         Game_Controller.blackScene.SetActive(false);
         Game_Controller.LoadScene.SetActive(true);
         //playerInThisMap.gameObject.transform.position = new Vector3(-1827f, -1542f, 0f);
+
+        playerInThisMap.historyWPM.Clear();
+        playerInThisMap.historyWeaknesses.Clear();
 
         gameDiff = tempGameDiff;
         wordDiff = SaveData.Load("currentWordDifficulty", 1, true);

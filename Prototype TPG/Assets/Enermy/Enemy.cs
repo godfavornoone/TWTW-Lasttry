@@ -64,7 +64,7 @@ public class Enemy : MonoBehaviour {
 	[HideInInspector]
 	public TextMesh[] textTyping;
 	private char[] charStorage;
-	private int indexLocal = 0;
+	public int indexLocal = 0;
 	private float distanceAttack;
 	[HideInInspector]
 	public bool takedDMG = false;
