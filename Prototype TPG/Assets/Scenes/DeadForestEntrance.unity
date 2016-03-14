@@ -1194,10 +1194,10 @@ MonoBehaviour:
   World1choice2: '....'
   World2choice: ignore
   World2choice2: slap
-  World1TextonDetail1: -Only way to go is to the Crypt
-  World1TextonDetail2: -Only way to go is to the Crypt
-  World2TextonDetail1: -Only way to go is to the Crypt
-  World2TextonDetail2: -Only way to go is to the Crypt
+  World1TextonDetail1: -Only way to go is to the Crypt and find Delonse
+  World1TextonDetail2: -Only way to go is to the Crypt and find Delonse
+  World2TextonDetail1: -Only way to go is to the Crypt and find Delonse
+  World2TextonDetail2: -Only way to go is to the Crypt and find Delonse
   World1warpPoint: {fileID: 1422099139}
   World1warpPoint2: {fileID: 1422099139}
   World2warpPoint: {fileID: 1422099139}

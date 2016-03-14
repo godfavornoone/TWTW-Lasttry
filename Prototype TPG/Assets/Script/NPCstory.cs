@@ -65,7 +65,7 @@ public class NPCstory : MonoBehaviour {
 
         //Debug.Log(other.gameObject.tag);
 
-        if (other.gameObject.tag == "Player")
+        if (other.gameObject.tag == "Player" && i==0)
         {
             check = true;
             

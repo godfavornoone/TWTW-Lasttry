@@ -448,8 +448,13 @@ public class Game_Controller : MonoBehaviour {
         }
 
         //อย่าลืมไปใส่อีกที่ แต่นั่นไม่น่าเกิด เพราะน่าจะตายรัวๆอ่ะ -....-
-        Game_Controller.playerInThisMap.historyWeaknesses.Add(b);
-        Game_Controller.playerInThisMap.historyWPM.Add(WPM);
+        if(WPM!=0)
+        {
+            Game_Controller.playerInThisMap.historyWeaknesses.Add(b);
+            Game_Controller.playerInThisMap.historyWPM.Add(WPM);
+        }
+        
+        
         //เอาไอ่บ้านี้ไว้ดึงศัพท์นะ...
         SaveData.Save("top3Weakness", b);
 

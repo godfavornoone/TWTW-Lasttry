@@ -94,7 +94,7 @@ public class Treasure : MonoBehaviour {
 	
 
 	void realStatus(int gameDifficult){
-		timeHP = baseTimeHP * gameDifficult;
+		timeHP = baseTimeHP;
 		maxTimeHP = timeHP;
         dropRate = baseDropRate + (gameDifficult * 2);
 	}

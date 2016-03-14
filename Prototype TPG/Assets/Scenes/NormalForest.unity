@@ -661,10 +661,10 @@ MonoBehaviour:
   World1choice2: No
   World2choice: yes
   World2choice2: No
-  World1TextonDetail1: -Go to east fortress and destroy them all
-  World1TextonDetail2: -Go to east fortress and make them feel
-  World2TextonDetail1: -Go to top fortress and...you know
-  World2TextonDetail2: -Go to top fortress and...yes!
+  World1TextonDetail1: -Go to east fortress and destroy them all and find Red Hair
+  World1TextonDetail2: -Go to east fortress and make them feel and find Red Hair
+  World2TextonDetail1: -Go to top fortress and...you know and find Marmin
+  World2TextonDetail2: -Go to top fortress and...yes! and find Marmin
   World1warpPoint: {fileID: 1057494636}
   World1warpPoint2: {fileID: 1057494636}
   World2warpPoint: {fileID: 12574868}

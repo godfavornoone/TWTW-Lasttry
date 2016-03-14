@@ -345,10 +345,10 @@ MonoBehaviour:
   World1choice2: Don't Go
   World2choice: Ignore
   World2choice2: Yes
-  World1TextonDetail1: -Go to Dead Forest on top of the village
-  World1TextonDetail2: -Go to the east forest and find the clue
-  World2TextonDetail1: -Go to Dead forest and investigate it!
-  World2TextonDetail2: -Go to Desert of Dead to find out
+  World1TextonDetail1: -Go to Dead Forest on top of the village and find Marmin
+  World1TextonDetail2: -Go to the east forest and find the clue and find Sir. Vinctus
+  World2TextonDetail1: -Go to Dead forest and investigate it! and find crying baby
+  World2TextonDetail2: -Go to Desert of Dead to find out and find Red Hair
   World1warpPoint: {fileID: 1307211907}
   World1warpPoint2: {fileID: 1854590256}
   World2warpPoint: {fileID: 1307211907}

@@ -790,10 +790,10 @@ MonoBehaviour:
   World1choice2: Leave
   World2choice: Take him
   World2choice2: Leave
-  World1TextonDetail1: -Only deep desert wait for you
-  World1TextonDetail2: -Only deep desert wait for you
-  World2TextonDetail1: -Only deep desert wait for you
-  World2TextonDetail2: -Only deep desert wait for you
+  World1TextonDetail1: -Only deep desert wait for you and find Veleona
+  World1TextonDetail2: -Only deep desert wait for you and find Veleona
+  World2TextonDetail1: -Only deep desert wait for you and find Veleona
+  World2TextonDetail2: -Only deep desert wait for you and find Veleona
   World1warpPoint: {fileID: 1942102301}
   World1warpPoint2: {fileID: 1942102301}
   World2warpPoint: {fileID: 1942102301}
