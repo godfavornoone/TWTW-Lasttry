@@ -89,7 +89,9 @@ public class Skill_Slow : MonoBehaviour {
 //					}
 //				}
 			foreach(Enemy enemy in Game_Controller.enemyInThisMap){
-				if(enemy.gameObject.activeSelf){
+				if(enemy.gameObject.activeSelf && Skill_Controller.nowIce){
+					enemy.runSpeed = enemy.runSpeed * 0.6f;
+				}else{
 					enemy.runSpeed = enemy.baseRunSpeed * 0.6f;
 				}
 			}
