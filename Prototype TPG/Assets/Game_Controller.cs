@@ -315,9 +315,9 @@ public class Game_Controller : MonoBehaviour {
 	void Update(){
 		if (!nowScene.Equals ("Town")) {
 			foreach(Enemy enemy in enemyInThisMap){
-				if(enemy.set == 0 && !playerInMinigame){
+				if(enemy.set == 0 && !playerInMinigame && !QnTMiniGame){
 					enemy.DistanceToBorn();	
-				}else if(playerInMinigame){
+				}else if(playerInMinigame || QnTMiniGame){
 					enemy.DisableInMinigame();
 				}
 			}
