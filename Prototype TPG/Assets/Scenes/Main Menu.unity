@@ -3730,7 +3730,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 2129493125}
   m_Direction: 2
   m_Value: 1
-  m_Size: .0442033298
+  m_Size: .0442033336
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -8791,7 +8791,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 832679192}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.671999991, y: .592999995, z: 0}
+  m_LocalPosition: {x: -.533999979, y: .536000013, z: 0}
   m_LocalScale: {x: .112567782, y: .11256782, z: .225135639}
   m_Children: []
   m_Father: {fileID: 1081503782}
@@ -8849,7 +8849,7 @@ TextMesh:
   m_Anchor: 0
   m_Alignment: 0
   m_TabSize: 4
-  m_FontSize: 30
+  m_FontSize: 20
   m_FontStyle: 0
   m_RichText: 1
   m_Font: {fileID: 12800000, guid: 799fbb1aef11558428ed98b1f039e116, type: 3}
@@ -9582,7 +9582,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 918913849}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.800999999, y: .592999995, z: 0}
+  m_LocalPosition: {x: -.573000014, y: .528999984, z: 0}
   m_LocalScale: {x: .112567782, y: .11256782, z: .225135639}
   m_Children: []
   m_Father: {fileID: 1081503782}
@@ -9640,7 +9640,7 @@ TextMesh:
   m_Anchor: 0
   m_Alignment: 0
   m_TabSize: 4
-  m_FontSize: 30
+  m_FontSize: 20
   m_FontStyle: 0
   m_RichText: 1
   m_Font: {fileID: 12800000, guid: 799fbb1aef11558428ed98b1f039e116, type: 3}
@@ -11342,7 +11342,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 534501578}
   m_Direction: 2
   m_Value: 1
-  m_Size: .0442033298
+  m_Size: .0442033336
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -18059,6 +18059,18 @@ Prefab:
       propertyPath: m_FontSize
       value: 30
       objectReference: {fileID: 0}
+    - target: {fileID: 11431058, guid: 931bd3d86651c674fa5bbb33b2f90d64, type: 2}
+      propertyPath: BonusSwordAtkperLevel
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11431058, guid: 931bd3d86651c674fa5bbb33b2f90d64, type: 2}
+      propertyPath: BonusBowAtkperLevel
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11431058, guid: 931bd3d86651c674fa5bbb33b2f90d64, type: 2}
+      propertyPath: baseSwordAtk
+      value: 50
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 931bd3d86651c674fa5bbb33b2f90d64, type: 2}
   m_IsPrefabParent: 0
@@ -19347,7 +19359,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2029646365}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.711000025, y: .606000006, z: 0}
+  m_LocalPosition: {x: -.547999978, y: .524999976, z: 0}
   m_LocalScale: {x: .112567782, y: .11256782, z: .225135639}
   m_Children: []
   m_Father: {fileID: 1081503782}
@@ -19405,7 +19417,7 @@ TextMesh:
   m_Anchor: 0
   m_Alignment: 0
   m_TabSize: 4
-  m_FontSize: 30
+  m_FontSize: 20
   m_FontStyle: 0
   m_RichText: 1
   m_Font: {fileID: 12800000, guid: 799fbb1aef11558428ed98b1f039e116, type: 3}
