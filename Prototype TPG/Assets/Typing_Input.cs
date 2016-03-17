@@ -45,7 +45,7 @@ public class Typing_Input : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.Escape)){
 			Game_Controller.ESC = true;
 
-		}else if (!Input.GetKeyDown(KeyCode.LeftShift) && !Input.GetKeyDown(KeyCode.Tab) && !Input.GetKeyDown(KeyCode.Mouse0) && Input.anyKeyDown && !Input.GetKeyDown(KeyCode.DownArrow) && !Input.GetKeyDown(KeyCode.UpArrow) && !Input.GetKeyDown(KeyCode.LeftArrow) && !Input.GetKeyDown(KeyCode.RightArrow)) {
+		}else if (!Input.GetKey(KeyCode.LeftShift) && !Input.GetKeyDown(KeyCode.Tab) && !Input.GetKeyDown(KeyCode.Mouse0) && Input.anyKeyDown && !Input.GetKeyDown(KeyCode.DownArrow) && !Input.GetKeyDown(KeyCode.UpArrow) && !Input.GetKeyDown(KeyCode.LeftArrow) && !Input.GetKeyDown(KeyCode.RightArrow)) {
 
             //ตอนแรกมัน GetKeyDown LeftShift อ่ะ
 

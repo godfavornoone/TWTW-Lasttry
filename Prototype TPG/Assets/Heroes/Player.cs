@@ -122,7 +122,16 @@ public class Player : MonoBehaviour {
 	//Player Controller
 	void Player_Movement(){
 		Vector2 movement_vector = new Vector2 (Input.GetAxisRaw ("Horizontal"), Input.GetAxisRaw ("Vertical"));
-		if(Input.GetKeyDown(KeyCode.LeftShift)){
+		if(Input.GetKey(KeyCode.LeftShift)){
+			if(movement_vector != Vector2.zero){
+				anim.SetBool ("Walking", true);
+				anim.SetFloat ("SpeedX", movement_vector.x);
+				anim.SetFloat ("SpeedY", movement_vector.y);
+				rbd2D.MovePosition (rbd2D.position + movement_vector * speed * Time.deltaTime);
+			}else{
+				anim.SetBool("Walking",false);
+			}
+		}else if(!Input.GetKey(KeyCode.LeftShift) && (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.RightArrow))){
 			if(movement_vector != Vector2.zero){
 				anim.SetBool ("Walking", true);
 				anim.SetFloat ("SpeedX", movement_vector.x);

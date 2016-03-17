@@ -176,26 +176,26 @@ public class Enemy : MonoBehaviour {
 	
 	//Enemy Attack
 	void OnCollisionStay2D(Collision2D other){
-		if(other.gameObject.tag == "Player"){
+		if (other.gameObject.tag == "Player") {
 			enemy_Anim.SetBool ("Walk_Left", false);
 			enemy_Anim.SetBool ("Walk_Right", false);
 			enemy_Anim.SetBool ("Walk_Down", false);
 			enemy_Anim.SetBool ("Walk_Up", false);
-			 walk = false;
+			walk = false;
 			Game_Controller.enemyStruckPlayer = true;
 			struckPlayer = true;
-			if(Time.time > nextAtk){
-				nextAtk = Time.time +  baseAspd;
-				Game_Controller.playerInThisMap.EnemyAttacked( Attack);
+			if (Time.time > nextAtk) {
+				nextAtk = Time.time + baseAspd;
+				Game_Controller.playerInThisMap.EnemyAttacked (Attack);
 			}
-		}else if(other.gameObject.tag == "Enemy" && Game_Controller.enemyStruckPlayer && !struckPlayer){
+		} else if (other.gameObject.tag == "Enemy" && Game_Controller.enemyStruckPlayer && !struckPlayer) {
 			enemy_Anim.SetBool ("Walk_Left", false);
 			enemy_Anim.SetBool ("Walk_Right", false);
 			enemy_Anim.SetBool ("Walk_Down", false);
 			enemy_Anim.SetBool ("Walk_Up", false);
-			 walk = false;
-		}else if(other.gameObject.tag == "Enemy" && !Game_Controller.enemyStruckPlayer && !struckPlayer){
-			 walk = true;
+			walk = false;
+		} else if (other.gameObject.tag == "Enemy" && !Game_Controller.enemyStruckPlayer && !struckPlayer) {
+			walk = true;
 		}
 	}
 	
@@ -223,8 +223,6 @@ public class Enemy : MonoBehaviour {
         
         hitPoint = hitPoint - dmg;
 
-		walk = true;
-
         if (optionWord) //start here if it false go ELSE
         {
             optionWord = false;
@@ -233,7 +231,6 @@ public class Enemy : MonoBehaviour {
         {
             textManagerScript.returnText(textTyping[1].text, wordDifficult);
         }
-
 
         if (hitPoint <= 0){
 			Game_Controller.enemyStruckPlayer = false;
@@ -271,8 +268,13 @@ public class Enemy : MonoBehaviour {
 
             }
 			Game_Controller.enemyInThisMap.Remove(gameObject.GetComponent<Enemy>());
-			Game_Controller.enemyStruckPlayer = false;
-
+			foreach(Enemy enemy in Game_Controller.enemyInThisMap){
+				if(enemy.gameObject.activeInHierarchy || enemy.gameObject.activeSelf){
+					enemy.walk = true;
+					enemy.struckPlayer = false;
+					Game_Controller.enemyStruckPlayer = false;
+				}
+			}
 //			Instantiate (deadSprite, transform.position, Quaternion.identity);
 			Invoke("DelayDead", 0.1f);
 			Invoke("DelayDestroyForEffect", 0.2f);
