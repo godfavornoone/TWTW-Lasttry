@@ -100,7 +100,6 @@ public class Skill_Ice : MonoBehaviour {
 //                nowIce = false;
 //                
 //            }
-            
 		}
 	}
 

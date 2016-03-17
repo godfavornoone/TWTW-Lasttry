@@ -122,16 +122,12 @@ public class Player : MonoBehaviour {
 	//Player Controller
 	void Player_Movement(){
 		Vector2 movement_vector = new Vector2 (Input.GetAxisRaw ("Horizontal"), Input.GetAxisRaw ("Vertical"));
-		if (Input.GetKey (KeyCode.LeftShift)) {
-			if (movement_vector != Vector2.zero) {
-				anim.SetBool ("Walking", true);
-				anim.SetFloat ("SpeedX", movement_vector.x);
-				anim.SetFloat ("SpeedY", movement_vector.y);
-				rbd2D.MovePosition (rbd2D.position + movement_vector * speed * Time.deltaTime);
-			}else{
-				anim.SetBool ("Walking", false);
-			}
-		} else {
+		if (movement_vector != Vector2.zero) {
+			anim.SetBool ("Walking", true);
+			anim.SetFloat ("SpeedX", movement_vector.x);
+			anim.SetFloat ("SpeedY", movement_vector.y);
+			rbd2D.MovePosition (rbd2D.position + movement_vector * speed * Time.deltaTime);
+		}else{
 			anim.SetBool ("Walking", false);
 		}
 	}
@@ -268,7 +264,8 @@ public class Player : MonoBehaviour {
                         if (enemySplashBySword.sameWord == true)
                         {
                             //Effect of sameWord Option
-							Instantiate(sameWord, enemySplashBySword.transform.position, Quaternion.identity);
+							GameObject tmpSWordSprite =  Instantiate(sameWord, enemySplashBySword.transform.position, Quaternion.identity) as GameObject;
+							tmpSWordSprite.transform.SetParent(enemySplashBySword.transform);
                             //Open the sound of sameWord here
 							PlaySound(3);
                             enemySplashBySword.sameWord = false;
@@ -277,7 +274,8 @@ public class Player : MonoBehaviour {
                         else if (enemySplashBySword.sameLetter == true)
                         {
                             //Effect of sameLetter Option
-							Instantiate(sameLetter, enemySplashBySword.transform.position, Quaternion.identity);
+							GameObject tmpSLetSprite = Instantiate(sameLetter, enemySplashBySword.transform.position, Quaternion.identity) as GameObject;
+							tmpSLetSprite.transform.SetParent(enemySplashBySword.transform);
                             //Open the sound of sameLetter here
 							PlaySound(4);
                             enemySplashBySword.sameLetter = false;
@@ -286,8 +284,9 @@ public class Player : MonoBehaviour {
                         else if (enemySplashBySword.oneLetter == true)
                         {
                             //Effect of oneLetter Option
-							Instantiate(oneLetter, enemySplashBySword.transform.position, Quaternion.identity);
-                            //Open the sound of oneLetter here
+							GameObject tmpOLetSprite = Instantiate(oneLetter, enemySplashBySword.transform.position, Quaternion.identity) as GameObject;
+							tmpOLetSprite.transform.SetParent(enemySplashBySword.transform);
+							//Open the sound of oneLetter here
 							PlaySound(2);
                             enemySplashBySword.oneLetter = false;
                             isOptionActivate = true;
@@ -473,8 +472,9 @@ public class Player : MonoBehaviour {
                 if (enemy.sameWord == true)
                 {
                     //Effect of sameWord Option
-					Instantiate(sameWord, enemy.transform.position, Quaternion.identity);
-                    //Open the sound of sameWord here
+					GameObject tmpSWordSptite = Instantiate(sameWord, enemy.transform.position, Quaternion.identity) as GameObject;
+					tmpSWordSptite.transform.SetParent(enemy.transform);
+					//Open the sound of sameWord here
 					PlaySound(3);
                     enemy.sameWord = false;
                     isOptionActivate = true;
@@ -482,8 +482,9 @@ public class Player : MonoBehaviour {
                 else if (enemy.sameLetter == true)
                 {
                     //Effect of sameLetter Option
-					Instantiate(sameLetter, enemy.transform.position, Quaternion.identity);
-                    //Open the sound of sameLetter here
+					GameObject tmpSLetSprite = Instantiate(sameLetter, enemy.transform.position, Quaternion.identity) as GameObject;
+					tmpSLetSprite.transform.SetParent(enemy.transform);
+					//Open the sound of sameLetter here
 					PlaySound(4);
                     enemy.sameLetter = false;
                     isOptionActivate = true;
@@ -491,8 +492,9 @@ public class Player : MonoBehaviour {
                 else if (enemy.oneLetter == true)
                 {
                     //Effect of oneLetter Option
-					Instantiate(oneLetter, enemy.transform.position, Quaternion.identity);
-                    //Open the sound of oneLetter here
+					GameObject tmpOLetSprite = Instantiate(oneLetter, enemy.transform.position, Quaternion.identity) as GameObject;
+					tmpOLetSprite.transform.SetParent(enemy.transform);
+					//Open the sound of oneLetter here
 					PlaySound(2);
                     enemy.oneLetter = false;
                     isOptionActivate = true;

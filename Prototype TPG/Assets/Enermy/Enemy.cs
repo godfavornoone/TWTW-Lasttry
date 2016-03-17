@@ -223,6 +223,8 @@ public class Enemy : MonoBehaviour {
         
         hitPoint = hitPoint - dmg;
 
+		walk = true;
+
         if (optionWord) //start here if it false go ELSE
         {
             optionWord = false;

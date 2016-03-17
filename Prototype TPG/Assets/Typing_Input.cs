@@ -45,7 +45,7 @@ public class Typing_Input : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.Escape)){
 			Game_Controller.ESC = true;
 
-		}else if (!Input.GetKey(KeyCode.LeftShift) && !Input.GetKeyDown(KeyCode.Tab) && !Input.GetKeyDown(KeyCode.Mouse0) && Input.anyKeyDown) {
+		}else if (!Input.GetKeyDown(KeyCode.Tab) && !Input.GetKeyDown(KeyCode.Mouse0) && Input.anyKeyDown && !Input.GetKeyDown(KeyCode.DownArrow) && !Input.GetKeyDown(KeyCode.UpArrow) && !Input.GetKeyDown(KeyCode.LeftArrow) && !Input.GetKeyDown(KeyCode.RightArrow)) {
 
             //ตอนแรกมัน GetKeyDown LeftShift อ่ะ
 
@@ -78,7 +78,7 @@ public class Typing_Input : MonoBehaviour {
 			}
 //			
 
-			if(!Input.GetKeyDown(KeyCode.Space) && !Input.GetKeyDown(KeyCode.Tab) && !Input.GetKeyDown(KeyCode.Mouse0) && !Input.GetKeyDown(KeyCode.Return) && !Input.GetKey(KeyCode.LeftShift) && Game_Controller.chestWrongAll && Game_Controller.wrongAll && Skill_Controller.checkWrongAllSkillInPanel && Game_Controller.QnTWrongAll){
+			if(!Input.GetKeyDown(KeyCode.Space) && !Input.GetKeyDown(KeyCode.Tab) && !Input.GetKeyDown(KeyCode.Mouse0) && !Input.GetKeyDown(KeyCode.Return) && Game_Controller.chestWrongAll && Game_Controller.wrongAll && Skill_Controller.checkWrongAllSkillInPanel && Game_Controller.QnTWrongAll){
 				PlaySound(1);
 			}else if(!Game_Controller.chestWrongAll || !Game_Controller.wrongAll || !Skill_Controller.checkWrongAllSkillInPanel || !Game_Controller.QnTWrongAll){
 
@@ -91,7 +91,7 @@ public class Typing_Input : MonoBehaviour {
 				}
 				
 				foreach(Enemy enemy in Game_Controller.enemyInThisMap){
-					if(enemy.gameObject.activeInHierarchy && enemy.gameObject.activeSelf){
+					if(enemy.gameObject.activeInHierarchy && enemy.gameObject.activeSelf && Skill_Controller.checkWrongAllSkillInPanel){
 						enemy.CheckLetter(textFieldChar);
 					}
 				}
@@ -107,11 +107,16 @@ public class Typing_Input : MonoBehaviour {
 					timer = 0;
 				}
 
-				Game_Controller.indexGlobal++;
-				Game_Controller.chestWrongAll = true;
-				Game_Controller.QnTWrongAll = true;
-				Game_Controller.wrongAll = true;
-				Skill_Controller.checkWrongAllSkillInPanel = true;	
+				if(Skill_Controller.checkWrongAllSkillInPanel){
+					Game_Controller.indexGlobal++;
+					Game_Controller.chestWrongAll = true;
+					Game_Controller.QnTWrongAll = true;
+					Game_Controller.wrongAll = true;
+				}else{
+					Skill_Controller.indexSkillGlobal++;
+					Skill_Controller.checkWrongAllSkillInPanel = true;
+				}
+
 			}
 				
 				//จะนับเมื่อตัวที่ 2 เป็นต้นไป

@@ -39,7 +39,7 @@ public class Player_Skill : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		skillStorage = skillTextTyping[0].text.ToCharArray();
-		PushESC (Game_Controller.ESC);
+//		PushESC (Game_Controller.ESC);
 //		if(Game_Controller.oneEnemyWordChange){
 //			skillTextTyping[1].text = "";
 //			localIndexSkill = 0;
@@ -49,8 +49,8 @@ public class Player_Skill : MonoBehaviour {
 
 	public void CheckWrongAllSkill(char txt){
 		if (skillTextTyping[0].color == Color.white){
-			if (Game_Controller.indexGlobal == localIndexSkill) {
-				if (txt.Equals (skillStorage [Game_Controller.indexGlobal])) {
+			if (Skill_Controller.indexSkillGlobal == localIndexSkill) {
+				if (txt.Equals (skillStorage [Skill_Controller.indexSkillGlobal])) {
 					Skill_Controller.checkWrongAllSkillInPanel = false;
 				}
 			}
@@ -59,8 +59,8 @@ public class Player_Skill : MonoBehaviour {
 
 	public void CheckSkill(char txt){
 		if (skillTextTyping[0].color == Color.white) {
-			if (Game_Controller.indexGlobal == localIndexSkill) {
-				if (txt.Equals (skillStorage [Game_Controller.indexGlobal])) {
+			if (Skill_Controller.indexSkillGlobal == localIndexSkill) {
+				if (txt.Equals (skillStorage [Skill_Controller.indexSkillGlobal])) {
 					skillTextTyping[1].text += txt;
 					localIndexSkill++;
 				} else {
@@ -75,12 +75,12 @@ public class Player_Skill : MonoBehaviour {
 	}
 
 	public void UseSkill(){
-		if (Game_Controller.indexGlobal == localIndexSkill) {
+		if (Skill_Controller.indexSkillGlobal == localIndexSkill) {
 			if (skillTextTyping[0].text.Equals (skillTextTyping [1].text)) {
 				SkillActive(skillTextTyping[1].text);
 				skillTextTyping [1].text = "";
 				localIndexSkill = 0;
-				Game_Controller.indexGlobal = 0;
+				Skill_Controller.indexSkillGlobal = 0;
 			}
 		}
 	}
@@ -189,13 +189,13 @@ public class Player_Skill : MonoBehaviour {
 		}
 	}
 
-	void PushESC(bool esc){
-		if (esc) {
-			skillTextTyping[1].text = "";
-			localIndexSkill = 0;
-			Game_Controller.indexGlobal = 0;
-		}
-	}
+//	void PushESC(bool esc){
+//		if (esc) {
+//			skillTextTyping[1].text = "";
+//			localIndexSkill = 0;
+//			Game_Controller.indexGlobal = 0;
+//		}
+//	}
 
 	void PlaySound(int clip){
 		AudioSource audio = GetComponent<AudioSource> ();
