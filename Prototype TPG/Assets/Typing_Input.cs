@@ -45,7 +45,7 @@ public class Typing_Input : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.Escape)){
 			Game_Controller.ESC = true;
 
-		}else if (!Input.GetKeyDown(KeyCode.Tab) && !Input.GetKeyDown(KeyCode.Mouse0) && Input.anyKeyDown && !Input.GetKeyDown(KeyCode.DownArrow) && !Input.GetKeyDown(KeyCode.UpArrow) && !Input.GetKeyDown(KeyCode.LeftArrow) && !Input.GetKeyDown(KeyCode.RightArrow)) {
+		}else if (!Input.GetKeyDown(KeyCode.LeftShift) && !Input.GetKeyDown(KeyCode.Tab) && !Input.GetKeyDown(KeyCode.Mouse0) && Input.anyKeyDown && !Input.GetKeyDown(KeyCode.DownArrow) && !Input.GetKeyDown(KeyCode.UpArrow) && !Input.GetKeyDown(KeyCode.LeftArrow) && !Input.GetKeyDown(KeyCode.RightArrow)) {
 
             //ตอนแรกมัน GetKeyDown LeftShift อ่ะ
 
@@ -78,7 +78,7 @@ public class Typing_Input : MonoBehaviour {
 			}
 //			
 
-			if(!Input.GetKeyDown(KeyCode.Space) && !Input.GetKeyDown(KeyCode.Tab) && !Input.GetKeyDown(KeyCode.Mouse0) && !Input.GetKeyDown(KeyCode.Return) && Game_Controller.chestWrongAll && Game_Controller.wrongAll && Skill_Controller.checkWrongAllSkillInPanel && Game_Controller.QnTWrongAll){
+			if(Input.GetKeyDown(KeyCode.LeftShift) && !Input.GetKeyDown(KeyCode.Space) && !Input.GetKeyDown(KeyCode.Tab) && !Input.GetKeyDown(KeyCode.Mouse0) && !Input.GetKeyDown(KeyCode.Return) && Game_Controller.chestWrongAll && Game_Controller.wrongAll && Skill_Controller.checkWrongAllSkillInPanel && Game_Controller.QnTWrongAll){
 				PlaySound(1);
 			}else if(!Game_Controller.chestWrongAll || !Game_Controller.wrongAll || !Skill_Controller.checkWrongAllSkillInPanel || !Game_Controller.QnTWrongAll){
 

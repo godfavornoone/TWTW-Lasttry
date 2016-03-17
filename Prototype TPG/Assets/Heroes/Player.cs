@@ -122,14 +122,19 @@ public class Player : MonoBehaviour {
 	//Player Controller
 	void Player_Movement(){
 		Vector2 movement_vector = new Vector2 (Input.GetAxisRaw ("Horizontal"), Input.GetAxisRaw ("Vertical"));
-		if (movement_vector != Vector2.zero) {
-			anim.SetBool ("Walking", true);
-			anim.SetFloat ("SpeedX", movement_vector.x);
-			anim.SetFloat ("SpeedY", movement_vector.y);
-			rbd2D.MovePosition (rbd2D.position + movement_vector * speed * Time.deltaTime);
+		if(Input.GetKeyDown(KeyCode.LeftShift)){
+			if(movement_vector != Vector2.zero){
+				anim.SetBool ("Walking", true);
+				anim.SetFloat ("SpeedX", movement_vector.x);
+				anim.SetFloat ("SpeedY", movement_vector.y);
+				rbd2D.MovePosition (rbd2D.position + movement_vector * speed * Time.deltaTime);
+			}else{
+				anim.SetBool("Walking",false);
+			}
 		}else{
 			anim.SetBool ("Walking", false);
 		}
+
 	}
 
 	void Player_Attack(){
