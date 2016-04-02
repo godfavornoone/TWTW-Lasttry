@@ -32,6 +32,10 @@ public class textManager : MonoBehaviour {
     public List<double> yData = new List<double>();
     public List<double> zData = new List<double>();
 
+
+    //for paragraph
+    public string[] paragraph;
+
     //for Quiz to type Minigame
     public string[] question;
     public string[] choice1;
@@ -78,6 +82,13 @@ public class textManager : MonoBehaviour {
     public string chartoptop2;
     public string chartoptop3;
     //end of stupid
+
+    public string getParagraph()
+    {
+        int index = UnityEngine.Random.Range(0, 2);
+
+        return paragraph[index];
+    }
 
     public string[] getQuestionAndAns()
     {   
@@ -374,6 +385,8 @@ public class textManager : MonoBehaviour {
     void Start () {
         
 		DontDestroyOnLoad (transform.gameObject);
+
+        //Debug.Log(Game_Controller.a.getParagraph());
 
         //checkLength(vocab);       //ไว้ดูว่ามีคำศัพท์ยาวเท่าไหร่บ้าง
         //checkLength(vocabHard);
