@@ -83,11 +83,9 @@ public class textManager : MonoBehaviour {
     public string chartoptop3;
     //end of stupid
 
-    public string getParagraph()
+    public string[] getParagraph()
     {
-        int index = UnityEngine.Random.Range(0, 2);
-
-        return paragraph[index];
+        return paragraph;
     }
 
     public string[] getQuestionAndAns()
@@ -385,6 +383,10 @@ public class textManager : MonoBehaviour {
     void Start () {
         
 		DontDestroyOnLoad (transform.gameObject);
+
+        GameObject a = GameObject.Find("New Text");
+        string b = "yaha \n yeehawwwwwwwwwww";
+        a.GetComponent<TextMesh>().text = b  ;
 
         //Debug.Log(Game_Controller.a.getParagraph());
 
