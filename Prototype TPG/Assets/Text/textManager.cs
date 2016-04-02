@@ -384,9 +384,14 @@ public class textManager : MonoBehaviour {
         
 		DontDestroyOnLoad (transform.gameObject);
 
-        GameObject a = GameObject.Find("New Text");
-        string b = "yaha \n yeehawwwwwwwwwww";
-        a.GetComponent<TextMesh>().text = b  ;
+        /*
+        string[] yaha = Game_Controller.a.getParagraph();
+
+        Debug.Log(yaha[0]);
+        Debug.Log(yaha[1]);
+        Debug.Log(yaha[2]);
+        Debug.Log(yaha[3]);
+        */
 
         //Debug.Log(Game_Controller.a.getParagraph());
 
