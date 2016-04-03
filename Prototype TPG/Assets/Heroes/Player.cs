@@ -79,6 +79,7 @@ public class Player : MonoBehaviour {
 
     public List<int> historyWPM = new List<int>();
     public List<string> historyWeaknesses = new List<string>();
+    public List<string> historyAverageTime = new List<string>();
 
     bool isOptionActivate = false;
 
@@ -578,6 +579,7 @@ public class Player : MonoBehaviour {
 		lvlup = baselvlup * lvl; //100*1
         historyWeaknesses.Clear();
         historyWPM.Clear();
+        historyAverageTime.Clear();
 	}
     
 	

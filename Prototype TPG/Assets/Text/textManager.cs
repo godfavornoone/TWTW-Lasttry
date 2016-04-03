@@ -70,6 +70,7 @@ public class textManager : MonoBehaviour {
 
     public List<int> WPMcollection = new List<int>();
     List<string> Weaknesscollection = new List<string>();
+    public List<double> Timecollection = new List<double>();
 
     private static System.Random rng = new System.Random();
 
@@ -384,6 +385,8 @@ public class textManager : MonoBehaviour {
         
 		DontDestroyOnLoad (transform.gameObject);
 
+        
+
         /*
         string[] yaha = Game_Controller.a.getParagraph();
 
@@ -523,6 +526,9 @@ public class textManager : MonoBehaviour {
             Weaknesscollection.Add(chartop1);
             Weaknesscollection.Add(chartop2);
             Weaknesscollection.Add(chartop3);
+            Timecollection.Add(top1);
+            Timecollection.Add(top2);
+            Timecollection.Add(top3);
 
 
 
@@ -574,9 +580,6 @@ public class textManager : MonoBehaviour {
         }
         else
         {
-            //Debug.Log("No Analysis na ja !!!");
-            //Debug.Log("Count of vocab Easy: " + ingameVocabEasy.Count);
-            //Debug.Log("Count of vocab Hard: " + ingameVocabHard.Count);
             clearAllVocab();
         } 
         
@@ -681,6 +684,57 @@ public class textManager : MonoBehaviour {
         weakness += chartoptop2;
         weakness += chartoptop3;
 
+        
+
+        return weakness;
+    }
+
+    public string computeAverageTimeOfWeakness()
+    {
+        string result="";
+
+        double result1 = 0;
+        double result2 = 0;
+        double result3 = 0;
+
+        int temp = 0;
+        for (int i = 0; i < Weaknesscollection.Count; i++)
+        {
+            if (Weaknesscollection[i].Equals(chartoptop1))
+            {
+                temp++;
+                result1 = result1 + Timecollection[i];
+            }
+        }
+
+        result += System.Math.Round(result1 / temp, 2)+"-";
+        
+
+        temp = 0;
+        for (int i = 0; i < Weaknesscollection.Count; i++)
+        {
+            if (Weaknesscollection[i].Equals(chartoptop2))
+            {
+                temp++;
+                result2 = result2 + Timecollection[i];
+            }
+        }
+        result += System.Math.Round(result2 / temp, 2) + "-";
+        
+
+        temp = 0;
+        for (int i = 0; i < Weaknesscollection.Count; i++)
+        {
+            if (Weaknesscollection[i].Equals(chartoptop3))
+            {
+                temp++;
+                result3 = result3 + Timecollection[i];
+            }
+        }
+        result += System.Math.Round(result3 / temp, 2);
+        
+
+
         chartop1 = null;
         chartop2 = null;
         chartop3 = null;
@@ -696,7 +750,7 @@ public class textManager : MonoBehaviour {
 
         Weaknesscollection.Clear();
 
-        return weakness;
+        return result;
     }
 
     public int stupid(string a)
@@ -806,6 +860,9 @@ public class textManager : MonoBehaviour {
 
     void compareTop3(double mean, string letter)
     {
+
+        Debug.Log("The Letter is: " + letter);
+
         double meantemp = 0;
         string strtemp = "";
 
@@ -990,10 +1047,27 @@ public class textManager : MonoBehaviour {
                 count2++;
             }
 
+            Debug.Log("Before is: " + yaha / count2);
+            Debug.Log("After is: " + System.Math.Round(yaha / count2, 2));
+
+            return System.Math.Round(yaha / count2, 2);
+
+            /*
+            Debug.Log("Before is: " + (yaha/count2));
+
+            double value = 0.103804362216784;
+            return System.Math.Round(yaha/count2, 2);
+
+            String transferString = String.Format("{0:0.00", yaha / count2);
+            double transferDouble = Convert.ToDouble(transferString);
+
+            Debug.Log("After is: " + (yaha / count2));
+
             ////Debug.Log("Remove the third cluster the result is: " + yaha);
             ////Debug.Log("Mean is: " + (yaha / count2));
 
-            return yaha / count2;
+            return transferDouble;
+            */
 
         }
 
