@@ -6551,12 +6551,10 @@ MonoBehaviour:
   yData: []
   zData: []
   paragraph:
-  - "my name is yongyot. i\u2019m fourth year student at chulalongkorn university.
-    my majority is computer science. i love to play game. i\u2019m one of the developer.
-    i love you so much."
-  - "my name is big. i\u2019m also fourth year student at chulalongkorn university.
-    i love to sleep. and i wish to sleep now. it\u2019s very boring to do everything
-    in real life. i don\u2019t make this fat made it."
+  - my name is yongyot.
+  - im fourth year student.
+  - my majority is computer science.
+  - i love to play game. im the one.
   question:
   - "What is the definition of \u201Caffair\u201D?"
   - "What is the definition of \u201Cargue\u201D?"
@@ -6617,6 +6615,7 @@ MonoBehaviour:
   checkVocabEasy: 
   checkVocabHard: 
   WPMcollection: 
+  Timecollection: []
   toptop1: 0
   toptop2: 0
   toptop3: 0
@@ -16358,7 +16357,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 2094546315}
   m_Direction: 2
   m_Value: 1
-  m_Size: .269442737
+  m_Size: .269442767
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:

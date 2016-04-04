@@ -358,16 +358,19 @@ public class Game_Controller : MonoBehaviour {
         {
             string key = "WPM" + i;
             string key2 = "Weakness" + i;
+            string key3 = "AverageTime" + i;
 
             int WPM = SaveData.Load(key, 1,true);
             Debug.Log(key + WPM);
             string Weakness = SaveData.Load(key2, "yaha",true);
             Debug.Log(key2 + Weakness);
             char[] characters = Weakness.ToCharArray();
+            string Average = SaveData.Load(key3, "yaha", true);
+            string[] parts = Average.Split('-');
 
             //เริ่มที่ ช่อง 0 หรอ ของใหม่อยู่ช่องท้ายสุดอ่ะ
-            
-            TypingProgressDetail.text = temp + ". WPM is: " + WPM + " Weaknesses are: " +characters[0] + ", " + characters[1] + ", "+ characters[2] + "\n" +TypingProgressDetail.text;
+
+            TypingProgressDetail.text = temp + ". WPM is: " + WPM + " Weaknesses are:" +"\n" + "Letter " + characters[0] + " average time: " + parts[0] + "\n" + "Letter " + characters[1] + " average time: " + parts[1] + "\n" + "Letter " + characters[2] + " average time: " + parts[2] + "\n" +TypingProgressDetail.text;
             Debug.Log(TypingProgressDetail.text);
             temp--;
         }
@@ -441,6 +444,7 @@ public class Game_Controller : MonoBehaviour {
         //Analysis แมพสุดท้ายอ่ะจ้ะ...
         a.Analysis();
         string b = a.computeWeakness();
+        string c = a.computeAverageTimeOfWeakness();
         int WPM = a.computeWPM();
 
         if(b.Length<3)
@@ -453,6 +457,7 @@ public class Game_Controller : MonoBehaviour {
         {
             Game_Controller.playerInThisMap.historyWeaknesses.Add(b);
             Game_Controller.playerInThisMap.historyWPM.Add(WPM);
+            Game_Controller.playerInThisMap.historyAverageTime.Add(c);
         }
         
         
@@ -605,9 +610,11 @@ public class Game_Controller : MonoBehaviour {
         {
             string key = "WPM" + i;
             string key2 = "Weakness" + i;
+            string key3 = "AverageTime" + i;
 
             SaveData.Save(key, Game_Controller.playerInThisMap.historyWPM[i]);
             SaveData.Save(key2, Game_Controller.playerInThisMap.historyWeaknesses[i]);
+            SaveData.Save(key3, Game_Controller.playerInThisMap.historyAverageTime[i]);
         }
 
         SaveData.Save("currentLevel", Game_Controller.playerInThisMap.lvl);
@@ -893,6 +900,7 @@ public class Game_Controller : MonoBehaviour {
 
         playerInThisMap.historyWPM.Clear();
         playerInThisMap.historyWeaknesses.Clear();
+        playerInThisMap.historyAverageTime.Clear();
 
         gameDiff = tempGameDiff;
         wordDiff = SaveData.Load("currentWordDifficulty", 1, true);
@@ -914,9 +922,11 @@ public class Game_Controller : MonoBehaviour {
         {
             string key = "WPM" + i;
             string key2 = "Weakness" + i;
+            string key3 = "AverageTime" + i;
 
             playerInThisMap.historyWPM.Add(SaveData.Load(key, 1, true));
             playerInThisMap.historyWeaknesses.Add(SaveData.Load(key2, "yaha", true));
+            playerInThisMap.historyAverageTime.Add(SaveData.Load(key3, "yaha", true));
         }
 
         //characterLevel.text = "Lv. " + SaveData.Load("currentLevel", 1.5f, true).ToString();

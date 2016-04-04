@@ -83,6 +83,7 @@ public class NPCManager : MonoBehaviour {
         //Analysis แมพสุดท้ายอ่ะจ้ะ...
         a.Analysis();
         string b = a.computeWeakness();
+        string c = a.computeAverageTimeOfWeakness();
         int WPM = a.computeWPM();
 
 
@@ -91,9 +92,13 @@ public class NPCManager : MonoBehaviour {
             b = "abc";
         }
 
-        Game_Controller.playerInThisMap.historyWeaknesses.Add(b);
-        Game_Controller.playerInThisMap.historyWPM.Add(WPM);
-        Debug.Log(WPM);
+        if (WPM != 0)
+        {
+            Game_Controller.playerInThisMap.historyWeaknesses.Add(b);
+            Game_Controller.playerInThisMap.historyWPM.Add(WPM);
+            Game_Controller.playerInThisMap.historyAverageTime.Add(c);
+        }
+
         //เอาไอ่บ้านี้ไว้ดึงศัพท์นะ...
         SaveData.Save("top3Weakness", b);
 
@@ -254,9 +259,11 @@ public class NPCManager : MonoBehaviour {
         {
             string key = "WPM" + i;
             string key2 = "Weakness" + i;
-            
+            string key3 = "AverageTime" + i;
+
             SaveData.Save(key, Game_Controller.playerInThisMap.historyWPM[i]);
             SaveData.Save(key2, Game_Controller.playerInThisMap.historyWeaknesses[i]);
+            SaveData.Save(key3, Game_Controller.playerInThisMap.historyAverageTime[i]);
         }
 
         SaveData.Save("currentLevel", Game_Controller.playerInThisMap.lvl);
@@ -545,6 +552,8 @@ public class NPCManager : MonoBehaviour {
                 //
                 Game_Controller.LoadScene.SetActive(true);
                 a.Analysis();
+
+                /*
                 if(a.check<3) //ดักไว้เลย ว่ายังไงก็มีศัพท์แน่อนนล่ะวะ
                 {
                     //Debug.Log("It Must Come Here");
@@ -559,6 +568,7 @@ public class NPCManager : MonoBehaviour {
                     a.sendTimeData('c', 10);
                     a.Analysis();
                 }
+                */
 
                 Game_Controller.wordDiff = a.computeWordDiff(a.computeWPM()); //ไม่ค่อยชัว ไม่เก็บมันละกัน 5555555555 แต่ ณ ตรงนี้อ่ะจะได้ Word's Diff เริ่มต้นมาแบ้ววววว
                 string weakness = a.computeWeakness(); //แค่เอาออกมาแล้วก็ทิ้งไปกร๊ากกกกก
@@ -679,6 +689,8 @@ public class NPCManager : MonoBehaviour {
 
                 Game_Controller.LoadScene.SetActive(true);
                 a.Analysis();
+
+                /*
                 if (a.check < 3) //ดักไว้เลย ว่ายังไงก็มีศัพท์แน่อนนล่ะวะ
                 {
                     //Debug.Log("It Must Come Here");
@@ -693,7 +705,7 @@ public class NPCManager : MonoBehaviour {
                     a.sendTimeData('c', 10);
                     a.Analysis();
                 }
-
+                */
 
                 Game_Controller.wordDiff = a.computeWordDiff(a.computeWPM()); //ไม่ค่อยชัว ไม่เก็บมันละกัน 5555555555 แต่ ณ ตรงนี้อ่ะจะได้ Word's Diff เริ่มต้นมาแบ้ววววว
                 string weakness = a.computeWeakness(); //แค่เอาออกมาแล้วก็ทิ้งไปกร๊ากกกกก
