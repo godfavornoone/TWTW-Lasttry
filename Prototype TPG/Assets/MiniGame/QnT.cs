@@ -21,10 +21,6 @@ public class QnT : MonoBehaviour {
 	public float dropRate;
 	private int indexLocal = 0;
 
-	private char[] choice1;
-	private char[] choice2;
-	private char[] choice3;
-
 	public Game_Controller gameScript;
 	public textManager textManagerScript;
 	Question QnTPn;

@@ -41,15 +41,15 @@ public class Typing_Input : MonoBehaviour {
             check = false;
             timer = 0;
         }
-
+//		&& !Input.GetKeyDown(KeyCode.DownArrow) && !Input.GetKeyDown(KeyCode.UpArrow) && !Input.GetKeyDown(KeyCode.LeftArrow) && !Input.GetKeyDown(KeyCode.RightArrow)
         if (Input.GetKeyDown(KeyCode.Escape)){
 			Game_Controller.ESC = true;
-
-		}else if (!Input.GetKey(KeyCode.LeftShift) && !Input.GetKeyDown(KeyCode.Tab) && !Input.GetKeyDown(KeyCode.Mouse0) && Input.anyKeyDown && !Input.GetKeyDown(KeyCode.DownArrow) && !Input.GetKeyDown(KeyCode.UpArrow) && !Input.GetKeyDown(KeyCode.LeftArrow) && !Input.GetKeyDown(KeyCode.RightArrow)) {
+			PlaySound(0);
+		}else if (!Input.GetKey(KeyCode.LeftShift) && !Input.GetKeyDown(KeyCode.Tab) && !Input.GetKeyDown(KeyCode.Mouse0) && Input.anyKeyDown) {
 
             //ตอนแรกมัน GetKeyDown LeftShift อ่ะ
-
-			PlaySound(0);
+		
+//			PlaySound(0);
             Game_Controller.ESC = false;
 			textFieldString = Input.inputString;
             //textFieldChar = textFieldString[0]; อันนี้ของเก่า
@@ -76,9 +76,8 @@ public class Typing_Input : MonoBehaviour {
 					enemy.CheckWrongAll(textFieldChar);
 				}
 			}
-//			
 
-			if(Input.GetKeyDown(KeyCode.LeftShift) && !Input.GetKeyDown(KeyCode.Space) && !Input.GetKeyDown(KeyCode.Tab) && !Input.GetKeyDown(KeyCode.Mouse0) && !Input.GetKeyDown(KeyCode.Return) && Game_Controller.chestWrongAll && Game_Controller.wrongAll && Skill_Controller.checkWrongAllSkillInPanel && Game_Controller.QnTWrongAll){
+			if(Input.GetKeyDown(KeyCode.LeftShift) && !Input.GetKeyDown(KeyCode.Space) && !Input.GetKeyDown(KeyCode.Tab) && !Input.GetKeyDown(KeyCode.Mouse0) && !Input.GetKeyDown(KeyCode.Return) && Game_Controller.chestWrongAll && Game_Controller.wrongAll && Skill_Controller.checkWrongAllSkillInPanel && Game_Controller.QnTWrongAll && Game_Controller.PRGWrongAll){
 				PlaySound(1);
 			}else if(!Game_Controller.chestWrongAll || !Game_Controller.wrongAll || !Skill_Controller.checkWrongAllSkillInPanel || !Game_Controller.QnTWrongAll){
 

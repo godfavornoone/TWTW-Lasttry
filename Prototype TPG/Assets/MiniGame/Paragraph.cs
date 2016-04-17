@@ -17,14 +17,17 @@ public class Paragraph : MonoBehaviour {
 	public float dropRate;
 	private int indexLocal = 0;
 	Question PRG_Controller;
-	string[] paragraph = Game_Controller.a.getParagraph();
+	Choice PRG_ST;
+	string[] paragraph;
 
 	public Game_Controller gameScript;
 	public textManager textManagerScript;
 	
 	void Awake(){
-		textCheck = (Typing_Input)FindObjectOfType (typeof(Typing_Input));
+		paragraph = Game_Controller.a.getParagraph();
 		PRG_Controller = gameObject.GetComponentInChildren<Question> ();
+		PRG_ST = gameObject.GetComponentInChildren<Choice> ();
+		textCheck = (Typing_Input)FindObjectOfType (typeof(Typing_Input));
 		realStatus (Game_Controller.gameDiff);
 		textTyping = GetComponentsInChildren<TextMesh> ();
 	}
@@ -32,6 +35,7 @@ public class Paragraph : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		PRG_Controller.Close ();
+		PRG_ST.Close ();
 		gameScript = GameObject.Find("Game_Controller").GetComponent<Game_Controller>();
 		textManagerScript = GameObject.Find("TextManager").GetComponent<textManager>();
 		HPEnemyScript = transform.GetChild(2).GetChild(0).GetComponent<HPEnemy>();
@@ -57,7 +61,8 @@ public class Paragraph : MonoBehaviour {
 		if(other.gameObject.tag == "Player"){
 			Game_Controller.cameraFirst.SetActive(false);
 			PRG_Controller.Open();
-			Game_Controller.QnTMiniGame = true;
+			PRG_ST.Open ();
+			Game_Controller.PRGMiniGame = true;
 			Game_Controller.playerInThisMap.gameObject.SetActive(false);
 		}
 	}
