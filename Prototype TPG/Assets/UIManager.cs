@@ -76,6 +76,8 @@ public class UIManager : MonoBehaviour {
 			GameObject[] enemySpawn = GameObject.FindGameObjectsWithTag("Enemy");
 			GameObject[] treasureInMap = GameObject.FindGameObjectsWithTag("Treasure");
 			GameObject[] QnTInMap = GameObject.FindGameObjectsWithTag("QnTAns");
+			GameObject[] PRGInMap = GameObject.FindGameObjectsWithTag("Paragraph");
+			Game_Controller.ParagraphMinigame.Clear();
 			Game_Controller.QuizNTypeMinigame.Clear();
 			Game_Controller.enemyInThisMap.Clear ();
 			Game_Controller.enemySpawnInMap.Clear();
@@ -96,6 +98,9 @@ public class UIManager : MonoBehaviour {
 			foreach(GameObject monQnTAns in QnTInMap){
 				Game_Controller.QuizNTypeMinigame.Add(monQnTAns.GetComponent<QnTChoice>());
 			}
+			foreach(GameObject prg in PRGInMap){
+				Game_Controller.ParagraphMinigame.Add(prg.GetComponent<Paragraph>());
+			}
 			foreach(Player_Skill skill in Skill_Controller.Allskill){
 				skill.skillTextTyping[1].text = "";
 				skill.localIndexSkill = 0;
@@ -111,6 +116,8 @@ public class UIManager : MonoBehaviour {
 			GameObject[] enemySpawn = GameObject.FindGameObjectsWithTag("Enemy");
 			GameObject[] treasureInMap = GameObject.FindGameObjectsWithTag("Treasure");
 			GameObject[] QnTInMap = GameObject.FindGameObjectsWithTag("QnTAns");
+			GameObject[] PRGInMap = GameObject.FindGameObjectsWithTag("Paragraph");
+			Game_Controller.ParagraphMinigame.Clear();
 			Game_Controller.QuizNTypeMinigame.Clear();
 			Game_Controller.enemyInThisMap.Clear ();
 			Game_Controller.enemySpawnInMap.Clear();
@@ -128,6 +135,9 @@ public class UIManager : MonoBehaviour {
 			}
 			foreach(GameObject monQnTAns in QnTInMap){
 				Game_Controller.QuizNTypeMinigame.Add(monQnTAns.GetComponent<QnTChoice>());
+			}
+			foreach(GameObject prg in PRGInMap){
+				Game_Controller.ParagraphMinigame.Add(prg.GetComponent<Paragraph>());
 			}
 			foreach(Player_Skill skill in Skill_Controller.Allskill){
 				skill.skillTextTyping[1].text = "";
@@ -144,6 +154,8 @@ public class UIManager : MonoBehaviour {
 			GameObject[] enemySpawn = GameObject.FindGameObjectsWithTag("Enemy");
 			GameObject[] treasureInMap = GameObject.FindGameObjectsWithTag("Treasure");
 			GameObject[] QnTInMap = GameObject.FindGameObjectsWithTag("QnTAns");
+			GameObject[] PRGInMap = GameObject.FindGameObjectsWithTag("Paragraph");
+			Game_Controller.ParagraphMinigame.Clear();
 			Game_Controller.QuizNTypeMinigame.Clear();
 			Game_Controller.enemyInThisMap.Clear ();
 			Game_Controller.enemySpawnInMap.Clear();
@@ -161,6 +173,9 @@ public class UIManager : MonoBehaviour {
 			}
 			foreach(GameObject monQnTAns in QnTInMap){
 				Game_Controller.QuizNTypeMinigame.Add(monQnTAns.GetComponent<QnTChoice>());
+			}
+			foreach(GameObject prg in PRGInMap){
+				Game_Controller.ParagraphMinigame.Add(prg.GetComponent<Paragraph>());
 			}
 			foreach(Player_Skill skill in Skill_Controller.Allskill){
 				skill.skillTextTyping[1].text = "";
@@ -177,6 +192,8 @@ public class UIManager : MonoBehaviour {
 			GameObject[] enemySpawn = GameObject.FindGameObjectsWithTag("Enemy");
 			GameObject[] treasureInMap = GameObject.FindGameObjectsWithTag("Treasure");
 			GameObject[] QnTInMap = GameObject.FindGameObjectsWithTag("QnTAns");
+			GameObject[] PRGInMap = GameObject.FindGameObjectsWithTag("Paragraph");
+			Game_Controller.ParagraphMinigame.Clear();
 			Game_Controller.QuizNTypeMinigame.Clear();
 			Game_Controller.enemyInThisMap.Clear ();
 			Game_Controller.enemySpawnInMap.Clear();
@@ -194,6 +211,9 @@ public class UIManager : MonoBehaviour {
 			}
 			foreach(GameObject monQnTAns in QnTInMap){
 				Game_Controller.QuizNTypeMinigame.Add(monQnTAns.GetComponent<QnTChoice>());
+			}
+			foreach(GameObject prg in PRGInMap){
+				Game_Controller.ParagraphMinigame.Add(prg.GetComponent<Paragraph>());
 			}
 			foreach(Player_Skill skill in Skill_Controller.Allskill){
 				skill.skillTextTyping[1].text = "";
@@ -210,6 +230,8 @@ public class UIManager : MonoBehaviour {
 			GameObject[] enemySpawn = GameObject.FindGameObjectsWithTag("Enemy");
 			GameObject[] treasureInMap = GameObject.FindGameObjectsWithTag("Treasure");
 			GameObject[] QnTInMap = GameObject.FindGameObjectsWithTag("QnTAns");
+			GameObject[] PRGInMap = GameObject.FindGameObjectsWithTag("Paragraph");
+			Game_Controller.ParagraphMinigame.Clear();
 			Game_Controller.QuizNTypeMinigame.Clear();
 			Game_Controller.enemyInThisMap.Clear ();
 			Game_Controller.enemySpawnInMap.Clear();
@@ -227,6 +249,9 @@ public class UIManager : MonoBehaviour {
 			}
 			foreach(GameObject monQnTAns in QnTInMap){
 				Game_Controller.QuizNTypeMinigame.Add(monQnTAns.GetComponent<QnTChoice>());
+			}
+			foreach(GameObject prg in PRGInMap){
+				Game_Controller.ParagraphMinigame.Add(prg.GetComponent<Paragraph>());
 			}
 			foreach(Player_Skill skill in Skill_Controller.Allskill){
 				skill.skillTextTyping[1].text = "";
@@ -243,6 +268,8 @@ public class UIManager : MonoBehaviour {
 			GameObject[] enemySpawn = GameObject.FindGameObjectsWithTag("Enemy");
 			GameObject[] treasureInMap = GameObject.FindGameObjectsWithTag("Treasure");
 			GameObject[] QnTInMap = GameObject.FindGameObjectsWithTag("QnTAns");
+			GameObject[] PRGInMap = GameObject.FindGameObjectsWithTag("Paragraph");
+			Game_Controller.ParagraphMinigame.Clear();
 			Game_Controller.QuizNTypeMinigame.Clear();
 			Game_Controller.enemyInThisMap.Clear ();
 			Game_Controller.enemySpawnInMap.Clear();
@@ -260,6 +287,9 @@ public class UIManager : MonoBehaviour {
 			}
 			foreach(GameObject monQnTAns in QnTInMap){
 				Game_Controller.QuizNTypeMinigame.Add(monQnTAns.GetComponent<QnTChoice>());
+			}
+			foreach(GameObject prg in PRGInMap){
+				Game_Controller.ParagraphMinigame.Add(prg.GetComponent<Paragraph>());
 			}
 			foreach(Player_Skill skill in Skill_Controller.Allskill){
 				skill.skillTextTyping[1].text = "";
@@ -276,6 +306,8 @@ public class UIManager : MonoBehaviour {
 			GameObject[] enemySpawn = GameObject.FindGameObjectsWithTag("Enemy");
 			GameObject[] treasureInMap = GameObject.FindGameObjectsWithTag("Treasure");
 			GameObject[] QnTInMap = GameObject.FindGameObjectsWithTag("QnTAns");
+			GameObject[] PRGInMap = GameObject.FindGameObjectsWithTag("Paragraph");
+			Game_Controller.ParagraphMinigame.Clear();
 			Game_Controller.QuizNTypeMinigame.Clear();
 			Game_Controller.enemyInThisMap.Clear ();
 			Game_Controller.enemySpawnInMap.Clear();
@@ -293,6 +325,9 @@ public class UIManager : MonoBehaviour {
 			}
 			foreach(GameObject monQnTAns in QnTInMap){
 				Game_Controller.QuizNTypeMinigame.Add(monQnTAns.GetComponent<QnTChoice>());
+			}
+			foreach(GameObject prg in PRGInMap){
+				Game_Controller.ParagraphMinigame.Add(prg.GetComponent<Paragraph>());
 			}
 			foreach(Player_Skill skill in Skill_Controller.Allskill){
 				skill.skillTextTyping[1].text = "";
@@ -309,6 +344,8 @@ public class UIManager : MonoBehaviour {
 			GameObject[] enemySpawn = GameObject.FindGameObjectsWithTag("Enemy");
 			GameObject[] treasureInMap = GameObject.FindGameObjectsWithTag("Treasure");
 			GameObject[] QnTInMap = GameObject.FindGameObjectsWithTag("QnTAns");
+			GameObject[] PRGInMap = GameObject.FindGameObjectsWithTag("Paragraph");
+			Game_Controller.ParagraphMinigame.Clear();
 			Game_Controller.QuizNTypeMinigame.Clear();
 			Game_Controller.enemyInThisMap.Clear ();
 			Game_Controller.enemySpawnInMap.Clear();
@@ -326,6 +363,9 @@ public class UIManager : MonoBehaviour {
 			}
 			foreach(GameObject monQnTAns in QnTInMap){
 				Game_Controller.QuizNTypeMinigame.Add(monQnTAns.GetComponent<QnTChoice>());
+			}
+			foreach(GameObject prg in PRGInMap){
+				Game_Controller.ParagraphMinigame.Add(prg.GetComponent<Paragraph>());
 			}
 			foreach(Player_Skill skill in Skill_Controller.Allskill){
 				skill.skillTextTyping[1].text = "";
@@ -342,6 +382,8 @@ public class UIManager : MonoBehaviour {
 			GameObject[] enemySpawn = GameObject.FindGameObjectsWithTag("Enemy");
 			GameObject[] treasureInMap = GameObject.FindGameObjectsWithTag("Treasure");
 			GameObject[] QnTInMap = GameObject.FindGameObjectsWithTag("QnTAns");
+			GameObject[] PRGInMap = GameObject.FindGameObjectsWithTag("Paragraph");
+			Game_Controller.ParagraphMinigame.Clear();
 			Game_Controller.QuizNTypeMinigame.Clear();
 			Game_Controller.enemySpawnInMap.Clear();
 			Game_Controller.enemyInThisMap.Clear ();
@@ -359,6 +401,9 @@ public class UIManager : MonoBehaviour {
 			}
 			foreach(GameObject monQnTAns in QnTInMap){
 				Game_Controller.QuizNTypeMinigame.Add(monQnTAns.GetComponent<QnTChoice>());
+			}
+			foreach(GameObject prg in PRGInMap){
+				Game_Controller.ParagraphMinigame.Add(prg.GetComponent<Paragraph>());
 			}
 			foreach(Player_Skill skill in Skill_Controller.Allskill){
 				skill.skillTextTyping[1].text = "";
