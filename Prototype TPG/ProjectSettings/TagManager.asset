@@ -21,6 +21,7 @@ TagManager:
   - QnT
   - QnTAns
   - Paragraph
+  - PRGST
   layers:
   - Default
   - TransparentFX

@@ -13,7 +13,7 @@ public class Game_Controller : MonoBehaviour {
 	public static List<QnTChoice> QuizNTypeMinigame = new List<QnTChoice> ();
 	public static List<GameObject> enemySpawnInMap = new List<GameObject> ();
 	public static List<Enemy> enemySplash = new List<Enemy> ();
-	public static List<Paragraph> ParagraphMinigame = new List<Paragraph> ();
+	public static List<PRG_ST> ParagraphMinigame = new List<PRG_ST> ();
 	public static bool oneEnemyWordChange = false;
 	public static bool chestWrongAll = true;
 	public static bool QnTWrongAll = true;

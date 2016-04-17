@@ -71,6 +71,14 @@ public class Typing_Input : MonoBehaviour {
 				QuiznType.CheckWrongAll(textFieldChar);
 			}
 
+			foreach(PRG_ST Prg in Game_Controller.ParagraphMinigame){
+				Prg.CheckWrongAll(textFieldChar);
+			}
+
+//			foreach(PRG_ST Paragraph in Game_Controller.ParagraphMinigame){
+//				Paragraph.CheckWrongAll(textFieldChar);
+//			}
+
 			foreach(Enemy enemy in Game_Controller.enemyInThisMap){
 				if(enemy.gameObject.activeInHierarchy && enemy.gameObject.activeSelf){
 					enemy.CheckWrongAll(textFieldChar);
@@ -79,11 +87,18 @@ public class Typing_Input : MonoBehaviour {
 
 			if(!Input.GetKeyDown(KeyCode.LeftShift) && !Input.GetKeyDown(KeyCode.Space) && !Input.GetKeyDown(KeyCode.Tab) && !Input.GetKeyDown(KeyCode.Mouse0) && !Input.GetKeyDown(KeyCode.Return) && Game_Controller.chestWrongAll && Game_Controller.wrongAll && Skill_Controller.checkWrongAllSkillInPanel && Game_Controller.QnTWrongAll && Game_Controller.PRGWrongAll){
 				PlaySound(1);
-			}else if(!Game_Controller.chestWrongAll || !Game_Controller.wrongAll || !Skill_Controller.checkWrongAllSkillInPanel || !Game_Controller.QnTWrongAll){
+			}else if(!Game_Controller.chestWrongAll || !Game_Controller.wrongAll || !Skill_Controller.checkWrongAllSkillInPanel || !Game_Controller.QnTWrongAll || !Game_Controller.PRGWrongAll){
 
 				foreach(QnTChoice monQnT in Game_Controller.QuizNTypeMinigame){
 					monQnT.CheckLetter(textFieldChar);
 				}
+
+				foreach(PRG_ST monPRG in Game_Controller.ParagraphMinigame){
+					monPRG.CheckLetter(textFieldChar);
+				}
+//				foreach(PRG_ST monPRG in Game_Controller.ParagraphMinigame){
+//					monPRG.CheckLetter(textFieldChar);
+//				}
 
 				foreach(Player_Skill skill in Skill_Controller.Allskill){
 					skill.CheckSkill(textFieldChar);
@@ -94,7 +109,7 @@ public class Typing_Input : MonoBehaviour {
 						enemy.CheckLetter(textFieldChar);
 					}
 				}
-				
+
 				foreach(Treasure chest in Game_Controller.treasureMinigame){
 					chest.CheckLetter(textFieldChar);
 				}
@@ -110,6 +125,7 @@ public class Typing_Input : MonoBehaviour {
 					Game_Controller.indexGlobal++;
 					Game_Controller.chestWrongAll = true;
 					Game_Controller.QnTWrongAll = true;
+					Game_Controller.PRGWrongAll = true;
 					Game_Controller.wrongAll = true;
 				}else{
 					Skill_Controller.indexSkillGlobal++;

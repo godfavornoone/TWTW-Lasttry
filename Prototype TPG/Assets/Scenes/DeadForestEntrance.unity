@@ -138,6 +138,10 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 5.67244816
       objectReference: {fileID: 0}
+    - target: {fileID: 161490, guid: 127b5669dfe93324aa7a096ec607defc, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 127b5669dfe93324aa7a096ec607defc, type: 2}
   m_IsPrefabParent: 0
@@ -301,6 +305,22 @@ Prefab:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 130302, guid: c513588c2516c994ea92cddbb49bdca0, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 121646, guid: c513588c2516c994ea92cddbb49bdca0, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 121710, guid: c513588c2516c994ea92cddbb49bdca0, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 148038, guid: c513588c2516c994ea92cddbb49bdca0, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 119796, guid: c513588c2516c994ea92cddbb49bdca0, type: 2}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
@@ -1281,15 +1301,11 @@ EdgeCollider2D:
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   m_Points:
-  - {x: .074848175, y: -34.1075821}
-  - {x: .0301609039, y: -.146844864}
-  - {x: 59.7891922, y: -.187125206}
-  - {x: 59.9235992, y: -10.0380678}
-  - {x: 61.5249023, y: -14.4104862}
-  - {x: 61.4847755, y: -19.3629818}
-  - {x: 61.5788918, y: -26.0437641}
-  - {x: 59.9011803, y: -33.597229}
-  - {x: .237785339, y: -33.4784164}
+  - {x: 4.56425667, y: -33.1455688}
+  - {x: 4.19889832, y: -4.79658508}
+  - {x: 59.2104454, y: -4.80558014}
+  - {x: 59.4130974, y: -33.671772}
+  - {x: 4.56685829, y: -33.638752}
 --- !u!82 &1090750816
 AudioSource:
   m_ObjectHideFlags: 0
