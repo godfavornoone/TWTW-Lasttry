@@ -917,7 +917,7 @@ public class Enemy : MonoBehaviour {
 	}
 
 	public void DisableInMinigame(){
-		if (Game_Controller.playerInMinigame || Game_Controller.QnTMiniGame) {
+		if (Game_Controller.playerInMinigame || Game_Controller.QnTMiniGame || Game_Controller.PRGMiniGame) {
 			gameObject.SetActive (false);
 		} else {
 			gameObject.SetActive(true);
