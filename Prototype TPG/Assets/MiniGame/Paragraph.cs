@@ -63,11 +63,18 @@ public class Paragraph : MonoBehaviour {
 	void Update () {
 		TimeOut ();
 		if(ST4){
-			gameObject.SetActive(false);
+
+            int item = Random.Range(0, 20);
+            Vector3 temp = this.transform.position;
+            temp.y += 2;
+            Instantiate(gameScript.itemPrefab[item], temp, Quaternion.identity);
+
+            gameObject.SetActive(false);
 			Game_Controller.playerInThisMap.gameObject.SetActive(true);
 			Game_Controller.cameraFirst.SetActive(true);
 			Game_Controller.PRGMiniGame = false;
 			Game_Controller.indexGlobal = 0;
+
 		}
 	}
 	
