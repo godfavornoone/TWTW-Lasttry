@@ -402,13 +402,13 @@ MonoBehaviour:
   World2choice: Ignore
   World2choice2: Yes
   World1TextonDetail1: -Go to Dead Forest on top of the village and find Marmin
-  World1TextonDetail2: -Go to the east forest and find the clue and find Sir. Vinctus
+  World1TextonDetail2: -Go to Desert of Dead to find out and find Red Hair
   World2TextonDetail1: -Go to Dead forest and investigate it! and find crying baby
-  World2TextonDetail2: -Go to Desert of Dead to find out and find Red Hair
+  World2TextonDetail2: -Go to the east forest and find the clue and find Sir. Vinctus
   World1warpPoint: {fileID: 1307211907}
-  World1warpPoint2: {fileID: 1854590256}
+  World1warpPoint2: {fileID: 539328145}
   World2warpPoint: {fileID: 1307211907}
-  World2warpPoint2: {fileID: 539328145}
+  World2warpPoint2: {fileID: 1854590256}
   exclaim: {fileID: 0}
   NPCface: {fileID: 21300000, guid: b0a60623f2afb9d4dab5e3cb0903ca9e, type: 3}
   gameControllerScript: {fileID: 0}
